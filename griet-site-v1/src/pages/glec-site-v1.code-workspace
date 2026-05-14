@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../../../glec-site-v1"
+		},
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../grcp-site-v1"
+		}
+	],
+	"settings": {}
+}

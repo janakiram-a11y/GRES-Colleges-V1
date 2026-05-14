@@ -1,0 +1,108 @@
+﻿import AdministrationLayout from '../components/AdministrationLayout';
+import college from '../theme';
+
+function SectionHeading({ children }) {
+  return (
+    <h2
+      className="font-hind font-bold text-2xl mb-6 pb-2 inline-block"
+      style={{ color: college.primaryColor, borderBottom: `2px solid ${college.accentColor}` }}
+    >
+      {children}
+    </h2>
+  );
+}
+
+const objectives = [
+  'Empower women students and staff through education, awareness, and leadership development',
+  'Foster gender equality and a culture of respect and dignity on campus',
+  'Organise workshops, seminars, and events on women\'s health, safety, and legal rights',
+  'Provide a platform for women to voice their concerns and aspirations',
+  'Encourage women students to pursue leadership roles in academics, research, and sports',
+  'Support women entrepreneurs and researchers through mentoring and resources',
+  'Collaborate with external organisations working on women\'s empowerment',
+];
+
+const activities = [
+  { icon: '📚', title: 'Awareness Workshops', desc: 'Sessions on legal rights, health, safety, digital literacy, and financial independence.' },
+  { icon: '🌸', title: 'Women\'s Day Celebrations', desc: 'Annual International Women\'s Day events celebrating achievements of women in STEM.' },
+  { icon: '🎤', title: 'Guest Lectures', desc: 'Inspirational talks by women leaders from industry, academia, and public service.' },
+  { icon: '💼', title: 'Career Guidance', desc: 'Special placement preparation and career guidance sessions for women students.' },
+  { icon: '🏆', title: 'Leadership Development', desc: 'Programmes to build confidence, communication, and leadership skills among women.' },
+  { icon: '🤝', title: 'Support Network', desc: 'A confidential support system for women facing any academic or personal challenges on campus.' },
+];
+
+export default function AdminWomensDevelopmentCellPage() {
+  return (
+    <AdministrationLayout title="Women's Development Cell">
+      <div className="space-y-8">
+
+        <div>
+          <SectionHeading>Women's Development Cell</SectionHeading>
+          <p className="font-dm-sans text-[14px] leading-relaxed text-gray-600 mb-2 max-w-2xl">
+            The Women's Development Cell (WDC) at GRIET is dedicated to the holistic empowerment of women
+            students and staff through education, awareness, support, and leadership opportunities, ensuring a
+            safe, inclusive, and inspiring campus environment.
+          </p>
+        </div>
+
+        {/* Vision */}
+        <div
+          className="rounded-lg p-5 text-white"
+          style={{ backgroundColor: college.primaryColor }}
+        >
+          <p className="font-hind font-bold text-[12px] uppercase tracking-widest mb-2" style={{ color: college.accentColor }}>
+            Cell Vision
+          </p>
+          <p className="font-dm-sans text-[14px] leading-relaxed italic opacity-90">
+            "To create a campus where every woman thrives — academically, professionally, and personally —
+            through equal opportunity, mutual respect, and unwavering support."
+          </p>
+        </div>
+
+        {/* Objectives */}
+        <section>
+          <h3 className="font-hind font-bold text-[17px] mb-4" style={{ color: college.primaryColor }}>
+            Objectives
+          </h3>
+          <ul className="space-y-2.5">
+            {objectives.map((item) => (
+              <li key={item} className="flex items-start gap-3 font-dm-sans text-[14px] text-gray-700">
+                <span className="mt-1.5 w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: college.accentColor }} />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        {/* Activities */}
+        <section>
+          <h3 className="font-hind font-bold text-[17px] mb-4" style={{ color: college.primaryColor }}>
+            Activities &amp; Initiatives
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {activities.map(({ icon, title, desc }) => (
+              <div key={title} className="bg-[#F6F1F2] rounded-lg border border-gray-200 p-4">
+                <div className="text-2xl mb-2">{icon}</div>
+                <h4 className="font-hind font-semibold text-[13px] mb-1.5" style={{ color: college.primaryColor }}>{title}</h4>
+                <p className="font-dm-sans text-[12px] leading-relaxed text-gray-600">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Contact */}
+        <section className="bg-[#F6F1F2] rounded-lg border border-gray-200 p-5">
+          <h3 className="font-hind font-bold text-[15px] mb-2" style={{ color: college.primaryColor }}>
+            How to Reach the WDC
+          </h3>
+          <p className="font-dm-sans text-[13px] text-gray-600">
+            Women students and staff can approach the WDC coordinator directly, through their department
+            faculty mentor, or via a written request dropped at the WDC office (Administrative Block).
+            All communications are treated with complete confidentiality.
+          </p>
+        </section>
+
+      </div>
+    </AdministrationLayout>
+  );
+}

@@ -1,0 +1,50 @@
+﻿export default function Hero({ college }) {
+  return (
+    <section className="relative w-full h-[600px] flex items-center overflow-hidden">
+      {college.heroBgImage && (
+        <img
+          src={college.heroBgImage}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      )}
+      <div className="absolute inset-0" style={{ backgroundColor: 'rgba(91,16,39,0.65)' }} />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#5B1027] via-[#5B1027]/70 to-transparent" />
+
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 md:px-[60px] lg:px-[120px] flex justify-between items-center">
+        <div className="flex flex-col gap-[18px] max-w-[686px]">
+          <h1
+            className="font-hind font-bold text-[48px] leading-[72px] text-white"
+            style={{ filter: 'drop-shadow(0px 3px 3px rgba(0,0,0,0.12))' }}
+          >
+            {college.heroHeading}
+          </h1>
+          <p
+            className="font-dm-sans font-normal text-[18px] leading-[22px] text-white/90"
+            style={{ filter: 'drop-shadow(0px 1px 2px rgba(0,0,0,0.15))' }}
+          >
+            {college.heroSubtext}
+          </p>
+          <div className="flex items-center gap-4">
+            <a
+              href={college.heroCTAHref}
+              target={college.heroCTAHref.startsWith('http') ? '_blank' : undefined}
+              rel={college.heroCTAHref.startsWith('http') ? 'noopener noreferrer' : undefined}
+              className="bg-[#C32033] text-white font-dm-sans font-semibold text-[16px] leading-6 px-8 py-[14px] rounded hover:bg-[#a81b2a] transition-colors inline-block"
+              style={{ boxShadow: '0px 10px 15px -3px rgba(0,0,0,0.1), 0px 4px 6px -4px rgba(0,0,0,0.1)' }}
+            >
+              {college.heroCTALabel}
+            </a>
+            <a
+              href="/admissions/programmes"
+              className="bg-white text-[#5B1027] font-dm-sans font-semibold text-[16px] leading-6 px-8 py-[14px] rounded hover:bg-gray-50 transition-colors inline-block"
+              style={{ boxShadow: '0px 10px 15px -3px rgba(0,0,0,0.1), 0px 4px 6px -4px rgba(0,0,0,0.1)' }}
+            >
+              Explore Programs
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}

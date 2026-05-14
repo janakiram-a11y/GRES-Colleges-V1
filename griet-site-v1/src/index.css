@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Brand CSS custom properties ─────────────────────────────────────────── */
+:root {
+  --brand-primary:   #5B1027;
+  --brand-highlight: #C32033;
+  --brand-dark:      #222222;
+  --brand-neutral:   #BFBFBF;
+  --brand-soft:      #F3DAB2;
+}
+
+/* ── Premium text rendering ──────────────────────────────────────────────── */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: 'DM Sans', Tahoma, sans-serif;
+}
+
+@layer utilities {
+  /* Consistent section/page padding — 120px horizontal, 80px vertical on desktop */
+  .section-pad,
+  .page-pad {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  @media (min-width: 768px) {
+    .section-pad,
+    .page-pad {
+      padding-left: 60px;
+      padding-right: 60px;
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+  }
+  @media (min-width: 1024px) {
+    .section-pad,
+    .page-pad {
+      padding-left: 120px;
+      padding-right: 120px;
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+  }
+
+  /* Sidebar: hide scrollbar at rest, reveal brand thumb on hover */
+  .sidebar-scroll {
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    transition: scrollbar-color 0.25s ease;
+  }
+  .sidebar-scroll:hover {
+    scrollbar-color: #5B1027 transparent;
+  }
+  .sidebar-scroll::-webkit-scrollbar {
+    width: 4px;
+  }
+  .sidebar-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .sidebar-scroll::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 2px;
+  }
+  .sidebar-scroll:hover::-webkit-scrollbar-thumb {
+    background-color: #5B1027;
+  }
+
+  /* Premium card: subtle lift + brand shadow on hover */
+  .premium-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .premium-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -12px rgba(91, 16, 39, 0.18);
+  }
+
+  /* Brand-tinted alternate section background */
+  .section-soft {
+    background-color: #fdf8f3;
+  }
+
+  /* Highlight CTA button */
+  .btn-highlight {
+    background-color: #C32033;
+    color: #fff;
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  }
+  .btn-highlight:hover {
+    background-color: #a81b2a;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px -4px rgba(195, 32, 51, 0.45);
+  }
+
+  /* Smooth link transitions across all anchor elements */
+  a {
+    transition: color 0.2s ease, opacity 0.2s ease;
+  }
+}

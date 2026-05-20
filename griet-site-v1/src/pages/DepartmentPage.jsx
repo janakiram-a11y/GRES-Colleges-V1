@@ -2,6 +2,7 @@
 import CollegeLayout from '../CollegeLayout';
 import college from '../theme';
 import departments from '../data/departments';
+import SectionHeading from '../components/SectionHeading';
 
 // ── Icons (using the site's bronze/gold stroke style) ──────────────────────
 const BookIcon = () => (
@@ -106,20 +107,6 @@ function DeptStatsStrip({ dept }) {
   );
 }
 
-// ── Section heading (matches AboutPage SectionHeading) ─────────────────────
-function SectionHeading({ children }) {
-  return (
-    <h2
-      className="font-hind font-bold text-2xl mb-5 pb-2 inline-block"
-      style={{
-        color: college.primaryColor,
-        borderBottom: `2px solid ${college.accentColor}`,
-      }}
-    >
-      {children}
-    </h2>
-  );
-}
 
 // ── Vision / Mission cards (matches AboutPage VisionCard) ──────────────────
 const visionCards = [

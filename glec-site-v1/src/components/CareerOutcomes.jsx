@@ -9,10 +9,10 @@
             <p className="font-hind font-bold text-[14px] leading-5 uppercase tracking-[1.4px] text-[#5B1027] mb-3">
               {college.careerLabel}
             </p>
-            <h2 className="font-hind font-bold text-[36px] leading-[1.3] text-[#111827] mb-4">
+            <h2 className="font-hind font-semibold text-[28px] leading-9 lg:text-[40px] lg:leading-[48px] text-[#111827] mb-4">
               {college.careerHeading}
             </h2>
-            <p className="font-dm-sans font-normal text-[16px] leading-[26px] text-[#4B5563] max-w-[480px]">
+            <p className="font-hind font-normal text-[16px] leading-6 text-[#4B5563] max-w-[480px]">
               {college.careerDesc}
             </p>
           </div>

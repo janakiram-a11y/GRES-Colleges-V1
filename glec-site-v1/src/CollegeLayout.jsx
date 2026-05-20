@@ -1,5 +1,4 @@
-﻿import AnnouncementBar from './components/AnnouncementBar';
-import Topbar from './components/Topbar';
+﻿import Topbar from './components/Topbar';
 import Navbar from './components/Navbar';
 import NavStrip from './components/NavStrip';
 import Footer from './components/Footer';
@@ -13,7 +12,6 @@ export default function CollegeLayout({ college, children }) {
         '--college-accent': college.accentColor,
       }}
     >
-      <AnnouncementBar college={college} />
       <Topbar college={college} />
       <Navbar college={college} />
       <NavStrip college={college} />

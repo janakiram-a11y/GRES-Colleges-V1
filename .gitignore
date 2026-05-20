@@ -1,0 +1,11 @@
+# Local Agent/IDE Settings and Worktrees
+**/.claude/
+
+# Temporary / Duplicate folders
+*- Copy/
+* - Copy/
+
+# Build and dependencies
+**/node_modules/
+**/dist/
+**/*.local

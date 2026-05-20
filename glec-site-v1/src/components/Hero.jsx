@@ -14,13 +14,13 @@
       <div className="relative z-10 w-full px-6 md:px-[60px] lg:px-[120px] flex justify-between items-center">
         <div className="flex flex-col gap-[18px] max-w-[686px]">
           <h1
-            className="font-hind font-bold text-[48px] leading-[72px] text-white"
+            className="font-hind font-semibold text-[32px] leading-[40px] sm:text-[36px] sm:leading-[48px] lg:text-[48px] lg:leading-[56px] text-white"
             style={{ filter: 'drop-shadow(0px 3px 3px rgba(0,0,0,0.12))' }}
           >
             {college.heroHeading}
           </h1>
           <p
-            className="font-dm-sans font-normal text-[18px] leading-[22px] text-white/90"
+            className="font-hind font-normal text-[18px] leading-7 text-white/90"
             style={{ filter: 'drop-shadow(0px 1px 2px rgba(0,0,0,0.15))' }}
           >
             {college.heroSubtext}

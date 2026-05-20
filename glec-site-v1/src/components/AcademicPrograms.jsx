@@ -81,10 +81,10 @@ export default function AcademicPrograms({ college }) {
           <p className="font-hind font-bold text-[14px] leading-5 uppercase tracking-[1.4px] text-[#F3DAB2]">
             {college.academicProgramsLabel}
           </p>
-          <h2 className="font-hind font-bold text-[36px] leading-[1.3] text-white">
+          <h2 className="font-hind font-semibold text-[28px] leading-9 lg:text-[40px] lg:leading-[48px] text-white">
             {college.academicProgramsHeading}
           </h2>
-          <p className="font-dm-sans font-normal text-[16px] leading-[26px] text-[#E1D3D9]">
+          <p className="font-hind font-normal text-[16px] leading-6 text-[#E1D3D9]">
             {college.academicProgramsDesc}
           </p>
           <div className="flex flex-col gap-4 mt-2 w-full">
@@ -122,7 +122,7 @@ export default function AcademicPrograms({ college }) {
                     <div className="flex flex-col gap-1 flex-1">
                       <span className="font-hind font-bold text-[28px] leading-[34px] text-[#F3DAB2] block">{count}</span>
                       <span className="font-hind font-bold text-[17px] leading-6 text-white block">{title}</span>
-                      <p className="font-dm-sans font-normal text-[13px] leading-[20px] text-[#E1D3D9] mt-1">{desc}</p>
+                      <p className="font-hind font-normal text-[13px] leading-[20px] text-[#E1D3D9] mt-1">{desc}</p>
                     </div>
                     <a href={href || '/departments/cse'} className="flex items-center justify-end gap-1">
                       <span className="font-dm-sans font-semibold text-[13px] leading-5 text-white">Learn More</span>

@@ -1,29 +1,29 @@
 ﻿export default function CareerOutcomes({ college }) {
   return (
-    <section className="w-full bg-[#F6F1F2] section-pad">
+    <section className="w-full bg-[#F0F7F3] section-pad">
       <div className="max-w-[1200px] mx-auto flex items-center gap-24">
         <div className="flex flex-col flex-1 gap-6">
           <div>
-            <p className="font-hind font-bold text-[20px] leading-[30px] uppercase mb-3" style={{ color: '#00873d' }}>
+            <p className="font-dm-sans font-bold text-[20px] leading-[30px] uppercase mb-3" style={{ color: '#C72235' }}>
               {college.careerLabel}
             </p>
-            <h2 className="font-hind font-bold text-[36px] leading-[54px] text-[#111827] mb-4">
+            <h2 className="font-hind font-semibold text-[28px] leading-9 lg:text-[40px] lg:leading-[48px] text-[#222222] mb-4">
               {college.careerHeading}
             </h2>
-            <p className="font-dm-sans font-normal text-[16px] leading-5 text-[#4B5563] max-w-[512px]">
+            <p className="font-dm-sans font-normal text-[16px] leading-6 text-[#4B5563] max-w-[512px]">
               {college.careerDesc}
             </p>
           </div>
 
           <div className="flex">
-            <div className="flex-1 pl-6 border-l-2 border-[#5B1027] flex flex-col gap-1">
-              <span className="font-hind font-bold text-[36px] leading-10 text-[#111827]">{college.careerHighestPackage}</span>
+            <div className="flex-1 pl-6 border-l-2 border-[#2D7A50] flex flex-col gap-1">
+              <span className="font-hind font-bold text-[36px] leading-10 text-[#222222]">{college.careerHighestPackage}</span>
               <span className="font-dm-sans font-bold text-[11px] leading-4 uppercase tracking-[1.1px] text-[#4B5563]">
                 HIGHEST PACKAGE
               </span>
             </div>
-            <div className="flex-1 pl-6 border-l-2 border-[#00873d] flex flex-col gap-1">
-              <span className="font-hind font-bold text-[36px] leading-10 text-[#111827]">{college.careerOffersCount}</span>
+            <div className="flex-1 pl-6 border-l-2 border-[#C72235] flex flex-col gap-1">
+              <span className="font-hind font-bold text-[36px] leading-10 text-[#222222]">{college.careerOffersCount}</span>
               <span className="font-dm-sans font-bold text-[11px] leading-4 uppercase tracking-[1.1px] text-[#4B5563]">
                 OFFERS MADE
               </span>
@@ -33,12 +33,12 @@
           <div
             className="border border-[rgba(229,231,235,0.5)] rounded-sm bg-white px-[14px] py-4 flex flex-col gap-3"
           >
-            <p className="font-dm-sans font-bold text-[10px] leading-[15px] uppercase tracking-[1px] text-[#111827] opacity-70">
+            <p className="font-dm-sans font-bold text-[10px] leading-[15px] uppercase tracking-[1px] text-[#222222] opacity-70">
               Top Recruiters
             </p>
             <div className="flex items-center gap-10 opacity-60">
               {college.careerRecruiters.map(r => (
-                <span key={r} className="font-hind font-bold text-[20px] leading-7 text-[#111827]">{r}</span>
+                <span key={r} className="font-hind font-bold text-[20px] leading-7 text-[#222222]">{r}</span>
               ))}
             </div>
           </div>

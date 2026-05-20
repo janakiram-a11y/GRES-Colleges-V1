@@ -196,7 +196,7 @@ function EnrollmentSection() {
                 className="w-8 h-8 rounded-lg flex items-center justify-center mb-3"
                 style={{ backgroundColor: college.greenAccent }}
               >
-                <span className="font-hind font-bold text-[13px] text-white">{i + 1}</span>
+                <span className="font-dm-sans font-bold text-[13px] text-white">{i + 1}</span>
               </div>
               <h4 className="font-hind font-semibold text-[15px] mb-1.5" style={{ color: college.primaryColor }}>
                 {b.title}
@@ -307,13 +307,13 @@ function DistinguishedSection() {
           <div
             key={i}
             className="rounded-2xl p-7 flex flex-col"
-            style={{ backgroundColor: '#5B1027' }}
+            style={{ backgroundColor: '#005a28' }}
           >
             <div
               className="w-12 h-12 rounded-full flex items-center justify-center mb-5"
               style={{ backgroundColor: college.greenAccent }}
             >
-              <span className="font-hind font-bold text-[18px] text-white">
+              <span className="font-dm-sans font-bold text-[18px] text-white">
                 {alum.name.charAt(0)}
               </span>
             </div>

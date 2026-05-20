@@ -55,7 +55,7 @@ function OverviewSection() {
           className="rounded-2xl p-7 border max-w-[520px]"
           style={{ borderColor: `${college.primaryColor}20`, backgroundColor: '#FAFAFA' }}
         >
-          <p className="font-hind font-semibold text-[16px] mb-4" style={{ color: college.primaryColor }}>
+          <p className="font-dm-sans font-semibold text-[16px] mb-4" style={{ color: college.primaryColor }}>
             {contact.name}
           </p>
           <div className="space-y-3">
@@ -274,7 +274,7 @@ function OuNotificationsSection() {
 
   const badgeColors = {
     EXAM: college.primaryColor,
-    NOTICE: '#5B1027',
+    NOTICE: '#005a28',
   };
 
   return (

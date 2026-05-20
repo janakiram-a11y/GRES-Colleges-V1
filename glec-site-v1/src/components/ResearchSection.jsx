@@ -6,7 +6,7 @@
           <p className="font-hind font-bold text-[20px] leading-5 uppercase tracking-[1.4px] text-[#F3DAB2] text-center">
             {college.researchLabel}
           </p>
-          <h2 className="font-hind font-bold text-[36px] leading-[48px] text-white text-center">
+          <h2 className="font-hind font-semibold text-[28px] leading-9 lg:text-[40px] lg:leading-[48px] text-white text-center">
             {college.researchHeading}
           </h2>
         </div>

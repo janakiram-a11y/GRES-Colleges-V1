@@ -3,8 +3,11 @@ import { withAlpha } from '../theme';
 export default function Navbar({ college }) {
   return (
     <nav
-      className="w-full bg-white/[0.95] backdrop-blur-md sticky top-0 z-50"
-      style={{ borderBottom: `1px solid ${withAlpha(college.primaryColor, 0.08)}` }}
+      className="w-full bg-white sticky top-0 z-50"
+      style={{
+        borderBottom: `2px solid rgba(45,122,80,0.15)`,
+        boxShadow: '0 2px 12px rgba(45,122,80,0.07)',
+      }}
     >
       <div className="max-w-[1320px] mx-auto px-4 sm:px-8 lg:px-[60px] flex justify-between items-center h-[72px] sm:h-[80px] lg:h-[88px]">
         {/* Logo */}

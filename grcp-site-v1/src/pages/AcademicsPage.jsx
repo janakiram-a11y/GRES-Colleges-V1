@@ -202,7 +202,7 @@ function CalendarContent() {
           <p className="font-dm-sans font-semibold text-[11px] tracking-[0.2em] uppercase text-white/60 mb-1">
             Download
           </p>
-          <p className="font-hind font-bold text-[22px] text-white mb-1">
+          <p className="font-dm-sans font-bold text-[22px] text-white mb-1">
             Academic Calendar 2025–26
           </p>
           <p className="font-dm-sans text-[13px] text-white/70">
@@ -294,7 +294,7 @@ function TimetablesContent() {
               </svg>
             </div>
             <div className="flex-1">
-              <p className="font-hind font-semibold text-[15px]" style={{ color: primary }}>{tt.label}</p>
+              <p className="font-dm-sans font-semibold text-[15px]" style={{ color: primary }}>{tt.label}</p>
               <p className="font-dm-sans text-[12px] text-[#6B7280] mt-0.5">{tt.desc}</p>
             </div>
             <a

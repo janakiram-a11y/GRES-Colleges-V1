@@ -46,7 +46,7 @@ export default function AccreditationSection({ college }) {
           <p className="font-hind font-bold text-[20px] leading-[30px] uppercase text-[#5B1027] text-center">
             {college.whyChooseLabel}
           </p>
-          <h2 className="font-hind font-bold text-[36px] leading-[54px] text-[#111827] text-center">
+          <h2 className="font-hind font-semibold text-[28px] leading-9 lg:text-[40px] lg:leading-[48px] text-[#111827] text-center">
             {college.whyChooseHeading}
           </h2>
         </div>
@@ -67,7 +67,7 @@ export default function AccreditationSection({ college }) {
                   <h3 className="font-hind font-semibold text-[20px] leading-[26px] tracking-[-0.2px] text-[#111827] mb-3">
                     {card.title}
                   </h3>
-                  <p className="font-dm-sans font-normal text-[14px] leading-[17px] text-[#876874]">
+                  <p className="font-hind font-normal text-[14px] leading-[22px] text-[#876874]">
                     {card.desc}
                   </p>
                 </div>

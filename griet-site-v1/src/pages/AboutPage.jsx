@@ -1,5 +1,6 @@
 ﻿import college from '../theme';
 import CollegeLayout from '../CollegeLayout';
+import SectionHeading from '../components/SectionHeading';
 
 function PageBanner({ image, title }) {
   return (
@@ -19,20 +20,6 @@ function PageBanner({ image, title }) {
   );
 }
 
-function SectionHeading({ children, color }) {
-  return (
-    <h2
-      className="font-hind font-bold text-2xl mb-4 pb-2"
-      style={{
-        color: color || college.primaryColor,
-        borderBottom: `2px solid ${college.accentColor}`,
-        display: 'inline-block',
-      }}
-    >
-      {children}
-    </h2>
-  );
-}
 
 const vmLabelMap = {
   Vision: 'Our Vision',
@@ -64,7 +51,7 @@ function VisionCard({ item }) {
         {vmLabelMap[item.title] || item.title}
       </span>
       <h3
-        className="font-hind font-bold text-[20px] mb-3"
+        className="font-hind font-medium text-[20px] mb-3"
         style={{ color: college.primaryColor }}
       >
         {item.title}
@@ -76,7 +63,7 @@ function VisionCard({ item }) {
       {isStrategies ? (
         <>
           {intro && (
-            <p className="font-dm-sans text-[14px] leading-[26px] text-[#474747] mb-3">{intro}</p>
+            <p className="font-hind font-normal text-[14px] leading-[22px] text-[#474747] mb-3">{intro}</p>
           )}
           <ul className="space-y-2">
             {bullets.map((line, i) => (
@@ -85,13 +72,13 @@ function VisionCard({ item }) {
                   className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-[9px]"
                   style={{ backgroundColor: college.accentColor }}
                 />
-                <span className="font-dm-sans text-[14px] leading-[26px] text-[#474747]">{line}</span>
+                <span className="font-hind font-normal text-[14px] leading-[22px] text-[#474747]">{line}</span>
               </li>
             ))}
           </ul>
         </>
       ) : (
-        <p className="font-dm-sans text-[14px] leading-[26px] text-[#474747]">{item.text}</p>
+        <p className="font-hind font-normal text-[14px] leading-[22px] text-[#474747]">{item.text}</p>
       )}
     </div>
   );
@@ -117,7 +104,7 @@ function CoreValuesBlock({ item }) {
         >
           Our Foundation
         </span>
-        <h3 className="font-hind font-bold text-[22px]" style={{ color: college.primaryColor }}>Core Values</h3>
+        <h3 className="font-hind font-medium text-[22px]" style={{ color: college.primaryColor }}>Core Values</h3>
         <div
           className="w-10 h-[3px] rounded-full mx-auto mt-3"
           style={{ backgroundColor: college.accentColor }}
@@ -135,9 +122,9 @@ function CoreValuesBlock({ item }) {
               boxShadow: '0 1px 4px rgba(91,16,39,0.05)',
             }}
           >
-            <h4 className="font-hind font-bold text-[15px] mb-1.5" style={{ color: college.primaryColor }}>{value.name}</h4>
+            <h4 className="font-hind font-medium text-[15px] mb-1.5" style={{ color: college.primaryColor }}>{value.name}</h4>
             {value.desc && (
-              <p className="font-dm-sans text-[13px] leading-[22px] text-[#474747]">{value.desc}</p>
+              <p className="font-hind font-normal text-[13px] leading-[22px] text-[#474747]">{value.desc}</p>
             )}
           </div>
         ))}
@@ -158,7 +145,7 @@ export default function AboutPage() {
         {/* About Inspirer and Promoters */}
         <section>
           <SectionHeading>{aboutInspirer.heading}</SectionHeading>
-          <div className="mt-4 space-y-6 font-dm-sans text-[15px] leading-relaxed text-gray-800">
+          <div className="mt-4 space-y-6 font-hind font-normal text-[15px] leading-relaxed text-gray-800">
             <div>
               <span className="font-semibold" style={{ color: college.primaryColor }}>
                 {aboutInspirer.inspirer.label}
@@ -183,7 +170,7 @@ export default function AboutPage() {
         <section>
           <SectionHeading>{sponsoringSociety.heading}</SectionHeading>
           <p
-            className="mt-4 font-dm-sans text-[15px] leading-relaxed text-gray-800"
+            className="mt-4 font-hind font-normal text-[15px] leading-relaxed text-gray-800"
             dangerouslySetInnerHTML={{
               __html: sponsoringSociety.text.replace(
                 /Gokaraju Educational Society/,
@@ -196,7 +183,7 @@ export default function AboutPage() {
         {/* About GRIET */}
         <section>
           <SectionHeading>{aboutGriet.heading}</SectionHeading>
-          <div className="mt-4 space-y-4 font-dm-sans text-[15px] leading-relaxed text-gray-800">
+          <div className="mt-4 space-y-4 font-hind font-normal text-[15px] leading-relaxed text-gray-800">
             {aboutGriet.paragraphs.map((para, i) => (
               <p key={i}>{para}</p>
             ))}
@@ -213,7 +200,7 @@ export default function AboutPage() {
               Values &amp; Direction
             </span>
             <h2
-              className="font-hind font-bold text-[26px] leading-[34px] pb-3"
+              className="font-hind font-semibold text-[28px] leading-9 lg:text-[40px] lg:leading-[48px] pb-3"
               style={{
                 color: college.primaryColor,
                 borderBottom: `3px solid ${college.accentColor}`,

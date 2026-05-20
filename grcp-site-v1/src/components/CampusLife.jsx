@@ -17,16 +17,32 @@ export default function CampusLife({ college }) {
       <div className="max-w-[1200px] mx-auto flex flex-col gap-6">
         <div className="flex justify-between items-end">
           <div className="flex flex-col gap-4">
-            <p className="font-hind font-bold text-[14px] leading-5 uppercase tracking-[1.4px]" style={{ color: '#00873d' }}>
+            <p className="font-dm-sans font-bold text-[14px] leading-5 uppercase tracking-[1.4px]" style={{ color: '#C72235' }}>
               {college.campusLifeLabel}
             </p>
             <h2 className="font-hind font-bold text-[36px] leading-[54px] text-[#2E2E2E]">
               {college.campusLifeHeading}
             </h2>
           </div>
-          <button className="border-2 font-dm-sans font-medium text-[16px] leading-6 px-6 py-2 rounded-lg transition-colors" style={{ borderColor: '#00873d', color: '#00873d' }}
-            onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#00873d'; e.currentTarget.style.color = '#fff'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#00873d'; }}>
+          <button
+            className="text-white font-dm-sans font-semibold text-[16px] leading-6 px-6 py-3 rounded-md"
+            style={{
+              background: 'linear-gradient(135deg, #D7283C 0%, #C72235 55%, #A81C2E 100%)',
+              boxShadow: '0 3px 8px rgba(0,0,0,0.24), inset 0 1px 0 rgba(255,255,255,0.12)',
+              letterSpacing: '0.01em',
+              transition: 'all 0.18s ease',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'linear-gradient(135deg, #E12C41 0%, #D7283C 55%, #B51E30 100%)';
+              e.currentTarget.style.boxShadow = '0 6px 16px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.14)';
+              e.currentTarget.style.transform = 'translateY(-2px)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'linear-gradient(135deg, #D7283C 0%, #C72235 55%, #A81C2E 100%)';
+              e.currentTarget.style.boxShadow = '0 3px 8px rgba(0,0,0,0.24), inset 0 1px 0 rgba(255,255,255,0.12)';
+              e.currentTarget.style.transform = 'translateY(0)';
+            }}
+          >
             Explore Gallery
           </button>
         </div>

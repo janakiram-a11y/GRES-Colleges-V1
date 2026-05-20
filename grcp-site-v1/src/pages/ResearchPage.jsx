@@ -173,13 +173,13 @@ function OverviewContent() {
             style={{ borderColor: `${primary}14` }}
           >
             <div
-              className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 font-hind font-bold text-[12px] text-white"
+              className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 font-dm-sans font-bold text-[12px] text-white"
               style={{ backgroundColor: primary }}
             >
               {String(i + 1).padStart(2, '0')}
             </div>
             <div>
-              <p className="font-hind font-semibold text-[14px] mb-1" style={{ color: primary }}>
+              <p className="font-dm-sans font-semibold text-[14px] mb-1" style={{ color: primary }}>
                 {area.title}
               </p>
               <p className="font-dm-sans text-[13px] leading-[22px] text-[#6B7280]">{area.desc}</p>

@@ -20,26 +20,60 @@ const programIcons = [BookIcon, MortarIcon]
 
 export default function AcademicPrograms({ college }) {
   return (
-    <section className="w-full bg-[#5B1027] section-pad">
+    <section className="w-full section-pad" style={{ background: 'linear-gradient(135deg, #1E5C3A 0%, #2D7A50 60%, #1A4D33 100%)' }}>
       <div className="max-w-[1200px] mx-auto flex items-center gap-0">
         <div className="flex flex-col gap-6 w-[600px]">
-          <p className="font-hind font-bold text-[14px] leading-5 uppercase tracking-[1.4px] text-[#F3DAB2]">
+          <p className="font-dm-sans font-bold text-[14px] leading-5 uppercase tracking-[1.4px] text-[#F3DAB2]">
             {college.academicProgramsLabel}
           </p>
-          <h2 className="font-hind font-bold text-[36px] leading-[54px] text-white">
+          <h2 className="font-hind font-semibold text-[28px] leading-9 lg:text-[40px] lg:leading-[48px] text-white">
             {college.academicProgramsHeading}
           </h2>
-          <p className="font-dm-sans font-normal text-[18px] leading-[22px] text-[#E1D3D9]">
+          <p className="font-dm-sans font-normal text-[18px] leading-7" style={{ color: 'rgba(205,240,220,0.82)' }}>
             {college.academicProgramsDesc}
           </p>
           <div className="flex items-center gap-4 mt-2">
             <button
-              className="bg-[#C32033] text-white font-dm-sans font-semibold text-[18px] leading-[22px] px-8 py-[19px] rounded hover:bg-[#a81b2a] transition-colors"
-              style={{ boxShadow: '0px 10px 15px -3px rgba(0,0,0,0.1), 0px 4px 6px -4px rgba(0,0,0,0.1)' }}
+              className="text-white font-dm-sans font-semibold text-[18px] leading-[22px] px-8 py-[19px] rounded-md"
+              style={{
+                background: 'linear-gradient(135deg, #D7283C 0%, #C72235 55%, #A81C2E 100%)',
+                boxShadow: '0 3px 8px rgba(0,0,0,0.24), inset 0 1px 0 rgba(255,255,255,0.12)',
+                letterSpacing: '0.01em',
+                transition: 'all 0.18s ease',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'linear-gradient(135deg, #E12C41 0%, #D7283C 55%, #B51E30 100%)';
+                e.currentTarget.style.boxShadow = '0 6px 16px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.14)';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'linear-gradient(135deg, #D7283C 0%, #C72235 55%, #A81C2E 100%)';
+                e.currentTarget.style.boxShadow = '0 3px 8px rgba(0,0,0,0.24), inset 0 1px 0 rgba(255,255,255,0.12)';
+                e.currentTarget.style.transform = 'translateY(0)';
+              }}
             >
               View all programs
             </button>
-            <button className="border-2 border-white text-white font-dm-sans font-semibold text-[18px] leading-[22px] px-8 py-[14px] rounded hover:bg-white/10 transition-colors">
+            <button
+              className="text-white font-dm-sans font-semibold text-[18px] leading-[22px] px-8 py-[19px] rounded-md"
+              style={{
+                background: 'rgba(255,255,255,0.15)',
+                border: '1px solid rgba(255,255,255,0.35)',
+                boxShadow: '0 3px 8px rgba(0,0,0,0.20), inset 0 1px 0 rgba(255,255,255,0.10)',
+                letterSpacing: '0.01em',
+                transition: 'all 0.18s ease',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'rgba(255,255,255,0.25)';
+                e.currentTarget.style.boxShadow = '0 6px 16px rgba(0,0,0,0.24), inset 0 1px 0 rgba(255,255,255,0.14)';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
+                e.currentTarget.style.boxShadow = '0 3px 8px rgba(0,0,0,0.20), inset 0 1px 0 rgba(255,255,255,0.10)';
+                e.currentTarget.style.transform = 'translateY(0)';
+              }}
+            >
               Download Brochure
             </button>
           </div>
@@ -51,13 +85,13 @@ export default function AcademicPrograms({ college }) {
             return (
               <div
                 key={title}
-                className="w-[288px] h-[320px] bg-white/10 border border-white/20 rounded-3xl p-6 flex flex-col justify-center gap-3"
+                className="w-[288px] h-[320px] bg-white/10 border border-white/20 rounded-3xl p-6 flex flex-col justify-center gap-3 transition-all duration-200 hover:bg-white/16"
               >
                 <div>
                   <span className="font-hind font-bold text-[32px] leading-[38px] text-[#F3DAB2] block">{count}</span>
                   <span className="font-hind font-bold text-[20px] leading-7 text-white block">{title}</span>
                 </div>
-                <p className="font-dm-sans font-normal text-[14px] leading-[17px] text-[#E1D3D9]">{desc}</p>
+                <p className="font-dm-sans font-normal text-[14px] leading-[22px]" style={{ color: 'rgba(205,240,220,0.80)' }}>{desc}</p>
                 <div className="flex items-center justify-end gap-1">
                   <span className="font-dm-sans font-semibold text-[14px] leading-5 text-white">Learn More</span>
                   <ChevronRight />

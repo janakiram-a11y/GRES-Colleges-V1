@@ -6,10 +6,10 @@
           <p className="font-hind font-bold text-[20px] leading-[30px] uppercase text-[#5B1027] text-center">
             {college.campusIntroLabel}
           </p>
-          <h2 className="font-hind font-bold text-[36px] leading-[54px] text-[#111827] text-center">
+          <h2 className="font-hind font-semibold text-[28px] leading-9 lg:text-[40px] lg:leading-[48px] text-[#111827] text-center">
             {college.campusIntroHeading}
           </h2>
-          <p className="font-dm-sans font-normal text-[16px] leading-[20px] text-[#666666] text-center">
+          <p className="font-hind font-normal text-[16px] leading-6 text-[#666666] text-center">
             {college.campusIntroDesc}
           </p>
         </div>

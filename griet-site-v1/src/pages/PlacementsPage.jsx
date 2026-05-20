@@ -1,18 +1,7 @@
 ﻿import college from '../theme';
 import CollegeLayout from '../CollegeLayout';
 import { AcademicsBanner } from '../components/AcademicsLayout';
-
-// ── Section heading ─────────────────────────────────────────────────────────
-function SectionHeading({ children }) {
-  return (
-    <h2
-      className="font-hind font-bold text-xl mb-4 pb-2 inline-block"
-      style={{ color: college.primaryColor, borderBottom: `2px solid ${college.accentColor}` }}
-    >
-      {children}
-    </h2>
-  );
-}
+import SectionHeading from '../components/SectionHeading';
 
 // ── Yearwise left sidebar ────────────────────────────────────────────────────
 const PLACEMENT_YEARS = [2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011];
@@ -165,8 +154,8 @@ export default function PlacementsPage() {
 
             {/* About the Cell */}
             <section>
-              <SectionHeading>Training &amp; Placements Cell</SectionHeading>
-              <div className="space-y-3 font-dm-sans text-[14px] leading-relaxed text-gray-700">
+              <SectionHeading size="xl">Training &amp; Placements Cell</SectionHeading>
+              <div className="space-y-3 font-hind font-normal text-[14px] leading-relaxed text-gray-700">
                 <p>
                   The Training &amp; Placements Cell of GRIET:
                 </p>
@@ -197,7 +186,7 @@ export default function PlacementsPage() {
             {/* Yearwise Stats */}
             <section>
               <div className="flex items-center justify-between mb-5">
-                <SectionHeading>Placement Statistics – {activeYear}</SectionHeading>
+                <SectionHeading size="xl">Placement Statistics – {activeYear}</SectionHeading>
               </div>
               <YearStatsPanel year={activeYear} />
             </section>
@@ -230,7 +219,7 @@ export default function PlacementsPage() {
 
             {/* Contact Information */}
             <section>
-              <SectionHeading>Contact Information</SectionHeading>
+              <SectionHeading size="xl">Contact Information</SectionHeading>
               <div className="overflow-x-auto">
                 <table className="w-full font-dm-sans text-[13px] border border-gray-200 rounded-lg overflow-hidden">
                   <tbody>
@@ -269,7 +258,7 @@ export default function PlacementsPage() {
 
             {/* Recruitment Process */}
             <section>
-              <SectionHeading>Recruitment Process</SectionHeading>
+              <SectionHeading size="xl">Recruitment Process</SectionHeading>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
                   { step: '01', title: 'Pre-Placement Training', desc: 'Year-round aptitude, soft skills, technical, and interview preparation from first year onwards.' },
@@ -289,7 +278,7 @@ export default function PlacementsPage() {
                       <h3 className="font-hind font-semibold text-[14px] mb-1" style={{ color: college.primaryColor }}>
                         {s.title}
                       </h3>
-                      <p className="font-dm-sans text-[12px] text-gray-600 leading-relaxed">{s.desc}</p>
+                      <p className="font-hind font-normal text-[12px] text-gray-600 leading-relaxed">{s.desc}</p>
                     </div>
                   </div>
                 ))}

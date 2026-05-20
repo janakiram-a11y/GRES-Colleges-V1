@@ -306,7 +306,7 @@ function HowToReachSection() {
               className="w-8 h-8 rounded-lg flex items-center justify-center mb-4"
               style={{ backgroundColor: college.greenAccent }}
             >
-              <span className="font-hind font-bold text-[13px] text-white">{i + 1}</span>
+              <span className="font-dm-sans font-bold text-[13px] text-white">{i + 1}</span>
             </div>
             <h4
               className="font-hind font-semibold text-[15px] mb-2"

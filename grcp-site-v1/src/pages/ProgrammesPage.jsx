@@ -53,7 +53,7 @@ function BPharmacyContent() {
         ].map(({ label, value }) => (
           <div key={label} className="flex flex-col">
             <span className="font-dm-sans text-[11px] font-semibold uppercase tracking-wide text-white/70">{label}</span>
-            <span className="font-hind font-bold text-[15px] text-white">{value}</span>
+            <span className="font-dm-sans font-bold text-[15px] text-white">{value}</span>
           </div>
         ))}
       </div>
@@ -124,7 +124,7 @@ function MPharmacyOverviewContent() {
               style={{ backgroundColor: `${college.primaryColor}10`, border: `1px solid ${college.primaryColor}25` }}
             >
               <span className="font-dm-sans text-[11px] font-semibold uppercase tracking-wide" style={{ color: college.greenAccent }}>{label}</span>
-              <span className="font-hind font-bold text-[16px]" style={{ color: college.primaryColor }}>{value}</span>
+              <span className="font-dm-sans font-bold text-[16px]" style={{ color: college.primaryColor }}>{value}</span>
             </div>
           ))}
         </div>
@@ -146,7 +146,7 @@ function MPharmacyOverviewContent() {
               </h3>
               <p className="font-dm-sans text-[13px] leading-relaxed text-[#474747] flex-1 mb-4">{spec.desc}</p>
               <div className="mb-4">
-                <p className="font-hind font-semibold text-[12px] uppercase tracking-wide mb-2" style={{ color: college.greenAccent }}>
+                <p className="font-dm-sans font-semibold text-[12px] uppercase tracking-wide mb-2" style={{ color: college.greenAccent }}>
                   Career Paths
                 </p>
                 <ul className="space-y-1">
@@ -160,7 +160,7 @@ function MPharmacyOverviewContent() {
               </div>
               <Link
                 to={spec.href}
-                className="font-hind font-semibold text-[13px] inline-flex items-center gap-1 mt-auto transition-colors"
+                className="font-dm-sans font-semibold text-[13px] inline-flex items-center gap-1 mt-auto transition-colors"
                 style={{ color: college.primaryColor }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = college.greenAccent)}
                 onMouseLeave={(e) => (e.currentTarget.style.color = college.primaryColor)}
@@ -233,11 +233,11 @@ function MPharmacySpecializationContent({ specialization }) {
             className="mt-4 flex items-center gap-3 pt-4"
             style={{ borderTop: `1px solid ${college.primaryColor}20` }}
           >
-            <span className="font-hind font-bold text-[13px]" style={{ color: college.primaryColor }}>
+            <span className="font-dm-sans font-bold text-[13px]" style={{ color: college.primaryColor }}>
               Counselling Code:
             </span>
             <span
-              className="font-hind font-bold text-[14px] px-3 py-0.5 rounded"
+              className="font-dm-sans font-bold text-[14px] px-3 py-0.5 rounded"
               style={{ backgroundColor: college.primaryColor, color: '#ffffff' }}
             >
               GRCP1
@@ -296,7 +296,7 @@ function PgCommitteeContent() {
         </p>
         <a
           href={`tel:${college.phone}`}
-          className="inline-block mt-4 font-hind font-semibold text-[14px] px-6 py-2 rounded transition-opacity hover:opacity-80"
+          className="inline-block mt-4 font-dm-sans font-semibold text-[14px] px-6 py-2 rounded transition-opacity hover:opacity-80"
           style={{ backgroundColor: college.greenAccent, color: '#ffffff' }}
         >
           Contact College Office

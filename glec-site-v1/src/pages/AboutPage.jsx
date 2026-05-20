@@ -8,7 +8,7 @@ import college from '../theme';
 function SectionHeading({ children, primaryColor }) {
   return (
     <div className="flex flex-col items-start gap-3 mb-8">
-      <h2 className="font-hind font-bold text-[28px] leading-tight text-left" style={{ color: primaryColor }}>
+      <h2 className="font-hind font-semibold text-[28px] leading-9 lg:text-[40px] lg:leading-[48px] text-left" style={{ color: primaryColor }}>
         {children}
       </h2>
       <div className="h-[3px] rounded-full" style={{ width: '60px', backgroundColor: '#C32033' }} />
@@ -36,7 +36,7 @@ export default function AboutPage() {
           <p className="font-dm-sans font-semibold text-[13px] tracking-[0.2em] uppercase text-white/60">
             GLEC — Est. 2021
           </p>
-          <h1 className="font-hind font-bold text-[48px] md:text-[56px] leading-tight text-white uppercase tracking-wide">
+          <h1 className="font-hind font-semibold text-[32px] leading-[40px] sm:text-[36px] sm:leading-[48px] lg:text-[48px] lg:leading-[56px] text-white uppercase tracking-wide">
             About GLEC
           </h1>
           <div className="flex items-center gap-2 text-white/50 font-dm-sans text-sm mt-2">
@@ -56,7 +56,7 @@ export default function AboutPage() {
             <SectionHeading primaryColor={college.primaryColor}>
               About Inspirer and Promoters
             </SectionHeading>
-            <p className="font-dm-sans font-normal text-[15px] leading-[27px] text-[#474747]">
+            <p className="font-hind font-normal text-[16px] leading-6 text-[#474747]">
               {college.aboutFounders}
             </p>
           </section>
@@ -66,7 +66,7 @@ export default function AboutPage() {
             <SectionHeading primaryColor={college.primaryColor}>
               The Sponsoring Society:
             </SectionHeading>
-            <p className="font-dm-sans font-normal text-[15px] leading-[27px] text-[#474747]">
+            <p className="font-hind font-normal text-[16px] leading-6 text-[#474747]">
               {college.aboutSociety}
             </p>
           </section>
@@ -78,7 +78,7 @@ export default function AboutPage() {
             </SectionHeading>
             <div className="flex flex-col gap-5">
               {college.aboutDetailedParagraphs.map((para, i) => (
-                <p key={i} className="font-dm-sans font-normal text-[15px] leading-[27px] text-[#474747]">
+                <p key={i} className="font-hind font-normal text-[16px] leading-6 text-[#474747]">
                   {para}
                 </p>
               ))}
@@ -97,7 +97,7 @@ export default function AboutPage() {
                 Values &amp; Direction
               </span>
               <h2
-                className="font-hind font-bold text-[26px] leading-[34px] pb-3"
+                className="font-hind font-semibold text-[28px] leading-9 lg:text-[40px] lg:leading-[48px] pb-3"
                 style={{
                   color: college.primaryColor,
                   borderBottom: `3px solid ${college.accentColor}`,
@@ -118,9 +118,9 @@ export default function AboutPage() {
                   >
                     Our Vision
                   </span>
-                  <h3 className="font-hind font-bold text-[20px] mb-3" style={{ color: college.primaryColor }}>Vision</h3>
+                  <h3 className="font-hind font-medium text-[20px] mb-3" style={{ color: college.primaryColor }}>Vision</h3>
                   <div className="w-8 h-[3px] mb-4 rounded-full" style={{ backgroundColor: college.accentColor }} />
-                  <p className="font-dm-sans text-[14px] leading-[26px] text-[#474747]">{college.vision}</p>
+                  <p className="font-hind font-normal text-[14px] leading-[22px] text-[#474747]">{college.vision}</p>
                 </div>
 
                 {/* Mission */}
@@ -131,7 +131,7 @@ export default function AboutPage() {
                   >
                     Our Mission
                   </span>
-                  <h3 className="font-hind font-bold text-[20px] mb-3" style={{ color: college.primaryColor }}>Mission</h3>
+                  <h3 className="font-hind font-medium text-[20px] mb-3" style={{ color: college.primaryColor }}>Mission</h3>
                   <div className="w-8 h-[3px] mb-4 rounded-full" style={{ backgroundColor: college.accentColor }} />
                   <ul className="space-y-2">
                     {college.mission.map((item, i) => (
@@ -140,7 +140,7 @@ export default function AboutPage() {
                           className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-[9px]"
                           style={{ backgroundColor: college.accentColor }}
                         />
-                        <span className="font-dm-sans text-[14px] leading-[26px] text-[#474747]">{item}</span>
+                        <span className="font-hind font-normal text-[14px] leading-[22px] text-[#474747]">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -154,9 +154,9 @@ export default function AboutPage() {
                   >
                     Our Standard
                   </span>
-                  <h3 className="font-hind font-bold text-[20px] mb-3" style={{ color: college.primaryColor }}>Quality Policy</h3>
+                  <h3 className="font-hind font-medium text-[20px] mb-3" style={{ color: college.primaryColor }}>Quality Policy</h3>
                   <div className="w-8 h-[3px] mb-4 rounded-full" style={{ backgroundColor: college.accentColor }} />
-                  <p className="font-dm-sans text-[14px] leading-[26px] text-[#474747]">{college.qualityPolicy}</p>
+                  <p className="font-hind font-normal text-[14px] leading-[22px] text-[#474747]">{college.qualityPolicy}</p>
                 </div>
 
                 {/* Strategies */}
@@ -167,7 +167,7 @@ export default function AboutPage() {
                   >
                     Our Approach
                   </span>
-                  <h3 className="font-hind font-bold text-[20px] mb-3" style={{ color: college.primaryColor }}>Strategies</h3>
+                  <h3 className="font-hind font-medium text-[20px] mb-3" style={{ color: college.primaryColor }}>Strategies</h3>
                   <div className="w-8 h-[3px] mb-4 rounded-full" style={{ backgroundColor: college.accentColor }} />
                   <ul className="space-y-2">
                     {college.strategies.map((item, i) => (
@@ -176,7 +176,7 @@ export default function AboutPage() {
                           className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-[9px]"
                           style={{ backgroundColor: college.accentColor }}
                         />
-                        <span className="font-dm-sans text-[14px] leading-[26px] text-[#474747]">{item}</span>
+                        <span className="font-hind font-normal text-[14px] leading-[22px] text-[#474747]">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -193,7 +193,7 @@ export default function AboutPage() {
                   >
                     Our Foundation
                   </span>
-                  <h3 className="font-hind font-bold text-[22px]" style={{ color: college.primaryColor }}>Core Values</h3>
+                  <h3 className="font-hind font-medium text-[22px]" style={{ color: college.primaryColor }}>Core Values</h3>
                   <div
                     className="w-10 h-[3px] rounded-full mx-auto mt-3"
                     style={{ backgroundColor: college.accentColor }}
@@ -206,8 +206,8 @@ export default function AboutPage() {
                       className="bg-white rounded-xl p-5"
                       style={{ border: '1.5px solid rgba(91,16,39,0.13)', borderLeftWidth: '4px', borderLeftColor: college.primaryColor, boxShadow: '0 1px 4px rgba(91,16,39,0.05)' }}
                     >
-                      <h4 className="font-hind font-bold text-[15px] mb-1.5" style={{ color: college.primaryColor }}>{value.name}</h4>
-                      <p className="font-dm-sans text-[13px] leading-[22px] text-[#474747]">{value.desc}</p>
+                      <h4 className="font-hind font-medium text-[15px] mb-1.5" style={{ color: college.primaryColor }}>{value.name}</h4>
+                      <p className="font-hind font-normal text-[14px] leading-[22px] text-[#474747]">{value.desc}</p>
                     </div>
                   ))}
                 </div>

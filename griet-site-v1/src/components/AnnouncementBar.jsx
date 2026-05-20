@@ -1,15 +1,37 @@
-﻿import { useState } from 'react';
+﻿import { useState, useEffect, useRef, useCallback } from 'react';
 import { withAlpha } from '../theme';
 
 function LOIModal({ college, onClose }) {
+  const closeRef = useRef(null);
+
+  useEffect(() => {
+    // Move focus into the modal on open
+    closeRef.current?.focus();
+
+    function handleKeyDown(e) {
+      if (e.key === 'Escape') { onClose(); return; }
+      // Keep Tab focus inside the modal (only one focusable element here)
+      if (e.key === 'Tab') { e.preventDefault(); closeRef.current?.focus(); }
+    }
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [onClose]);
+
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50" onClick={onClose}>
+    <div
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="loi-modal-title"
+      onClick={onClose}
+    >
       <div className="relative bg-white rounded-xl shadow-2xl max-w-[620px] w-[90%] p-10" onClick={(e) => e.stopPropagation()}>
         <button
+          ref={closeRef}
           onClick={onClose}
           className="absolute top-4 right-5 text-2xl font-light transition-colors"
           style={{ color: college.primaryColor }}
-          aria-label="Close"
+          aria-label="Close dialog"
         >
           ×
         </button>
@@ -19,7 +41,7 @@ function LOIModal({ college, onClose }) {
             NEW
           </span>
         </div>
-        <p className="font-dm-sans text-[15px] leading-[26px] text-[#1a1a1a] mb-5">
+        <p id="loi-modal-title" className="font-dm-sans text-[15px] leading-[26px] text-[#1a1a1a] mb-5">
           We are pleased to inform you that the{' '}
           <strong style={{ color: college.primaryColor }}>Ministry of Education</strong>, upon the recommendation of the University Grants Commission (UGC), has issued a{' '}
           <strong style={{ color: college.primaryColor }}>Letter of Intent (LoI)</strong> to{' '}
@@ -84,6 +106,7 @@ function TickerContent({ announcements, college, onLOIClick }) {
 
 export default function AnnouncementBar({ college }) {
   const [modalOpen, setModalOpen] = useState(false);
+  const handleModalClose = useCallback(() => setModalOpen(false), []);
 
   return (
     <>
@@ -135,7 +158,7 @@ export default function AnnouncementBar({ college }) {
         </div>
       </div>
 
-      {modalOpen && <LOIModal college={college} onClose={() => setModalOpen(false)} />}
+      {modalOpen && <LOIModal college={college} onClose={handleModalClose} />}
     </>
   );
 }

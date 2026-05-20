@@ -12,14 +12,14 @@ function SectionHeader({ label, title }) {
     <div className="mb-6">
       {label && (
         <span
-          className="font-montserrat font-semibold text-[12px] uppercase tracking-[2px] mb-2 block"
+          className="font-dm-sans font-semibold text-[12px] uppercase tracking-[2px] mb-2 block"
           style={{ color: college.greenAccent }}
         >
           {label}
         </span>
       )}
       <h2
-        className="font-poppins font-bold text-[26px] leading-[34px] pb-3"
+        className="font-hind font-semibold text-[28px] leading-9 pb-3"
         style={{
           color: college.primaryColor,
           borderBottom: `3px solid ${college.greenAccent}`,
@@ -34,7 +34,7 @@ function SectionHeader({ label, title }) {
 
 function SectionDesc({ text }) {
   return (
-    <p className="font-montserrat text-[15px] leading-[26px] text-[#474747]">
+    <p className="font-dm-sans font-normal text-[16px] leading-6 text-[#474747]">
       {text}
     </p>
   );
@@ -49,7 +49,7 @@ function ObjectivesList({ items }) {
             className="w-2 h-2 rounded-full flex-shrink-0 mt-[9px]"
             style={{ backgroundColor: college.greenAccent }}
           />
-          <span className="font-montserrat text-[15px] leading-[26px] text-[#474747]">{item}</span>
+          <span className="font-dm-sans text-[15px] leading-[26px] text-[#474747]">{item}</span>
         </li>
       ))}
     </ul>
@@ -62,7 +62,7 @@ function AboutSection() {
       label: 'Our Vision',
       title: 'Vision',
       content: (
-        <p className="font-montserrat text-[14px] leading-[26px] text-[#474747]">{college.vision}</p>
+        <p className="font-dm-sans font-normal text-[14px] leading-[22px] text-[#474747]">{college.vision}</p>
       ),
     },
     {
@@ -76,7 +76,7 @@ function AboutSection() {
                 className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-[9px]"
                 style={{ backgroundColor: college.greenAccent }}
               />
-              <span className="font-montserrat text-[14px] leading-[26px] text-[#474747]">{item}</span>
+              <span className="font-dm-sans font-normal text-[14px] leading-[22px] text-[#474747]">{item}</span>
             </li>
           ))}
         </ul>
@@ -86,7 +86,7 @@ function AboutSection() {
       label: 'Our Standard',
       title: 'Quality Policy',
       content: (
-        <p className="font-montserrat text-[14px] leading-[26px] text-[#474747]">{college.qualityPolicy}</p>
+        <p className="font-dm-sans font-normal text-[14px] leading-[22px] text-[#474747]">{college.qualityPolicy}</p>
       ),
     },
     {
@@ -100,7 +100,7 @@ function AboutSection() {
                 className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-[9px]"
                 style={{ backgroundColor: college.greenAccent }}
               />
-              <span className="font-montserrat text-[14px] leading-[26px] text-[#474747]">{item}</span>
+              <span className="font-dm-sans font-normal text-[14px] leading-[22px] text-[#474747]">{item}</span>
             </li>
           ))}
         </ul>
@@ -143,15 +143,15 @@ function AboutSection() {
               <div
                 key={card.title}
                 className="rounded-xl p-7 bg-white"
-                style={{ border: '1px solid rgba(91,16,39,0.12)' }}
+                style={{ border: '1px solid rgba(0,90,40,0.10)' }}
               >
                 <span
-                  className="font-montserrat font-semibold text-[11px] uppercase tracking-[2px] mb-2 block"
+                  className="font-dm-sans font-semibold text-[11px] uppercase tracking-[2px] mb-2 block"
                   style={{ color: college.greenAccent }}
                 >
                   {card.label}
                 </span>
-                <h3 className="font-poppins font-bold text-[20px] mb-3" style={{ color: college.primaryColor }}>{card.title}</h3>
+                <h3 className="font-hind font-semibold text-[24px] leading-8 mb-3" style={{ color: college.primaryColor }}>{card.title}</h3>
                 <div
                   className="w-8 h-[3px] mb-4 rounded-full"
                   style={{ backgroundColor: college.greenAccent }}
@@ -163,16 +163,16 @@ function AboutSection() {
 
           <div
             className="rounded-xl p-8"
-            style={{ backgroundColor: '#F6F1F2' }}
+            style={{ backgroundColor: '#EEF7F1' }}
           >
             <div className="mb-7 text-center">
               <span
-                className="font-montserrat font-semibold text-[11px] uppercase tracking-[2px] mb-2 block"
+                className="font-dm-sans font-semibold text-[11px] uppercase tracking-[2px] mb-2 block"
                 style={{ color: college.greenAccent }}
               >
                 Our Foundation
               </span>
-              <h3 className="font-poppins font-bold text-[22px]" style={{ color: college.primaryColor }}>Core Values</h3>
+              <h3 className="font-hind font-semibold text-[24px] leading-8" style={{ color: college.primaryColor }}>Core Values</h3>
               <div
                 className="w-10 h-[3px] rounded-full mx-auto mt-3"
                 style={{ backgroundColor: college.greenAccent }}
@@ -183,10 +183,10 @@ function AboutSection() {
                 <div
                   key={value.name}
                   className="bg-white rounded-xl p-5"
-                  style={{ border: '1px solid rgba(91,16,39,0.10)', borderLeftWidth: '4px', borderLeftColor: college.primaryColor }}
+                  style={{ border: '1px solid rgba(0,90,40,0.10)', borderLeftWidth: '4px', borderLeftColor: college.primaryColor }}
                 >
-                  <h4 className="font-poppins font-bold text-[15px] mb-1.5" style={{ color: college.primaryColor }}>{value.name}</h4>
-                  <p className="font-montserrat text-[13px] leading-[22px] text-[#474747]">{value.desc}</p>
+                  <h4 className="font-hind font-medium text-[14px] leading-[22px] mb-1.5" style={{ color: college.primaryColor }}>{value.name}</h4>
+                  <p className="font-dm-sans text-[13px] leading-[22px] text-[#474747]">{value.desc}</p>
                 </div>
               ))}
             </div>
@@ -202,7 +202,7 @@ function PeoSection() {
     <div className="space-y-6">
       <div className="mb-8">
         <SectionHeader label="About PEOs" title="Programme Educational Objectives" />
-        <p className="font-montserrat text-[15px] leading-[26px] text-[#474747] mt-4 max-w-[720px]">
+        <p className="font-dm-sans font-normal text-[16px] leading-6 text-[#474747] mt-4 max-w-[720px]">
           Programme Educational Objectives are broad statements that describe what graduates are expected
           to achieve within a few years after graduation.
         </p>
@@ -219,17 +219,17 @@ function PeoSection() {
           >
             <div className="flex-shrink-0">
               <span
-                className="font-poppins font-bold text-[12px] px-3 py-1.5 rounded-full whitespace-nowrap"
+                className="font-dm-sans font-bold text-[12px] px-3 py-1.5 rounded-full whitespace-nowrap"
                 style={{ backgroundColor: college.greenAccent, color: '#fff' }}
               >
                 {item.code}
               </span>
             </div>
             <div>
-              <h4 className="font-poppins font-semibold text-[16px] mb-1.5" style={{ color: college.primaryColor }}>
+              <h4 className="font-hind font-medium text-[16px] leading-6 mb-1.5" style={{ color: college.primaryColor }}>
                 {item.title}
               </h4>
-              <p className="font-montserrat text-[14px] leading-[24px] text-[#474747]">{item.desc}</p>
+              <p className="font-dm-sans font-normal text-[14px] leading-[22px] text-[#474747]">{item.desc}</p>
             </div>
           </div>
         ))}
@@ -243,7 +243,7 @@ function PosSection() {
     <div className="space-y-6">
       <div className="mb-8">
         <SectionHeader label="About POs" title="Programme Outcomes" />
-        <p className="font-montserrat text-[15px] leading-[26px] text-[#474747] mt-4 max-w-[720px]">
+        <p className="font-dm-sans font-normal text-[16px] leading-6 text-[#474747] mt-4 max-w-[720px]">
           Programme Outcomes describe what students are expected to know, understand, and be able to do
           by the time of graduation.
         </p>
@@ -265,21 +265,21 @@ function PosSection() {
             <div className="pl-2">
               <div className="flex items-center gap-3 mb-2">
                 <span
-                  className="font-poppins font-bold text-[11px] px-2.5 py-1 rounded-full"
+                  className="font-dm-sans font-bold text-[11px] px-2.5 py-1 rounded-full"
                   style={{ backgroundColor: college.greenAccent, color: '#fff' }}
                 >
                   {item.code}
                 </span>
                 <span
-                  className="font-montserrat font-semibold text-[11px] text-[#9CA3AF]"
+                  className="font-dm-sans font-semibold text-[11px] text-[#9CA3AF]"
                 >
                   #{String(index + 1).padStart(2, '0')}
                 </span>
               </div>
-              <h4 className="font-poppins font-semibold text-[15px] mb-1.5" style={{ color: college.primaryColor }}>
+              <h4 className="font-hind font-medium text-[14px] leading-[22px] mb-1.5" style={{ color: college.primaryColor }}>
                 {item.title}
               </h4>
-              <p className="font-montserrat text-[13px] leading-[22px] text-[#474747]">{item.desc}</p>
+              <p className="font-dm-sans font-normal text-[14px] leading-[22px] text-[#474747]">{item.desc}</p>
             </div>
           </div>
         ))}

@@ -3,28 +3,31 @@
 
   return (
     <div
-      className="w-full py-[40px]"
+      className="w-full py-[36px]"
       style={{
-        backgroundColor: '#F3DAB2',
-        borderBottom: '1px solid rgba(91,16,39,0.15)',
+        background: 'linear-gradient(to bottom, #EDD5A2 0%, #F3DAB2 45%, #EFD6A6 100%)',
+        boxShadow: 'inset 0 5px 18px rgba(6,28,14,0.10), 0 1px 0 rgba(45,122,80,0.12)',
       }}
     >
       <div className="flex justify-center items-stretch flex-wrap">
         {items.map((item, i) => (
           <div
             key={item}
-            className="flex items-center px-12 py-2"
+            className="flex items-center px-10 py-2"
             style={{
-              borderRight: i < items.length - 1 ? `1px solid rgba(91,16,39,0.2)` : 'none',
+              borderRight: i < items.length - 1 ? '1px solid rgba(45,122,80,0.15)' : 'none',
             }}
           >
-            <div className="flex items-center gap-3.5">
+            <div className="flex items-center gap-3">
               <span
-                className="w-[3px] h-[22px] rounded-full flex-shrink-0"
-                style={{ backgroundColor: college.greenAccent }}
+                className="w-[5px] h-[5px] rounded-full flex-shrink-0"
+                style={{
+                  backgroundColor: college.greenAccent,
+                  boxShadow: '0 0 0 2px rgba(199,34,53,0.18)',
+                }}
               />
               <span
-                className="font-hind font-bold text-[16px] leading-6 tracking-wider whitespace-nowrap"
+                className="font-dm-sans font-semibold text-[15px] leading-6 tracking-wide whitespace-nowrap"
                 style={{ color: college.primaryColor }}
               >
                 {item}

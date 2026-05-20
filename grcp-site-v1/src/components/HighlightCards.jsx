@@ -27,8 +27,11 @@ export default function HighlightCards({ college }) {
           return (
             <div
               key={title}
-              className="bg-white rounded-2xl px-8 py-10 flex flex-col gap-5"
-              style={{ boxShadow: '0 1px 6px rgba(91,16,39,0.07)' }}
+              className="bg-white rounded-2xl px-8 py-10 flex flex-col gap-5 premium-card"
+              style={{
+                boxShadow: '0 2px 8px rgba(45,122,80,0.10), 0 1px 3px rgba(0,0,0,0.05)',
+                borderTop: '3px solid #2D7A50',
+              }}
             >
               <div
                 className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
@@ -37,10 +40,10 @@ export default function HighlightCards({ college }) {
                 <Icon />
               </div>
               <div className="flex flex-col gap-2.5">
-                <h3 className="font-hind font-bold text-[18px] leading-7" style={{ color: college.primaryColor }}>
+                <h3 className="font-hind font-semibold text-[18px] leading-7" style={{ color: college.primaryColor }}>
                   {title}
                 </h3>
-                <p className="font-dm-sans text-[14px] leading-[24px]" style={{ color: '#606060' }}>
+                <p className="font-dm-sans font-normal text-[14px] leading-[22px]" style={{ color: '#606060' }}>
                   {desc}
                 </p>
               </div>

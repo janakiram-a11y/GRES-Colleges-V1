@@ -52,7 +52,7 @@ function ColHeading({ college, children }) {
   return (
     <div className="mb-6">
       <h4
-        className="font-hind font-bold text-[13px] uppercase tracking-[2px] mb-3"
+        className="font-dm-sans font-bold text-[13px] uppercase tracking-[2px] mb-3"
         style={{ color: college.primaryColor }}
       >
         {children}
@@ -93,7 +93,7 @@ export default function Footer({ college }) {
   return (
     <footer
       className="w-full bg-white"
-      style={{ borderTop: `1px solid rgba(91,16,39,0.08)` }}
+      style={{ borderTop: `3px solid rgba(45,122,80,0.18)` }}
     >
       {/* Main content */}
       <div className="max-w-[1320px] mx-auto px-[60px] pt-[72px] pb-[56px]">
@@ -116,14 +116,14 @@ export default function Footer({ college }) {
                   href="#"
                   aria-label={label}
                   className="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200"
-                  style={{ border: '1px solid rgba(91,16,39,0.12)', color: '#222222', backgroundColor: 'transparent' }}
+                  style={{ border: '1px solid rgba(45,122,80,0.12)', color: '#222222', backgroundColor: 'transparent' }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.borderColor = college.greenAccent;
                     e.currentTarget.style.color = college.greenAccent;
-                    e.currentTarget.style.backgroundColor = 'rgba(0,135,61,0.06)';
+                    e.currentTarget.style.backgroundColor = 'rgba(199,34,53,0.06)';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(91,16,39,0.12)';
+                    e.currentTarget.style.borderColor = 'rgba(0,90,40,0.12)';
                     e.currentTarget.style.color = '#222222';
                     e.currentTarget.style.backgroundColor = 'transparent';
                   }}
@@ -197,7 +197,7 @@ export default function Footer({ college }) {
         {/* Bottom bar */}
         <div
           className="pt-6 flex justify-between items-center flex-wrap gap-4"
-          style={{ borderTop: '1px solid rgba(91,16,39,0.08)' }}
+          style={{ borderTop: '1px solid rgba(45,122,80,0.12)' }}
         >
           <span className="font-dm-sans text-[12px]" style={{ color: '#222222' }}>
             © 2024 {college.fullName}. All rights reserved.

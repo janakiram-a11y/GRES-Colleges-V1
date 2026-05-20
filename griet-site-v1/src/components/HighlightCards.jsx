@@ -1,22 +1,11 @@
-﻿const AwardIcon = () => (
-  <svg viewBox="0 0 20 20" fill="none" className="w-5 h-5" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round">
-    <path d="M10 2l2.5 5.5 6 .5-4.5 4 1.5 6L10 15l-5.5 3 1.5-6L1.5 8l6-.5L10 2z" />
-  </svg>
-)
-const MortarIcon = () => (
-  <svg viewBox="0 0 20 20" fill="none" className="w-5 h-5" stroke="currentColor" strokeWidth="1.5">
-    <path d="M10 3L2 7l8 4 8-4-8-4z" strokeLinejoin="round" />
-    <path d="M6 9v3.5c0 1.5 4 2.5 4 2.5s4-1 4-2.5V9" strokeLinecap="round" />
-  </svg>
-)
-const UsersIcon = () => (
-  <svg viewBox="0 0 20 20" fill="none" className="w-5 h-5" stroke="currentColor" strokeWidth="1.5">
-    <path d="M13 7a3 3 0 11-6 0 3 3 0 016 0z" />
-    <path d="M3 17a7 7 0 0114 0" strokeLinecap="round" />
-  </svg>
-)
+﻿import { StarIcon, MortarIcon, UsersIcon } from './icons';
 
-const icons = [AwardIcon, MortarIcon, UsersIcon]
+// Each icon needs to render at currentColor to work inside the colored circle container
+const icons = [
+  () => <StarIcon color="currentColor" size={20} />,
+  () => <MortarIcon color="currentColor" size={20} />,
+  () => <UsersIcon color="currentColor" size={20} />,
+]
 
 export default function HighlightCards({ college }) {
   return (
@@ -37,10 +26,10 @@ export default function HighlightCards({ college }) {
                 <Icon />
               </div>
               <div className="flex flex-col gap-2.5">
-                <h3 className="font-hind font-bold text-[18px] leading-7" style={{ color: college.primaryColor }}>
+                <h3 className="font-hind font-semibold text-[18px] leading-7" style={{ color: college.primaryColor }}>
                   {title}
                 </h3>
-                <p className="font-dm-sans text-[14px] leading-[24px]" style={{ color: '#606060' }}>
+                <p className="font-hind font-normal text-[14px] leading-[22px]" style={{ color: '#606060' }}>
                   {desc}
                 </p>
               </div>

@@ -1,17 +1,17 @@
-﻿export default function ResearchSection({ college }) {
+﻿import SectionLabel from './SectionLabel';
+
+export default function ResearchSection({ college }) {
   return (
     <section className="w-full bg-[#5B1027] page-pad">
       <div className="flex flex-col gap-12">
         <div className="flex flex-col items-center gap-3">
-          <p className="font-hind font-bold text-[20px] leading-5 uppercase tracking-[1.4px] text-[#F3DAB2] text-center">
-            {college.researchLabel}
-          </p>
-          <h2 className="font-hind font-bold text-[36px] leading-[48px] text-white text-center">
+          <SectionLabel variant="light" className="text-center">{college.researchLabel}</SectionLabel>
+          <h2 className="font-hind font-semibold text-[28px] leading-9 lg:text-[40px] lg:leading-[48px] text-white text-center">
             {college.researchHeading}
           </h2>
         </div>
 
-        <div className="grid grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8">
           {college.researchStats.map(({ count, label, desc }) => (
             <div
               key={label}

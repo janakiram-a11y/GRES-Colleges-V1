@@ -55,7 +55,7 @@ function ProcedureContent() {
             className="flex gap-5 p-6 rounded-lg bg-white border border-gray-100 shadow-sm"
           >
             <div
-              className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-hind font-bold text-[16px] text-white"
+              className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-dm-sans font-bold text-[16px] text-white"
               style={{ backgroundColor: college.primaryColor }}
             >
               {item.step}
@@ -117,11 +117,11 @@ function EamcetRankContent() {
         className="mb-6 flex items-center gap-3 px-4 py-3 rounded"
         style={{ backgroundColor: `${college.greenAccent}15`, border: `1px solid ${college.greenAccent}40` }}
       >
-        <span className="font-hind font-bold text-[13px]" style={{ color: college.primaryColor }}>
+        <span className="font-dm-sans font-bold text-[13px]" style={{ color: college.primaryColor }}>
           GRCP Counselling Code:
         </span>
         <span
-          className="font-hind font-bold text-[15px] px-3 py-0.5 rounded"
+          className="font-dm-sans font-bold text-[15px] px-3 py-0.5 rounded"
           style={{ backgroundColor: college.primaryColor, color: '#ffffff' }}
         >
           GRCP
@@ -183,11 +183,11 @@ function PgecetRankContent() {
         className="mb-6 flex items-center gap-3 px-4 py-3 rounded"
         style={{ backgroundColor: `${college.greenAccent}15`, border: `1px solid ${college.greenAccent}40` }}
       >
-        <span className="font-hind font-bold text-[13px]" style={{ color: college.primaryColor }}>
+        <span className="font-dm-sans font-bold text-[13px]" style={{ color: college.primaryColor }}>
           GRCP Counselling Code (PG):
         </span>
         <span
-          className="font-hind font-bold text-[15px] px-3 py-0.5 rounded"
+          className="font-dm-sans font-bold text-[15px] px-3 py-0.5 rounded"
           style={{ backgroundColor: college.primaryColor, color: '#ffffff' }}
         >
           GRCP1

@@ -1,16 +1,16 @@
-﻿export default function CareerOutcomes({ college }) {
+﻿import SectionLabel from './SectionLabel';
+
+export default function CareerOutcomes({ college }) {
   return (
     <section className="w-full bg-[#F6F1F2] page-pad">
-      <div className="flex items-center gap-24">
+      <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-24">
         <div className="flex flex-col flex-1 gap-6">
           <div>
-            <p className="font-hind font-bold text-[20px] leading-[30px] uppercase text-[#5B1027] mb-3">
-              {college.careerLabel}
-            </p>
-            <h2 className="font-hind font-bold text-[36px] leading-[54px] text-[#111827] mb-4">
+            <SectionLabel className="mb-3">{college.careerLabel}</SectionLabel>
+            <h2 className="font-hind font-semibold text-[28px] leading-9 lg:text-[40px] lg:leading-[48px] text-[#111827] mb-4">
               {college.careerHeading}
             </h2>
-            <p className="font-dm-sans font-normal text-[16px] leading-5 text-[#4B5563] max-w-[512px]">
+            <p className="font-hind font-normal text-[16px] leading-6 text-[#4B5563] max-w-[512px]">
               {college.careerDesc}
             </p>
           </div>
@@ -36,15 +36,15 @@
             <p className="font-dm-sans font-bold text-[10px] leading-[15px] uppercase tracking-[1px] text-[#111827] opacity-70">
               Top Recruiters
             </p>
-            <div className="flex items-center gap-10 opacity-60">
+            <div className="flex items-center gap-10">
               {college.careerRecruiters.map(r => (
-                <span key={r} className="font-hind font-bold text-[20px] leading-7 text-[#111827]">{r}</span>
+                <span key={r} className="font-hind font-bold text-[20px] leading-7 text-[#6B7280]">{r}</span>
               ))}
             </div>
           </div>
         </div>
 
-        <div className="w-[548px] flex-shrink-0">
+        <div className="w-full lg:w-[548px] lg:flex-shrink-0">
           <img
             src={college.careerImage}
             alt="Career Outcomes"

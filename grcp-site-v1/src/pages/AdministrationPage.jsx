@@ -60,7 +60,7 @@ function CommitteeTable({ members, columns }) {
             {columns.map((col) => (
               <th
                 key={col.key}
-                className="font-hind font-semibold text-[13px] text-white text-left px-5 py-3.5 first:rounded-tl-xl last:rounded-tr-xl"
+                className="font-dm-sans font-semibold text-[13px] text-white text-left px-5 py-3.5 first:rounded-tl-xl last:rounded-tr-xl"
               >
                 {col.label}
               </th>
@@ -178,7 +178,7 @@ function GoverningBodySection() {
               {['Sl. No.', 'Name of the Member', 'Designation', 'Category'].map((h) => (
                 <th
                   key={h}
-                  className="font-hind font-semibold text-[13px] text-white text-left px-5 py-3.5 first:rounded-tl-xl last:rounded-tr-xl"
+                  className="font-dm-sans font-semibold text-[13px] text-white text-left px-5 py-3.5 first:rounded-tl-xl last:rounded-tr-xl"
                 >
                   {h}
                 </th>
@@ -226,7 +226,7 @@ function IdmcSection() {
           {idmc.powers.map((item, i) => (
             <li key={i} className="flex items-start gap-3">
               <span
-                className="font-hind font-bold text-[13px] flex-shrink-0 w-6 text-right mt-[3px]"
+                className="font-dm-sans font-bold text-[13px] flex-shrink-0 w-6 text-right mt-[3px]"
                 style={{ color: college.primaryColor }}
               >
                 {i + 1}.
@@ -249,7 +249,7 @@ function IdmcSection() {
               {['Sl. No', 'Name', 'Designation', 'Position', 'E-mail ID'].map((h) => (
                 <th
                   key={h}
-                  className="font-hind font-semibold text-[13px] text-white text-left px-5 py-3.5 first:rounded-tl-xl last:rounded-tr-xl"
+                  className="font-dm-sans font-semibold text-[13px] text-white text-left px-5 py-3.5 first:rounded-tl-xl last:rounded-tr-xl"
                 >
                   {h}
                 </th>
@@ -312,7 +312,7 @@ function OrgChartSection() {
                   className="rounded-xl px-12 py-4 text-center shadow-sm"
                   style={{ backgroundColor: pc, minWidth: 288 }}
                 >
-                  <p className="font-hind font-bold text-[12px] tracking-[2.5px] text-white uppercase">{lvl.role}</p>
+                  <p className="font-dm-sans font-bold text-[12px] tracking-[2.5px] text-white uppercase">{lvl.role}</p>
                   <p className="font-dm-sans text-[13px] font-medium mt-1" style={{ color: 'rgba(255,255,255,0.85)' }}>{lvl.name}</p>
                 </div>
                 {i < orgChart.levels.length - 1 && (
@@ -343,12 +343,12 @@ function OrgChartSection() {
                     style={{ backgroundColor: `${pc}08`, border: `1.5px solid ${pc}30` }}
                   >
                     <div
-                      className="inline-block px-2.5 py-0.5 rounded-full font-hind font-semibold text-[10px] tracking-[1px] uppercase mb-2"
+                      className="inline-block px-2.5 py-0.5 rounded-full font-dm-sans font-semibold text-[10px] tracking-[1px] uppercase mb-2"
                       style={{ backgroundColor: 'rgba(0,135,61,0.10)', color: college.greenAccent }}
                     >
                       Department Head
                     </div>
-                    <p className="font-hind font-semibold text-[12px] leading-[18px]" style={{ color: pc }}>{dep.hod}</p>
+                    <p className="font-dm-sans font-semibold text-[12px] leading-[18px]" style={{ color: pc }}>{dep.hod}</p>
                     <p className="font-dm-sans text-[12px] mt-1.5" style={{ color: '#5A6275' }}>{dep.person}</p>
                   </div>
 
@@ -512,7 +512,7 @@ function GrievanceSection() {
               style={{ backgroundColor: '#FAFAFA', border: `1px solid ${college.primaryColor}15` }}
             >
               <div
-                className="w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-3 font-hind font-bold text-[16px] text-white"
+                className="w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-3 font-dm-sans font-bold text-[16px] text-white"
                 style={{ backgroundColor: college.primaryColor }}
               >
                 {i + 1}

@@ -32,13 +32,13 @@ export default function WhyChooseUs({ college }) {
     <section className="w-full bg-white section-pad">
       <div className="flex gap-[30px] items-start">
         <div className="flex-1 flex flex-col gap-3 pr-8">
-          <h2 className="font-hind font-bold text-[36px] leading-[45px] text-[#111827]">
+          <h2 className="font-hind font-semibold text-[28px] leading-9 lg:text-[40px] lg:leading-[48px] text-[#111827]">
             {college.aboutHeading}
           </h2>
-          <p className="font-dm-sans font-medium text-[16px] leading-6 text-[#666666]">
+          <p className="font-hind font-normal text-[16px] leading-6 text-[#666666]">
             {college.aboutP1}
           </p>
-          <p className="font-dm-sans font-medium text-[16px] leading-6 text-[#666666]">
+          <p className="font-hind font-normal text-[16px] leading-6 text-[#666666]">
             {college.aboutP2}
           </p>
           <div className="grid grid-cols-2 gap-x-4 gap-y-5 mt-3">

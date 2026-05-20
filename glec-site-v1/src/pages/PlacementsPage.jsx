@@ -32,7 +32,7 @@ export default function PlacementsPage() {
                 2025 Batch
               </span>
               <h2
-                className="font-hind font-bold text-[26px] leading-[34px] pb-3"
+                className="font-hind font-semibold text-[28px] leading-9 lg:text-[40px] lg:leading-[48px] pb-3"
                 style={{
                   color: college.primaryColor,
                   borderBottom: `3px solid ${college.accentColor}`,
@@ -86,7 +86,7 @@ export default function PlacementsPage() {
           <section className="mb-14">
             <div className="mb-6">
               <h2
-                className="font-hind font-bold text-[26px] leading-[34px] pb-3"
+                className="font-hind font-semibold text-[28px] leading-9 lg:text-[40px] lg:leading-[48px] pb-3"
                 style={{
                   color: college.primaryColor,
                   borderBottom: `3px solid ${college.accentColor}`,
@@ -113,7 +113,7 @@ export default function PlacementsPage() {
           <section className="mb-14">
             <div className="mb-6">
               <h2
-                className="font-hind font-bold text-[26px] leading-[34px] pb-3"
+                className="font-hind font-semibold text-[28px] leading-9 lg:text-[40px] lg:leading-[48px] pb-3"
                 style={{
                   color: college.primaryColor,
                   borderBottom: `3px solid ${college.accentColor}`,
@@ -135,13 +135,13 @@ export default function PlacementsPage() {
                   style={{ borderColor: `${college.primaryColor}18`, backgroundColor: '#FAFAFA' }}
                 >
                   <h3
-                    className="font-hind font-bold text-[22px] mb-3"
+                    className="font-hind font-medium text-[22px] mb-3"
                     style={{ color: college.primaryColor }}
                   >
                     {prog.name}
                   </h3>
                   <div className="w-10 h-0.5 mb-4 rounded-full" style={{ backgroundColor: college.accentColor }} />
-                  <p className="font-dm-sans text-[14px] leading-[24px] text-[#474747]">{prog.desc}</p>
+                  <p className="font-hind font-normal text-[14px] leading-[22px] text-[#474747]">{prog.desc}</p>
                 </div>
               ))}
             </div>
@@ -152,7 +152,7 @@ export default function PlacementsPage() {
             className="rounded-2xl p-8 text-center"
             style={{ backgroundColor: `${college.primaryColor}08`, border: `1px solid ${college.primaryColor}18` }}
           >
-            <p className="font-dm-sans text-[15px] leading-[26px] text-[#474747]">
+            <p className="font-hind font-normal text-[16px] leading-6 text-[#474747]">
               Detailed placement records, year-wise data, and company-wise statistics will be published here.{' '}
               <Link
                 to="/contact"

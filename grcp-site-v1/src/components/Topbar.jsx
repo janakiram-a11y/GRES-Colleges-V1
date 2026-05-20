@@ -4,7 +4,7 @@
       className="w-full py-[9px]"
       style={{
         backgroundColor: '#F3DAB2',
-        borderBottom: '1px solid rgba(91,16,39,0.15)',
+        borderBottom: '1px solid rgba(45,122,80,0.15)',
       }}
     >
       <div className="max-w-[1320px] mx-auto px-[60px] flex justify-between items-center">
@@ -12,16 +12,16 @@
           <a
             href={`mailto:${college.email}`}
             className="font-dm-sans font-medium text-[13px] leading-4 transition-colors"
-            style={{ color: college.primaryColor }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = college.greenAccent)}
-            onMouseLeave={(e) => (e.currentTarget.style.color = college.primaryColor)}
+            style={{ color: college.accentColor }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = '#A81C2E')}
+            onMouseLeave={(e) => (e.currentTarget.style.color = college.accentColor)}
           >
             {college.email}
           </a>
-          <span className="font-dm-sans font-medium text-[13px] leading-4" style={{ color: college.primaryColor }}>
+          <span className="font-dm-sans font-medium text-[13px] leading-4" style={{ color: college.accentColor }}>
             {college.admissionsPhone}
           </span>
-          <span className="font-dm-sans font-medium text-[13px] leading-4" style={{ color: 'rgba(91,16,39,0.65)' }}>
+          <span className="font-dm-sans font-medium text-[13px] leading-4" style={{ color: 'rgba(199,34,53,0.65)' }}>
             {college.admissionsLabel}
           </span>
         </div>
@@ -31,9 +31,9 @@
               key={link}
               href="#"
               className="font-dm-sans font-medium text-[13px] leading-4 transition-colors"
-              style={{ color: college.primaryColor }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = college.greenAccent)}
-              onMouseLeave={(e) => (e.currentTarget.style.color = college.primaryColor)}
+              style={{ color: college.accentColor }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = '#A81C2E')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = college.accentColor)}
             >
               {link}
             </a>

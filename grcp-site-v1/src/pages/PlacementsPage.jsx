@@ -19,7 +19,7 @@ function SectionHeader({ label, title }) {
         </span>
       )}
       <h2
-        className="font-hind font-bold text-[26px] leading-[34px] pb-3"
+        className="font-hind font-semibold text-[28px] leading-9 pb-3"
         style={{
           color: college.primaryColor,
           borderBottom: `3px solid ${college.greenAccent}`,
@@ -39,7 +39,7 @@ function OverviewSection() {
     <div className="space-y-12">
       <section>
         <SectionHeader label="Placements" title="Placement Cell @ GRCP" />
-        <p className="font-dm-sans text-[15px] leading-[26px] text-[#474747] mt-4 max-w-[780px]">
+        <p className="font-dm-sans font-normal text-[16px] leading-6 text-[#474747] mt-4 max-w-[780px]">
           {overview}
         </p>
       </section>
@@ -76,7 +76,7 @@ function OverviewSection() {
 
       <section>
         <h3
-          className="font-hind font-semibold text-[18px] mb-5"
+          className="font-hind font-semibold text-[18px] leading-7 mb-5"
           style={{ color: college.primaryColor }}
         >
           Key Activities
@@ -88,7 +88,7 @@ function OverviewSection() {
                 className="w-2.5 h-2.5 rounded-full flex-shrink-0 mt-[7px]"
                 style={{ backgroundColor: college.greenAccent }}
               />
-              <span className="font-dm-sans text-[15px] leading-[26px] text-[#474747]">{item}</span>
+              <span className="font-dm-sans font-normal text-[16px] leading-6 text-[#474747]">{item}</span>
             </li>
           ))}
         </ul>
@@ -96,7 +96,7 @@ function OverviewSection() {
 
       <section>
         <h3
-          className="font-hind font-semibold text-[18px] mb-6"
+          className="font-hind font-semibold text-[18px] leading-7 mb-6"
           style={{ color: college.primaryColor }}
         >
           Our Recruiters
@@ -129,7 +129,7 @@ function PlacementStatusSection() {
   return (
     <div className="space-y-10">
       <SectionHeader label="Track Record" title="Placement Status" />
-      <p className="font-dm-sans text-[15px] leading-[26px] text-[#474747] max-w-[720px]">
+      <p className="font-dm-sans font-normal text-[16px] leading-6 text-[#474747] max-w-[720px]">
         GRCP maintains a strong placement record with consistently high absorption rates across B.Pharmacy and M.Pharmacy programs.
         Below is a summary of placement statistics over recent academic years.
       </p>
@@ -177,7 +177,7 @@ function PlacementStatusSection() {
         className="rounded-2xl p-6 border max-w-[680px]"
         style={{ borderColor: `${college.greenAccent}30`, backgroundColor: `${college.greenAccent}0D` }}
       >
-        <p className="font-dm-sans text-[14px] text-[#474747]">
+        <p className="font-dm-sans font-normal text-[14px] leading-[22px] text-[#474747]">
           <span className="font-semibold">Note:</span> Placement figures are updated annually. M.Pharmacy graduates are predominantly absorbed
           into pharmaceutical R&D, QA/QC, academic, and clinical research roles. For detailed placement reports, contact the Placement Cell.
         </p>

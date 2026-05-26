@@ -89,15 +89,12 @@ export default function AcademicPrograms({ college }) {
           </p>
           <div className="flex flex-col gap-4 mt-2 w-full">
             <a
-              href="/departments/cse"
+              href="/academics"
               className="w-full bg-[#C32033] text-white font-dm-sans font-semibold text-[16px] leading-[22px] px-7 py-4 rounded hover:bg-[#a81b2a] transition-colors inline-block text-center"
               style={{ boxShadow: '0px 10px 15px -3px rgba(0,0,0,0.1), 0px 4px 6px -4px rgba(0,0,0,0.1)' }}
             >
               View all programs
             </a>
-            <button className="w-full border-2 border-white text-white font-dm-sans font-semibold text-[16px] leading-[22px] px-7 py-[14px] rounded hover:bg-white/10 transition-colors">
-              Download Brochure
-            </button>
           </div>
         </div>
 

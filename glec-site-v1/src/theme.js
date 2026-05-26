@@ -701,7 +701,6 @@ const college = {
   ctaDesc: 'Take the first step towards a bright future. Join GLEC and shape your engineering career with world-class education, strong placement support, and a legacy of excellence.',
   ctaCTALabel: 'Apply Now',
   ctaCTAHref: '/admissions',
-  ctaSecondaryLabel: 'Download Brochure',
 
   // ── Sponsoring Body ───────────────────────────────────────────────────────
   sponsoringBody: {

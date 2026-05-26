@@ -18,12 +18,6 @@
           >
             {college.ctaCTALabel}
           </a>
-          <button
-            className="border-2 border-white text-white font-dm-sans font-bold text-[18px] leading-7 px-10 py-[19px] rounded hover:bg-white/10 transition-colors"
-            style={{ boxShadow: '0px 10px 15px -3px rgba(0,0,0,0.1), 0px 4px 6px -4px rgba(0,0,0,0.1)' }}
-          >
-            {college.ctaSecondaryLabel}
-          </button>
         </div>
       </div>
     </section>

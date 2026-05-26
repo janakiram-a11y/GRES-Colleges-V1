@@ -13,7 +13,7 @@
         {items.map((item, i) => (
           <div
             key={item}
-            className="flex items-center px-12 py-2"
+            className="flex items-center px-4 md:px-8 lg:px-12 py-2"
             style={{
               borderRight: i < items.length - 1 ? `1px solid rgba(91,16,39,0.2)` : 'none',
             }}

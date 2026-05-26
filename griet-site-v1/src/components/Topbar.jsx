@@ -26,16 +26,21 @@
           </span>
         </div>
         <div className="flex items-center gap-6">
-          {['Alumni', 'Careers', 'Student Portal', 'Library'].map((link) => (
+          {[
+            { label: 'Alumni', href: '/alumni' },
+            { label: 'Careers', href: '/careers' },
+            { label: 'Student Portal', href: '/student-portal' },
+            { label: 'Library', href: '/academics/library' },
+          ].map(({ label, href }) => (
             <a
-              key={link}
-              href="#"
+              key={label}
+              href={href}
               className="font-dm-sans font-medium text-[13px] leading-4 transition-colors"
               style={{ color: college.primaryColor }}
               onMouseEnter={(e) => (e.currentTarget.style.color = college.accentColor)}
               onMouseLeave={(e) => (e.currentTarget.style.color = college.primaryColor)}
             >
-              {link}
+              {label}
             </a>
           ))}
         </div>

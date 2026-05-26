@@ -1,16 +1,13 @@
-﻿import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { withAlpha } from '../theme';
 
 function LOIModal({ college, onClose }) {
   const closeRef = useRef(null);
 
   useEffect(() => {
-    // Move focus into the modal on open
     closeRef.current?.focus();
-
     function handleKeyDown(e) {
       if (e.key === 'Escape') { onClose(); return; }
-      // Keep Tab focus inside the modal (only one focusable element here)
       if (e.key === 'Tab') { e.preventDefault(); closeRef.current?.focus(); }
     }
     document.addEventListener('keydown', handleKeyDown);
@@ -67,17 +64,21 @@ function LOIModal({ college, onClose }) {
 
 function TickerContent({ announcements, college, onLOIClick }) {
   return (
-    <div className="flex items-center gap-8 text-[13px] font-dm-sans font-medium shrink-0" style={{ color: college.primaryColor }}>
+    <div className="flex items-center gap-8 text-[13px] font-dm-sans font-medium shrink-0">
       {announcements.map((ann, idx) => (
         <span key={idx} className="flex items-center gap-8">
           {idx > 0 && (
-            <span className="select-none" style={{ color: withAlpha(college.primaryColor, 0.3) }}>|</span>
+            <span className="select-none" style={{ color: withAlpha(college.primaryColor, 0.25) }}>|</span>
           )}
           {ann.isLOI ? (
-            <button onClick={onLOIClick} className="flex items-center gap-2 transition-colors group" style={{ color: college.primaryColor }}>
+            <button
+              onClick={onLOIClick}
+              className="flex items-center gap-2 group"
+              style={{ color: college.accentColor }}
+            >
               <span className="group-hover:underline underline-offset-2">{ann.text}</span>
               {ann.badge && (
-                <span className="text-white font-bold text-[10px] px-1.5 py-0.5 rounded" style={{ backgroundColor: college.accentColor }}>
+                <span className="font-bold text-[10px] px-1.5 py-0.5 rounded text-white" style={{ backgroundColor: '#F59E0B' }}>
                   {ann.badge}
                 </span>
               )}
@@ -87,12 +88,12 @@ function TickerContent({ announcements, college, onLOIClick }) {
               href={ann.href || '#'}
               target={ann.href && ann.href.startsWith('http') ? '_blank' : undefined}
               rel="noopener noreferrer"
-              className="flex items-center gap-2 transition-colors group"
-              style={{ color: college.primaryColor }}
+              className="flex items-center gap-2 group"
+              style={{ color: college.accentColor }}
             >
               <span className="group-hover:underline underline-offset-2">{ann.text}</span>
               {ann.badge && (
-                <span className="text-white font-bold text-[10px] px-1.5 py-0.5 rounded" style={{ backgroundColor: college.accentColor }}>
+                <span className="font-bold text-[10px] px-1.5 py-0.5 rounded text-white" style={{ backgroundColor: '#F59E0B' }}>
                   {ann.badge}
                 </span>
               )}
@@ -125,27 +126,23 @@ export default function AnnouncementBar({ college }) {
         }
       `}</style>
 
-      <div className="w-full bg-white py-2" style={{ borderBottom: `1px solid ${withAlpha(college.primaryColor, 0.1)}` }}>
-        <div className="max-w-[1320px] mx-auto px-[60px] flex items-center gap-4">
+      <div className="w-full bg-white" style={{ borderBottom: `1px solid ${withAlpha(college.primaryColor, 0.1)}` }}>
+        <div className="max-w-[1320px] mx-auto px-4 md:px-10 lg:px-[60px] flex items-center gap-2 md:gap-4 h-[44px]">
+
+          {/* ANNOUNCEMENTS pill */}
           <div
-            className="flex items-center gap-2 rounded-full px-3 py-1 shrink-0 border"
-            style={{
-              backgroundColor: withAlpha(college.primaryColor, 0.07),
-              borderColor: withAlpha(college.primaryColor, 0.18),
-            }}
+            className="flex items-center gap-1.5 rounded px-2 md:px-3 py-1 md:py-1.5 shrink-0"
+            style={{ backgroundColor: college.primaryColor }}
           >
-            <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20" style={{ color: college.primaryColor }}>
-              <path d="M10 2a6 6 0 00-6 6v1H3a1 1 0 000 2h1v1a6 6 0 0012 0v-1h1a1 1 0 100-2h-1V8a6 6 0 00-6-6zm0 14a4 4 0 01-4-4v-1h8v1a4 4 0 01-4 4z" />
+            <svg className="w-3.5 h-3.5 text-white shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M13.92 3.845a19.361 19.361 0 01-6.3 1.98C6.765 5.942 5.89 6 5 6a4 4 0 00-.504 7.969l.504.031c.627 0 1.25-.048 1.867-.142l.759 1.518A3.375 3.375 0 0010.125 17.5h.375a3.375 3.375 0 003.375-3.375v-.628a19.289 19.289 0 013.04-2.07.75.75 0 00.085-1.297A18.995 18.995 0 0113.92 3.845z" />
             </svg>
-            <span
-              className="font-dm-sans font-bold text-[11px] uppercase tracking-wider"
-              style={{ color: college.primaryColor }}
-            >
+            <span className="hidden sm:inline font-dm-sans font-bold text-[11px] uppercase tracking-wider text-white">
               Announcements
             </span>
           </div>
 
-          <span className="text-sm select-none shrink-0" style={{ color: withAlpha(college.primaryColor, 0.2) }}>|</span>
+          <span className="hidden sm:inline select-none shrink-0" style={{ color: withAlpha(college.primaryColor, 0.25) }}>|</span>
 
           <div className="overflow-hidden flex-1">
             <div className="ticker-track">

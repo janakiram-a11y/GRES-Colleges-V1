@@ -46,6 +46,9 @@ import ExamNotificationsPage from './pages/ExamNotificationsPage';
 import ResultsPage from './pages/ResultsPage';
 import ExamBranchDownloadsPage from './pages/ExamBranchDownloadsPage';
 import TranscriptsCertificatesPage from './pages/TranscriptsCertificatesPage';
+import IQACPage from './pages/IQACPage';
+import FAQsPage from './pages/FAQsPage';
+import ContactPage from './pages/ContactPage';
 
 export default function App() {
   return (
@@ -100,7 +103,10 @@ export default function App() {
         <Route path="/examinations/results" element={<ResultsPage />} />
         <Route path="/examinations/exam-branch-downloads" element={<ExamBranchDownloadsPage />} />
         <Route path="/examinations/transcripts-certificates" element={<TranscriptsCertificatesPage />} />
-        <Route path="/departments/:deptId" element={<DepartmentPage />} />
+        <Route path="/iqac" element={<IQACPage />} />
+        <Route path="/faq" element={<FAQsPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+<Route path="/departments/:deptId" element={<DepartmentPage />} />
       </Routes>
     </BrowserRouter>
   );

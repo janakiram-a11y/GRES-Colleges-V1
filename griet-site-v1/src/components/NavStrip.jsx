@@ -1,5 +1,15 @@
-﻿import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+
+function useIsDesktop() {
+  const [isDesktop, setIsDesktop] = useState(() => typeof window !== 'undefined' && window.innerWidth >= 1024);
+  useEffect(() => {
+    const handler = () => setIsDesktop(window.innerWidth >= 1024);
+    window.addEventListener('resize', handler, { passive: true });
+    return () => window.removeEventListener('resize', handler);
+  }, []);
+  return isDesktop;
+}
 
 const ROUTE_MAP = {
   // Administration
@@ -134,7 +144,6 @@ function NavItem({ name, active, dropdown, href }) {
     onMouseLeave: () => { timeoutRef.current = setTimeout(() => setOpen(false), 150); },
   };
 
-  // Standalone (no dropdown)
   if (!dropdown) {
     const cls = `${baseText} ${colorClass}`;
     return href
@@ -142,7 +151,6 @@ function NavItem({ name, active, dropdown, href }) {
       : <a href="#" className={cls}>{name}</a>;
   }
 
-  // Dropdown + clickable name link
   if (href) {
     return (
       <div ref={ref} className="relative" {...hoverHandlers}>
@@ -161,7 +169,6 @@ function NavItem({ name, active, dropdown, href }) {
     );
   }
 
-  // Dropdown only (no href)
   return (
     <div ref={ref} className="relative" {...hoverHandlers}>
       <button
@@ -176,19 +183,73 @@ function NavItem({ name, active, dropdown, href }) {
   );
 }
 
-export default function NavStrip({ college }) {
+function MobileNavItem({ name, href, dropdown }) {
+  const [expanded, setExpanded] = useState(false);
+
+  if (!dropdown) {
+    const cls = 'block px-5 py-3 font-dm-sans font-semibold text-[14px] text-white border-b border-white/10';
+    return href
+      ? <Link to={href} className={cls}>{name}</Link>
+      : <a href="#" className={cls}>{name}</a>;
+  }
+
+  return (
+    <div className="border-b border-white/10">
+      <button
+        onClick={() => setExpanded((v) => !v)}
+        className="w-full flex justify-between items-center px-5 py-3 font-dm-sans font-semibold text-[14px] text-white"
+      >
+        {name}
+        <svg
+          className={`w-4 h-4 transition-transform duration-200 shrink-0 ${expanded ? 'rotate-180' : ''}`}
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+        </svg>
+      </button>
+      {expanded && (
+        <div className="bg-black/20">
+          {dropdown.map((label) => {
+            const dHref = ROUTE_MAP[label];
+            return dHref ? (
+              <Link key={label} to={dHref} className="block px-8 py-2.5 font-dm-sans text-[13px] text-white/80 hover:text-white transition-colors">
+                {label}
+              </Link>
+            ) : (
+              <a key={label} href="#" className="block px-8 py-2.5 font-dm-sans text-[13px] text-white/80 hover:text-white transition-colors">
+                {label}
+              </a>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function NavStrip({ college, scrolled = false }) {
+  const [mobileOpen, setMobileOpen] = useState(false);
   const { pathname } = useLocation();
+  const isDesktop = useIsDesktop();
+
+  useEffect(() => { setMobileOpen(false); }, [pathname]);
+
+  const navTop = isDesktop ? (scrolled ? '77px' : '113px') : '56px';
 
   return (
     <div
-      className="w-full py-3 sticky top-[113px] z-40 border-b border-black/10"
+      className="w-full sticky z-40 relative border-b border-black/10"
       style={{
+        top: navTop,
+        transition: 'top 0.3s ease',
         '--primary': college.primaryColor,
         '--accent': college.accentColor,
         backgroundColor: college.primaryColor,
       }}
     >
-      <div className="flex justify-center items-center gap-[38px] overflow-visible">
+      {/* Desktop nav */}
+      <div className="hidden lg:flex justify-center items-center gap-[38px] overflow-visible py-3">
         {college.navLinks.map((link) => (
           <NavItem
             key={link.name}
@@ -203,6 +264,41 @@ export default function NavStrip({ college }) {
           />
         ))}
       </div>
+
+      {/* Mobile hamburger bar */}
+      <div className="lg:hidden flex justify-between items-center px-4 h-12">
+        <span className="font-dm-sans font-bold text-white text-[13px] uppercase tracking-wider">
+          Navigation
+        </span>
+        <button
+          onClick={() => setMobileOpen((v) => !v)}
+          className="text-white p-2 -mr-2"
+          aria-label="Toggle navigation menu"
+          aria-expanded={mobileOpen}
+        >
+          {mobileOpen ? (
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          )}
+        </button>
+      </div>
+
+      {/* Mobile menu drawer */}
+      {mobileOpen && (
+        <div
+          className="lg:hidden absolute top-full left-0 right-0 z-50 max-h-[65vh] overflow-y-auto shadow-xl"
+          style={{ backgroundColor: college.primaryColor }}
+        >
+          {college.navLinks.map((link) => (
+            <MobileNavItem key={link.name} {...link} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

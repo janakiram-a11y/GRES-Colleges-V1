@@ -1,4 +1,5 @@
 ﻿import { useRef, useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const BookIcon = () => (
   <svg viewBox="0 0 28 28" fill="none" className="w-7 h-7">
@@ -88,13 +89,13 @@ export default function AcademicPrograms({ college }) {
             {college.academicProgramsDesc}
           </p>
           <div className="flex flex-col gap-4 mt-2 w-full">
-            <a
-              href="/academics"
+            <Link
+              to="/admissions/programs"
               className="w-full bg-[#C32033] text-white font-dm-sans font-semibold text-[16px] leading-[22px] px-7 py-4 rounded hover:bg-[#a81b2a] transition-colors inline-block text-center"
               style={{ boxShadow: '0px 10px 15px -3px rgba(0,0,0,0.1), 0px 4px 6px -4px rgba(0,0,0,0.1)' }}
             >
               View all programs
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -121,10 +122,10 @@ export default function AcademicPrograms({ college }) {
                       <span className="font-hind font-bold text-[17px] leading-6 text-white block">{title}</span>
                       <p className="font-hind font-normal text-[13px] leading-[20px] text-[#E1D3D9] mt-1">{desc}</p>
                     </div>
-                    <a href={href || '/departments/cse'} className="flex items-center justify-end gap-1">
+                    <Link to={href || '/departments/cse'} className="flex items-center justify-end gap-1">
                       <span className="font-dm-sans font-semibold text-[13px] leading-5 text-white">Learn More</span>
                       <ChevronRight />
-                    </a>
+                    </Link>
                   </div>
                 )
               })}

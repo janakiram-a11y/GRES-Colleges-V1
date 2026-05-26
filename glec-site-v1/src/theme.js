@@ -149,7 +149,7 @@ const college = {
   heroHeading: "Shaping Tomorrow's Engineers with Excellence & Innovation",
   heroSubtext: 'Gokaraju Lailavathi Engineering College, established in 2021, is committed to providing world-class technical education. AICTE approved and affiliated with Osmania University, GLEC nurtures students into competent professionals under the Gokaraju Group legacy.',
   heroCTALabel: 'Admissions Open 2025',
-  heroCTAHref: '/admissions',
+  heroCTAHref: 'https://greit-website-brand.vercel.app/',
   heroBgImage: '/imgi_5_aboutusbanner.jpg',
 
   // ── Stats Bar ─────────────────────────────────────────────────────────────
@@ -700,7 +700,7 @@ const college = {
   ctaHeading: 'Admissions Open for 2025–26',
   ctaDesc: 'Take the first step towards a bright future. Join GLEC and shape your engineering career with world-class education, strong placement support, and a legacy of excellence.',
   ctaCTALabel: 'Apply Now',
-  ctaCTAHref: '/admissions',
+  ctaCTAHref: 'https://greit-website-brand.vercel.app/',
 
   // ── Sponsoring Body ───────────────────────────────────────────────────────
   sponsoringBody: {

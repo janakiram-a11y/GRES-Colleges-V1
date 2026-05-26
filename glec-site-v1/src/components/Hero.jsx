@@ -1,4 +1,6 @@
-﻿export default function Hero({ college }) {
+﻿import { Link } from 'react-router-dom';
+
+export default function Hero({ college }) {
   return (
     <section className="relative w-full h-[480px] md:h-[550px] lg:h-[600px] flex items-center overflow-hidden">
       {college.heroBgImage && (
@@ -35,13 +37,13 @@
             >
               {college.heroCTALabel}
             </a>
-            <a
-              href="/departments/cse"
+            <Link
+              to="/admissions/programs"
               className="bg-white text-[#5B1027] font-dm-sans font-semibold text-[16px] leading-6 px-8 py-[14px] rounded hover:bg-gray-50 transition-colors inline-block"
               style={{ boxShadow: '0px 10px 15px -3px rgba(0,0,0,0.1), 0px 4px 6px -4px rgba(0,0,0,0.1)' }}
             >
               Explore Programs
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -15,7 +15,7 @@ const college = {
   counsellingCode: 'GLWC',
   counsellingExam: 'TG EAPCET',
   logo: '/imgi_1_GLEC_Logo.png',
-  accreditationLogo: null,
+  accreditationLogo: null, // place affiliations.png in public/ to enable
   smallLogo: '/small-logo.png',
   primaryColor: '#5B1027',
   accentColor: '#C32033',
@@ -34,8 +34,6 @@ const college = {
   announcements: [
     { text: 'Deemed-to-be University – LOI Received', badge: 'NEW', isLOI: true },
     { text: 'Admissions Open for 2025–26', href: '/admissions', badge: 'NEW' },
-    { text: 'B.E. 2025-2026 admitted students regular classwork commences from 28th August 2025', href: '#', badge: 'NEW' },
-    { text: 'Faculty Recruitment — Applications Open', href: '#', badge: 'NEW' },
   ],
 
   navLinks: [

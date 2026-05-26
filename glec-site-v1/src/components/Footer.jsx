@@ -103,7 +103,7 @@ export default function Footer({ college }) {
       style={{ borderTop: `1px solid rgba(91,16,39,0.08)` }}
     >
       {/* Main content */}
-      <div className="max-w-[1320px] mx-auto px-[60px] pt-[72px] pb-[56px]">
+      <div className="max-w-[1320px] mx-auto px-4 md:px-8 lg:px-[60px] pt-[48px] md:pt-[72px] pb-[40px] md:pb-[56px]">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 mb-12">
 
           {/* Brand */}

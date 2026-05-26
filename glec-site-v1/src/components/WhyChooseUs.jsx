@@ -30,8 +30,8 @@ const featureIcons = [PhoneIcon, ShieldIcon, CapIcon, BuildingIcon]
 export default function WhyChooseUs({ college }) {
   return (
     <section className="w-full bg-white section-pad">
-      <div className="flex gap-[30px] items-start">
-        <div className="flex-1 flex flex-col gap-3 pr-8">
+      <div className="flex flex-col gap-[30px] items-start lg:flex-row">
+        <div className="flex-1 flex flex-col gap-3 lg:pr-8">
           <h2 className="font-hind font-semibold text-[28px] leading-9 lg:text-[40px] lg:leading-[48px] text-[#111827]">
             {college.aboutHeading}
           </h2>
@@ -59,21 +59,38 @@ export default function WhyChooseUs({ college }) {
           </div>
         </div>
 
-        <div className="flex-1 flex justify-end relative" style={{ minHeight: '480px' }}>
-          <div className="relative w-[585px]">
+        <div className="flex-1 flex justify-end relative lg:min-h-[480px]">
+          <div className="relative w-full lg:w-[585px]">
             <img
               src={college.aboutImage}
               alt={`${college.shortName} Campus`}
               className="w-full h-auto"
             />
             <div
-              className="absolute -left-6 -bottom-5 w-[256px] bg-white border-l-4 border-l-[#5B1027] rounded-3xl px-6 py-5"
-              style={{ boxShadow: '0px 20px 25px -5px rgba(0,0,0,0.1), 0px 8px 10px -6px rgba(0,0,0,0.1)' }}
+              className="hidden lg:block absolute -left-6 -bottom-6 w-[240px] bg-white rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1.5"
+              style={{
+                boxShadow: '0 4px 6px -1px rgba(91,16,39,0.06), 0 8px 32px -4px rgba(91,16,39,0.14)',
+                border: '1px solid rgba(91,16,39,0.08)',
+              }}
             >
-              <span className="font-hind font-bold text-[48px] leading-[48px] text-[#5B1027] block">{college.aboutYears}</span>
-              <span className="font-dm-sans font-medium text-[14px] leading-5 text-[#666666]">
-                {college.aboutYearsLabel}
-              </span>
+              {/* Gradient accent stripe */}
+              <div
+                className="h-[3px] w-full"
+                style={{ background: `linear-gradient(90deg, ${college.primaryColor}, ${college.accentColor})` }}
+              />
+              <div className="px-6 py-5">
+                {/* Stat number */}
+                <span
+                  className="font-hind font-bold text-[52px] leading-[1] block"
+                  style={{ color: college.primaryColor }}
+                >
+                  {college.aboutYears}
+                </span>
+                {/* Label */}
+                <span className="font-dm-sans font-medium text-[13px] leading-[18px] text-[#555555] mt-1.5 block">
+                  {college.aboutYearsLabel}
+                </span>
+              </div>
             </div>
           </div>
         </div>

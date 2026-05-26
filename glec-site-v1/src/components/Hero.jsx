@@ -1,6 +1,6 @@
 ﻿export default function Hero({ college }) {
   return (
-    <section className="relative w-full h-[600px] flex items-center overflow-hidden">
+    <section className="relative w-full h-[480px] md:h-[550px] lg:h-[600px] flex items-center overflow-hidden">
       {college.heroBgImage && (
         <img
           src={college.heroBgImage}
@@ -25,7 +25,7 @@
           >
             {college.heroSubtext}
           </p>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center gap-3 md:gap-4">
             <a
               href={college.heroCTAHref}
               target={college.heroCTAHref.startsWith('http') ? '_blank' : undefined}

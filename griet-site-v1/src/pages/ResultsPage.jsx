@@ -1,59 +1,66 @@
-﻿import AcademicsLayout from '../components/AcademicsLayout';
+import { useEffect } from 'react';
+import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
-const RESULT_LINKS = [
-  { label: 'B.Tech Regular / Supplementary Results',  desc: 'View semester-wise results for all B.Tech programmes' },
-  { label: 'M.Tech Regular / Supplementary Results',  desc: 'View semester-wise results for all M.Tech programmes' },
-  { label: 'Re-Valuation / Re-Counting Results',      desc: 'Results for challenge revaluation and recounting requests' },
-  { label: 'Grade Cards Download',                     desc: 'Download official grade cards for completed semesters' },
-];
+const PORTAL_URL = 'https://gradesresults.griet.in/';
 
 export default function ResultsPage() {
+  // Auto-open the results portal in a new tab as soon as this page loads
+  useEffect(() => {
+    window.open(PORTAL_URL, '_blank', 'noopener,noreferrer');
+  }, []);
+
   return (
     <AcademicsLayout title="Results">
-      <p className="font-dm-sans text-[13.5px] text-gray-600 mb-8 leading-relaxed max-w-2xl">
-        Examination results for all programmes are published on the GRIET Examination Portal.
-        Students can view results using their Hall Ticket Number and Date of Birth.
-        For queries contact{' '}
-        <a href="mailto:doe@griet.ac.in" className="font-semibold hover:underline" style={{ color: college.primaryColor }}>
-          doe@griet.ac.in
-        </a>.
-      </p>
+      <div className="flex flex-col items-center justify-center py-20 gap-6 text-center">
 
-      {/* 2×2 result cards — full width on large screens */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
-        {RESULT_LINKS.map(({ label, desc }) => (
-          <a
-            key={label}
-            href="#"
-            className="group flex flex-col gap-3 p-6 rounded-xl border border-gray-200 bg-white hover:shadow-lg hover:border-transparent transition-all"
-          >
-            <span
-              className="flex items-center justify-center w-10 h-10 rounded-full"
-              style={{ backgroundColor: `${college.primaryColor}14` }}
-            >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" style={{ color: college.primaryColor }}>
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clipRule="evenodd" />
-              </svg>
-            </span>
-            <span className="font-hind font-semibold text-[13px] group-hover:underline leading-snug" style={{ color: college.primaryColor }}>
-              {label}
-            </span>
-            <p className="font-dm-sans text-[12px] text-gray-500 leading-relaxed">{desc}</p>
+        {/* Icon */}
+        <div
+          className="w-16 h-16 rounded-full flex items-center justify-center"
+          style={{ backgroundColor: `${college.primaryColor}12` }}
+        >
+          <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" style={{ color: college.primaryColor }}>
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+            <polyline points="15 3 21 3 21 9" />
+            <line x1="10" y1="14" x2="21" y2="3" />
+          </svg>
+        </div>
+
+        <div>
+          <p className="font-hind font-bold text-[18px] mb-2" style={{ color: college.primaryColor }}>
+            Opening Results Portal
+          </p>
+          <p className="font-dm-sans text-[13px] text-gray-600 max-w-md leading-relaxed">
+            Examination results are published on the GRIET Grades & Results portal.
+            It should have opened in a new tab automatically.
+          </p>
+        </div>
+
+        <a
+          href={PORTAL_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-hind font-bold text-[13px] text-white transition-opacity hover:opacity-85"
+          style={{ backgroundColor: college.primaryColor }}
+        >
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+            <polyline points="15 3 21 3 21 9" />
+            <line x1="10" y1="14" x2="21" y2="3" />
+          </svg>
+          Open Results Portal
+        </a>
+
+        <p className="font-dm-sans text-[12px] text-gray-400">
+          If the portal did not open, click the button above.
+        </p>
+
+        {/* Contact note */}
+        <p className="font-dm-sans text-[12.5px] text-gray-500 mt-2">
+          For results-related queries contact{' '}
+          <a href="mailto:doe@griet.ac.in" className="font-semibold hover:underline" style={{ color: college.accentColor }}>
+            doe@griet.ac.in
           </a>
-        ))}
-      </div>
-
-      {/* Info note */}
-      <div className="flex items-start gap-4 p-5 rounded-xl bg-gray-50 border border-gray-200">
-        <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" style={{ color: college.primaryColor }}>
-          <circle cx="12" cy="12" r="10" /><path d="M12 16v-4M12 8h.01" />
-        </svg>
-        <p className="font-dm-sans text-[12.5px] text-gray-600 leading-relaxed">
-          <span className="font-semibold" style={{ color: college.primaryColor }}>Note: </span>
-          Results are provisional until issuance of official mark sheets. Students are advised to
-          verify their results and report discrepancies to the Examination Branch within 15 days
-          of result publication.
         </p>
       </div>
     </AcademicsLayout>

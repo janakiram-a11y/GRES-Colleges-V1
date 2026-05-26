@@ -50,8 +50,8 @@ const ROUTE_MAP = {
   'Digital Wellbeing Council': '/academics/digital-wellbeing-council',
   // Examinations
   'Gold Medals': '/examinations/gold-medals',
-  'Exam Notifications': '/examinations/exam-notifications',
-  'Results': '/examinations/results',
+  'Exam Notifications': 'http://www.exambranch.griet.ac.in/',
+  'Results': 'https://gradesresults.griet.in/',
   'Exam Branch Downloads': '/examinations/exam-branch-downloads',
   'Transcripts & Certificates': '/examinations/transcripts-certificates',
   // Research

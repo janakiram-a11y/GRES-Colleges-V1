@@ -61,8 +61,8 @@ const SEARCH_PAGES = [
   { title: 'Digital Wellbeing Council', href: '/academics/digital-wellbeing-council' },
   { title: 'Examinations', href: '/examinations' },
   { title: 'Gold Medals', href: '/examinations/gold-medals' },
-  { title: 'Exam Notifications', href: '/examinations/exam-notifications' },
-  { title: 'Results', href: '/examinations/results' },
+  { title: 'Exam Notifications', href: 'http://www.exambranch.griet.ac.in/' },
+  { title: 'Results', href: 'https://gradesresults.griet.in/' },
   { title: 'Exam Branch Downloads', href: '/examinations/exam-branch-downloads' },
   { title: 'Transcripts & Certificates', href: '/examinations/transcripts-certificates' },
   { title: 'CSE Department', href: '/departments/cse' },
@@ -118,14 +118,23 @@ function SearchBar({ college }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (results.length > 0) {
-      navigate(results[0].href);
+      const href = results[0].href;
+      if (href.startsWith('http')) {
+        window.open(href, '_blank', 'noopener,noreferrer');
+      } else {
+        navigate(href);
+      }
       setQuery('');
       setOpen(false);
     }
   };
 
   const handleSelect = (href) => {
-    navigate(href);
+    if (href.startsWith('http')) {
+      window.open(href, '_blank', 'noopener,noreferrer');
+    } else {
+      navigate(href);
+    }
     setQuery('');
     setOpen(false);
   };

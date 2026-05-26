@@ -12,7 +12,6 @@ export default function AdmissionsCTA({ college }) {
         </p>
         <div className="flex flex-wrap items-center gap-6">
           <CTAButton href={college.ctaCTAHref} size="lg" className="font-bold !py-[21px]">{college.ctaCTALabel}</CTAButton>
-          <CTAButton variant="outline" size="lg" className="font-bold !py-[21px]">{college.ctaSecondaryLabel}</CTAButton>
         </div>
       </div>
     </section>

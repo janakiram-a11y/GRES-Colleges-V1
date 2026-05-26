@@ -1,4 +1,5 @@
-﻿import AcademicsLayout from '../components/AcademicsLayout';
+import { Link } from 'react-router-dom';
+import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 const NEW_ARRIVALS = [
@@ -24,6 +25,8 @@ const DIGITAL_RESOURCES = [
   {
     label: 'OPAC',
     sub: 'Online Public Access Catalog',
+    href: 'https://griet.bestbookbuddies.com',
+    internal: false,
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="w-7 h-7">
         <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
@@ -33,6 +36,8 @@ const DIGITAL_RESOURCES = [
   {
     label: 'eBooks',
     sub: 'Digital book collection',
+    href: '/academics/library/ebooks',
+    internal: true,
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="w-7 h-7">
         <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
@@ -42,6 +47,8 @@ const DIGITAL_RESOURCES = [
   {
     label: 'eResources',
     sub: 'Online databases & journals',
+    href: '/academics/library/eresources',
+    internal: true,
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="w-7 h-7">
         <circle cx="12" cy="12" r="10" /><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
@@ -51,6 +58,8 @@ const DIGITAL_RESOURCES = [
   {
     label: 'Remote Access',
     sub: 'Access resources from anywhere',
+    href: 'https://griet.knimbus.com/user#/home',
+    internal: false,
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="w-7 h-7">
         <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" /><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
@@ -59,11 +68,38 @@ const DIGITAL_RESOURCES = [
   },
 ];
 
+// internal: true  → React Router <Link>
+// internal: false → <a target="_blank">
 const LIBRARY_LINKS = [
-  ['Library Committee 2025-26', 'Library MoM 2025-26', 'Library MoM 2023-24', 'Staff and Committee', 'Rules and Regulations', 'Other Facilities'],
-  ['Printed Journals', 'Printed Textbooks', 'E-Resources', 'E-resources Document', 'E-Books', 'Rare Books & Manuscripts'],
-  ['Online Databases', 'Automation', 'Inter-Library Network', 'Usage Statistics - E Resources', 'Users Data', 'Library Catalogue'],
-  ['Books Invoices', 'Print Journals', 'Remote Access'],
+  [
+    { label: 'Library Committee 2025-26', href: 'https://www.griet.ac.in/2025/Lib%20Committee%202025-26.pdf',  internal: false },
+    { label: 'Library MoM 2025-26',       href: 'https://www.griet.ac.in/2025/Lib%20Comm%20Meeting.pdf',       internal: false },
+    { label: 'Library MoM 2023-24',       href: 'https://www.griet.ac.in/2023/Library%20MoM%20Library%20Committee%20Meeting%20Year%202023-24.pdf', internal: false },
+    { label: 'Staff and Committee',        href: '/academics/library/staff-committee', internal: true },
+    { label: 'Rules and Regulations',      href: '/academics/library/rules',           internal: true },
+    { label: 'Other Facilities',           href: '/academics/library/other-facilities', internal: true },
+  ],
+  [
+    { label: 'Printed Journals',         href: 'https://www.griet.ac.in/2024/Printed%20Library%202023-24.pdf',            internal: false },
+    { label: 'Printed Textbooks',        href: 'https://www.griet.ac.in/2024/Printed%20textBooks%20bills%202023-24.pdf',  internal: false },
+    { label: 'E-Resources',              href: '/academics/library/eresources',          internal: true },
+    { label: 'E-resources Document',     href: '/academics/library/eresources-document', internal: true },
+    { label: 'E-Books',                  href: '/academics/library/ebooks',              internal: true },
+    { label: 'Rare Books & Manuscripts', href: '/academics/library/rare-books',          internal: true },
+  ],
+  [
+    { label: 'Online Databases',               href: '/academics/library/online-databases',    internal: true },
+    { label: 'Automation',                     href: '/academics/library/automation',           internal: true },
+    { label: 'Inter-Library Network',          href: '/academics/library/inter-library-network', internal: true },
+    { label: 'Usage Statistics - E Resources', href: '/academics/library/usage-statistics',    internal: true },
+    { label: 'Users Data',                     href: 'https://www.griet.ac.in/2023/Gate%20Register%20on%2031st%20March%2C2023.pdf', internal: false },
+    { label: 'Library Catalogue',             href: 'https://griet.bestbookbuddies.com',       internal: false },
+  ],
+  [
+    { label: 'Books Invoices', href: 'https://www.griet.ac.in/2023/Books%20Payments%20Receipts%20July%202022-June%202023.pdf', internal: false },
+    { label: 'Print Journals', href: 'https://www.griet.ac.in/2023/Print%20Journals%20(National%20and%20International)%20Payment%20Receipt%202022-23.pdf', internal: false },
+    { label: 'Remote Access',  href: 'https://griet.knimbus.com/user#/home', internal: false },
+  ],
 ];
 
 function SectionLabel({ children }) {
@@ -94,32 +130,42 @@ function BookCard({ title, author }) {
   );
 }
 
-function ResourceCard({ label, sub, icon }) {
-  return (
-    <a
-      href="#"
-      className="flex flex-col items-center justify-center text-center gap-3 p-6 rounded-xl border border-gray-200 bg-white hover:shadow-lg hover:border-transparent transition-all"
-    >
+function ResourceCard({ label, sub, icon, href, internal: isInternal }) {
+  const cls = "flex flex-col items-center justify-center text-center gap-3 p-6 rounded-xl border border-gray-200 bg-white hover:shadow-lg hover:border-transparent transition-all";
+  const inner = (
+    <>
       <span style={{ color: college.primaryColor }}>{icon}</span>
       <div>
         <p className="font-hind font-bold text-[14px]" style={{ color: college.primaryColor }}>{label}</p>
         <p className="font-dm-sans text-[11px] text-gray-400 mt-0.5">{sub}</p>
       </div>
-    </a>
+    </>
+  );
+  if (isInternal) {
+    return <Link to={href} className={cls}>{inner}</Link>;
+  }
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" className={cls}>{inner}</a>
   );
 }
 
-function LibraryLink({ label }) {
+function LibraryLink({ label, href, internal: isInternal }) {
+  const cls = "flex items-center gap-2 font-dm-sans text-[12.5px] font-medium py-1 hover:underline";
+  const icon = (
+    <svg className="w-3.5 h-3.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clipRule="evenodd" />
+    </svg>
+  );
+  if (isInternal) {
+    return (
+      <Link to={href} className={cls} style={{ color: college.primaryColor }}>
+        {icon}{label}
+      </Link>
+    );
+  }
   return (
-    <a
-      href="#"
-      className="flex items-center gap-2 font-dm-sans text-[12.5px] font-medium py-1 hover:underline"
-      style={{ color: college.primaryColor }}
-    >
-      <svg className="w-3.5 h-3.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clipRule="evenodd" />
-      </svg>
-      {label}
+    <a href={href} target="_blank" rel="noopener noreferrer" className={cls} style={{ color: college.primaryColor }}>
+      {icon}{label}
     </a>
   );
 }
@@ -153,13 +199,18 @@ export default function LibraryPage() {
               between the academic community and library staff.
             </p>
 
-            {/* e-Pustakalaya inline */}
-            <div className="mt-5 flex items-center gap-3 p-4 rounded-lg bg-gray-50 border border-gray-200 w-fit">
+            {/* e-Pustakalaya */}
+            <a
+              href="https://ndl.education.gov.in/home"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 flex items-center gap-3 p-4 rounded-lg bg-gray-50 border border-gray-200 w-fit hover:shadow-md hover:border-transparent transition-all"
+            >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="w-6 h-6 flex-shrink-0" style={{ color: college.primaryColor }}>
                 <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
               </svg>
               <span className="font-dm-sans font-semibold text-[13px] text-gray-700">Rashtriya e-Pustakalaya</span>
-            </div>
+            </a>
           </div>
 
           {/* Timings */}
@@ -210,7 +261,9 @@ export default function LibraryPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-1 p-6 rounded-xl bg-gray-50 border border-gray-200">
           {LIBRARY_LINKS.map((col, ci) => (
             <div key={ci} className="flex flex-col gap-0.5">
-              {col.map((label) => <LibraryLink key={label} label={label} />)}
+              {col.map(({ label, href, internal }) => (
+                <LibraryLink key={label} label={label} href={href} internal={internal} />
+              ))}
             </div>
           ))}
         </div>
@@ -219,7 +272,9 @@ export default function LibraryPage() {
       {/* ── AICTE ── */}
       <div className="text-center pt-4 border-t border-gray-200">
         <a
-          href="#"
+          href="https://www.griet.ac.in/images2/AICTE_rec_books.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
           className="font-dm-sans text-[13px] font-medium underline hover:opacity-75"
           style={{ color: college.primaryColor }}
         >

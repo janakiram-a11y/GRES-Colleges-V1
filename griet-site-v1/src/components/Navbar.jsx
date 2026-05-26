@@ -14,7 +14,7 @@ function useIsDesktop() {
 
 const QUICK_NAV_LINKS = [
   { label: 'College Diary', href: '/academics/college-diary', external: false },
-  { label: 'QR-Codes', href: 'https://www.griet.ac.in/qr_code.php', external: true },
+  { label: 'QR-Codes', href: '/QR.pdf', external: true },
   { label: 'ECAP', href: 'http://www.webprosindia.com/Gokaraju', external: true },
   { label: 'GCAP', href: 'http://www.griet.in/gcap/greviance-login.php', external: true },
   { label: 'FAQs', href: '/faq', external: false },
@@ -87,7 +87,11 @@ const SEARCH_PAGES = [
   { title: 'Contact Us', href: '/contact' },
   { title: 'Alumni', href: '/alumni' },
   { title: 'Careers', href: '/careers' },
-  { title: 'Student Portal', href: '/student-portal' },
+  { title: 'NIRF', href: '/nirf' },
+  { title: 'NIRF Rankings', href: '/nirf' },
+  { title: 'Mandatory Disclosures', href: '/mandatory-disclosures' },
+  { title: 'NSS', href: '/nss' },
+  { title: 'National Service Scheme', href: '/nss' },
 ];
 
 function SearchBar({ college }) {

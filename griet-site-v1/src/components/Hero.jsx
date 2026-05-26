@@ -1,4 +1,5 @@
-﻿import CTAButton from './CTAButton';
+﻿import { Link } from 'react-router-dom';
+import CTAButton from './CTAButton';
 
 export default function Hero({ college }) {
   return (
@@ -28,13 +29,13 @@ export default function Hero({ college }) {
           </p>
           <div className="flex flex-wrap items-center gap-4">
             <CTAButton href={college.heroCTAHref}>{college.heroCTALabel}</CTAButton>
-            <a
-              href={college.heroExploreProgramsHref || '/admissions/programmes'}
+            <Link
+              to={college.heroExploreProgramsHref || '/admissions/programmes'}
               className="bg-white text-[#5B1027] font-dm-sans font-semibold text-[16px] leading-6 px-8 py-[14px] rounded hover:bg-gray-50 transition-colors inline-block"
               style={{ boxShadow: '0px 10px 15px -3px rgba(0,0,0,0.1), 0px 4px 6px -4px rgba(0,0,0,0.1)' }}
             >
               Explore Programs
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -59,16 +59,37 @@ const ROUTE_MAP = {
   'Consultancy': '/research#consultancy',
   'Patents': '/research#patents',
   'Publications': '/research#publications',
-  'MOUs': '/research#mous',
+  'MOUs': '/mous',
   'Innovation Awards': '/research#innovation',
-  'PhD Programmes': '/research#phd',
-  'Conferences': '/research#conferences',
+  'PhD Programmes': '/phd-faculty',
+  'Conferences': '/conferences',
+  'Journals': '/journals',
   // Placements
   'Placement Overview': '/placements',
   'Placements 2025': '/placements',
   'Placements 2024': '/placements',
   'Placements 2023': '/placements',
   'Contact Placements Cell': '/placements',
+  // Moodle (external)
+  'Moodle': 'http://moodle.griet.ac.in/',
+  // Academics extras
+  'Internships': '/internships',
+  'Value Added Programs': '/value-added-programs',
+  'Professional Associations': '/professional-associations',
+  'Central Facilities': '/central-facilities',
+  // Administration extras
+  'Anti-Ragging': '/anti-ragging',
+  'Accreditations': '/accreditations',
+  'Honours & Awards': '/honours-awards',
+  'DTBU': '/dtbu',
+  'Margdarshan': '/margdarshan',
+  // Campus
+  'Sports & Games': '/sports',
+  'Transport': '/transport',
+  'Infrastructure': '/infrastructure',
+  'Support Services': '/support-services',
+  // Standalone
+  'Careers': '/careers',
   // Departments
   'Electronics and Communication Engineering': '/departments/ece',
   'Computer Science and Engineering': '/departments/cse',
@@ -87,6 +108,9 @@ function DropdownItem({ label }) {
   const className =
     'block px-4 py-2 text-[13px] font-dm-sans font-medium whitespace-nowrap transition-colors border-b border-black/10 last:border-b-0 [color:var(--primary)] hover:[color:var(--accent)]';
   if (href) {
+    if (href.startsWith('http')) {
+      return <a href={href} target="_blank" rel="noopener noreferrer" className={className}>{label}</a>;
+    }
     return <Link to={href} className={className}>{label}</Link>;
   }
   return <a href="#" className={className}>{label}</a>;
@@ -212,15 +236,14 @@ function MobileNavItem({ name, href, dropdown }) {
         <div className="bg-black/20">
           {dropdown.map((label) => {
             const dHref = ROUTE_MAP[label];
-            return dHref ? (
-              <Link key={label} to={dHref} className="block px-8 py-2.5 font-dm-sans text-[13px] text-white/80 hover:text-white transition-colors">
-                {label}
-              </Link>
-            ) : (
-              <a key={label} href="#" className="block px-8 py-2.5 font-dm-sans text-[13px] text-white/80 hover:text-white transition-colors">
-                {label}
-              </a>
-            );
+            const mobileCls = 'block px-8 py-2.5 font-dm-sans text-[13px] text-white/80 hover:text-white transition-colors';
+            if (dHref) {
+              if (dHref.startsWith('http')) {
+                return <a key={label} href={dHref} target="_blank" rel="noopener noreferrer" className={mobileCls}>{label}</a>;
+              }
+              return <Link key={label} to={dHref} className={mobileCls}>{label}</Link>;
+            }
+            return <a key={label} href="#" className={mobileCls}>{label}</a>;
           })}
         </div>
       )}

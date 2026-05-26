@@ -2,6 +2,7 @@ import college from '../theme';
 import CollegeLayout from '../CollegeLayout';
 import Hero from '../components/Hero';
 import StatsBar from '../components/StatsBar';
+import BottomQuickLinksBar from '../components/BottomQuickLinksBar';
 import WhyChooseUs from '../components/WhyChooseUs';
 import AccreditationSection from '../components/AccreditationSection';
 import AcademicPrograms from '../components/AcademicPrograms';
@@ -14,8 +15,9 @@ export default function GrietPage() {
   return (
     <CollegeLayout college={college}>
       <Hero college={college} />
-      <StatsBar college={college} />
+      <BottomQuickLinksBar college={college} />
       <WhyChooseUs college={college} />
+      <StatsBar college={college} variant="dark" />
       <AccreditationSection college={college} />
       <AcademicPrograms college={college} />
       <CareerOutcomes college={college} />

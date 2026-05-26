@@ -41,12 +41,18 @@ const EmailIcon = () => (
   </svg>
 );
 
-const socialList = [
-  { Icon: TwitterIcon, label: 'Twitter' },
-  { Icon: LinkedInIcon, label: 'LinkedIn' },
-  { Icon: InstagramIcon, label: 'Instagram' },
-  { Icon: FacebookIcon, label: 'Facebook' },
-];
+const SOCIAL_ICONS = {
+  Twitter: TwitterIcon,
+  LinkedIn: LinkedInIcon,
+  Instagram: InstagramIcon,
+  Facebook: FacebookIcon,
+  YouTube: () => (
+    <svg viewBox="0 0 20 20" fill="none" className="w-4 h-4" stroke="currentColor" strokeWidth="1.5">
+      <rect x="1" y="4" width="18" height="13" rx="3" />
+      <path d="M8 8l5 3-5 3V8z" fill="currentColor" stroke="none" />
+    </svg>
+  ),
+};
 
 function ColHeading({ college, children }) {
   return (
@@ -110,27 +116,33 @@ export default function Footer({ college }) {
               {college.fullName}. {college.tagline}
             </p>
             <div className="flex items-center gap-2 mt-1">
-              {socialList.map(({ Icon, label }) => (
-                <a
-                  key={label}
-                  href="#"
-                  aria-label={label}
-                  className="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200"
-                  style={{ border: '1px solid rgba(91,16,39,0.12)', color: '#222222', backgroundColor: 'transparent' }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = college.accentColor;
-                    e.currentTarget.style.color = college.accentColor;
-                    e.currentTarget.style.backgroundColor = 'rgba(195,32,51,0.06)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(91,16,39,0.12)';
-                    e.currentTarget.style.color = '#222222';
-                    e.currentTarget.style.backgroundColor = 'transparent';
-                  }}
-                >
-                  <Icon />
-                </a>
-              ))}
+              {(college.socialLinks || []).map(({ label, href }) => {
+                const Icon = SOCIAL_ICONS[label];
+                if (!Icon) return null;
+                return (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200"
+                    style={{ border: '1px solid rgba(91,16,39,0.12)', color: '#222222', backgroundColor: 'transparent' }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = college.accentColor;
+                      e.currentTarget.style.color = college.accentColor;
+                      e.currentTarget.style.backgroundColor = 'rgba(195,32,51,0.06)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = 'rgba(91,16,39,0.12)';
+                      e.currentTarget.style.color = '#222222';
+                      e.currentTarget.style.backgroundColor = 'transparent';
+                    }}
+                  >
+                    <Icon />
+                  </a>
+                );
+              })}
             </div>
           </div>
 

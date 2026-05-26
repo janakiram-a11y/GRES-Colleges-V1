@@ -36,7 +36,6 @@ export default function AcademicPrograms({ college }) {
           </p>
           <div className="flex flex-wrap items-center gap-4 mt-2">
             <CTAButton href="/admissions/programmes" size="lg">View all programs</CTAButton>
-            <CTAButton variant="outline" size="lg">Download Brochure</CTAButton>
           </div>
         </div>
 

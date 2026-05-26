@@ -1,6 +1,47 @@
-﻿export default function StatsBar({ college }) {
-  const items = college.statsBarItems
+/**
+ * StatsBar
+ *
+ * variant="light" (default) — original beige hero strip  (used previously after Hero)
+ * variant="dark"            — compact dark-maroon divider (used mid-page, after WhyChooseUs)
+ */
+export default function StatsBar({ college, variant = 'light' }) {
+  const items = college.statsBarItems;
 
+  /* ── Dark mid-page variant ─────────────────────────────────────── */
+  if (variant === 'dark') {
+    return (
+      <div
+        className="w-full"
+        style={{ backgroundColor: college.primaryColor }}
+      >
+        <div className="max-w-[1320px] mx-auto px-4 md:px-8 lg:px-[60px]">
+          <div className="flex justify-center items-stretch flex-wrap divide-x divide-white/10">
+            {items.map((item) => (
+              <div
+                key={item}
+                className="flex items-center px-6 md:px-10 lg:px-14 py-4"
+              >
+                <div className="flex items-center gap-3">
+                  <span
+                    className="w-[2px] h-[16px] rounded-full flex-shrink-0 opacity-60"
+                    style={{ backgroundColor: college.softAccent }}
+                  />
+                  <span
+                    className="font-hind font-semibold text-[13.5px] leading-5 tracking-wider whitespace-nowrap uppercase"
+                    style={{ color: college.softAccent }}
+                  >
+                    {item}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  /* ── Light hero variant (original) ───────────────────────────── */
   return (
     <div
       className="w-full py-[40px]"
@@ -34,5 +75,5 @@
         ))}
       </div>
     </div>
-  )
+  );
 }

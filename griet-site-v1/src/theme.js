@@ -31,7 +31,7 @@ const college = {
     {
       name: 'Administration',
       href: '/administration',
-      dropdown: ['Management', 'Governing Body', 'Academic Council', 'Director', 'Principal', 'Deans', 'HODs', 'GRIET Strategic Plan', 'BOS', 'Finance Committee', 'Coordinators & Committees', 'IDMC', 'IIC', 'Anti-Sexual Harassment Cell', "Women's Development Cell", 'Organization Chart', 'Annual Reports', 'GRIET Skill Series'],
+      dropdown: ['Management', 'Governing Body', 'Academic Council', 'Director', 'Principal', 'Deans', 'HODs', 'GRIET Strategic Plan', 'BOS', 'Finance Committee', 'Coordinators & Committees', 'IDMC', 'IIC', 'Anti-Sexual Harassment Cell', "Women's Development Cell", 'Organization Chart', 'Annual Reports', 'GRIET Skill Series', 'Accreditations', 'Honours & Awards', 'Anti-Ragging', 'DTBU', 'Margdarshan'],
     },
     {
       name: 'Admissions',
@@ -41,7 +41,7 @@ const college = {
     {
       name: 'Academics',
       href: '/academics',
-      dropdown: ['Regulations', 'Syllabus', 'Academic Calendar', 'Library', 'Scholarships', 'Endowment Awards', 'Moodle', 'Diary 24–25', 'Finishing School', 'Code of Conduct for Students', 'Digital Wellbeing Council'],
+      dropdown: ['Regulations', 'Syllabus', 'Academic Calendar', 'Library', 'Scholarships', 'Endowment Awards', 'Moodle', 'Diary 24–25', 'Finishing School', 'Code of Conduct for Students', 'Digital Wellbeing Council', 'Internships', 'Value Added Programs', 'Professional Associations', 'Central Facilities'],
     },
     {
       name: 'Examinations',
@@ -56,7 +56,7 @@ const college = {
     {
       name: 'Research',
       href: '/research',
-      dropdown: ['Research Projects', 'Consultancy', 'Patents', 'Publications', 'MOUs', 'Innovation Awards', 'PhD Programmes', 'Conferences'],
+      dropdown: ['Research Projects', 'Consultancy', 'Patents', 'Publications', 'MOUs', 'Innovation Awards', 'PhD Programmes', 'Conferences', 'Journals'],
     },
     {
       name: 'Placements',
@@ -65,18 +65,35 @@ const college = {
     },
   ],
   quickLinks: [
-    { label: 'About Us', href: '/about' },
+    { label: 'About GRIET', href: '/about' },
     { label: 'Academic Programs', href: '/admissions/programmes' },
     { label: 'Admissions 2025', href: '/admissions' },
+    { label: 'Fee Structure', href: '/admissions/fee-structure' },
+    { label: 'Scholarships', href: '/admissions/scholarships' },
     { label: 'Placements', href: '/placements' },
-    { label: 'Faculty Directory', href: '/academics' },
+    { label: 'Rankings & Accreditations', href: '/rankings' },
+    { label: 'Research', href: '/research' },
+    { label: 'Departments', href: '/departments/cse' },
+    { label: 'Contact Us', href: '/contact' },
   ],
   resources: [
     { label: 'Student Portal', href: 'https://greit-login-portal.vercel.app/' },
-    { label: 'Alumni Network', href: '#' },
-    { label: 'Library', href: '/academics/library' },
-    { label: 'Research Publications', href: '/research' },
-    { label: 'Campus Map', href: '#' },
+    { label: 'Library & e-Resources', href: '/academics/library' },
+    { label: 'Moodle LMS', href: 'http://moodle.griet.ac.in/' },
+    { label: 'OPAC (Library Catalogue)', href: 'https://griet.bestbookbuddies.com' },
+    { label: 'Exam Notifications', href: '/examinations/exam-notifications' },
+    { label: 'Results', href: '/examinations/results' },
+    { label: 'Anti-Ragging Cell', href: '/anti-ragging' },
+    { label: 'IQAC', href: '/iqac' },
+    { label: 'FAQs', href: '/faq' },
+    { label: 'Careers at GRIET', href: '/careers' },
+  ],
+  socialLinks: [
+    { label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61567249664086' },
+    { label: 'Instagram', href: 'https://www.instagram.com/griet_engineering_college' },
+    { label: 'Twitter', href: 'https://x.com/GRIET_Engg_Inst' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/griet-engineering-college-19632a273/' },
+    { label: 'YouTube', href: 'https://www.youtube.com/channel/UCjSaY5jWUAqMjJY6-u661Ew' },
   ],
 
   heroHeading: 'Empowering Innovation, Excellence & Future Leaders',

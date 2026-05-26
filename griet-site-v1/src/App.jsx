@@ -35,6 +35,17 @@ import RegulationsPage from './pages/RegulationsPage';
 import SyllabusPage from './pages/SyllabusPage';
 import AcademicCalendarPage from './pages/AcademicCalendarPage';
 import LibraryPage from './pages/LibraryPage';
+import LibraryEBooksPage from './pages/LibraryEBooksPage';
+import LibraryEResourcesPage from './pages/LibraryEResourcesPage';
+import LibraryStaffCommitteePage from './pages/LibraryStaffCommitteePage';
+import LibraryRulesPage from './pages/LibraryRulesPage';
+import LibraryOtherFacilitiesPage from './pages/LibraryOtherFacilitiesPage';
+import LibraryEResourcesDocPage from './pages/LibraryEResourcesDocPage';
+import LibraryRareBooksPage from './pages/LibraryRareBooksPage';
+import LibraryOnlineDatabasesPage from './pages/LibraryOnlineDatabasesPage';
+import LibraryAutomationPage from './pages/LibraryAutomationPage';
+import LibraryInterLibraryNetworkPage from './pages/LibraryInterLibraryNetworkPage';
+import LibraryUsageStatisticsPage from './pages/LibraryUsageStatisticsPage';
 import CodeOfConductPage from './pages/CodeOfConductPage';
 import CollegeDiaryPage from './pages/CollegeDiaryPage';
 import EndowmentAwardsPage from './pages/EndowmentAwardsPage';
@@ -49,6 +60,29 @@ import TranscriptsCertificatesPage from './pages/TranscriptsCertificatesPage';
 import IQACPage from './pages/IQACPage';
 import FAQsPage from './pages/FAQsPage';
 import ContactPage from './pages/ContactPage';
+import AccreditationsPage from './pages/AccreditationsPage';
+import HonoursAwardsPage from './pages/HonoursAwardsPage';
+import AntiRaggingPage from './pages/AntiRaggingPage';
+import MOUsPage from './pages/MOUsPage';
+import ConferencesPage from './pages/ConferencesPage';
+import SportsPage from './pages/SportsPage';
+import TransportPage from './pages/TransportPage';
+import InfrastructurePage from './pages/InfrastructurePage';
+import SupportServicesPage from './pages/SupportServicesPage';
+import ProfessionalAssociationsPage from './pages/ProfessionalAssociationsPage';
+import InternshipsPage from './pages/InternshipsPage';
+import ValueAddedProgramsPage from './pages/ValueAddedProgramsPage';
+import JournalsPage from './pages/JournalsPage';
+import PhDFacultyPage from './pages/PhDFacultyPage';
+import CentralFacilitiesPage from './pages/CentralFacilitiesPage';
+import DTBUPage from './pages/DTBUPage';
+import MargdarshanPage from './pages/MargdarshanPage';
+import CareersPage from './pages/CareersPage';
+import EDCPage from './pages/EDCPage';
+import AlumniPage from './pages/AlumniPage';
+import MandatoryDisclosuresPage from './pages/MandatoryDisclosuresPage';
+import NSSPage from './pages/NSSPage';
+import NIRFPage from './pages/NIRFPage';
 
 export default function App() {
   return (
@@ -92,6 +126,17 @@ export default function App() {
         <Route path="/academics/syllabus" element={<SyllabusPage />} />
         <Route path="/academics/academic-calendar" element={<AcademicCalendarPage />} />
         <Route path="/academics/library" element={<LibraryPage />} />
+        <Route path="/academics/library/ebooks" element={<LibraryEBooksPage />} />
+        <Route path="/academics/library/eresources" element={<LibraryEResourcesPage />} />
+        <Route path="/academics/library/staff-committee" element={<LibraryStaffCommitteePage />} />
+        <Route path="/academics/library/rules" element={<LibraryRulesPage />} />
+        <Route path="/academics/library/other-facilities" element={<LibraryOtherFacilitiesPage />} />
+        <Route path="/academics/library/eresources-document" element={<LibraryEResourcesDocPage />} />
+        <Route path="/academics/library/rare-books" element={<LibraryRareBooksPage />} />
+        <Route path="/academics/library/online-databases" element={<LibraryOnlineDatabasesPage />} />
+        <Route path="/academics/library/automation" element={<LibraryAutomationPage />} />
+        <Route path="/academics/library/inter-library-network" element={<LibraryInterLibraryNetworkPage />} />
+        <Route path="/academics/library/usage-statistics" element={<LibraryUsageStatisticsPage />} />
         <Route path="/academics/code-of-conduct" element={<CodeOfConductPage />} />
         <Route path="/academics/college-diary" element={<CollegeDiaryPage />} />
         <Route path="/academics/endowment-awards" element={<EndowmentAwardsPage />} />
@@ -106,7 +151,30 @@ export default function App() {
         <Route path="/iqac" element={<IQACPage />} />
         <Route path="/faq" element={<FAQsPage />} />
         <Route path="/contact" element={<ContactPage />} />
-<Route path="/departments/:deptId" element={<DepartmentPage />} />
+        <Route path="/accreditations" element={<AccreditationsPage />} />
+        <Route path="/honours-awards" element={<HonoursAwardsPage />} />
+        <Route path="/anti-ragging" element={<AntiRaggingPage />} />
+        <Route path="/mous" element={<MOUsPage />} />
+        <Route path="/conferences" element={<ConferencesPage />} />
+        <Route path="/sports" element={<SportsPage />} />
+        <Route path="/transport" element={<TransportPage />} />
+        <Route path="/infrastructure" element={<InfrastructurePage />} />
+        <Route path="/support-services" element={<SupportServicesPage />} />
+        <Route path="/professional-associations" element={<ProfessionalAssociationsPage />} />
+        <Route path="/internships" element={<InternshipsPage />} />
+        <Route path="/value-added-programs" element={<ValueAddedProgramsPage />} />
+        <Route path="/journals" element={<JournalsPage />} />
+        <Route path="/phd-faculty" element={<PhDFacultyPage />} />
+        <Route path="/central-facilities" element={<CentralFacilitiesPage />} />
+        <Route path="/dtbu" element={<DTBUPage />} />
+        <Route path="/margdarshan" element={<MargdarshanPage />} />
+        <Route path="/careers" element={<CareersPage />} />
+        <Route path="/edc" element={<EDCPage />} />
+        <Route path="/alumni" element={<AlumniPage />} />
+        <Route path="/mandatory-disclosures" element={<MandatoryDisclosuresPage />} />
+        <Route path="/nss" element={<NSSPage />} />
+        <Route path="/nirf" element={<NIRFPage />} />
+        <Route path="/departments/:deptId" element={<DepartmentPage />} />
       </Routes>
     </BrowserRouter>
   );

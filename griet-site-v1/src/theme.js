@@ -61,7 +61,6 @@ const college = {
     {
       name: 'Placements',
       href: '/placements',
-      dropdown: ['Placement Overview', 'Placements 2025', 'Placements 2024', 'Placements 2023', 'Contact Placements Cell'],
     },
   ],
   quickLinks: [

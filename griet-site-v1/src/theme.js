@@ -63,8 +63,6 @@ const college = {
       href: '/placements',
       dropdown: ['Placement Overview', 'Placements 2025', 'Placements 2024', 'Placements 2023', 'Contact Placements Cell'],
     },
-    { name: 'IQAC', href: '/iqac' },
-    { name: 'FAQs', href: '/faq' },
   ],
   quickLinks: [
     { label: 'About Us', href: '/about' },

@@ -98,7 +98,7 @@ const college = {
   heroHeading: 'Empowering Innovation, Excellence & Future Leaders',
   heroSubtext: 'For over two decades, Gokaraju Rangaraju Institute of Engineering & Technology has been shaping bright minds into industry-ready professionals, innovators, and responsible leaders. With world-class academics, vibrant campus life, and strong placements, GRIET prepares students for a global future.',
   heroCTALabel: 'Admissions Open 2025',
-  heroCTAHref: 'https://greit-login-portal.vercel.app/',
+  heroCTAHref: 'https://greit-website-brand.vercel.app/',
   heroBgImage: '/imgi_5_aboutusbanner.jpg',
 
   statsBarItems: ['NAAC A++ Accredited', 'NBA Accredited Programs', '900+ Recruiters', '44 LPA Highest Package'],
@@ -177,7 +177,7 @@ const college = {
   ctaHeading: 'Admissions Open for 2025–26',
   ctaDesc: 'Take the first step towards a bright future. Join GRIET and shape your career with world-class education.',
   ctaCTALabel: 'Apply Now',
-  ctaCTAHref: 'https://greit-login-portal.vercel.app/',
+  ctaCTAHref: 'https://greit-website-brand.vercel.app/',
   ctaSecondaryLabel: 'Download Brochure',
 
   aboutPageBannerImage: '/imgi_5_aboutusbanner.jpg',

@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import GrietPage from './pages/GrietPage';
-import DepartmentPage from './pages/DepartmentPage';
 import AboutPage from './pages/AboutPage';
 import AdministrationPage from './pages/AdministrationPage';
 import AdminGoverningBodyPage from './pages/AdminGoverningBodyPage';
@@ -83,6 +82,36 @@ import AlumniPage from './pages/AlumniPage';
 import MandatoryDisclosuresPage from './pages/MandatoryDisclosuresPage';
 import NSSPage from './pages/NSSPage';
 import NIRFPage from './pages/NIRFPage';
+import TASKPage from './pages/TASKPage';
+import CLSPage from './pages/CLSPage';
+import WellnessCenterPage from './pages/WellnessCenterPage';
+import DistinctivenessPage from './pages/DistinctivenessPage';
+import BestPracticesPage from './pages/BestPracticesPage';
+import AccessibilityPage from './pages/AccessibilityPage';
+import AnnualDayPage from './pages/AnnualDayPage';
+import GraduationDayPage from './pages/GraduationDayPage';
+import StaffPublicationsPage from './pages/StaffPublicationsPage';
+import TEQIPPage from './pages/TEQIPPage';
+import InnovationAwardsPage from './pages/InnovationAwardsPage';
+import PatentsPage from './pages/PatentsPage';
+import StudentWelfareCommitteePage from './pages/StudentWelfareCommitteePage';
+import ExtraCurricularPage from './pages/ExtraCurricularPage';
+import StudentClubsPage from './pages/StudentClubsPage';
+import RoboticsClubPage from './pages/RoboticsClubPage';
+import FSFPage from './pages/FSFPage';
+import GEMMagazinePage from './pages/GEMMagazinePage';
+import FlavoursPage from './pages/FlavoursPage';
+import QuizzicalsPage from './pages/QuizzicalsPage';
+import SkillPlusPage from './pages/SkillPlusPage';
+import ScientificForestepPage from './pages/ScientificForestepPage';
+import VirtualTourPage from './pages/VirtualTourPage';
+import JLabPage from './pages/JLabPage';
+import ICTPage from './pages/ICTPage';
+import SwayamPrabhaPage from './pages/SwayamPrabhaPage';
+import StreetCausePage from './pages/StreetCausePage';
+import CareerGuidancePage from './pages/CareerGuidancePage';
+import TechInnovationCellPage from './pages/TechInnovationCellPage';
+import RetrievePage from './pages/RetrievePage';
 
 export default function App() {
   return (
@@ -174,7 +203,38 @@ export default function App() {
         <Route path="/mandatory-disclosures" element={<MandatoryDisclosuresPage />} />
         <Route path="/nss" element={<NSSPage />} />
         <Route path="/nirf" element={<NIRFPage />} />
-        <Route path="/departments/:deptId" element={<DepartmentPage />} />
+
+        {/* New routes */}
+        <Route path="/task" element={<TASKPage />} />
+        <Route path="/cls" element={<CLSPage />} />
+        <Route path="/wellness-center" element={<WellnessCenterPage />} />
+        <Route path="/distinctiveness" element={<DistinctivenessPage />} />
+        <Route path="/best-practices" element={<BestPracticesPage />} />
+        <Route path="/accessibility" element={<AccessibilityPage />} />
+        <Route path="/annual-day" element={<AnnualDayPage />} />
+        <Route path="/graduation-day" element={<GraduationDayPage />} />
+        <Route path="/research/publications" element={<StaffPublicationsPage />} />
+        <Route path="/research/teqip" element={<TEQIPPage />} />
+        <Route path="/research/patents" element={<PatentsPage />} />
+        <Route path="/research/innovation-awards" element={<InnovationAwardsPage />} />
+        <Route path="/student-welfare-committee" element={<StudentWelfareCommitteePage />} />
+        <Route path="/extracurricular" element={<ExtraCurricularPage />} />
+        <Route path="/clubs" element={<StudentClubsPage />} />
+        <Route path="/clubs/robotics" element={<RoboticsClubPage />} />
+        <Route path="/clubs/fsf" element={<FSFPage />} />
+        <Route path="/clubs/gem-magazine" element={<GEMMagazinePage />} />
+        <Route path="/clubs/flavours" element={<FlavoursPage />} />
+        <Route path="/clubs/quizzicals" element={<QuizzicalsPage />} />
+        <Route path="/skill-plus" element={<SkillPlusPage />} />
+        <Route path="/clubs/scientific-forestep" element={<ScientificForestepPage />} />
+        <Route path="/virtual-tour" element={<VirtualTourPage />} />
+        <Route path="/j-lab" element={<JLabPage />} />
+        <Route path="/ict" element={<ICTPage />} />
+        <Route path="/swayam-prabha" element={<SwayamPrabhaPage />} />
+        <Route path="/street-cause" element={<StreetCausePage />} />
+        <Route path="/career-guidance" element={<CareerGuidancePage />} />
+        <Route path="/technology-innovation-cell" element={<TechInnovationCellPage />} />
+        <Route path="/clubs/retrieve" element={<RetrievePage />} />
       </Routes>
     </BrowserRouter>
   );

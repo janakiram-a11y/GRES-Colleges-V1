@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import AnnouncementBar from './components/AnnouncementBar';
 import Navbar from './components/Navbar';
 import NavStrip from './components/NavStrip';
 import Footer from './components/Footer';
@@ -21,7 +20,6 @@ export default function CollegeLayout({ college, children }) {
         '--college-accent': college.accentColor,
       }}
     >
-      <AnnouncementBar college={college} />
       <Navbar college={college} scrolled={scrolled} />
       <NavStrip college={college} scrolled={scrolled} />
       {children}

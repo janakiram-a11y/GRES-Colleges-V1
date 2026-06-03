@@ -49,12 +49,12 @@ export default function AdminPrincipalPage() {
           <div className="h-2 w-full" style={{ backgroundColor: college.primaryColor }} />
           <div className="p-6 md:p-8">
             <div className="flex flex-col sm:flex-row gap-6 items-start">
-              <div
-                className="w-24 h-24 rounded-full flex items-center justify-center text-white font-hind font-bold text-4xl flex-shrink-0"
-                style={{ backgroundColor: college.primaryColor }}
-              >
-                J
-              </div>
+              <img
+                src="https://www.griet.ac.in/images/j_praveen_griet.jpg"
+                alt="Dr. J Praveen — Principal, GRIET"
+                className="w-24 h-24 rounded-full object-cover flex-shrink-0 border-2"
+                style={{ borderColor: college.primaryColor }}
+              />
               <div>
                 <h3 className="font-hind font-bold text-[22px] leading-snug" style={{ color: college.primaryColor }}>
                   Dr. J Praveen

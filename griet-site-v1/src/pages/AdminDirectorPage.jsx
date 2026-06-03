@@ -23,14 +23,6 @@ function InfoRow({ label, value }) {
   );
 }
 
-const highlights = [
-  { icon: '🎓', label: 'B.Tech', value: 'Mechanical Engineering, IIT Madras' },
-  { icon: '🎓', label: 'Ph.D.', value: 'Thermal Power Engineering, Cranfield Institute of Technology, UK' },
-  { icon: '✈️', label: 'Military Service', value: 'Wing Commander, Indian Air Force (25+ years)' },
-  { icon: '📅', label: 'Joined GRIET', value: 'Professor, Mechanical Engineering' },
-  { icon: '🏛️', label: 'Principal', value: 'Assumed Principal role in 2004' },
-  { icon: '🏛️', label: 'Director', value: 'Assumed Directorship on January 31, 2018' },
-];
 
 const achievements = [
   'Served in IAF Maintenance Branch covering operations, overhaul, and training at multiple levels',
@@ -53,12 +45,12 @@ export default function AdminDirectorPage() {
           <div className="h-2 w-full" style={{ backgroundColor: college.primaryColor }} />
           <div className="p-6 md:p-8">
             <div className="flex flex-col sm:flex-row gap-6 items-start">
-              <div
-                className="w-24 h-24 rounded-full flex items-center justify-center text-white font-hind font-bold text-4xl flex-shrink-0"
-                style={{ backgroundColor: college.primaryColor }}
-              >
-                J
-              </div>
+              <img
+                src="https://www.griet.ac.in/images/jandhyalanmurthy.jpg"
+                alt="Dr. Jandhyala N Murthy — Director, GRIET"
+                className="w-24 h-24 rounded-full object-cover flex-shrink-0 border-2"
+                style={{ borderColor: college.primaryColor }}
+              />
               <div>
                 <h3 className="font-hind font-bold text-[22px] leading-snug" style={{ color: college.primaryColor }}>
                   Dr. Jandhyala N Murthy
@@ -82,23 +74,6 @@ export default function AdminDirectorPage() {
           </div>
         </div>
 
-        {/* Career highlights grid */}
-        <section>
-          <h3 className="font-hind font-bold text-[17px] mb-4" style={{ color: college.primaryColor }}>
-            Career Highlights
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {highlights.map(({ icon, label, value }) => (
-              <div key={label} className="bg-[#F6F1F2] rounded-lg p-4 border border-gray-200">
-                <div className="text-2xl mb-2">{icon}</div>
-                <p className="font-hind font-semibold text-[12px] uppercase tracking-wide mb-1" style={{ color: college.accentColor }}>
-                  {label}
-                </p>
-                <p className="font-dm-sans text-[13px] text-gray-700">{value}</p>
-              </div>
-            ))}
-          </div>
-        </section>
 
         {/* Key Achievements */}
         <section>

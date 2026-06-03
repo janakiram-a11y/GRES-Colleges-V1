@@ -12,18 +12,27 @@ function SectionHeading({ children }) {
   );
 }
 
-function LeaderCard({ name, role, qualification, desc, badge }) {
+function LeaderCard({ name, role, qualification, desc, badge, photo }) {
   return (
     <div className="bg-white rounded-lg border border-black/10 shadow-sm overflow-hidden">
       <div className="h-2 w-full" style={{ backgroundColor: college.primaryColor }} />
       <div className="p-6">
         <div className="flex items-start gap-5">
-          <div
-            className="w-16 h-16 rounded-full flex items-center justify-center text-white font-hind font-bold text-2xl flex-shrink-0"
-            style={{ backgroundColor: college.primaryColor }}
-          >
-            {name.charAt(0)}
-          </div>
+          {photo ? (
+            <img
+              src={photo}
+              alt={name}
+              className="w-16 h-16 rounded-full object-cover flex-shrink-0 border-2"
+              style={{ borderColor: college.primaryColor }}
+            />
+          ) : (
+            <div
+              className="w-16 h-16 rounded-full flex items-center justify-center text-white font-hind font-bold text-2xl flex-shrink-0"
+              style={{ backgroundColor: college.primaryColor }}
+            >
+              {name.charAt(0)}
+            </div>
+          )}
           <div className="flex-1 min-w-0">
             <h3 className="font-hind font-bold text-[18px] leading-snug" style={{ color: college.primaryColor }}>
               {name}
@@ -60,6 +69,7 @@ const management = [
     role: 'Chairman, GRIET',
     qualification: 'B.Pharma., Ph.D. | Chairman, Laila Group of Companies',
     badge: 'Chairman',
+    photo: 'https://www.griet.ac.in/images/gokaraju_rangaraju.jpg',
     desc: 'Dr. Gokaraju Ganga Raju is the founder of Gokaraju Rangaraju Educational Society (GRES) and Chairman of Laila Group of Companies. An Indian politician and former Member of Parliament to the 16th Lok Sabha from Narsapuram, Andhra Pradesh, he initiated both engineering and pharmacy education under GRES in 1997. His dynamic, optimistic, and compassionate leadership has guided GRIET to become one of the foremost engineering institutions in Telangana. He is renowned for his deep commitment to quality education and student welfare.',
   },
   {
@@ -67,6 +77,7 @@ const management = [
     role: 'Vice President, GRIET',
     qualification: 'B.Tech. | Managing Director, Delta Paper Mills',
     badge: 'Vice President',
+    photo: 'https://www.griet.ac.in/images/gvk_rangaraju.jpg',
     desc: "Sri G.V.K. Ranga Raju is the eldest son of Dr. G. Ganga Raju and oversees the day-to-day administrative and institutional matters of GRIET. As Managing Director of Delta Paper Mills, he brings strong industry and management acumen to the institution's operations. He is a firm advocate of technology-driven education, student empowerment, and building an environment that nurtures innovation and entrepreneurship among students.",
   },
 ];

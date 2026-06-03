@@ -31,7 +31,7 @@ const college = {
     {
       name: 'Administration',
       href: '/administration',
-      dropdown: ['Management', 'Governing Body', 'Academic Council', 'Director', 'Principal', 'Deans', 'HODs', 'GRIET Strategic Plan', 'BOS', 'Finance Committee', 'Coordinators & Committees', 'IDMC', 'IIC', 'Anti-Sexual Harassment Cell', "Women's Development Cell", 'Organization Chart', 'Annual Reports', 'GRIET Skill Series', 'Accreditations', 'Honours & Awards', 'Anti-Ragging', 'DTBU', 'Margdarshan'],
+      dropdown: ['Management', 'Governing Body', 'Academic Council', 'Director', 'Principal', 'Deans', 'HODs', 'GRIET Strategic Plan', 'BOS', 'Finance Committee', 'Coordinators & Committees', 'IDMC', 'IIC', 'Anti-Sexual Harassment Cell', "Women's Development Cell", 'Organization Chart', 'Annual Reports', 'GRIET Skill Series', 'Accreditations', 'Honours & Awards', 'Anti-Ragging', 'DTBU', 'Margdarshan', 'Distinctiveness', 'Best Practices', 'Accessibility', 'Student Welfare Committee'],
     },
     {
       name: 'Admissions',
@@ -72,7 +72,7 @@ const college = {
     { label: 'Placements', href: '/placements' },
     { label: 'Rankings & Accreditations', href: '/rankings' },
     { label: 'Research', href: '/research' },
-    { label: 'Departments', href: '/departments/cse' },
+    { label: 'Departments', href: 'http://www.cse.griet.ac.in/' },
     { label: 'Contact Us', href: '/contact' },
   ],
   resources: [
@@ -86,6 +86,8 @@ const college = {
     { label: 'IQAC', href: '/iqac' },
     { label: 'FAQs', href: '/faq' },
     { label: 'Careers at GRIET', href: '/careers' },
+    { label: 'Student Clubs', href: '/clubs' },
+    { label: 'Wellness Center', href: '/wellness-center' },
   ],
   socialLinks: [
     { label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61567249664086' },

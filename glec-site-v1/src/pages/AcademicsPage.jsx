@@ -462,15 +462,32 @@ function CalendarContent() {
   );
 }
 
+function EndowmentAwardsContent() {
+  return (
+    <>
+      <SectionHeader label="Recognition" title="Endowment Awards" />
+      <div
+        className="rounded-xl px-5 py-4"
+        style={{ border: `1px solid ${primary}18`, backgroundColor: '#FDFCFC', borderLeft: `3px solid ${primary}` }}
+      >
+        <p className="font-dm-sans text-[15px] leading-[27px] text-[#474747] italic">
+          Endowment Awards information will be updated soon.
+        </p>
+      </div>
+    </>
+  );
+}
+
 // ── Section registry ──────────────────────────────────────────────────────────
 
 const SECTIONS = [
-  { id: 'leadership',     path: '/academics/leadership',     label: 'Academic Leadership',    content: <LeadershipContent /> },
-  { id: 'collaborations', path: '/academics/collaborations', label: 'Academic Collaborations', content: <CollaborationsContent /> },
-  { id: 'iqac',           path: '/academics/iqac',           label: 'IQAC',                   content: <IqacContent /> },
-  { id: 'library',        path: '/academics/library',        label: 'Library',                content: <LibraryContent /> },
-  { id: 'rules',          path: '/academics/rules',          label: 'Rules & Regulations',    content: <RulesContent /> },
-  { id: 'calendar',       path: '/academics/calendar',       label: 'Academic Calendar',      content: <CalendarContent /> },
+  { id: 'leadership',       path: '/academics/leadership',       label: 'Academic Leadership',    content: <LeadershipContent /> },
+  { id: 'collaborations',   path: '/academics/collaborations',   label: 'Academic Collaborations', content: <CollaborationsContent /> },
+  { id: 'iqac',             path: '/academics/iqac',             label: 'IQAC',                   content: <IqacContent /> },
+  { id: 'library',          path: '/academics/library',          label: 'Library',                content: <LibraryContent /> },
+  { id: 'rules',            path: '/academics/rules',            label: 'Rules & Regulations',    content: <RulesContent /> },
+  { id: 'calendar',         path: '/academics/calendar',         label: 'Academic Calendar',      content: <CalendarContent /> },
+  { id: 'endowment-awards', path: '/academics/endowment-awards', label: 'Endowment Awards',       content: <EndowmentAwardsContent /> },
 ];
 
 // ── Page component ────────────────────────────────────────────────────────────

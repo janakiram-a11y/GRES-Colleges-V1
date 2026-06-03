@@ -627,6 +627,54 @@ function FaqsContent() {
   );
 }
 
+function MeritListContent() {
+  return (
+    <>
+      <div className="flex flex-col gap-2 mb-8">
+        <span className="font-dm-sans font-semibold text-[11px] tracking-[0.2em] uppercase" style={{ color: `${primary}80` }}>Admissions</span>
+        <h2 className="font-hind font-bold text-[26px] leading-tight" style={{ color: primary }}>Merit List</h2>
+        <div className="w-14 h-[3px] rounded-full" style={{ backgroundColor: accent }} />
+      </div>
+      <div className="flex justify-center mb-6">
+        <div className="rounded-xl overflow-hidden" style={{ border: `1px solid ${primary}18`, backgroundColor: '#F6F1F2', maxWidth: '80%' }}>
+          <img src="/imgs/interview.jpeg" alt="Interview Schedule" className="max-w-full h-auto block" onError={e => { e.currentTarget.style.display = 'none'; }} />
+        </div>
+      </div>
+      <div className="rounded-xl p-4 flex items-start gap-3 mb-6" style={{ backgroundColor: `${accent}0F`, borderLeft: `4px solid ${accent}` }}>
+        <p className="font-dm-sans font-semibold text-[14px] leading-[22px]" style={{ color: accent }}>
+          * All candidates have to appear for interviews along with original certificates during the above mentioned timeslot
+        </p>
+      </div>
+      <div className="flex flex-col gap-3">
+        {[1, 2, 3, 4, 5, 6, 7, 8].map(n => (
+          <div key={n} className="rounded-lg overflow-hidden" style={{ border: `1px solid ${primary}0F` }}>
+            <img src={`/imgs/meritlist_page${n}.jpg`} alt={`Merit List Page ${n}`} className="max-w-full h-auto w-full block" onError={e => { e.currentTarget.style.display = 'none'; }} />
+          </div>
+        ))}
+      </div>
+    </>
+  );
+}
+
+function SelectionListContent() {
+  return (
+    <>
+      <div className="flex flex-col gap-2 mb-8">
+        <span className="font-dm-sans font-semibold text-[11px] tracking-[0.2em] uppercase" style={{ color: `${primary}80` }}>Admissions</span>
+        <h2 className="font-hind font-bold text-[26px] leading-tight" style={{ color: primary }}>Selection List</h2>
+        <div className="w-14 h-[3px] rounded-full" style={{ backgroundColor: accent }} />
+      </div>
+      <div className="flex flex-col gap-3">
+        {[1, 2, 3, 4].map(n => (
+          <div key={n} className="rounded-lg overflow-hidden" style={{ border: `1px solid ${primary}0F` }}>
+            <img src={`/imgs/selectionlist_page${n}.jpg`} alt={`Selection List Page ${n}`} className="max-w-full h-auto w-full block" onError={e => { e.currentTarget.style.display = 'none'; }} />
+          </div>
+        ))}
+      </div>
+    </>
+  );
+}
+
 // ── Section registry ──────────────────────────────────────────────────────────
 
 const SECTIONS = [
@@ -642,6 +690,8 @@ const SECTIONS = [
   { id: 'notifications',   path: '/admissions/notifications',   label: 'Notifications',          content: <NotificationsContent /> },
   { id: 'fee-refund',      path: '/admissions/fee-refund',      label: 'Fee Refund Policy',      content: <FeeRefundContent /> },
   { id: 'faqs',            path: '/admissions/faqs',            label: 'FAQs',                   content: <FaqsContent /> },
+  { id: 'merit-list',      path: '/admissions/merit-list',      label: 'Merit List',             content: <MeritListContent /> },
+  { id: 'selection-list',  path: '/admissions/selection-list',  label: 'Selection List',         content: <SelectionListContent /> },
 ];
 
 // ── Page component ────────────────────────────────────────────────────────────

@@ -8,10 +8,7 @@ import ResearchPage from './pages/ResearchPage';
 import ExaminationsPage from './pages/ExaminationsPage';
 import ContactPage from './pages/ContactPage';
 import DepartmentPage from './pages/DepartmentPage';
-import DepartmentSubPage from './pages/DepartmentSubPage';
 import PlacementsPage from './pages/PlacementsPage';
-import StudentLifePage from './pages/StudentLifePage';
-import InfrastructurePage from './pages/InfrastructurePage';
 
 export default function App() {
   return (
@@ -35,7 +32,6 @@ export default function App() {
 
         {/* Departments */}
         <Route path="/departments/:slug" element={<DepartmentPage />} />
-        <Route path="/departments/:slug/:subsection" element={<DepartmentSubPage />} />
 
         {/* Examinations — each section has its own route */}
         <Route path="/examinations" element={<ExaminationsPage />} />
@@ -49,14 +45,6 @@ export default function App() {
         <Route path="/research/:section" element={<ResearchPage />} />
         <Route path="/placements" element={<PlacementsPage />} />
         <Route path="/contact" element={<ContactPage />} />
-
-        {/* Student Life */}
-        <Route path="/student-life" element={<StudentLifePage />} />
-        <Route path="/student-life/:section" element={<StudentLifePage />} />
-
-        {/* Infrastructure */}
-        <Route path="/infrastructure" element={<InfrastructurePage />} />
-        <Route path="/infrastructure/:section" element={<InfrastructurePage />} />
 
         {/* Fallback */}
         <Route path="*" element={<GlecPage />} />

@@ -1,35 +1,126 @@
+/**
+ * Navbar — Section 3: Logo + Infinite Auto-Scroll Affiliation Strip
+ *
+ * ┌──────────────────┬──┬──────────────────────────────────────────────────┐
+ * │   College Logo   │  │  [Logo]  [Logo]  [Logo]  [Logo]  [Logo]  ← auto  │
+ * └──────────────────┴──┴──────────────────────────────────────────────────┘
+ *
+ * The affiliation logos scroll continuously from right → left in an
+ * infinite seamless loop. No arrows, no scrollbar, no card borders.
+ * Hovering pauses the animation.
+ */
+
+import { affiliationLogos } from '../data/homeData';
 import { withAlpha } from '../theme';
 
 export default function Navbar({ college }) {
   return (
-    <nav
-      className="w-full bg-white sticky top-0 z-50"
-      style={{
-        borderBottom: `2px solid rgba(45,122,80,0.15)`,
-        boxShadow: '0 2px 12px rgba(45,122,80,0.07)',
-      }}
-    >
-      <div className="max-w-[1320px] mx-auto px-4 sm:px-8 lg:px-[60px] flex justify-between items-center h-[72px] sm:h-[80px] lg:h-[88px]">
-        {/* Logo */}
-        <div className="flex items-center min-w-0">
-          <img
-            src={college.logo}
-            alt={`${college.shortName} Logo`}
-            className="h-[52px] sm:h-[60px] lg:h-[72px] w-auto object-contain flex-shrink-0 max-w-[180px] sm:max-w-[220px] lg:max-w-[280px]"
-          />
-        </div>
+    <>
+      {/* ── Keyframes injected once ──────────────────────────────────────── */}
+      <style>{`
+        @keyframes logo-scroll {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .logo-autoscroll-track {
+          display: flex;
+          width: max-content;
+          animation: logo-scroll 28s linear infinite;
+        }
+        .logo-autoscroll-track:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
 
-        {/* Accreditation logo (right side) */}
-        <div className="flex items-center flex-shrink-0">
-          {college.accreditationLogo && (
+      <div
+        className="w-full bg-white"
+        style={{
+          borderBottom: `2px solid ${withAlpha(college.primaryColor, 0.12)}`,
+          boxShadow: '0 1px 8px rgba(45,122,80,0.06)',
+        }}
+      >
+        {/* Single row: college logo | divider | auto-scroll strip */}
+        <div
+          className="max-w-[1320px] mx-auto px-4 sm:px-8 lg:px-[60px] flex items-center"
+          style={{ minHeight: 120 }}
+        >
+
+          {/* ── College logo ─────────────────────────────────────────────── */}
+          <div className="flex items-center flex-shrink-0 py-3">
             <img
-              src={college.accreditationLogo}
-              alt="Accreditation Logos"
-              className="h-[44px] sm:h-[56px] lg:h-[70px] w-auto object-contain"
+              src={college.logo}
+              alt={`${college.fullName} Logo`}
+              style={{
+                height: 110,
+                width: 'auto',
+                objectFit: 'contain',
+                maxWidth: 340,
+              }}
             />
-          )}
+          </div>
+
+          {/* ── Vertical divider ─────────────────────────────────────────── */}
+          <div
+            style={{
+              width: 1,
+              alignSelf: 'stretch',
+              background: withAlpha(college.primaryColor, 0.18),
+              margin: '14px 28px',
+              flexShrink: 0,
+            }}
+          />
+
+          {/* ── Infinite auto-scroll logo strip ──────────────────────────── */}
+          <div
+            className="min-w-0 overflow-hidden py-3"
+            style={{
+              /* Constrain right edge to align with the topbar divider (before search icon).
+                 Topbar reserves ~268px on the right (260px search box + 8px gap). */
+              width: 560,
+              maxWidth: '50%',
+              marginLeft: 'auto',
+              maskImage:
+                'linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)',
+              WebkitMaskImage:
+                'linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)',
+            }}
+          >
+            {/* Duplicated set for seamless loop */}
+            <div className="logo-autoscroll-track">
+              {[...affiliationLogos, ...affiliationLogos].map((logo, idx) => (
+                <div
+                  key={idx}
+                  style={{
+                    flexShrink: 0,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginRight: 32,
+                    height: 58,
+                  }}
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.name}
+                    title={logo.name}
+                    loading="lazy"
+                    style={{
+                      maxWidth: 90,
+                      maxHeight: 56,
+                      width: 'auto',
+                      height: 'auto',
+                      objectFit: 'contain',
+                      display: 'block',
+                    }}
+                    onError={(e) => { e.currentTarget.style.visibility = 'hidden'; }}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
         </div>
       </div>
-    </nav>
+    </>
   );
 }

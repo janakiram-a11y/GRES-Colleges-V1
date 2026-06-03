@@ -1,8 +1,7 @@
-﻿import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import college from '../theme';
-import Navbar from '../components/Navbar';
-import NavStrip from '../components/NavStrip';
+import SiteHeader from '../components/SiteHeader';
 import PageHero from '../components/PageHero';
 import AdmissionsCTA from '../components/AdmissionsCTA';
 import Footer from '../components/Footer';
@@ -32,431 +31,463 @@ function SectionHeader({ label, title }) {
   );
 }
 
-function OverviewSection() {
-  const { overview, contact, activities } = college.examination;
+// ─── Committee Table ──────────────────────────────────────────────────────────
+
+function CommitteeTable({ members }) {
+  return (
+    <div className="overflow-x-auto mb-8">
+      <table className="w-full" style={{ borderCollapse: 'collapse', border: `1px solid ${college.primaryColor}20` }}>
+        <thead>
+          <tr style={{ backgroundColor: college.greenAccent }}>
+            {['S.No.', 'Name', 'Designation', 'Position', 'Email'].map((h, i) => (
+              <th
+                key={h}
+                className="font-dm-sans font-semibold text-[13px] text-white px-4 py-3"
+                style={{ textAlign: i === 0 ? 'center' : 'left', whiteSpace: 'nowrap', border: `1px solid ${college.primaryColor}30` }}
+              >
+                {h}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {members.map((m, i) => (
+            <tr key={m.sno} style={{ backgroundColor: i % 2 === 0 ? '#fff' : '#FAFAFA' }}>
+              <td className="font-dm-sans text-[14px] text-[#474747] px-4 py-3" style={{ textAlign: 'center', border: `1px solid ${college.primaryColor}10` }}>
+                {m.sno}
+              </td>
+              <td className="font-dm-sans font-semibold text-[14px] px-4 py-3" style={{ color: college.primaryColor, border: `1px solid ${college.primaryColor}10` }}>
+                {m.name}
+              </td>
+              <td className="font-dm-sans text-[14px] text-[#474747] px-4 py-3" style={{ border: `1px solid ${college.primaryColor}10` }}>
+                {m.designation}
+              </td>
+              <td className="px-4 py-3" style={{ border: `1px solid ${college.primaryColor}10` }}>
+                <span
+                  className="font-dm-sans font-semibold text-[12px] px-2.5 py-1 rounded"
+                  style={{
+                    backgroundColor:
+                      m.position === 'Chairperson' ? college.primaryColor
+                      : m.position.startsWith('Co-ordinator') ? '#002a6f'
+                      : `${college.primaryColor}15`,
+                    color:
+                      m.position === 'Member' ? college.primaryColor : '#fff',
+                  }}
+                >
+                  {m.position}
+                </span>
+              </td>
+              <td className="font-dm-sans text-[14px] px-4 py-3" style={{ border: `1px solid ${college.primaryColor}10` }}>
+                <a href={`mailto:${m.email}`} className="underline" style={{ color: college.primaryColor }}>
+                  {m.email}
+                </a>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+// ─── Doc Link List ────────────────────────────────────────────────────────────
+
+function DocLinkList({ items, buttonLabel = 'View / Download' }) {
+  if (!items || items.length === 0) return null;
+  return (
+    <div className="space-y-3">
+      {items.map((item, i) => (
+        <div
+          key={i}
+          className="flex items-center justify-between rounded-xl border px-5 py-4 gap-4"
+          style={{ borderColor: `${college.primaryColor}18`, backgroundColor: '#fff', boxShadow: '0 2px 6px rgba(0,0,0,0.05)' }}
+        >
+          <div className="flex items-center gap-4 min-w-0">
+            <div
+              className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
+              style={{ backgroundColor: college.primaryColor }}
+            >
+              <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5" stroke="#fff" strokeWidth="1.8">
+                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" strokeLinecap="round" strokeLinejoin="round" />
+                <polyline points="14 2 14 8 20 8" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+            <span className="font-dm-sans font-semibold text-[15px] leading-[1.4] text-[#383838]">{item.label}</span>
+          </div>
+          <a
+            href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-dm-sans font-semibold text-[13px] text-white px-5 py-2 rounded flex-shrink-0 transition-opacity hover:opacity-80"
+            style={{ backgroundColor: college.primaryColor, whiteSpace: 'nowrap' }}
+          >
+            {buttonLabel}
+          </a>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// ─── Section Heading Pill ─────────────────────────────────────────────────────
+
+function SectionPill({ title }) {
+  return (
+    <div className="mb-3">
+      <span
+        className="font-dm-sans font-bold text-[15px] text-white px-4 py-1.5 rounded inline-block"
+        style={{ backgroundColor: college.primaryColor }}
+      >
+        {title}
+      </span>
+      <hr style={{ borderColor: `${college.primaryColor}20`, marginTop: '10px' }} />
+    </div>
+  );
+}
+
+// ─── Examination Branch Section ───────────────────────────────────────────────
+
+function ExaminationBranchSection() {
+  const { functions: fns, contact, ugSessionalCommittee, pgSessionalCommittee, ouExamCell } = college.examination;
 
   return (
     <div className="space-y-10">
+      <SectionHeader label="Examination" title="Examination Branch @ GRCP" />
+
+      {/* Functions list */}
       <section>
-        <SectionHeader label="Examination" title="Examination Branch @ GRCP" />
-        <p className="font-dm-sans text-[15px] leading-[26px] text-[#474747] mt-4 max-w-[780px]">
-          {overview}
-        </p>
+        <h3 className="font-hind font-semibold text-[18px] mb-4" style={{ color: college.primaryColor }}>
+          Functions of the Examination Branch
+        </h3>
+        <ol className="space-y-2 max-w-[760px]">
+          {fns.map((fn, i) => (
+            <li key={i} className="flex items-start gap-3">
+              <span
+                className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 font-dm-sans font-bold text-[12px] text-white mt-0.5"
+                style={{ backgroundColor: college.greenAccent }}
+              >
+                {i + 1}
+              </span>
+              <span className="font-dm-sans text-[15px] leading-[26px] text-[#474747]">{fn}</span>
+            </li>
+          ))}
+        </ol>
       </section>
 
+      {/* Contact */}
       <section>
-        <h3
-          className="font-hind font-semibold text-[18px] mb-4"
-          style={{ color: college.primaryColor }}
-        >
-          Contact the Examination Branch
+        <h3 className="font-hind font-semibold text-[18px] mb-4" style={{ color: college.primaryColor }}>
+          Contact
         </h3>
         <div
-          className="rounded-2xl p-7 border max-w-[520px]"
-          style={{ borderColor: `${college.primaryColor}20`, backgroundColor: '#FAFAFA' }}
+          className="rounded-xl px-6 py-4 flex flex-wrap gap-4 max-w-[760px] text-[14px] font-dm-sans font-medium text-[#383838]"
+          style={{ backgroundColor: '#f8f9fa', border: `1px solid ${college.primaryColor}20`, borderLeft: `4px solid ${college.primaryColor}` }}
         >
-          <p className="font-dm-sans font-semibold text-[16px] mb-4" style={{ color: college.primaryColor }}>
-            {contact.name}
-          </p>
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span
-                className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
-                style={{ backgroundColor: `${college.greenAccent}20` }}
-              >
-                <svg viewBox="0 0 20 20" fill="none" className="w-4 h-4" stroke={college.greenAccent} strokeWidth="1.6">
-                  <path d="M2 5a2 2 0 012-2h2.2l2.5 5.5-1.5 1.5a10 10 0 004.8 4.8l1.5-1.5L18 15.8V18a2 2 0 01-2 2A16 16 0 012 4" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </span>
-              <span className="font-dm-sans text-[14px] text-[#474747]">{contact.phone}</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <span
-                className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
-                style={{ backgroundColor: `${college.greenAccent}20` }}
-              >
-                <svg viewBox="0 0 20 20" fill="none" className="w-4 h-4" stroke={college.greenAccent} strokeWidth="1.6">
-                  <path d="M3 4h14a1 1 0 011 1v10a1 1 0 01-1 1H3a1 1 0 01-1-1V5a1 1 0 011-1z" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M2 6l8 5 8-5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </span>
-              <a
-                href={`mailto:${contact.email}`}
-                className="font-dm-sans text-[14px] underline"
-                style={{ color: college.primaryColor }}
-              >
-                {contact.email}
-              </a>
-            </div>
-            <div className="flex items-start gap-3">
-              <span
-                className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
-                style={{ backgroundColor: `${college.greenAccent}20` }}
-              >
-                <svg viewBox="0 0 20 20" fill="none" className="w-4 h-4" stroke={college.greenAccent} strokeWidth="1.6">
-                  <circle cx="10" cy="10" r="8" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M10 6v4l2.5 2.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </span>
-              <span className="font-dm-sans text-[14px] text-[#474747]">{contact.hours}</span>
-            </div>
-          </div>
+          <span>
+            <strong style={{ color: college.primaryColor }}>Email:</strong>{' '}
+            <a href={`mailto:${contact.email}`} className="underline" style={{ color: college.primaryColor }}>{contact.email}</a>
+          </span>
+          <span style={{ color: '#dee2e6' }}>|</span>
+          <span><strong style={{ color: college.primaryColor }}>Phone:</strong> {contact.phone}</span>
+          <span style={{ color: '#dee2e6' }}>|</span>
+          <span><strong style={{ color: college.primaryColor }}>UG Coordinators:</strong> Mrs. Ch. Soujanya, Mrs. K. Lalitha</span>
+          <span style={{ color: '#dee2e6' }}>|</span>
+          <span><strong style={{ color: college.primaryColor }}>PG Coordinator:</strong> Dr. M. Lakshmi Madhuri</span>
         </div>
       </section>
 
+      {/* UG Committee */}
       <section>
-        <h3
-          className="font-hind font-semibold text-[18px] mb-5"
-          style={{ color: college.primaryColor }}
-        >
-          Key Activities
+        <h3 className="font-hind font-semibold text-[18px] mb-1" style={{ color: college.primaryColor }}>
+          UG – Sessional Exam Committee (2025–2026)
         </h3>
-        <ul className="space-y-3 max-w-[700px]">
-          {activities.map((item, i) => (
-            <li key={i} className="flex items-start gap-3">
-              <span
-                className="w-2.5 h-2.5 rounded-full flex-shrink-0 mt-[7px]"
-                style={{ backgroundColor: college.greenAccent }}
-              />
-              <span className="font-dm-sans text-[15px] leading-[26px] text-[#474747]">{item}</span>
-            </li>
-          ))}
-        </ul>
+        <hr className="mb-4" style={{ borderColor: `${college.primaryColor}20` }} />
+        <CommitteeTable members={ugSessionalCommittee} />
+      </section>
+
+      {/* PG Committee */}
+      <section>
+        <h3 className="font-hind font-semibold text-[18px] mb-1" style={{ color: college.primaryColor }}>
+          PG – Sessional Exam Committee (2025–2026)
+        </h3>
+        <hr className="mb-4" style={{ borderColor: `${college.primaryColor}20` }} />
+        <CommitteeTable members={pgSessionalCommittee} />
+      </section>
+
+      {/* OU Exam Cell */}
+      <section>
+        <h3 className="font-hind font-semibold text-[18px] mb-1" style={{ color: college.primaryColor }}>
+          Osmania University Examination Cell (2025–2026)
+        </h3>
+        <hr className="mb-4" style={{ borderColor: `${college.primaryColor}20` }} />
+        <CommitteeTable members={ouExamCell} />
       </section>
     </div>
   );
 }
 
+// ─── Sessional Timetable Section ──────────────────────────────────────────────
+
 function SessionalTimetableSection() {
+  const sections = college.examination.sessionalTimetables;
   return (
     <div className="space-y-8">
       <SectionHeader label="Internal Exams" title="Sessional Time Table" />
-      <div
-        className="rounded-2xl p-8 border max-w-[680px]"
-        style={{ borderColor: `${college.primaryColor}20`, backgroundColor: '#FDF8F9' }}
-      >
-        <div className="flex items-start gap-5">
-          <div
-            className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-            style={{ backgroundColor: `${college.primaryColor}12` }}
-          >
-            <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6" stroke={college.primaryColor} strokeWidth="1.5">
-              <rect x="3" y="4" width="18" height="18" rx="2" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M16 2v4M8 2v4M3 10h18" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </div>
-          <div>
-            <h3
-              className="font-hind font-semibold text-[17px] mb-3"
-              style={{ color: college.primaryColor }}
-            >
-              How to Access Sessional Timetables
-            </h3>
-            <p className="font-dm-sans text-[15px] leading-[26px] text-[#474747] mb-4">
-              Sessional timetables are displayed on the college notice board and shared via official WhatsApp groups.
-              Check with your class teacher for the latest schedule.
-            </p>
-            <div
-              className="rounded-xl p-4"
-              style={{ backgroundColor: `${college.greenAccent}15`, border: `1px solid ${college.greenAccent}30` }}
-            >
-              <p className="font-dm-sans text-[14px] text-[#474747]">
-                <span className="font-semibold">Note:</span> Timetables are released at least 5 working days before the commencement
-                of sessional examinations. Students must carry their hall tickets to all sessional exams.
-              </p>
-            </div>
+      {sections.map((section, i) => (
+        <div key={i} className="mb-8">
+          <SectionPill title={section.heading} />
+          <div className="mt-4">
+            <DocLinkList items={section.items} buttonLabel="View / Download" />
           </div>
         </div>
-      </div>
-      <div
-        className="rounded-2xl p-6 border max-w-[680px]"
-        style={{ borderColor: `${college.primaryColor}18`, backgroundColor: '#FAFAFA' }}
-      >
-        <h4
-          className="font-hind font-semibold text-[15px] mb-3"
-          style={{ color: college.primaryColor }}
-        >
-          For Timetable Queries, Contact
-        </h4>
-        <p className="font-dm-sans text-[14px] text-[#474747]">
-          Class Teacher / Department Coordinator or the Examination Branch at{' '}
-          <a
-            href={`mailto:${college.examination.contact.email}`}
-            className="underline"
-            style={{ color: college.primaryColor }}
-          >
-            {college.examination.contact.email}
-          </a>
-        </p>
-      </div>
+      ))}
     </div>
   );
 }
 
+// ─── OU Timetables Section ────────────────────────────────────────────────────
+
 function OuTimetablesSection() {
+  const sections = college.examination.ouTimetables;
   return (
     <div className="space-y-8">
       <SectionHeader label="Osmania University" title="OU Time Tables" />
-      <p className="font-dm-sans text-[15px] leading-[26px] text-[#474747] max-w-[720px]">
-        Theory and Practical Examination timetables for B.Pharmacy and M.Pharmacy programs are published by
-        Osmania University. Students are advised to regularly check the OU official website for the latest schedules.
-      </p>
-      <div
-        className="rounded-2xl p-8 border max-w-[600px]"
-        style={{ borderColor: `${college.primaryColor}20`, backgroundColor: '#FAFAFA' }}
-      >
-        <div className="flex items-start gap-5">
-          <div
-            className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-            style={{ backgroundColor: `${college.primaryColor}12` }}
-          >
-            <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6" stroke={college.primaryColor} strokeWidth="1.5">
-              <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </div>
-          <div>
-            <h3
-              className="font-hind font-semibold text-[17px] mb-2"
-              style={{ color: college.primaryColor }}
-            >
-              Osmania University — Official Website
-            </h3>
-            <p className="font-dm-sans text-[14px] text-[#474747] mb-4">
-              All university examination schedules for pharmacy programs are published on the Osmania University portal.
-            </p>
-            <a
-              href="#"
-              className="inline-flex items-center gap-2 font-dm-sans font-semibold text-[14px] px-5 py-2.5 rounded-lg transition-opacity hover:opacity-80"
-              style={{ backgroundColor: college.greenAccent, color: '#fff' }}
-            >
-              Visit OU Website
-              <svg viewBox="0 0 16 16" fill="none" className="w-4 h-4" stroke="currentColor" strokeWidth="2">
-                <path d="M3 8h10M9 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </a>
+      {sections.map((section, i) => (
+        <div key={i} className="mb-8">
+          <SectionPill title={section.heading} />
+          <div className="mt-4">
+            <DocLinkList items={section.items} buttonLabel="View / Download" />
           </div>
         </div>
-      </div>
-      <div
-        className="rounded-xl p-5 max-w-[600px]"
-        style={{ backgroundColor: `${college.greenAccent}15`, border: `1px solid ${college.greenAccent}30` }}
-      >
-        <p className="font-dm-sans text-[14px] text-[#474747]">
-          <span className="font-semibold">Tip:</span> Download and save the timetable PDF from the OU website as soon as it is published. The college notice board also displays timetables upon receipt.
-        </p>
-      </div>
+      ))}
     </div>
   );
 }
+
+// ─── OU Notifications Section ─────────────────────────────────────────────────
+
+const NOTIF_TABS = [
+  { id: 'bPharm', label: 'B.Pharmacy' },
+  { id: 'mPharm', label: 'M.Pharmacy' },
+];
 
 function OuNotificationsSection() {
-  const notifications = [
-    {
-      date: 'Dec 2025',
-      badge: 'EXAM',
-      title: 'B.Pharmacy Main & Backlog Examinations — Feb/March 2026',
-      desc: 'Osmania University has announced the schedule for B.Pharmacy (PCI) Main and Backlog Examinations for February/March 2026. Hall tickets will be issued one week prior to the exam date.',
-    },
-    {
-      date: 'Nov 2025',
-      badge: 'EXAM',
-      title: 'M.Pharmacy Supplementary Examinations',
-      desc: 'M.Pharmacy supplementary examinations for all specializations are scheduled as per the Osmania University academic calendar. Students with backlogs should register through the college examination branch.',
-    },
-    {
-      date: 'Sep 2025',
-      badge: 'NOTICE',
-      title: 'B.Pharmacy First Year Induction Program 2025–26',
-      desc: 'A mandatory induction program for all newly admitted B.Pharmacy first year students will be conducted at the college auditorium. Attendance is compulsory for all first-year students.',
-    },
-  ];
-
-  const badgeColors = {
-    EXAM: college.primaryColor,
-    NOTICE: '#005a28',
-  };
+  const [active, setActive] = useState('bPharm');
+  const notifications = college.examination.ouNotifications;
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       <SectionHeader label="Updates" title="OU Notifications" />
-      <div className="space-y-5 max-w-[760px]">
-        {notifications.map((n, i) => (
-          <div
-            key={i}
-            className="rounded-2xl border overflow-hidden"
-            style={{ borderColor: `${college.primaryColor}18` }}
+      <div style={{ display: 'flex', gap: '4px', borderBottom: `2px solid ${college.primaryColor}` }}>
+        {NOTIF_TABS.map(tab => (
+          <button
+            key={tab.id}
+            onClick={() => setActive(tab.id)}
+            className="font-dm-sans font-semibold text-[14px] px-6 py-2 rounded-t"
+            style={{
+              border: 'none',
+              cursor: 'pointer',
+              outline: 'none',
+              backgroundColor: active === tab.id ? college.primaryColor : '#f8f9fa',
+              color: active === tab.id ? '#fff' : '#383838',
+            }}
           >
-            <div
-              className="px-6 py-3 flex items-center justify-between"
-              style={{ backgroundColor: `${college.primaryColor}08` }}
-            >
-              <span
-                className="font-dm-sans font-bold text-[11px] uppercase tracking-[1.5px] px-2.5 py-1 rounded-full text-white"
-                style={{ backgroundColor: badgeColors[n.badge] || college.primaryColor }}
-              >
-                {n.badge}
-              </span>
-              <span className="font-dm-sans text-[13px] text-[#6B7280]">{n.date}</span>
-            </div>
-            <div className="px-6 py-5 bg-white">
-              <h4
-                className="font-hind font-semibold text-[16px] mb-2"
-                style={{ color: college.primaryColor }}
-              >
-                {n.title}
-              </h4>
-              <p className="font-dm-sans text-[14px] leading-[24px] text-[#474747]">{n.desc}</p>
-            </div>
-          </div>
+            {tab.label}
+          </button>
         ))}
+      </div>
+      <div
+        className="rounded-b-xl p-6"
+        style={{ border: `1px solid ${college.primaryColor}18`, borderTop: 'none', backgroundColor: '#fff' }}
+      >
+        <DocLinkList items={notifications[active]} buttonLabel="Download" />
       </div>
     </div>
   );
 }
 
-function ResultsSection() {
-  return (
-    <div className="space-y-8">
-      <SectionHeader label="Exam Outcomes" title="Results" />
-      <p className="font-dm-sans text-[15px] leading-[26px] text-[#474747] max-w-[720px]">
-        Results for all university examinations are published by Osmania University on their official website.
-        Internal sessional marks are displayed on the college notice board after verification by the examination branch.
-      </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-[680px]">
-        <div
-          className="rounded-2xl p-6 border"
-          style={{ borderColor: `${college.primaryColor}20`, backgroundColor: '#FAFAFA' }}
-        >
-          <div
-            className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
-            style={{ backgroundColor: `${college.primaryColor}12` }}
-          >
-            <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5" stroke={college.primaryColor} strokeWidth="1.5">
-              <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </div>
-          <h4
-            className="font-hind font-semibold text-[15px] mb-2"
-            style={{ color: college.primaryColor }}
-          >
-            OU Results Portal
-          </h4>
-          <p className="font-dm-sans text-[13px] text-[#6B7280] mb-4">
-            Check university examination results on the Osmania University official portal.
-          </p>
-          <a
-            href="#"
-            className="font-dm-sans font-semibold text-[13px] underline"
-            style={{ color: college.primaryColor }}
-          >
-            Go to OU Results →
-          </a>
-        </div>
+// ─── Results Section ──────────────────────────────────────────────────────────
 
-        <div
-          className="rounded-2xl p-6 border"
-          style={{ borderColor: `${college.primaryColor}20`, backgroundColor: '#FAFAFA' }}
-        >
-          <div
-            className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
-            style={{ backgroundColor: `${college.greenAccent}18` }}
+const RESULTS_TABS = [
+  { id: 'bPharm', label: 'B.Pharmacy' },
+  { id: 'mPharm', label: 'M.Pharmacy' },
+];
+
+function ResultsSection() {
+  const [active, setActive] = useState('bPharm');
+  const results = college.examination.results;
+
+  return (
+    <div className="space-y-6">
+      <SectionHeader label="Exam Outcomes" title="Results" />
+      <div style={{ display: 'flex', gap: '4px', borderBottom: `2px solid ${college.primaryColor}` }}>
+        {RESULTS_TABS.map(tab => (
+          <button
+            key={tab.id}
+            onClick={() => setActive(tab.id)}
+            className="font-dm-sans font-semibold text-[14px] px-6 py-2 rounded-t"
+            style={{
+              border: 'none',
+              cursor: 'pointer',
+              outline: 'none',
+              backgroundColor: active === tab.id ? college.primaryColor : '#f8f9fa',
+              color: active === tab.id ? '#fff' : '#383838',
+            }}
           >
-            <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5" stroke={college.greenAccent} strokeWidth="1.5">
-              <path d="M2 5a2 2 0 012-2h2.2l2.5 5.5-1.5 1.5a10 10 0 004.8 4.8l1.5-1.5L18 15.8V18a2 2 0 01-2 2A16 16 0 012 4" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </div>
-          <h4
-            className="font-hind font-semibold text-[15px] mb-2"
-            style={{ color: college.primaryColor }}
-          >
-            Contact Exam Branch
-          </h4>
-          <p className="font-dm-sans text-[13px] text-[#6B7280] mb-4">
-            For sessional marks queries, contact the examination branch directly.
-          </p>
-          <a
-            href={`tel:${college.examination.contact.phone}`}
-            className="font-dm-sans font-semibold text-[13px] underline"
-            style={{ color: college.primaryColor }}
-          >
-            {college.examination.contact.phone}
-          </a>
-        </div>
+            {tab.label}
+          </button>
+        ))}
+      </div>
+      <div
+        className="rounded-b-xl p-6"
+        style={{ border: `1px solid ${college.primaryColor}18`, borderTop: 'none', backgroundColor: '#fff' }}
+      >
+        <DocLinkList items={results[active]} buttonLabel="View / Download" />
       </div>
     </div>
+  );
+}
+
+// ─── Question Papers Section ──────────────────────────────────────────────────
+
+const QP_TABS = [
+  { id: 'bPharm', label: 'B.Pharmacy' },
+  { id: 'mPharm', label: 'M.Pharmacy' },
+];
+
+function PdfBtn({ href }) {
+  if (!href) return <span className="font-dm-sans text-[12px] text-[#adb5bd]">—</span>;
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-1.5 font-dm-sans font-semibold text-[12px] text-white px-3 py-1.5 rounded transition-opacity hover:opacity-80"
+      style={{ backgroundColor: college.primaryColor }}
+    >
+      <svg viewBox="0 0 16 16" fill="none" className="w-3 h-3" stroke="currentColor" strokeWidth="2">
+        <path d="M8 2v8M5 7l3 3 3-3M3 13h10" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+      Download
+    </a>
   );
 }
 
 function QuestionPapersSection() {
-  const papers = [
-    { programme: 'B.Pharmacy', year: 'I Year', subject: 'Pharmaceutics – I', examYear: '2024' },
-    { programme: 'B.Pharmacy', year: 'II Year', subject: 'Pharmaceutical Analysis – I', examYear: '2024' },
-    { programme: 'B.Pharmacy', year: 'III Year', subject: 'Medicinal Chemistry – I', examYear: '2023' },
-    { programme: 'B.Pharmacy', year: 'IV Year', subject: 'Clinical Pharmacy & Therapeutics', examYear: '2023' },
-    { programme: 'M.Pharmacy', year: 'I Year', subject: 'Modern Pharmaceutical Analysis', examYear: '2024' },
-  ];
+  const [active, setActive] = useState('bPharm');
+  const { bPharmQP, mPharmQP } = college.examination;
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       <SectionHeader label="Past Papers" title="Question Papers" />
-      <p className="font-dm-sans text-[15px] leading-[26px] text-[#474747] max-w-[720px]">
-        Previous year question papers help students prepare effectively for Osmania University examinations.
-        The following papers are available for reference from the college library and examination branch.
-      </p>
-      <div className="overflow-x-auto rounded-2xl border" style={{ borderColor: `${college.primaryColor}18` }}>
-        <table className="w-full min-w-[560px]">
-          <thead>
-            <tr style={{ backgroundColor: college.greenAccent }}>
-              {['Programme', 'Year', 'Subject', 'Exam Year', 'Action'].map((h) => (
-                <th
-                  key={h}
-                  className="font-dm-sans font-semibold text-[13px] text-white text-left px-5 py-3.5"
-                >
-                  {h}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {papers.map((row, i) => (
-              <tr
-                key={i}
-                className="border-t"
-                style={{ borderColor: `${college.primaryColor}10`, backgroundColor: i % 2 === 0 ? '#fff' : '#FAFAFA' }}
-              >
-                <td className="font-dm-sans text-[14px] text-[#474747] px-5 py-3.5">{row.programme}</td>
-                <td className="font-dm-sans text-[14px] text-[#474747] px-5 py-3.5">{row.year}</td>
-                <td className="font-dm-sans text-[14px] text-[#474747] px-5 py-3.5">{row.subject}</td>
-                <td className="font-dm-sans text-[14px] text-[#474747] px-5 py-3.5">{row.examYear}</td>
-                <td className="px-5 py-3.5">
-                  <a
-                    href="#"
-                    className="font-dm-sans font-semibold text-[13px] underline"
-                    style={{ color: college.primaryColor }}
-                  >
-                    Download
-                  </a>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+
+      <div style={{ display: 'flex', gap: '4px', borderBottom: `2px solid ${college.primaryColor}` }}>
+        {QP_TABS.map(tab => (
+          <button
+            key={tab.id}
+            onClick={() => setActive(tab.id)}
+            className="font-dm-sans font-semibold text-[14px] px-6 py-2 rounded-t"
+            style={{
+              border: 'none',
+              cursor: 'pointer',
+              outline: 'none',
+              backgroundColor: active === tab.id ? college.primaryColor : '#f8f9fa',
+              color: active === tab.id ? '#fff' : '#383838',
+            }}
+          >
+            {tab.label}
+          </button>
+        ))}
       </div>
-      <p className="font-dm-sans text-[13px] text-[#6B7280] max-w-[600px]">
-        For additional question papers, visit the college library or contact the examination branch at{' '}
-        <a href={`mailto:${college.examination.contact.email}`} className="underline" style={{ color: college.primaryColor }}>
-          {college.examination.contact.email}
-        </a>
-        .
-      </p>
+
+      <div
+        className="rounded-b-xl p-6"
+        style={{ border: `1px solid ${college.primaryColor}18`, borderTop: 'none', backgroundColor: '#fff' }}
+      >
+        {/* B.Pharmacy */}
+        {active === 'bPharm' && (
+          <>
+            <h3 className="font-hind font-semibold text-[16px] mb-4" style={{ color: college.primaryColor }}>
+              B.Pharmacy (PCI) Question Papers — Osmania University
+            </h3>
+            <div className="overflow-x-auto">
+              <table className="w-full" style={{ borderCollapse: 'collapse', border: `1px solid ${college.primaryColor}20` }}>
+                <thead>
+                  <tr style={{ backgroundColor: college.greenAccent }}>
+                    <th className="font-dm-sans font-semibold text-[13px] text-white px-4 py-3 text-left" style={{ minWidth: '120px', border: `1px solid ${college.primaryColor}30` }}>
+                      Semester
+                    </th>
+                    {bPharmQP.years.map(yr => (
+                      <th key={yr} className="font-dm-sans font-semibold text-[13px] text-white px-4 py-3 text-center" style={{ whiteSpace: 'nowrap', border: `1px solid ${college.primaryColor}30` }}>
+                        {yr}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {bPharmQP.semesters.map((row, i) => (
+                    <tr key={row.sem} style={{ backgroundColor: i % 2 === 0 ? '#fff' : '#FAFAFA' }}>
+                      <td className="font-dm-sans font-semibold text-[14px] px-4 py-3" style={{ color: college.primaryColor, border: `1px solid ${college.primaryColor}10` }}>
+                        {row.sem}
+                      </td>
+                      {row.links.map((link, j) => (
+                        <td key={j} className="px-4 py-3 text-center" style={{ border: `1px solid ${college.primaryColor}10` }}>
+                          <PdfBtn href={link.href} />
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </>
+        )}
+
+        {/* M.Pharmacy */}
+        {active === 'mPharm' && (
+          <div className="space-y-8">
+            {mPharmQP.map(spec => (
+              <div key={spec.specialisation}>
+                <SectionPill title={spec.specialisation} />
+                <div className="overflow-x-auto mt-3">
+                  <table className="bg-white" style={{ borderCollapse: 'collapse', border: `1px solid ${college.primaryColor}20`, maxWidth: '480px' }}>
+                    <thead>
+                      <tr style={{ backgroundColor: college.greenAccent }}>
+                        <th className="font-dm-sans font-semibold text-[13px] text-white px-4 py-3 text-left" style={{ minWidth: '140px', border: `1px solid ${college.primaryColor}30` }}>
+                          Semester
+                        </th>
+                        <th className="font-dm-sans font-semibold text-[13px] text-white px-4 py-3 text-center" style={{ border: `1px solid ${college.primaryColor}30` }}>
+                          Question Paper
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {spec.semesters.map((s, i) => (
+                        <tr key={s.sem} style={{ backgroundColor: i % 2 === 0 ? '#fff' : '#FAFAFA' }}>
+                          <td className="font-dm-sans font-semibold text-[14px] px-4 py-3" style={{ color: college.primaryColor, border: `1px solid ${college.primaryColor}10` }}>
+                            {s.sem}
+                          </td>
+                          <td className="px-4 py-3 text-center" style={{ border: `1px solid ${college.primaryColor}10` }}>
+                            <PdfBtn href={s.href} />
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
 
+// ─── Config & Page ────────────────────────────────────────────────────────────
+
 const sectionConfig = {
-  overview: {
+  'examination-branch': {
     title: 'Examination Branch @ GRCP',
     subtitle: 'Transparent, timely, and fair coordination of all examination activities',
     breadcrumb: ['Examination', 'Examination Branch @ GRCP'],
@@ -489,7 +520,7 @@ const sectionConfig = {
 };
 
 const sectionContent = {
-  overview: <OverviewSection />,
+  'examination-branch': <ExaminationBranchSection />,
   'sessional-timetable': <SessionalTimetableSection />,
   'ou-timetables': <OuTimetablesSection />,
   'ou-notifications': <OuNotificationsSection />,
@@ -499,8 +530,8 @@ const sectionContent = {
 
 export default function ExaminationPage() {
   const { section } = useParams();
-  const activeSection = section || 'overview';
-  const config = sectionConfig[activeSection] || sectionConfig.overview;
+  const activeSection = section || 'examination-branch';
+  const config = sectionConfig[activeSection] || sectionConfig['examination-branch'];
   const location = useLocation();
 
   useEffect(() => {
@@ -509,8 +540,7 @@ export default function ExaminationPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white overflow-x-hidden">
-      <Navbar college={college} />
-      <NavStrip college={college} />
+      <SiteHeader college={college} />
       <PageHero
         college={college}
         title={config.title}
@@ -520,7 +550,7 @@ export default function ExaminationPage() {
       />
       <main className="flex-1 section-pad">
         <div className="max-w-[1200px] mx-auto">
-          {sectionContent[activeSection] || sectionContent.overview}
+          {sectionContent[activeSection] || sectionContent['examination-branch']}
         </div>
       </main>
       <AdmissionsCTA college={college} />

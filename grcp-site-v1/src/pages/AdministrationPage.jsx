@@ -1,6 +1,50 @@
 ﻿import { useParams } from 'react-router-dom';
 import college from '../theme';
+import SiteHeader from '../components/SiteHeader';
+import PageHero from '../components/PageHero';
+import AdmissionsCTA from '../components/AdmissionsCTA';
+import Footer from '../components/Footer';
 import AdminSidebarLayout from '../components/AdminSidebarLayout';
+
+const pc = college.primaryColor;   // #2D7A50
+const ac = college.greenAccent;    // #C72235
+
+// ── Section config ────────────────────────────────────────────────────────────
+
+const sectionConfig = {
+  chairman: {
+    title: 'Chairman',
+    subtitle: 'Leadership & Vision at Gokaraju Rangaraju College of Pharmacy',
+    breadcrumb: ['Administration', 'Chairman'],
+  },
+  'vice-president': {
+    title: 'Vice President',
+    subtitle: 'Leadership & Vision at Gokaraju Rangaraju College of Pharmacy',
+    breadcrumb: ['Administration', 'Vice President'],
+  },
+  principal: {
+    title: 'Principal',
+    subtitle: 'Academic Leadership at Gokaraju Rangaraju College of Pharmacy',
+    breadcrumb: ['Administration', 'Principal'],
+  },
+  'governing-body': {
+    title: 'Governing Body',
+    subtitle: 'Governance structure of Gokaraju Rangaraju College of Pharmacy',
+    breadcrumb: ['Administration', 'Governing Body'],
+  },
+  idmc: {
+    title: 'IDMC',
+    subtitle: 'Institutional Development and Monitoring Committee',
+    breadcrumb: ['Administration', 'IDMC'],
+  },
+  'org-chart': {
+    title: 'Organizational Chart',
+    subtitle: 'Administrative hierarchy of Gokaraju Rangaraju College of Pharmacy',
+    breadcrumb: ['Administration', 'Organizational Chart'],
+  },
+};
+
+// ── Shared sub-components ─────────────────────────────────────────────────────
 
 function SectionHeader({ label, title }) {
   return (
@@ -8,7 +52,7 @@ function SectionHeader({ label, title }) {
       {label && (
         <span
           className="font-dm-sans font-semibold text-[12px] uppercase tracking-[2px] mb-2 block"
-          style={{ color: college.greenAccent }}
+          style={{ color: ac }}
         >
           {label}
         </span>
@@ -16,8 +60,8 @@ function SectionHeader({ label, title }) {
       <h2
         className="font-hind font-bold text-[26px] leading-[34px] pb-3"
         style={{
-          color: college.primaryColor,
-          borderBottom: `3px solid ${college.greenAccent}`,
+          color: pc,
+          borderBottom: `3px solid ${ac}`,
           display: 'inline-block',
         }}
       >
@@ -27,139 +71,165 @@ function SectionHeader({ label, title }) {
   );
 }
 
-function SectionDesc({ text }) {
-  return (
-    <p className="font-dm-sans text-[15px] leading-[26px] text-[#474747]">
-      {text}
-    </p>
-  );
-}
+// ── Profile card (matches Recreated AdminProfile.jsx) ─────────────────────────
 
-function ObjectivesList({ items }) {
-  return (
-    <ul className="space-y-3">
-      {items.map((item, i) => (
-        <li key={i} className="flex items-start gap-3">
-          <span
-            className="w-2 h-2 rounded-full flex-shrink-0 mt-[9px]"
-            style={{ backgroundColor: college.greenAccent }}
-          />
-          <span className="font-dm-sans text-[15px] leading-[26px] text-[#474747]">{item}</span>
-        </li>
-      ))}
-    </ul>
-  );
-}
+function ProfileCard({ person, institution, qualifications, bio }) {
+  const name = person?.fullName || person?.name || '';
+  const title = person?.title || '';
+  const imgSrc = person?.img || null;
 
-function CommitteeTable({ members, columns }) {
   return (
-    <div className="overflow-x-auto rounded-xl border" style={{ borderColor: `${college.primaryColor}18` }}>
-      <table className="w-full border-collapse">
-        <thead>
-          <tr style={{ backgroundColor: college.greenAccent }}>
-            {columns.map((col) => (
-              <th
-                key={col.key}
-                className="font-dm-sans font-semibold text-[13px] text-white text-left px-5 py-3.5 first:rounded-tl-xl last:rounded-tr-xl"
-              >
-                {col.label}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {members.map((member, i) => (
-            <tr
-              key={i}
-              style={{ backgroundColor: i % 2 === 0 ? '#FAFAFA' : '#FFFFFF' }}
-            >
-              {columns.map((col) => (
-                <td
-                  key={col.key}
-                  className="font-dm-sans text-[14px] text-[#474747] px-5 py-3.5 border-b"
-                  style={{ borderColor: `${college.primaryColor}10` }}
-                >
-                  {member[col.key] ?? '—'}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-}
-
-function ProfileCard({ person }) {
-  return (
-    <div className="bg-white border rounded-2xl overflow-hidden shadow-sm" style={{ borderColor: `${college.primaryColor}15` }}>
-      <div
-        className="h-2 w-full"
-        style={{ backgroundColor: college.primaryColor }}
-      />
-      <div className="p-8 flex flex-col md:flex-row gap-8 items-start">
+    <div
+      className="bg-white rounded-2xl overflow-hidden"
+      style={{ border: `1px solid ${pc}18`, boxShadow: '0 2px 12px rgba(0,0,0,0.06)' }}
+    >
+      {/* Photo + header info */}
+      <div className="flex flex-col md:flex-row gap-8 p-8 items-start">
+        {/* Photo */}
         <div className="flex-shrink-0">
-          <div
-            className="w-28 h-28 rounded-full flex items-center justify-center overflow-hidden"
-            style={{ backgroundColor: `${college.primaryColor}12`, border: `3px solid ${college.primaryColor}20` }}
-          >
+          {imgSrc ? (
             <img
-              src={`/admin-${person.name?.toLowerCase().replace(/\s+/g, '-')}.jpg`}
-              alt={person.fullName}
-              className="w-full h-full object-cover"
+              src={imgSrc}
+              alt={name}
+              style={{
+                width: 220,
+                height: 'auto',
+                objectFit: 'cover',
+                borderRadius: 12,
+                border: `2px solid ${pc}20`,
+                display: 'block',
+              }}
               onError={(e) => {
                 e.currentTarget.style.display = 'none';
-                e.currentTarget.parentElement.innerHTML = `<span style="font-family:Poppins,sans-serif;font-weight:700;font-size:36px;color:${college.primaryColor}">${(person.fullName || person.name || '?').charAt(0)}</span>`;
+                const fallback = e.currentTarget.nextSibling;
+                if (fallback) fallback.style.display = 'flex';
               }}
             />
+          ) : null}
+          <div
+            style={{
+              width: 220,
+              height: 220,
+              borderRadius: 12,
+              border: `2px solid ${pc}20`,
+              backgroundColor: `${pc}18`,
+              display: imgSrc ? 'none' : 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: 72,
+              fontWeight: 700,
+              color: pc,
+              fontFamily: 'Hind, sans-serif',
+            }}
+          >
+            {name.charAt(0).toUpperCase()}
           </div>
         </div>
-        <div className="flex-1">
+
+        {/* Name / title / qualifications */}
+        <div className="flex-1 min-w-0">
           <h3
-            className="font-hind font-bold text-[22px] mb-1"
-            style={{ color: college.primaryColor }}
+            className="font-hind font-bold text-[28px] leading-tight mb-1"
+            style={{ color: pc }}
           >
-            {person.fullName}
+            {name}
           </h3>
+          {title && (
           <p
-            className="font-dm-sans font-semibold text-[14px] mb-5"
-            style={{ color: college.greenAccent }}
+            className="font-dm-sans font-semibold text-[15px] mb-1"
+            style={{ color: ac }}
           >
-            {person.title}
+            {title}
           </p>
-          <div className="space-y-3">
-            {person.bio.map((para, i) => (
-              <SectionDesc key={i} text={para} />
-            ))}
-          </div>
+          )}
+          {institution && (
+            <p className="font-dm-sans text-[14px] text-[#555] mb-3">
+              {institution}
+            </p>
+          )}
+          {qualifications && qualifications.length > 0 && (
+            <ul className="space-y-1 mt-3">
+              {qualifications.map((q, i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <span
+                    className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-[7px]"
+                    style={{ backgroundColor: pc }}
+                  />
+                  <span className="font-dm-sans text-[14px] text-[#474747]">{q}</span>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
+      </div>
+
+      {/* Divider */}
+      <div style={{ height: 1, backgroundColor: `${pc}18`, marginLeft: 32, marginRight: 32 }} />
+
+      {/* Bio paragraphs */}
+      <div className="p-8 space-y-4">
+        {bio.map((para, i) => (
+          <p key={i} className="font-dm-sans text-[15px] leading-[27px] text-[#474747]">
+            {para}
+          </p>
+        ))}
       </div>
     </div>
   );
 }
 
-function LeadershipSection() {
-  const { chairman, vicePresident, principal } = college.administration;
+// ── Section: Chairman ─────────────────────────────────────────────────────────
+
+function ChairmanSection() {
   return (
-    <div className="space-y-10">
-      <SectionHeader label="Leadership" title="Our Leaders" />
-      <div className="space-y-6">
-        <h3 className="font-hind font-semibold text-[16px]" style={{ color: college.greenAccent }}>Chairman</h3>
-        <ProfileCard person={chairman} />
-      </div>
-      <div className="w-full h-px" style={{ backgroundColor: `${college.primaryColor}15` }} />
-      <div className="space-y-6">
-        <h3 className="font-hind font-semibold text-[16px]" style={{ color: college.greenAccent }}>Vice President</h3>
-        <ProfileCard person={vicePresident} />
-      </div>
-      <div className="w-full h-px" style={{ backgroundColor: `${college.primaryColor}15` }} />
-      <div className="space-y-6">
-        <h3 className="font-hind font-semibold text-[16px]" style={{ color: college.greenAccent }}>Principal</h3>
-        <ProfileCard person={principal} />
-      </div>
+    <div className="space-y-6">
+      <SectionHeader label="Administration" title="Chairman" />
+      <ProfileCard
+        person={college.administration.chairman}
+        institution="Gokaraju Rangaraju College of Pharmacy"
+        qualifications={[]}
+        bio={college.administration.chairman.bio}
+      />
     </div>
   );
 }
+
+// ── Section: Vice President ───────────────────────────────────────────────────
+
+function VicePresidentSection() {
+  return (
+    <div className="space-y-6">
+      <SectionHeader label="Administration" title="Vice President" />
+      <ProfileCard
+        person={college.administration.vicePresident}
+        qualifications={['Chemical Engineer']}
+        bio={college.administration.vicePresident.bio}
+      />
+    </div>
+  );
+}
+
+// ── Section: Principal ────────────────────────────────────────────────────────
+
+function PrincipalSection() {
+  return (
+    <div className="space-y-6">
+      <SectionHeader label="Administration" title="Principal" />
+      <ProfileCard
+        person={college.administration.principal}
+        qualifications={[
+          'B.Pharm (2000) – Mangalore University',
+          'M.Pharm (2003) – Rajiv Gandhi University of Health Sciences',
+          'Ph.D. (2011) – Andhra University',
+          'CMI Level 5 Certificate in Management and Leadership – Chartered Management Institute, U.K.',
+        ]}
+        bio={college.administration.principal.bio}
+      />
+    </div>
+  );
+}
+
+// ── Section: Governing Body ───────────────────────────────────────────────────
 
 function GoverningBodySection() {
   const { governingBody } = college.administration;
@@ -167,15 +237,15 @@ function GoverningBodySection() {
     <div className="space-y-6">
       <SectionHeader label="Governance" title="Governing Body" />
       {governingBody.year && (
-        <p className="font-dm-sans font-semibold text-[13px]" style={{ color: college.greenAccent }}>
+        <p className="font-dm-sans font-semibold text-[13px]" style={{ color: ac }}>
           Academic Year: {governingBody.year}
         </p>
       )}
-      <div className="overflow-x-auto rounded-xl border" style={{ borderColor: `${college.primaryColor}18` }}>
+      <div className="overflow-x-auto rounded-xl border" style={{ borderColor: `${pc}18` }}>
         <table className="w-full border-collapse">
           <thead>
-            <tr style={{ backgroundColor: college.greenAccent }}>
-              {['Sl. No.', 'Name of the Member', 'Designation', 'Category'].map((h) => (
+            <tr style={{ backgroundColor: ac }}>
+              {['S.No.', 'Photo', 'Name', 'Designation', 'Category'].map((h) => (
                 <th
                   key={h}
                   className="font-dm-sans font-semibold text-[13px] text-white text-left px-5 py-3.5 first:rounded-tl-xl last:rounded-tr-xl"
@@ -191,19 +261,33 @@ function GoverningBodySection() {
                 key={i}
                 style={{ backgroundColor: i % 2 === 0 ? '#FAFAFA' : '#FFFFFF' }}
               >
-                <td className="font-dm-sans text-[14px] text-[#474747] px-5 py-3.5 border-b align-top" style={{ borderColor: `${college.primaryColor}10` }}>
+                <td className="font-dm-sans text-[14px] text-[#474747] px-5 py-3.5 border-b align-middle" style={{ borderColor: `${pc}10` }}>
                   {m.no}
                 </td>
-                <td className="px-5 py-3.5 border-b align-top" style={{ borderColor: `${college.primaryColor}10` }}>
-                  <span className="font-dm-sans font-semibold text-[14px]" style={{ color: college.primaryColor }}>{m.name}</span>
-                  {m.details && (
-                    <span className="block font-dm-sans text-[12px] text-[#6A7282] mt-0.5">{m.details}</span>
+                <td className="px-5 py-3.5 border-b align-middle" style={{ borderColor: `${pc}10` }}>
+                  {m.photo && (
+                    <img
+                      src={m.photo}
+                      alt={m.name}
+                      style={{ width: 70, height: 80, objectFit: 'cover', borderRadius: 4, display: 'block' }}
+                      onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                    />
                   )}
                 </td>
-                <td className="font-dm-sans text-[14px] text-[#474747] px-5 py-3.5 border-b align-top" style={{ borderColor: `${college.primaryColor}10` }}>
+                <td className="px-5 py-3.5 border-b align-middle" style={{ borderColor: `${pc}10` }}>
+                  <span className="font-dm-sans font-semibold text-[14px]" style={{ color: pc }}>
+                    {m.name}
+                  </span>
+                  {(m.org || m.details) && (
+                    <span className="block font-dm-sans text-[12px] text-[#6A7282] mt-0.5 whitespace-pre-line">
+                      {m.org || m.details}
+                    </span>
+                  )}
+                </td>
+                <td className="font-dm-sans text-[14px] text-[#474747] px-5 py-3.5 border-b align-middle" style={{ borderColor: `${pc}10` }}>
                   {m.role}
                 </td>
-                <td className="font-dm-sans text-[14px] text-[#474747] px-5 py-3.5 border-b align-top" style={{ borderColor: `${college.primaryColor}10` }}>
+                <td className="font-dm-sans text-[14px] text-[#474747] px-5 py-3.5 border-b align-middle" style={{ borderColor: `${pc}10` }}>
                   {m.category}
                 </td>
               </tr>
@@ -215,38 +299,21 @@ function GoverningBodySection() {
   );
 }
 
+// ── Section: IDMC ─────────────────────────────────────────────────────────────
+
 function IdmcSection() {
   const { idmc } = college.administration;
   return (
     <div className="space-y-6">
       <SectionHeader label="Institutional Committee" title="IDMC" />
-      <SectionDesc text={idmc.description} />
-      {idmc.powers && (
-        <ol className="space-y-2.5 max-w-[820px]">
-          {idmc.powers.map((item, i) => (
-            <li key={i} className="flex items-start gap-3">
-              <span
-                className="font-dm-sans font-bold text-[13px] flex-shrink-0 w-6 text-right mt-[3px]"
-                style={{ color: college.primaryColor }}
-              >
-                {i + 1}.
-              </span>
-              <span className="font-dm-sans text-[14px] leading-[24px] text-[#474747]">{item}</span>
-            </li>
-          ))}
-        </ol>
-      )}
-      <h4
-        className="font-hind font-semibold text-[16px] pt-2"
-        style={{ color: college.primaryColor }}
-      >
-        The members of Institutional Development and Monitoring Committee (IDMC)
-      </h4>
-      <div className="overflow-x-auto rounded-xl border" style={{ borderColor: `${college.primaryColor}18` }}>
+      <p className="font-dm-sans text-[15px] leading-[27px] text-[#474747]">
+        {idmc.description}
+      </p>
+      <div className="overflow-x-auto rounded-xl border" style={{ borderColor: `${pc}18` }}>
         <table className="w-full border-collapse">
           <thead>
-            <tr style={{ backgroundColor: college.greenAccent }}>
-              {['Sl. No', 'Name', 'Designation', 'Position', 'E-mail ID'].map((h) => (
+            <tr style={{ backgroundColor: ac }}>
+              {['S.No.', 'Name', 'Designation', 'Position', 'Email'].map((h) => (
                 <th
                   key={h}
                   className="font-dm-sans font-semibold text-[13px] text-white text-left px-5 py-3.5 first:rounded-tl-xl last:rounded-tr-xl"
@@ -262,21 +329,29 @@ function IdmcSection() {
                 key={i}
                 style={{ backgroundColor: i % 2 === 0 ? '#FAFAFA' : '#FFFFFF' }}
               >
-                <td className="font-dm-sans text-[14px] text-[#474747] px-5 py-3.5 border-b" style={{ borderColor: `${college.primaryColor}10` }}>{i + 1}.</td>
-                <td className="font-dm-sans text-[14px] text-[#474747] px-5 py-3.5 border-b" style={{ borderColor: `${college.primaryColor}10` }}>{m.name}</td>
-                <td className="font-dm-sans text-[14px] text-[#474747] px-5 py-3.5 border-b" style={{ borderColor: `${college.primaryColor}10` }}>{m.designation}</td>
-                <td className="font-dm-sans text-[14px] text-[#474747] px-5 py-3.5 border-b" style={{ borderColor: `${college.primaryColor}10` }}>{m.role}</td>
-                <td className="px-5 py-3.5 border-b" style={{ borderColor: `${college.primaryColor}10` }}>
+                <td className="font-dm-sans text-[14px] text-[#474747] px-5 py-3.5 border-b" style={{ borderColor: `${pc}10` }}>
+                  {i + 1}.
+                </td>
+                <td className="font-dm-sans text-[14px] text-[#474747] px-5 py-3.5 border-b" style={{ borderColor: `${pc}10` }}>
+                  {m.name}
+                </td>
+                <td className="font-dm-sans text-[14px] text-[#474747] px-5 py-3.5 border-b" style={{ borderColor: `${pc}10` }}>
+                  {m.designation}
+                </td>
+                <td className="font-dm-sans text-[14px] text-[#474747] px-5 py-3.5 border-b" style={{ borderColor: `${pc}10` }}>
+                  {m.role}
+                </td>
+                <td className="px-5 py-3.5 border-b" style={{ borderColor: `${pc}10` }}>
                   {m.email ? (
                     <a
                       href={`mailto:${m.email}`}
                       className="font-dm-sans text-[13px] underline"
-                      style={{ color: college.primaryColor }}
+                      style={{ color: pc }}
                     >
                       {m.email}
                     </a>
                   ) : (
-                    <span className="font-dm-sans text-[14px] text-[#474747]">—</span>
+                    <span className="font-dm-sans text-[14px] text-[#474747]">&mdash;</span>
                   )}
                 </td>
               </tr>
@@ -288,271 +363,24 @@ function IdmcSection() {
   );
 }
 
-function OrgChartSection() {
-  const { orgChart } = college.administration;
-  const pc = college.primaryColor;
-  const ac = college.greenAccent;
-  const lineClr = `${pc}55`;
+// ── Section: Org Chart ────────────────────────────────────────────────────────
 
+function OrgChartSection() {
   return (
     <div className="space-y-6">
       <SectionHeader label="Structure" title="Organizational Chart" />
-      <p className="font-dm-sans text-[14px] leading-[24px] text-[#474747] max-w-[720px]">
-        The organizational chart illustrates the governance and administrative hierarchy of Gokaraju Rangaraju College of Pharmacy, from the governing society through institutional leadership to academic departments.
-      </p>
-
-      <div className="overflow-x-auto rounded-2xl border" style={{ borderColor: `${pc}12`, backgroundColor: '#FDFCFC' }}>
-        <div className="min-w-[860px] py-12 px-8">
-
-          {/* ── Top chain: Chairman → VP → Principal ── */}
-          <div className="flex flex-col items-center">
-            {orgChart.levels.map((lvl, i) => (
-              <div key={i} className="flex flex-col items-center">
-                <div
-                  className="rounded-xl px-12 py-4 text-center shadow-sm"
-                  style={{ backgroundColor: pc, minWidth: 288 }}
-                >
-                  <p className="font-dm-sans font-bold text-[12px] tracking-[2.5px] text-white uppercase">{lvl.role}</p>
-                  <p className="font-dm-sans text-[13px] font-medium mt-1" style={{ color: 'rgba(255,255,255,0.85)' }}>{lvl.name}</p>
-                </div>
-                {i < orgChart.levels.length - 1 && (
-                  <div style={{ width: 2, height: 32, backgroundColor: lineClr }} />
-                )}
-              </div>
-            ))}
-            {/* Stub below Principal */}
-            <div style={{ width: 2, height: 28, backgroundColor: lineClr }} />
-          </div>
-
-          {/* ── Branching to HODs ── */}
-          <div className="relative">
-            {/* Horizontal branch line from center of col-1 to center of col-3 */}
-            <div
-              className="absolute"
-              style={{ top: 0, left: '16.667%', right: '16.667%', height: 2, backgroundColor: lineClr }}
-            />
-            <div className="flex">
-              {orgChart.departments.map((dep, i) => (
-                <div key={i} className="flex-1 flex flex-col items-center px-4">
-                  {/* Vertical drop from horizontal line */}
-                  <div style={{ width: 2, height: 28, backgroundColor: lineClr }} />
-
-                  {/* HOD Card */}
-                  <div
-                    className="w-full rounded-xl px-4 py-4 text-center"
-                    style={{ backgroundColor: `${pc}08`, border: `1.5px solid ${pc}30` }}
-                  >
-                    <div
-                      className="inline-block px-2.5 py-0.5 rounded-full font-dm-sans font-semibold text-[10px] tracking-[1px] uppercase mb-2"
-                      style={{ backgroundColor: 'rgba(0,135,61,0.10)', color: college.greenAccent }}
-                    >
-                      Department Head
-                    </div>
-                    <p className="font-dm-sans font-semibold text-[12px] leading-[18px]" style={{ color: pc }}>{dep.hod}</p>
-                    <p className="font-dm-sans text-[12px] mt-1.5" style={{ color: '#5A6275' }}>{dep.person}</p>
-                  </div>
-
-                  {/* Vertical connector to staff */}
-                  <div style={{ width: 2, height: 20, backgroundColor: lineClr }} />
-
-                  {/* Staff cards */}
-                  <div className="w-full flex flex-col items-center">
-                    {orgChart.staffLevels.map((s, j) => (
-                      <div key={j} className="w-full flex flex-col items-center">
-                        <div
-                          className="w-full rounded-lg py-2.5 text-center"
-                          style={{ backgroundColor: '#F3F4F6', border: `1px solid ${pc}15` }}
-                        >
-                          <p className="font-dm-sans text-[12px]" style={{ color: '#4B5563' }}>{s}</p>
-                        </div>
-                        {j < orgChart.staffLevels.length - 1 && (
-                          <div style={{ width: 2, height: 8, backgroundColor: lineClr }} />
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      {/* Legend */}
-      <div className="flex flex-wrap gap-5 pt-1">
-        {[
-          { color: pc, label: 'Institutional Leadership' },
-          { color: `${pc}30`, label: 'Department Heads', fill: `${pc}08` },
-          { color: `${pc}15`, label: 'Support Staff', fill: '#F3F4F6' },
-        ].map((item) => (
-          <div key={item.label} className="flex items-center gap-2">
-            <div
-              className="w-4 h-4 rounded"
-              style={{ backgroundColor: item.fill ?? item.color, border: `1.5px solid ${item.color}` }}
-            />
-            <span className="font-dm-sans text-[12px] text-[#6A7282]">{item.label}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function AntiRaggingSection() {
-  const { antiRagging } = college.administration;
-  return (
-    <div className="space-y-8">
-      <SectionHeader label="Student Safety" title="Anti-Ragging / Discipline" />
-      <SectionDesc text={antiRagging.description} />
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="rounded-2xl p-6" style={{ backgroundColor: '#F9F5FF', border: `1px solid ${college.primaryColor}15` }}>
-          <h4 className="font-hind font-semibold text-[16px] mb-4" style={{ color: college.primaryColor }}>
-            Preventive Measures
-          </h4>
-          <ObjectivesList items={antiRagging.measures} />
-        </div>
-
-        <div className="rounded-2xl p-6" style={{ backgroundColor: '#F0FBF4', border: `1px solid ${college.greenAccent}30` }}>
-          <h4 className="font-hind font-semibold text-[16px] mb-4" style={{ color: college.primaryColor }}>
-            Helplines
-          </h4>
-          <ul className="space-y-4">
-            {antiRagging.helplines.map((h, i) => (
-              <li key={i} className="flex flex-col gap-1">
-                <span className="font-dm-sans text-[13px] text-[#6A7282]">{h.label}</span>
-                <a
-                  href={`tel:${h.number.replace(/\D/g, '')}`}
-                  className="font-hind font-bold text-[20px]"
-                  style={{ color: college.primaryColor }}
-                >
-                  {h.number}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
       <div>
-        <h4 className="font-hind font-semibold text-[16px] mb-4" style={{ color: college.primaryColor }}>
-          Committee Members
-        </h4>
-        <CommitteeTable
-          members={antiRagging.members}
-          columns={[
-            { key: 'name', label: 'Name' },
-            { key: 'designation', label: 'Designation' },
-            { key: 'phone', label: 'Contact' },
-          ]}
-        />
-      </div>
-    </div>
-  );
-}
-
-function AntiHarassmentSection() {
-  const { antiHarassment } = college.administration;
-  return (
-    <div className="space-y-8">
-      <SectionHeader label="ICC" title="Anti-Sexual Harassment / ICC" />
-      <SectionDesc text={antiHarassment.description} />
-
-      <CommitteeTable
-        members={antiHarassment.members.map((m) => ({
-          sno: m.sno,
-          name: m.name,
-          designation: m.designation,
-          phone: m.phone,
-        }))}
-        columns={[
-          { key: 'sno', label: 'S.No.' },
-          { key: 'name', label: 'Name' },
-          { key: 'designation', label: 'Designation' },
-          { key: 'phone', label: 'Contact' },
-        ]}
-      />
-
-      <div className="rounded-2xl p-6" style={{ backgroundColor: '#FAFAFA', border: `1px solid ${college.primaryColor}12` }}>
-        <h4 className="font-hind font-semibold text-[16px] mb-4" style={{ color: college.primaryColor }}>
-          Functions of the ICC
-        </h4>
-        <ObjectivesList items={antiHarassment.functions} />
-      </div>
-    </div>
-  );
-}
-
-function GrievanceSection() {
-  const { grievance } = college.administration;
-  return (
-    <div className="space-y-8">
-      <SectionHeader label="Student Support" title="Grievance Redressal" />
-      <SectionDesc text={grievance.description} />
-
-      <CommitteeTable
-        members={grievance.members}
-        columns={[
-          { key: 'name', label: 'Name' },
-          { key: 'designation', label: 'Designation' },
-          { key: 'role', label: 'Role' },
-        ]}
-      />
-
-      <div>
-        <h4 className="font-hind font-semibold text-[16px] mb-5" style={{ color: college.primaryColor }}>
-          Grievance Resolution Process
-        </h4>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {grievance.process.map((step, i) => (
-            <div
-              key={i}
-              className="rounded-xl p-5 text-center"
-              style={{ backgroundColor: '#FAFAFA', border: `1px solid ${college.primaryColor}15` }}
-            >
-              <div
-                className="w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-3 font-dm-sans font-bold text-[16px] text-white"
-                style={{ backgroundColor: college.primaryColor }}
-              >
-                {i + 1}
-              </div>
-              <h5 className="font-hind font-semibold text-[14px] mb-2" style={{ color: college.primaryColor }}>
-                {step.label}
-              </h5>
-              <p className="font-dm-sans text-[13px] leading-[21px] text-[#474747]">{step.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function IqacSection() {
-  const { iqac } = college.administration;
-  return (
-    <div className="space-y-8">
-      <SectionHeader label="Quality Assurance" title="IQAC" />
-      <SectionDesc text={iqac.description} />
-
-      <div className="rounded-2xl p-6" style={{ backgroundColor: '#FAFAFA', border: `1px solid ${college.primaryColor}12` }}>
-        <h4 className="font-hind font-semibold text-[16px] mb-4" style={{ color: college.primaryColor }}>
-          Objectives
-        </h4>
-        <ObjectivesList items={iqac.objectives} />
-      </div>
-
-      <div>
-        <h4 className="font-hind font-semibold text-[16px] mb-4" style={{ color: college.primaryColor }}>
-          Committee Members
-        </h4>
-        <CommitteeTable
-          members={iqac.members}
-          columns={[
-            { key: 'name', label: 'Name' },
-            { key: 'designation', label: 'Designation' },
-          ]}
+        <img
+          src="https://grcp.ac.in/images/Organizational_Chart.png?v=0.1"
+          alt="Organizational Chart"
+          style={{ maxWidth: '100%', display: 'block', margin: '0 auto' }}
+          onError={(e) => {
+            e.currentTarget.style.display = 'none';
+            const fallback = document.createElement('p');
+            fallback.style.cssText = 'font-family:DM Sans,sans-serif;font-size:15px;color:#474747;text-align:center;padding:40px 0;';
+            fallback.textContent = 'Organizational chart image is currently unavailable.';
+            e.currentTarget.parentNode.appendChild(fallback);
+          }}
         />
       </div>
     </div>
@@ -560,26 +388,25 @@ function IqacSection() {
 }
 
 const sectionRegistry = {
-  leadership: { label: 'Leadership', content: <LeadershipSection /> },
+  chairman: { label: 'Chairman', content: <ChairmanSection /> },
+  'vice-president': { label: 'Vice President', content: <VicePresidentSection /> },
+  principal: { label: 'Principal', content: <PrincipalSection /> },
   'governing-body': { label: 'Governing Body', content: <GoverningBodySection /> },
   idmc: { label: 'IDMC', content: <IdmcSection /> },
   'org-chart': { label: 'Organizational Chart', content: <OrgChartSection /> },
-  'anti-ragging': { label: 'Anti-Ragging / Discipline', content: <AntiRaggingSection /> },
-  'anti-harassment': { label: 'Anti-Sexual Harassment / ICC', content: <AntiHarassmentSection /> },
-  grievance: { label: 'Grievance Redressal', content: <GrievanceSection /> },
-  iqac: { label: 'IQAC', content: <IqacSection /> },
 };
 
 export default function AdministrationPage() {
-  const { section = 'leadership' } = useParams();
-  const currentSection = sectionRegistry[section] || sectionRegistry.leadership;
+  const { section = 'chairman' } = useParams();
+  const currentSection = sectionRegistry[section] || sectionRegistry.chairman;
+  const config = sectionConfig[section] || sectionConfig.chairman;
 
   return (
     <AdminSidebarLayout
       college={college}
-      pageTitle="Administration"
-      pageSubtitle="Governance, leadership, and institutional committees at GRCP"
-      pageBreadcrumb={['Administration', currentSection.label]}
+      pageTitle={config.title}
+      pageSubtitle={config.subtitle}
+      pageBreadcrumb={config.breadcrumb}
       currentSection={currentSection}
     />
   );

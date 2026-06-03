@@ -1,4 +1,4 @@
-﻿export default function Hero({ college }) {
+export default function Hero({ college }) {
   return (
     <section className="relative w-full h-[420px] sm:h-[520px] lg:h-[620px] flex items-center overflow-hidden">
 
@@ -68,7 +68,7 @@
 
           {/* Subtext — warm green-white, readable and soft */}
           <p
-            className="font-dm-sans font-normal text-[14px] sm:text-[16px] lg:text-[17px] leading-[26px] lg:leading-[28px]"
+            className="font-dm-sans font-normal text-[16px] leading-[26px]"
             style={{
               color: 'rgba(208,238,220,0.80)',
               textShadow: '0 1px 10px rgba(0,0,0,0.36)',
@@ -86,62 +86,15 @@
               href={college.heroCTAHref}
               target={college.heroCTAHref.startsWith('http') ? '_blank' : undefined}
               rel={college.heroCTAHref.startsWith('http') ? 'noopener noreferrer' : undefined}
-              className="text-white font-dm-sans font-semibold text-[14px] sm:text-[15px] leading-6 px-6 sm:px-8 py-3 sm:py-[13px] rounded-md inline-block"
-              style={{
-                background: 'linear-gradient(135deg, #D7283C 0%, #C72235 55%, #A81C2E 100%)',
-                boxShadow: '0 3px 8px rgba(0,0,0,0.26), inset 0 1px 0 rgba(255,255,255,0.14)',
-                letterSpacing: '0.01em',
-                transition: 'all 0.18s ease',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background =
-                  'linear-gradient(135deg, #E12C41 0%, #D7283C 55%, #B51E30 100%)';
-                e.currentTarget.style.boxShadow =
-                  '0 6px 18px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.16)';
-                e.currentTarget.style.transform = 'translateY(-2px)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background =
-                  'linear-gradient(135deg, #D7283C 0%, #C72235 55%, #A81C2E 100%)';
-                e.currentTarget.style.boxShadow =
-                  '0 3px 8px rgba(0,0,0,0.26), inset 0 1px 0 rgba(255,255,255,0.14)';
-                e.currentTarget.style.transform = 'translateY(0)';
-              }}
+              className="btn-red btn-lg"
             >
               {college.heroCTALabel}
             </a>
 
             {/* Secondary — premium glassmorphism */}
-            <button
-              className="font-dm-sans font-semibold text-[14px] sm:text-[15px] leading-6 px-6 sm:px-8 py-3 sm:py-[13px] rounded-md"
-              style={{
-                backgroundColor: 'rgba(255,255,255,0.08)',
-                backdropFilter: 'blur(20px)',
-                WebkitBackdropFilter: 'blur(20px)',
-                border: '1px solid rgba(255,255,255,0.18)',
-                color: 'rgba(224,246,234,0.90)',
-                boxShadow:
-                  '0 2px 12px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.12), inset 0 -1px 0 rgba(0,0,0,0.06)',
-                letterSpacing: '0.01em',
-                transition: 'all 0.20s ease',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.16)';
-                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.34)';
-                e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow =
-                  '0 8px 28px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.16), inset 0 -1px 0 rgba(0,0,0,0.04)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.08)';
-                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.18)';
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow =
-                  '0 2px 12px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.12), inset 0 -1px 0 rgba(0,0,0,0.06)';
-              }}
-            >
+            <a href="/programmes" className="btn-ghost-white btn-lg">
               Explore Programs
-            </button>
+            </a>
           </div>
         </div>
       </div>

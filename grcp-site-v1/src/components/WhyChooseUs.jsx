@@ -1,4 +1,4 @@
-﻿const PhoneIcon = () => (
+const PhoneIcon = () => (
   <svg viewBox="0 0 20 20" fill="none" className="w-5 h-5">
     <path d="M2 3a1 1 0 011-1h2a1 1 0 011 .836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74A1 1 0 0118 15v2a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"
       stroke="#2D7A50" strokeWidth="1.5" />

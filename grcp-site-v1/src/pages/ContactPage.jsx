@@ -1,8 +1,7 @@
 ﻿import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import college from '../theme';
-import Navbar from '../components/Navbar';
-import NavStrip from '../components/NavStrip';
+import SiteHeader from '../components/SiteHeader';
 import PageHero from '../components/PageHero';
 import AdmissionsCTA from '../components/AdmissionsCTA';
 import Footer from '../components/Footer';
@@ -41,6 +40,17 @@ function ClockIcon({ color }) {
     </svg>
   );
 }
+
+function InstagramIcon({ color }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6" stroke={color} strokeWidth="1.5">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="12" cy="12" r="4" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="17.5" cy="6.5" r="0.5" fill={color} stroke="none" />
+    </svg>
+  );
+}
+
 
 function ContactInfoCards() {
   const cards = [
@@ -90,10 +100,25 @@ function ContactInfoCards() {
         </a>
       ),
     },
+    {
+      Icon: InstagramIcon,
+      heading: 'Instagram',
+      content: (
+        <a
+          href="https://www.instagram.com/grcp_offic"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-dm-sans text-[14px] underline break-all"
+          style={{ color: college.primaryColor }}
+        >
+          @grcp_offic
+        </a>
+      ),
+    },
   ];
 
   return (
-    <section className="grid grid-cols-1 md:grid-cols-3 gap-5">
+    <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
       {cards.map((card, i) => (
         <div
           key={i}
@@ -331,6 +356,156 @@ function HowToReachSection() {
   );
 }
 
+function GoogleMapSection() {
+  return (
+    <section>
+      <h2
+        className="font-hind font-bold text-[22px] mb-6"
+        style={{ color: college.primaryColor }}
+      >
+        Our Location
+      </h2>
+      <div
+        className="rounded-2xl overflow-hidden border"
+        style={{ borderColor: `${college.primaryColor}18` }}
+      >
+        <iframe
+          title="GRCP Location"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.1234!2d78.3890!3d17.5090!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sGokaraju+Rangaraju+College+of+Pharmacy!5e0!3m2!1sen!2sin!4v1"
+          width="100%"
+          height="400"
+          style={{ border: 0, display: 'block' }}
+          allowFullScreen=""
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+        <div
+          className="px-5 py-3 font-dm-sans text-[13px]"
+          style={{ backgroundColor: '#FAFAFA', borderTop: `1px solid ${college.primaryColor}18`, color: '#6B7280' }}
+        >
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+            <MapPinIcon color={college.primaryColor} />
+            Survey No. 288, Nizampet Bachupally Road, Bachupally, Kukatpally, Hyderabad – 500090
+          </span>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function GrievanceSection() {
+  return (
+    <section>
+      <h2
+        className="font-hind font-bold text-[22px] mb-4"
+        style={{ color: college.primaryColor }}
+      >
+        Grievance Redressal
+      </h2>
+      <div
+        className="p-6"
+        style={{
+          backgroundColor: `${college.primaryColor}08`,
+          borderTop: `1px solid ${college.primaryColor}20`,
+          borderRight: `1px solid ${college.primaryColor}20`,
+          borderBottom: `1px solid ${college.primaryColor}20`,
+          borderLeft: `4px solid ${college.primaryColor}`,
+          borderRadius: '12px',
+        }}
+      >
+        <p
+          className="font-hind font-semibold text-[15px] mb-2"
+          style={{ color: college.primaryColor }}
+        >
+          Student / Faculty / Parent Grievances
+        </p>
+        <p className="font-dm-sans text-[14px] leading-[26px] text-[#474747]">
+          For any academic or administrative grievances, students may contact the Grievance Redressal
+          Committee at{' '}
+          <a
+            href="mailto:grievance@grcp.ac.in"
+            className="underline font-semibold"
+            style={{ color: college.primaryColor }}
+          >
+            grievance@grcp.ac.in
+          </a>{' '}
+          or drop a written complaint at the Principal's office. You may also reach us at{' '}
+          <a
+            href="mailto:info@grcp.ac.in"
+            className="underline font-semibold"
+            style={{ color: college.primaryColor }}
+          >
+            info@grcp.ac.in
+          </a>{' '}
+          or call{' '}
+          <a
+            href="tel:7095271271"
+            className="underline font-semibold"
+            style={{ color: college.primaryColor }}
+          >
+            7095271271
+          </a>
+          . All grievances will be addressed within 7 working days.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function CounsellingCodesStrip() {
+  const items = [
+    {
+      label: 'Working Hours',
+      value: 'Mon – Sat  |  9:00 AM – 4:00 PM',
+      note: 'Second Saturday holiday',
+    },
+    {
+      label: 'TG EAPCET Code',
+      value: 'GRCP',
+    },
+    {
+      label: 'TG PGECET Code',
+      value: 'GRCP1',
+    },
+  ];
+
+  return (
+    <section>
+      <div
+        className="rounded-2xl flex flex-wrap gap-6 px-7 py-5"
+        style={{ backgroundColor: college.primaryColor }}
+      >
+        {items.map((item, i) => (
+          <div key={i} className="flex items-stretch gap-6">
+            {i > 0 && (
+              <div className="w-px self-stretch" style={{ backgroundColor: 'rgba(255,255,255,0.2)' }} />
+            )}
+            <div>
+              <p
+                className="font-dm-sans font-bold text-[12px] uppercase tracking-wider mb-1"
+                style={{ color: 'rgba(255,255,255,0.7)' }}
+              >
+                {item.label}
+              </p>
+              <p
+                className="font-hind font-bold text-[16px]"
+                style={{ color: item.label === 'Working Hours' ? '#fff' : '#7fffd4' }}
+              >
+                {item.value}
+              </p>
+              {item.note && (
+                <p className="font-dm-sans text-[12px]" style={{ color: 'rgba(255,255,255,0.65)' }}>
+                  {item.note}
+                </p>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 export default function ContactPage() {
   const location = useLocation();
 
@@ -340,8 +515,7 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white overflow-x-hidden">
-      <Navbar college={college} />
-      <NavStrip college={college} />
+      <SiteHeader college={college} />
       <PageHero
         college={college}
         title="Contact Us"
@@ -353,8 +527,11 @@ export default function ContactPage() {
         <div className="max-w-[1200px] mx-auto space-y-12">
           <ContactInfoCards />
           <WorkingHoursCard />
+          <GoogleMapSection />
           <ContactForm />
           <HowToReachSection />
+          <GrievanceSection />
+          <CounsellingCodesStrip />
         </div>
       </main>
       <AdmissionsCTA college={college} />

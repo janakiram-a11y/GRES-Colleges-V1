@@ -1,4 +1,4 @@
-﻿const BookIcon = () => (
+const BookIcon = () => (
   <svg viewBox="0 0 28 28" fill="none" className="w-7 h-7">
     <path d="M3 5h22v18H3z" stroke="#F3DAB2" strokeWidth="2" strokeLinejoin="round" />
     <path d="M14 5v18M3 12h11" stroke="#F3DAB2" strokeWidth="2" strokeLinecap="round" />
@@ -33,49 +33,9 @@ export default function AcademicPrograms({ college }) {
             {college.academicProgramsDesc}
           </p>
           <div className="flex items-center gap-4 mt-2">
-            <button
-              className="text-white font-dm-sans font-semibold text-[18px] leading-[22px] px-8 py-[19px] rounded-md"
-              style={{
-                background: 'linear-gradient(135deg, #D7283C 0%, #C72235 55%, #A81C2E 100%)',
-                boxShadow: '0 3px 8px rgba(0,0,0,0.24), inset 0 1px 0 rgba(255,255,255,0.12)',
-                letterSpacing: '0.01em',
-                transition: 'all 0.18s ease',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'linear-gradient(135deg, #E12C41 0%, #D7283C 55%, #B51E30 100%)';
-                e.currentTarget.style.boxShadow = '0 6px 16px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.14)';
-                e.currentTarget.style.transform = 'translateY(-2px)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'linear-gradient(135deg, #D7283C 0%, #C72235 55%, #A81C2E 100%)';
-                e.currentTarget.style.boxShadow = '0 3px 8px rgba(0,0,0,0.24), inset 0 1px 0 rgba(255,255,255,0.12)';
-                e.currentTarget.style.transform = 'translateY(0)';
-              }}
-            >
+            <a href="/programmes" className="btn-red btn-red-lg">
               View all programs
-            </button>
-            <button
-              className="text-white font-dm-sans font-semibold text-[18px] leading-[22px] px-8 py-[19px] rounded-md"
-              style={{
-                background: 'rgba(255,255,255,0.15)',
-                border: '1px solid rgba(255,255,255,0.35)',
-                boxShadow: '0 3px 8px rgba(0,0,0,0.20), inset 0 1px 0 rgba(255,255,255,0.10)',
-                letterSpacing: '0.01em',
-                transition: 'all 0.18s ease',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'rgba(255,255,255,0.25)';
-                e.currentTarget.style.boxShadow = '0 6px 16px rgba(0,0,0,0.24), inset 0 1px 0 rgba(255,255,255,0.14)';
-                e.currentTarget.style.transform = 'translateY(-2px)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
-                e.currentTarget.style.boxShadow = '0 3px 8px rgba(0,0,0,0.20), inset 0 1px 0 rgba(255,255,255,0.10)';
-                e.currentTarget.style.transform = 'translateY(0)';
-              }}
-            >
-              Download Brochure
-            </button>
+            </a>
           </div>
         </div>
 
@@ -91,7 +51,7 @@ export default function AcademicPrograms({ college }) {
                   <span className="font-hind font-bold text-[32px] leading-[38px] text-[#F3DAB2] block">{count}</span>
                   <span className="font-hind font-bold text-[20px] leading-7 text-white block">{title}</span>
                 </div>
-                <p className="font-dm-sans font-normal text-[14px] leading-[22px]" style={{ color: 'rgba(205,240,220,0.80)' }}>{desc}</p>
+                <p className="font-dm-sans font-normal text-[16px] leading-[26px]" style={{ color: 'rgba(205,240,220,0.80)' }}>{desc}</p>
                 <div className="flex items-center justify-end gap-1">
                   <span className="font-dm-sans font-semibold text-[14px] leading-5 text-white">Learn More</span>
                   <ChevronRight />

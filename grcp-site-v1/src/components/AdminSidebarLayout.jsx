@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import Navbar from './Navbar';
-import NavStrip from './NavStrip';
+import SiteHeader from './SiteHeader';
 import PageHero from './PageHero';
 import AdmissionsCTA from './AdmissionsCTA';
 import Footer from './Footer';
@@ -21,8 +20,7 @@ export default function AdminSidebarLayout({
 
   return (
     <div className="min-h-screen flex flex-col bg-white overflow-x-hidden">
-      <Navbar college={college} />
-      <NavStrip college={college} />
+      <SiteHeader college={college} />
       <PageHero
         college={college}
         title={pageTitle}

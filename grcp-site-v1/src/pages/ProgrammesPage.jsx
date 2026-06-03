@@ -1,384 +1,476 @@
-﻿import { useEffect } from 'react';
-import { useParams, Link, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useParams, useLocation, Link } from 'react-router-dom';
 import college from '../theme';
-import Navbar from '../components/Navbar';
-import NavStrip from '../components/NavStrip';
+import SiteHeader from '../components/SiteHeader';
 import PageHero from '../components/PageHero';
 import AdmissionsCTA from '../components/AdmissionsCTA';
 import Footer from '../components/Footer';
 
-function SectionHeading({ children }) {
+const primaryColor = '#2D7A50';
+const greenAccent = '#C72235';
+
+// ─── Shared UI ────────────────────────────────────────────────────────────────
+
+function SectionHeader({ label, title }) {
   return (
-    <h2
-      className="font-hind font-bold text-[22px] mb-5 pb-2 inline-block"
-      style={{ color: college.primaryColor, borderBottom: `2px solid ${college.greenAccent}` }}
-    >
-      {children}
-    </h2>
+    <div className="mb-6">
+      {label && (
+        <span
+          className="font-dm-sans font-semibold text-[12px] uppercase tracking-[2px] mb-2 block"
+          style={{ color: greenAccent }}
+        >
+          {label}
+        </span>
+      )}
+      <h2
+        className="font-hind font-semibold text-[28px] leading-9 pb-3"
+        style={{
+          color: primaryColor,
+          borderBottom: `3px solid ${greenAccent}`,
+          display: 'inline-block',
+        }}
+      >
+        {title}
+      </h2>
+    </div>
   );
 }
 
-const thStyle = {
-  backgroundColor: college.greenAccent,
-  color: '#ffffff',
-  padding: '11px 16px',
-  fontFamily: 'Poppins, sans-serif',
-  fontSize: '13px',
-  fontWeight: 600,
-  textAlign: 'left',
-  borderRight: '1px solid rgba(255,255,255,0.15)',
-};
+function SubHeading({ children }) {
+  return (
+    <h3
+      className="font-hind font-semibold text-[20px] leading-7 mb-3 mt-8"
+      style={{ color: primaryColor }}
+    >
+      {children}
+    </h3>
+  );
+}
 
-const tdStyle = {
-  padding: '10px 16px',
-  fontFamily: 'Montserrat, sans-serif',
-  fontSize: '13px',
-  color: '#374151',
-  borderBottom: '1px solid #e5e7eb',
-  borderRight: '1px solid #e5e7eb',
-  verticalAlign: 'top',
-};
+function CommitteeTable({ rows, columns }) {
+  return (
+    <div className="overflow-x-auto rounded-xl shadow-sm border border-gray-100">
+      <table className="w-full text-[14px] font-dm-sans">
+        <thead>
+          <tr style={{ backgroundColor: greenAccent }}>
+            {columns.map((col) => (
+              <th
+                key={col.key}
+                className="text-left px-4 py-3 text-white font-semibold uppercase tracking-wide"
+              >
+                {col.label}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, i) => (
+            <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+              {columns.map((col) => (
+                <td key={col.key} className="px-4 py-3 text-[#474747]">
+                  {col.key === 'email' ? (
+                    <a
+                      href={`mailto:${row[col.key]}`}
+                      className="hover:underline"
+                      style={{ color: primaryColor }}
+                    >
+                      {row[col.key]}
+                    </a>
+                  ) : (
+                    row[col.key]
+                  )}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+// ─── B.Pharmacy ───────────────────────────────────────────────────────────────
 
 function BPharmacyContent() {
-  const { bPharmacy } = college.programmes;
+  const bp = college.programmes.bPharmacy;
 
   return (
-    <>
-      <div className="w-full py-5 px-6 md:px-10 flex flex-wrap gap-6 mb-10 rounded-lg" style={{ backgroundColor: college.greenAccent }}>
-        {[
-          { label: 'Duration', value: bPharmacy.duration },
-          { label: 'Intake', value: bPharmacy.intake },
-          { label: 'Affiliation', value: bPharmacy.affiliation },
-          { label: 'Approval', value: bPharmacy.approval },
-        ].map(({ label, value }) => (
-          <div key={label} className="flex flex-col">
-            <span className="font-dm-sans text-[11px] font-semibold uppercase tracking-wide text-white/70">{label}</span>
-            <span className="font-dm-sans font-bold text-[15px] text-white">{value}</span>
-          </div>
+    <div className="space-y-12">
+      <div className="flex flex-wrap gap-3">
+        {[bp.duration, bp.intake, bp.affiliation, bp.approval].map((badge, i) => (
+          <span
+            key={i}
+            className="inline-block px-4 py-1.5 rounded-full text-[13px] font-dm-sans font-medium border"
+            style={{ borderColor: primaryColor, color: primaryColor }}
+          >
+            {badge}
+          </span>
         ))}
       </div>
 
-      <section className="mb-10">
-        <SectionHeading>About the Programme</SectionHeading>
-        <p className="font-dm-sans text-[15px] leading-[1.75] text-[#474747]">{bPharmacy.about}</p>
-      </section>
-
-      <section className="mb-10">
-        <SectionHeading>Curriculum Overview</SectionHeading>
-        <div className="overflow-x-auto">
-          <table className="w-full border-collapse" style={{ border: '1px solid #e5e7eb' }}>
-            <thead>
-              <tr>
-                {['Semester', 'Core Subjects'].map((h) => (
-                  <th key={h} style={thStyle}>{h}</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {bPharmacy.curriculum.map((row, i) => (
-                <tr key={row.sem} style={{ backgroundColor: i % 2 === 0 ? '#ffffff' : '#f9fafb' }}>
-                  <td style={{ ...tdStyle, fontWeight: 700, color: college.primaryColor, whiteSpace: 'nowrap' }}>
-                    Sem {row.sem}
-                  </td>
-                  <td style={tdStyle}>{row.subjects}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
       <section>
-        <SectionHeading>Career Paths</SectionHeading>
-        <div className="flex flex-wrap gap-3">
-          {bPharmacy.careerPaths.map((path) => (
-            <span
-              key={path}
-              className="font-dm-sans text-[13px] font-medium px-4 py-2 rounded-full"
-              style={{ border: `1.5px solid ${college.primaryColor}`, color: college.primaryColor, backgroundColor: `${college.primaryColor}08` }}
-            >
-              {path}
-            </span>
-          ))}
-        </div>
-      </section>
-    </>
-  );
-}
-
-function MPharmacyOverviewContent() {
-  const { mPharmacy } = college.programmes;
-
-  return (
-    <>
-      <section className="mb-10">
-        <div className="flex flex-wrap gap-6 mb-8">
-          {[
-            { label: 'Duration', value: mPharmacy.duration },
-            { label: 'Approval', value: mPharmacy.approval },
-            { label: 'Specializations', value: '3' },
-          ].map(({ label, value }) => (
-            <div
-              key={label}
-              className="flex flex-col px-6 py-4 rounded-lg"
-              style={{ backgroundColor: `${college.primaryColor}10`, border: `1px solid ${college.primaryColor}25` }}
-            >
-              <span className="font-dm-sans text-[11px] font-semibold uppercase tracking-wide" style={{ color: college.greenAccent }}>{label}</span>
-              <span className="font-dm-sans font-bold text-[16px]" style={{ color: college.primaryColor }}>{value}</span>
-            </div>
-          ))}
-        </div>
-
-        <SectionHeading>About the Programme</SectionHeading>
-        <p className="font-dm-sans text-[15px] leading-[1.75] text-[#474747]">{mPharmacy.about}</p>
-      </section>
-
-      <section>
-        <SectionHeading>Specializations</SectionHeading>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {mPharmacy.specializations.map((spec) => (
-            <div
-              key={spec.name}
-              className="flex flex-col p-6 rounded-lg bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
-            >
-              <h3 className="font-hind font-bold text-[17px] mb-3" style={{ color: college.primaryColor }}>
-                {spec.name}
-              </h3>
-              <p className="font-dm-sans text-[13px] leading-relaxed text-[#474747] flex-1 mb-4">{spec.desc}</p>
-              <div className="mb-4">
-                <p className="font-dm-sans font-semibold text-[12px] uppercase tracking-wide mb-2" style={{ color: college.greenAccent }}>
-                  Career Paths
-                </p>
-                <ul className="space-y-1">
-                  {spec.careers.map((c) => (
-                    <li key={c} className="font-dm-sans text-[12px] text-[#6B7280] flex items-start gap-2">
-                      <span style={{ color: college.greenAccent }} className="mt-0.5 font-bold">▸</span>
-                      {c}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <Link
-                to={spec.href}
-                className="font-dm-sans font-semibold text-[13px] inline-flex items-center gap-1 mt-auto transition-colors"
-                style={{ color: college.primaryColor }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = college.greenAccent)}
-                onMouseLeave={(e) => (e.currentTarget.style.color = college.primaryColor)}
-              >
-                Learn More
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-            </div>
-          ))}
-        </div>
-      </section>
-    </>
-  );
-}
-
-function MPharmacySpecializationContent({ specialization }) {
-  const spec = college.programmes.mPharmacy.specializations.find(
-    (s) => s.href === `/programmes/m-pharmacy/${specialization}`
-  );
-
-  if (!spec) {
-    return (
-      <p className="font-dm-sans text-[15px] text-[#6B7280]">Specialization details not found.</p>
-    );
-  }
-
-  return (
-    <>
-      <section className="mb-10">
-        <SectionHeading>About the Specialization</SectionHeading>
-        <p className="font-dm-sans text-[15px] leading-[1.75] text-[#474747]">{spec.desc}</p>
-      </section>
-
-      <section className="mb-10">
-        <SectionHeading>Career Paths</SectionHeading>
-        <div className="flex flex-wrap gap-3">
-          {spec.careers.map((path) => (
-            <span
-              key={path}
-              className="font-dm-sans text-[13px] font-medium px-4 py-2 rounded-full"
-              style={{ border: `1.5px solid ${college.primaryColor}`, color: college.primaryColor, backgroundColor: `${college.primaryColor}08` }}
-            >
-              {path}
-            </span>
+        <SectionHeader label="B.Pharmacy" title="Program Overview" />
+        <div className="space-y-4 mt-4">
+          {bp.overview.map((para, i) => (
+            <p key={i} className="font-dm-sans text-[16px] leading-7 text-[#474747]">
+              {para}
+            </p>
           ))}
         </div>
       </section>
 
       <section>
-        <SectionHeading>Eligibility</SectionHeading>
-        <div
-          className="p-5 rounded-lg"
-          style={{ backgroundColor: `${college.primaryColor}08`, border: `1px solid ${college.primaryColor}20` }}
-        >
-          <ul className="space-y-3">
-            {[
-              'B.Pharmacy degree from a recognized university (PCI approved institution).',
-              'Qualifying score in TG PGECET (Pharmacy stream).',
-              'Admission through centralized counselling conducted by TSCHE.',
-            ].map((item) => (
-              <li key={item} className="font-dm-sans text-[14px] text-[#474747] flex items-start gap-2">
-                <span style={{ color: college.greenAccent }} className="mt-0.5 font-bold flex-shrink-0">▸</span>
-                {item}
-              </li>
-            ))}
-          </ul>
-          <div
-            className="mt-4 flex items-center gap-3 pt-4"
-            style={{ borderTop: `1px solid ${college.primaryColor}20` }}
-          >
-            <span className="font-dm-sans font-bold text-[13px]" style={{ color: college.primaryColor }}>
-              Counselling Code:
-            </span>
-            <span
-              className="font-dm-sans font-bold text-[14px] px-3 py-0.5 rounded"
-              style={{ backgroundColor: college.primaryColor, color: '#ffffff' }}
-            >
-              GRCP1
-            </span>
-          </div>
-        </div>
-      </section>
-    </>
-  );
-}
-
-function PgCommitteeContent() {
-  return (
-    <>
-      <section className="mb-10">
-        <SectionHeading>PG Program Committee</SectionHeading>
-        <p className="font-dm-sans text-[15px] leading-[1.75] text-[#474747] mb-6">
-          The PG Program Committee at GRCP oversees the academic quality, research standards, and curriculum
-          development for the Master of Pharmacy (M.Pharmacy) program. The committee comprises senior faculty
-          members from each specialization and is responsible for:
-        </p>
-        <ul className="space-y-3 mb-8">
-          {[
-            'Reviewing and updating the M.Pharmacy curriculum in line with PCI norms and industry trends.',
-            'Monitoring the progress and quality of PG thesis and research projects.',
-            'Coordinating guest lectures, seminars, and industrial visits for PG students.',
-            'Evaluating the performance of M.Pharmacy students and recommending improvements.',
-            'Facilitating collaboration between departments for interdisciplinary research.',
-          ].map((item) => (
-            <li key={item} className="font-dm-sans text-[14px] text-[#474747] flex items-start gap-2">
-              <span style={{ color: college.greenAccent }} className="mt-0.5 font-bold flex-shrink-0">▸</span>
-              {item}
+        <SectionHeader label="Accreditation" title="Approvals & Recognitions" />
+        <ul className="mt-4 space-y-2">
+          {bp.approvals.map((item, i) => (
+            <li key={i} className="flex items-start gap-3">
+              <span
+                className="mt-1 w-2 h-2 rounded-full flex-shrink-0"
+                style={{ backgroundColor: greenAccent }}
+              />
+              <span className="font-dm-sans text-[15px] text-[#474747]">{item}</span>
             </li>
           ))}
         </ul>
       </section>
 
-      <div
-        className="p-6 rounded-lg text-center"
-        style={{ backgroundColor: `${college.primaryColor}08`, border: `1px dashed ${college.primaryColor}40` }}
-      >
-        <div
-          className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4"
-          style={{ backgroundColor: `${college.primaryColor}15` }}
-        >
-          <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} style={{ color: college.primaryColor }}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-          </svg>
-        </div>
-        <h3 className="font-hind font-bold text-[16px] mb-2" style={{ color: college.primaryColor }}>
-          Committee Details Being Updated
-        </h3>
-        <p className="font-dm-sans text-[13px] text-[#6B7280] max-w-md mx-auto">
-          The complete list of PG Program Committee members and their contact details is currently being
-          updated. Please contact the college office for more information.
+      <section>
+        <SectionHeader label="Careers" title="Scope & Career Opportunities" />
+        <p className="mt-4 mb-4 font-dm-sans text-[16px] leading-7 text-[#474747]">
+          Graduates of B.Pharmacy are equipped for diverse roles across pharmaceutical manufacturing,
+          clinical practice, regulatory affairs, and academia. Some of the career paths include:
         </p>
-        <a
-          href={`tel:${college.phone}`}
-          className="inline-block mt-4 font-dm-sans font-semibold text-[14px] px-6 py-2 rounded transition-opacity hover:opacity-80"
-          style={{ backgroundColor: college.greenAccent, color: '#ffffff' }}
-        >
-          Contact College Office
-        </a>
-      </div>
-    </>
+        <ol className="space-y-2 pl-2">
+          {bp.careerPaths.map((path, i) => (
+            <li key={i} className="flex items-start gap-3">
+              <span
+                className="font-hind font-bold text-[14px] w-6 flex-shrink-0"
+                style={{ color: greenAccent }}
+              >
+                {i + 1}.
+              </span>
+              <span className="font-dm-sans text-[15px] text-[#474747]">{path}</span>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section>
+        <SectionHeader label="Committee" title="UG Program Committee (2025-26)" />
+        <div className="mt-4">
+          <CommitteeTable
+            rows={bp.ugCommittee}
+            columns={[
+              { key: 'sno', label: 'S.No.' },
+              { key: 'name', label: 'Name' },
+              { key: 'designation', label: 'Designation' },
+              { key: 'position', label: 'Position' },
+              { key: 'email', label: 'Email' },
+            ]}
+          />
+        </div>
+      </section>
+    </div>
   );
 }
 
-function getProgrammeInfo(programme, specialization) {
-  if (programme === 'b-pharmacy') {
-    return {
-      title: college.programmes.bPharmacy.title,
-      subtitle: `${college.programmes.bPharmacy.duration} | ${college.programmes.bPharmacy.intake} | PCI Approved | NBA Accredited`,
-      breadcrumb: ['Programmes', 'B.Pharmacy'],
-      content: <BPharmacyContent />,
-    };
-  }
+// ─── M.Pharmacy Overview ──────────────────────────────────────────────────────
 
-  if (programme === 'm-pharmacy' && !specialization) {
-    return {
-      title: college.programmes.mPharmacy.title,
-      subtitle: `${college.programmes.mPharmacy.duration} | PCI Approved | 3 Specializations`,
-      breadcrumb: ['Programmes', 'M.Pharmacy'],
-      content: <MPharmacyOverviewContent />,
-    };
-  }
+function MPharmacyOverview() {
+  const mp = college.programmes.mPharmacy;
 
-  if (programme === 'm-pharmacy' && specialization === 'pg-committee') {
-    return {
-      title: 'PG Program Committee',
-      subtitle: 'M.Pharmacy Academic Oversight & Research Governance',
-      breadcrumb: ['Programmes', 'M.Pharmacy', 'PG Program Committee'],
-      content: <PgCommitteeContent />,
-    };
-  }
+  return (
+    <div className="space-y-12">
+      <div className="flex flex-wrap gap-3">
+        {[mp.duration, mp.approval].map((badge, i) => (
+          <span
+            key={i}
+            className="inline-block px-4 py-1.5 rounded-full text-[13px] font-dm-sans font-medium border"
+            style={{ borderColor: primaryColor, color: primaryColor }}
+          >
+            {badge}
+          </span>
+        ))}
+      </div>
 
-  if (programme === 'm-pharmacy' && specialization) {
-    const spec = college.programmes.mPharmacy.specializations.find(
-      (s) => s.href === `/programmes/m-pharmacy/${specialization}`
-    );
-    const name = spec ? spec.name : 'M.Pharmacy Specialization';
-    return {
-      title: name,
-      subtitle: `M.Pharmacy Specialization | ${college.programmes.mPharmacy.duration} | PCI Approved`,
-      breadcrumb: ['Programmes', 'M.Pharmacy', name],
-      content: <MPharmacySpecializationContent specialization={specialization} />,
-    };
-  }
+      <section>
+        <SectionHeader label="M.Pharmacy" title="Program Overview" />
+        <p className="mt-4 font-dm-sans text-[16px] leading-7 text-[#474747] max-w-[780px]">
+          {mp.about}
+        </p>
+      </section>
 
-  return {
-    title: college.programmes.bPharmacy.title,
-    subtitle: `${college.programmes.bPharmacy.duration} | ${college.programmes.bPharmacy.intake} | PCI Approved | NBA Accredited`,
-    breadcrumb: ['Programmes', 'B.Pharmacy'],
-    content: <BPharmacyContent />,
-  };
+      <section>
+        <SubHeading>Specializations Offered</SubHeading>
+        <div className="grid md:grid-cols-3 gap-6 mt-4">
+          {mp.specializations.map((spec, i) => (
+            <Link
+              key={i}
+              to={spec.href}
+              className="group rounded-2xl border border-gray-200 hover:border-transparent hover:shadow-lg transition-all duration-200 overflow-hidden flex flex-col"
+            >
+              <div
+                className="px-6 py-5 flex-1"
+                style={{ borderTop: `4px solid ${greenAccent}` }}
+              >
+                <h3
+                  className="font-hind font-semibold text-[18px] mb-2 group-hover:underline"
+                  style={{ color: primaryColor }}
+                >
+                  {spec.name}
+                </h3>
+                <p className="font-dm-sans text-[14px] text-[#474747] leading-6 mb-4">
+                  {spec.desc}
+                </p>
+                <div className="flex gap-4 text-[13px] text-[#888] font-dm-sans">
+                  <span>Est. {spec.established}</span>
+                  <span>|</span>
+                  <span>Intake: {spec.intake}</span>
+                </div>
+              </div>
+              <div
+                className="px-6 py-3 text-[13px] font-dm-sans font-semibold"
+                style={{ backgroundColor: '#f6faf8', color: primaryColor }}
+              >
+                View Details →
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
 }
 
+// ─── M.Pharmacy Specialization ────────────────────────────────────────────────
+
+function MPharmSpec({ specializationSlug }) {
+  const mp = college.programmes.mPharmacy;
+  const spec = mp.specializations.find(
+    (s) => s.href === `/programmes/m-pharmacy/${specializationSlug}`
+  );
+
+  if (!spec) {
+    return (
+      <div className="py-20 text-center text-[#474747] font-dm-sans text-[16px]">
+        Specialization not found.
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-12">
+      <div className="flex flex-wrap gap-3">
+        {[`Est. ${spec.established}`, `Intake: ${spec.intake} Students`, mp.approval].map(
+          (badge, i) => (
+            <span
+              key={i}
+              className="inline-block px-4 py-1.5 rounded-full text-[13px] font-dm-sans font-medium border"
+              style={{ borderColor: primaryColor, color: primaryColor }}
+            >
+              {badge}
+            </span>
+          )
+        )}
+      </div>
+
+      <section>
+        <SectionHeader label="M.Pharmacy" title={`${spec.name} – Overview`} />
+        <div className="space-y-4 mt-4">
+          {spec.overview.map((para, i) => (
+            <p key={i} className="font-dm-sans text-[16px] leading-7 text-[#474747]">
+              {para}
+            </p>
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <SectionHeader label="Research" title="Research Focus Areas" />
+        <ul className="mt-4 space-y-2">
+          {spec.researchAreas.map((area, i) => (
+            <li key={i} className="flex items-start gap-3">
+              <span
+                className="mt-1 w-2 h-2 rounded-full flex-shrink-0"
+                style={{ backgroundColor: greenAccent }}
+              />
+              <span className="font-dm-sans text-[15px] text-[#474747]">{area}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section>
+        <SectionHeader label="Careers" title="Career Opportunities" />
+        <ul className="mt-4 space-y-2">
+          {spec.careerOptions.map((career, i) => (
+            <li key={i} className="flex items-start gap-3">
+              <span
+                className="mt-1 w-2 h-2 rounded-full flex-shrink-0"
+                style={{ backgroundColor: primaryColor }}
+              />
+              <span className="font-dm-sans text-[15px] text-[#474747]">{career}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {spec.achievements && spec.achievements.length > 0 && (
+        <section>
+          <SectionHeader label="Highlights" title="Achievements" />
+          <ul className="mt-4 space-y-2">
+            {spec.achievements.map((item, i) => (
+              <li key={i} className="flex items-start gap-3">
+                <span
+                  className="mt-1 w-2 h-2 rounded-full flex-shrink-0"
+                  style={{ backgroundColor: greenAccent }}
+                />
+                <span className="font-dm-sans text-[15px] text-[#474747]">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      <div>
+        <Link
+          to="/programmes/m-pharmacy"
+          className="inline-flex items-center gap-2 font-dm-sans text-[14px] font-semibold hover:underline"
+          style={{ color: primaryColor }}
+        >
+          ← Back to M.Pharmacy Overview
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+// ─── PG Committee ─────────────────────────────────────────────────────────────
+
+function PgCommitteeContent() {
+  const { pgCommittee } = college.programmes.mPharmacy;
+
+  return (
+    <div className="space-y-8">
+      <SectionHeader label="M.Pharmacy" title="PG Program Committee" />
+      <CommitteeTable
+        rows={pgCommittee}
+        columns={[
+          { key: 'sno', label: 'Sl.No.' },
+          { key: 'name', label: 'Name' },
+          { key: 'designation', label: 'Designation' },
+          { key: 'position', label: 'Position' },
+          { key: 'email', label: 'Email' },
+        ]}
+      />
+      <div>
+        <Link
+          to="/programmes/m-pharmacy"
+          className="inline-flex items-center gap-2 font-dm-sans text-[14px] font-semibold hover:underline"
+          style={{ color: primaryColor }}
+        >
+          ← Back to M.Pharmacy Overview
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+// ─── Route Config ─────────────────────────────────────────────────────────────
+
+const routeConfig = {
+  'b-pharmacy': {
+    title: 'B.Pharmacy Program',
+    subtitle: 'PCI Approved | NBA Accredited | Affiliated to Osmania University',
+    breadcrumb: ['Programmes', 'B.Pharmacy'],
+  },
+  'm-pharmacy': {
+    title: 'M.Pharmacy Program',
+    subtitle: 'Postgraduate Pharmaceutical Education with Three Specializations',
+    breadcrumb: ['Programmes', 'M.Pharmacy'],
+  },
+  'm-pharmacy/pharmaceutics': {
+    title: 'M.Pharmacy – Pharmaceutics',
+    subtitle: 'Advanced Drug Delivery & Pharmaceutical Technology',
+    breadcrumb: ['Programmes', 'M.Pharmacy', 'Pharmaceutics'],
+  },
+  'm-pharmacy/pharmaceutical-analysis': {
+    title: 'M.Pharmacy – Pharmaceutical Analysis',
+    subtitle: 'Analytical Methods, QC, and Validation in Pharmaceutical Sciences',
+    breadcrumb: ['Programmes', 'M.Pharmacy', 'Pharmaceutical Analysis'],
+  },
+  'm-pharmacy/pharmacology': {
+    title: 'M.Pharmacy – Pharmacology',
+    subtitle: 'Advanced Pharmacology, Molecular Biology & Preclinical Research',
+    breadcrumb: ['Programmes', 'M.Pharmacy', 'Pharmacology'],
+  },
+  'm-pharmacy/pg-committee': {
+    title: 'PG Program Committee',
+    subtitle: 'M.Pharmacy Program Governance Committee (2025-26)',
+    breadcrumb: ['Programmes', 'M.Pharmacy', 'PG Committee'],
+  },
+  'pg-program-committee': {
+    title: 'PG Program Committee',
+    subtitle: 'M.Pharmacy Program Governance Committee (2025-2026)',
+    breadcrumb: ['Programmes', 'PG Program Committee'],
+  },
+};
+
+const defaultConfig = {
+  title: 'Programmes',
+  subtitle: 'Pharmaceutical Education at GRCP',
+  breadcrumb: ['Programmes'],
+};
+
+// ─── Main Export ──────────────────────────────────────────────────────────────
+
 export default function ProgrammesPage() {
-  const { programme = 'b-pharmacy', specialization } = useParams();
+  const { programme, specialization } = useParams();
   const location = useLocation();
-  const info = getProgrammeInfo(programme, specialization);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, [location.pathname]);
 
+  const routeKey = specialization
+    ? `${programme}/${specialization}`
+    : programme === 'pg-program-committee'
+    ? 'pg-program-committee'
+    : programme || '';
+  const config = routeConfig[routeKey] || defaultConfig;
+
+  let content = null;
+  if (routeKey === 'b-pharmacy') {
+    content = <BPharmacyContent />;
+  } else if (routeKey === 'm-pharmacy') {
+    content = <MPharmacyOverview />;
+  } else if (routeKey === 'm-pharmacy/pg-committee' || routeKey === 'pg-program-committee') {
+    content = <PgCommitteeContent />;
+  } else if (
+    programme === 'm-pharmacy' &&
+    ['pharmaceutics', 'pharmaceutical-analysis', 'pharmacology'].includes(specialization)
+  ) {
+    content = <MPharmSpec specializationSlug={specialization} />;
+  } else {
+    content = (
+      <div className="py-20 text-center font-dm-sans text-[16px] text-[#474747]">
+        Programme not found. Please navigate using the menu.
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen flex flex-col bg-white overflow-x-hidden">
-      <Navbar college={college} />
-      <NavStrip college={college} />
+      <SiteHeader college={college} />
       <PageHero
         college={college}
-        title={info.title}
-        subtitle={info.subtitle}
-        breadcrumb={info.breadcrumb}
+        title={config.title}
+        subtitle={config.subtitle}
+        breadcrumb={config.breadcrumb}
         bgImage={college.heroBgImage}
       />
       <main className="flex-1 section-pad">
-        <div className="max-w-[1200px] mx-auto">
-          {info.content}
-        </div>
+        <div className="max-w-[1200px] mx-auto">{content}</div>
       </main>
       <AdmissionsCTA college={college} />
       <Footer college={college} />

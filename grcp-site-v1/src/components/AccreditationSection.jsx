@@ -1,73 +1,103 @@
-﻿const cardIcons = [
-  () => (
+/* Why Choose GRCP — 8-card grid */
+
+const icons = {
+  Accreditation: () => (
     <svg viewBox="0 0 28 28" fill="none" className="w-7 h-7">
       <path d="M14 3l2.5 5.5 6 .5-4.5 4 1.5 5.5L14 16l-5.5 2.5 1.5-5.5L5.5 9l6-.5L14 3z"
-        stroke="#2D7A50" strokeWidth="2" strokeLinejoin="round" />
+        stroke="#2D7A50" strokeWidth="1.8" strokeLinejoin="round" />
     </svg>
   ),
-  () => (
+  PCI: () => (
     <svg viewBox="0 0 28 28" fill="none" className="w-7 h-7">
-      <rect x="3" y="10" width="22" height="14" rx="2" stroke="#2D7A50" strokeWidth="2" />
-      <path d="M9 10V7a2 2 0 012-2h6a2 2 0 012 2v3" stroke="#2D7A50" strokeWidth="2" />
-      <path d="M3 17h22" stroke="#2D7A50" strokeWidth="2" />
+      <path d="M14 4l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V8l8-4z"
+        stroke="#2D7A50" strokeWidth="1.8" strokeLinejoin="round" />
+      <path d="M10 14l2.5 2.5 5-5" stroke="#2D7A50" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   ),
-  () => (
+  Research: () => (
     <svg viewBox="0 0 28 28" fill="none" className="w-7 h-7">
-      <path d="M3 6h9a3 3 0 013 3v13H3V6z" stroke="#2D7A50" strokeWidth="2" />
-      <path d="M25 6h-9a3 3 0 00-3 3v13h12V6z" stroke="#2D7A50" strokeWidth="2" />
+      <circle cx="12" cy="12" r="7" stroke="#2D7A50" strokeWidth="1.8" />
+      <path d="M17.5 17.5L24 24" stroke="#2D7A50" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M9 12h6M12 9v6" stroke="#2D7A50" strokeWidth="1.8" strokeLinecap="round" />
     </svg>
   ),
-  () => (
+  Green: () => (
     <svg viewBox="0 0 28 28" fill="none" className="w-7 h-7">
-      <circle cx="14" cy="14" r="11" stroke="#2D7A50" strokeWidth="2" />
-      <path d="M14 8l3 6-6 3 3-9z" stroke="#2D7A50" strokeWidth="2" strokeLinejoin="round" />
+      <path d="M14 22V12M14 12C14 8 10 5 6 6c0 4 3 8 8 8M14 12c0-4 4-7 8-6-1 4-4 7-8 8" stroke="#2D7A50" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M10 22h8" stroke="#2D7A50" strokeWidth="1.8" strokeLinecap="round" />
     </svg>
   ),
-  () => (
+  Infrastructure: () => (
     <svg viewBox="0 0 28 28" fill="none" className="w-7 h-7">
-      <path d="M14 4a7 7 0 015 11.5L18 19h-8l-1-3.5A7 7 0 0114 4z" stroke="#2D7A50" strokeWidth="2" />
-      <path d="M11 19h6M11.5 23h5" stroke="#2D7A50" strokeWidth="2" strokeLinecap="round" />
+      <rect x="3" y="8" width="22" height="17" rx="1" stroke="#2D7A50" strokeWidth="1.8" />
+      <path d="M8 25V14M20 25V14M14 25V14" stroke="#2D7A50" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M3 14h22" stroke="#2D7A50" strokeWidth="1.8" />
+      <path d="M10 3h8l2 5H8l2-5z" stroke="#2D7A50" strokeWidth="1.8" strokeLinejoin="round" />
     </svg>
   ),
-  () => (
+  Ethics: () => (
     <svg viewBox="0 0 28 28" fill="none" className="w-7 h-7">
-      <circle cx="14" cy="9" r="4" stroke="#2D7A50" strokeWidth="2" />
-      <path d="M4 24a10 10 0 0120 0" stroke="#2D7A50" strokeWidth="2" strokeLinecap="round" />
+      <path d="M14 4a7 7 0 015 11.5L18 19h-8l-1-3.5A7 7 0 0114 4z" stroke="#2D7A50" strokeWidth="1.8" />
+      <path d="M11 19h6M11.5 23h5" stroke="#2D7A50" strokeWidth="1.8" strokeLinecap="round" />
     </svg>
   ),
-]
+  Student: () => (
+    <svg viewBox="0 0 28 28" fill="none" className="w-7 h-7">
+      <path d="M14 4l10 5-10 5-10-5 10-5z" stroke="#2D7A50" strokeWidth="1.8" strokeLinejoin="round" />
+      <path d="M8 11.5v5.5c2 2 8 2 12 0v-5.5" stroke="#2D7A50" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M24 9v6" stroke="#2D7A50" strokeWidth="1.8" strokeLinecap="round" />
+    </svg>
+  ),
+  Legacy: () => (
+    <svg viewBox="0 0 28 28" fill="none" className="w-7 h-7">
+      <rect x="3" y="10" width="22" height="14" rx="2" stroke="#2D7A50" strokeWidth="1.8" />
+      <path d="M9 10V7a2 2 0 012-2h6a2 2 0 012 2v3" stroke="#2D7A50" strokeWidth="1.8" />
+      <path d="M3 17h22" stroke="#2D7A50" strokeWidth="1.8" />
+    </svg>
+  ),
+}
+
+const iconKeys = ['Accreditation', 'PCI', 'Research', 'Green', 'Infrastructure', 'Ethics', 'Student', 'Legacy']
 
 export default function AccreditationSection({ college }) {
   return (
     <section className="w-full bg-[#F6F1F2] section-pad">
-      <div className="max-w-[1200px] mx-auto flex flex-col gap-16">
+      <div className="max-w-[1200px] mx-auto flex flex-col gap-14">
+
+        {/* Header */}
         <div className="flex flex-col items-center gap-4">
-          <p className="font-dm-sans font-bold text-[20px] leading-[30px] uppercase text-center" style={{ color: '#C72235' }}>
+          <p
+            className="font-dm-sans font-bold text-[11px] uppercase tracking-widest text-center"
+            style={{ color: '#C72235', letterSpacing: '0.12em' }}
+          >
             {college.whyChooseLabel}
           </p>
-          <h2 className="font-hind font-semibold text-[28px] leading-9 lg:text-[40px] lg:leading-[48px] text-[#222222] text-center">
+          <h2 className="font-hind font-semibold text-[28px] leading-9 lg:text-[40px] lg:leading-[48px] text-[#1A1A2E] text-center max-w-[720px]">
             {college.whyChooseHeading}
           </h2>
         </div>
 
-        <div className="grid grid-cols-3 gap-6">
+        {/* 4-col × 2-row grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
           {college.whyChooseCards.map((card, i) => {
-            const Icon = cardIcons[i % cardIcons.length]
+            const Icon = icons[iconKeys[i % iconKeys.length]]
             return (
               <div
                 key={card.title}
-                className="bg-white border border-black/[0.04] rounded-xl overflow-hidden"
-                style={{ boxShadow: '0px 20px 40px -10px rgba(0,0,0,0.05)' }}
+                className="bg-white border border-black/[0.05] rounded-xl p-6 flex flex-col gap-4 transition-all duration-200 hover:-translate-y-1"
+                style={{ boxShadow: '0 4px 24px -6px rgba(0,0,0,0.07)' }}
               >
-                <div className="relative p-8" style={{ paddingTop: '105px', minHeight: '225px' }}>
-                  <div className="absolute left-[33px] top-[33px] w-14 h-14 bg-[rgba(45,122,80,0.07)] rounded-lg flex items-center justify-center">
-                    <Icon />
-                  </div>
-                  <h3 className="font-hind font-semibold text-[20px] leading-[26px] tracking-[-0.2px] text-[#222222] mb-3">
+                <div
+                  className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0"
+                  style={{ backgroundColor: 'rgba(45,122,80,0.08)' }}
+                >
+                  <Icon />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <h3 className="font-hind font-semibold text-[16px] leading-[22px] text-[#1A1A2E]">
                     {card.title}
                   </h3>
-                  <p className="font-dm-sans font-normal text-[14px] leading-[22px] text-[#876874]">
+                  <p className="font-dm-sans font-normal text-[16px] leading-[26px] text-[#666]">
                     {card.desc}
                   </p>
                 </div>
@@ -75,6 +105,7 @@ export default function AccreditationSection({ college }) {
             )
           })}
         </div>
+
       </div>
     </section>
   )

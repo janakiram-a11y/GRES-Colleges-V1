@@ -1,28 +1,54 @@
-﻿import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import college from '../theme';
-import Navbar from '../components/Navbar';
-import NavStrip from '../components/NavStrip';
+import SiteHeader from '../components/SiteHeader';
 import PageHero from '../components/PageHero';
 import AdmissionsCTA from '../components/AdmissionsCTA';
 import Footer from '../components/Footer';
 
+// ── Design tokens ──────────────────────────────────────────────────────────────
+
+const primaryColor = '#2D7A50';
+const greenAccent = '#C72235';
+
+const thStyle = {
+  backgroundColor: greenAccent,
+  color: '#ffffff',
+  padding: '11px 16px',
+  fontFamily: 'inherit',
+  fontSize: '13px',
+  fontWeight: 600,
+  textAlign: 'left',
+  borderRight: '1px solid rgba(255,255,255,0.15)',
+  whiteSpace: 'nowrap',
+};
+
+const tdStyle = {
+  padding: '10px 16px',
+  fontSize: '13px',
+  color: '#374151',
+  borderBottom: '1px solid #e5e7eb',
+  borderRight: '1px solid #e5e7eb',
+};
+
+// ── Shared sub-components ──────────────────────────────────────────────────────
+
 function SectionHeader({ label, title }) {
   return (
-    <div className="mb-6">
+    <div className="mb-8">
       {label && (
         <span
           className="font-dm-sans font-semibold text-[12px] uppercase tracking-[2px] mb-2 block"
-          style={{ color: college.greenAccent }}
+          style={{ color: greenAccent }}
         >
           {label}
         </span>
       )}
       <h2
-        className="font-hind font-bold text-[26px] leading-[34px] pb-3"
+        className="font-hind font-semibold text-[28px] leading-9 pb-3"
         style={{
-          color: college.primaryColor,
-          borderBottom: `3px solid ${college.greenAccent}`,
+          color: primaryColor,
+          borderBottom: `3px solid ${greenAccent}`,
           display: 'inline-block',
         }}
       >
@@ -32,120 +58,257 @@ function SectionHeader({ label, title }) {
   );
 }
 
-function RegistrationSection() {
-  const fields = [
-    { label: 'Full Name', type: 'text', placeholder: 'Enter your full name' },
-    { label: 'Batch Year', type: 'text', placeholder: 'e.g. 2018' },
-    { label: 'Programme', type: 'select', options: ['B.Pharmacy', 'M.Pharmacy – Pharmaceutics', 'M.Pharmacy – Pharmaceutical Analysis', 'M.Pharmacy – Pharmacology'] },
-    { label: 'Current Organisation', type: 'text', placeholder: 'Your current employer or institution' },
-    { label: 'Email Address', type: 'email', placeholder: 'your@email.com' },
-    { label: 'Phone Number', type: 'tel', placeholder: '+91 XXXXX XXXXX' },
+function InfoBox({ children }) {
+  return (
+    <div
+      className="font-dm-sans text-[14px] px-5 py-4 rounded mb-6"
+      style={{
+        backgroundColor: `${primaryColor}0D`,
+        borderLeft: `4px solid ${primaryColor}`,
+        color: '#374151',
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
+function PositionBadge({ position }) {
+  let style = {};
+  if (position === 'President') {
+    style = { backgroundColor: primaryColor, color: '#ffffff' };
+  } else if (position === 'Coordinator') {
+    style = { backgroundColor: greenAccent, color: '#ffffff' };
+  } else {
+    style = { backgroundColor: `${primaryColor}1A`, color: primaryColor };
+  }
+  return (
+    <span
+      className="inline-block px-3 py-1 rounded-full text-[11px] font-semibold font-dm-sans"
+      style={style}
+    >
+      {position}
+    </span>
+  );
+}
+
+// ── Section: Enrollment / Overview ────────────────────────────────────────────
+
+function EnrollmentSection() {
+  const benefits = [
+    'Access to a growing network of 272+ pharmacy professionals across industry, academia, and research',
+    'Exclusive alumni lecture series and industry interaction sessions',
+    'Mentorship opportunities for current students from experienced alumni',
+    'Career guidance, job referrals, and placement assistance through alumni network',
+    'Invitations to annual alumni meets, reunions, and special events',
+    'Digital newsletter with college updates, research highlights, and alumni achievements',
+    'Priority access to continuing education programs and workshops',
+    'Recognition through Distinguished Alumni awards',
   ];
 
-  const inputClass = 'w-full font-dm-sans text-[14px] text-[#474747] border rounded-lg px-4 py-2.5 outline-none focus:ring-2 bg-white';
+  const steps = [
+    { step: '1', title: 'Download the Form', desc: 'Download the Alumni Registration form from the Downloads section or click the registration link.' },
+    { step: '2', title: 'Fill in Your Details', desc: 'Complete the form with your personal, academic, and professional information.' },
+    { step: '3', title: 'Submit the Form', desc: 'Submit the completed form by email to alumni@grcp.ac.in or in person at the college office.' },
+    { step: '4', title: 'Receive Confirmation', desc: 'You will receive a confirmation email with your alumni membership details.' },
+  ];
 
   return (
-    <div className="space-y-8">
-      <SectionHeader label="Join the Network" title="Alumni Registration" />
-      <div className="max-w-[680px]">
-        <p className="font-dm-sans text-[15px] leading-[26px] text-[#474747] mb-8">
-          Register with the GRCP Alumni Association to stay connected with your alma mater and fellow graduates.
-          Fill the form below and our alumni team will reach out to you.
-        </p>
-        <div
-          className="rounded-2xl p-8 border shadow-sm"
-          style={{ borderColor: `${college.primaryColor}18` }}
-        >
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
-            {fields.map((field, i) => (
-              <div key={i} className={field.label === 'Current Organisation' ? 'sm:col-span-2' : ''}>
-                <label className="font-dm-sans font-semibold text-[13px] text-[#474747] block mb-1.5">
-                  {field.label}
-                </label>
-                {field.type === 'select' ? (
-                  <select
-                    className={inputClass}
-                    style={{ borderColor: `${college.primaryColor}30` }}
-                    defaultValue=""
-                  >
-                    <option value="" disabled>Select programme</option>
-                    {field.options.map((opt) => (
-                      <option key={opt} value={opt}>{opt}</option>
-                    ))}
-                  </select>
-                ) : (
-                  <input
-                    type={field.type}
-                    placeholder={field.placeholder}
-                    className={inputClass}
-                    style={{ borderColor: `${college.primaryColor}30` }}
-                  />
-                )}
+    <div>
+      <SectionHeader label="GRCP Alumni Association" title="Alumni Enrollment" />
+
+      <p className="font-dm-sans text-[15px] text-gray-600 mb-6 leading-relaxed">
+        {college.alumni.overview} We welcome all graduates to register and stay connected with your alma mater, contribute to the growth of the institution, and support the next generation of pharmacy professionals.
+      </p>
+
+      <div className="mb-10">
+        <h3 className="font-hind font-bold text-[20px] mb-5" style={{ color: primaryColor }}>
+          Enrollment Process
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+          {steps.map((s) => (
+            <div
+              key={s.step}
+              className="flex gap-4 p-5 rounded-lg border"
+              style={{ borderColor: `${primaryColor}33` }}
+            >
+              <div
+                className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-hind font-bold text-[16px] text-white"
+                style={{ backgroundColor: primaryColor }}
+              >
+                {s.step}
               </div>
-            ))}
-          </div>
-          <div
-            className="rounded-xl p-4 mb-6"
-            style={{ backgroundColor: `${college.greenAccent}12`, border: `1px solid ${college.greenAccent}25` }}
-          >
-            <p className="font-dm-sans text-[13px] text-[#474747]">
-              <span className="font-semibold">Note:</span> Fill the form and our alumni team will reach out to you within 5–7 working days
-              to complete the registration process and provide your alumni membership details.
-            </p>
-          </div>
-          <button
-            className="font-dm-sans font-semibold text-[14px] text-white px-8 py-3 rounded-lg transition-opacity hover:opacity-85"
-            style={{ backgroundColor: college.greenAccent }}
-          >
-            Submit Registration
-          </button>
+              <div>
+                <p className="font-hind font-semibold text-[15px] mb-1" style={{ color: primaryColor }}>
+                  {s.title}
+                </p>
+                <p className="font-dm-sans text-[13px] text-gray-600">{s.desc}</p>
+              </div>
+            </div>
+          ))}
         </div>
+
+        <div className="flex flex-wrap gap-3">
+          <a
+            href="/alumni/alumni-registration"
+            className="btn-green"
+          >
+            Register Now
+          </a>
+          <a
+            href="mailto:alumni@grcp.ac.in"
+            className="btn-ghost"
+          >
+            Contact Us
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3 className="font-hind font-bold text-[20px] mb-5" style={{ color: primaryColor }}>
+          Benefits of Membership
+        </h3>
+        <ul className="space-y-3">
+          {benefits.map((b, i) => (
+            <li key={i} className="flex items-start gap-3 font-dm-sans text-[14px] text-gray-700">
+              <span
+                className="flex-shrink-0 mt-1 w-5 h-5 rounded-full flex items-center justify-center text-white text-[11px] font-bold"
+                style={{ backgroundColor: greenAccent }}
+              >
+                ✓
+              </span>
+              {b}
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
 }
 
+// ── Section: Registration ──────────────────────────────────────────────────────
+
+function RegistrationSection() {
+  return (
+    <div>
+      <SectionHeader label="GRCP Alumni" title="Alumni Registration" />
+
+      <p className="font-dm-sans text-[15px] text-gray-600 mb-8 leading-relaxed">
+        Register with the GRCP Alumni Association to stay connected with your college, access exclusive benefits, and contribute to the growth of our pharmacy community. Registration is free and open to all graduates of GRCP.
+      </p>
+
+      <div
+        className="flex flex-col sm:flex-row items-start sm:items-center gap-5 p-6 rounded-xl border mb-8"
+        style={{ borderColor: `${primaryColor}33`, backgroundColor: `${primaryColor}05` }}
+      >
+        <div
+          className="flex-shrink-0 w-14 h-14 rounded-lg flex items-center justify-center text-white text-2xl"
+          style={{ backgroundColor: greenAccent }}
+        >
+          📄
+        </div>
+        <div className="flex-1">
+          <p className="font-hind font-bold text-[16px] mb-1" style={{ color: primaryColor }}>
+            Alumni Registration Form
+          </p>
+          <p className="font-dm-sans text-[13px] text-gray-500 mb-3">
+            Download the official registration form (PDF). Fill in your details and submit to the college office or via email.
+          </p>
+          <a
+            href="https://grcp.ac.in/downloads/Alumni%20Registration.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-green"
+          >
+            Download PDF
+          </a>
+        </div>
+      </div>
+
+      <InfoBox>
+        <strong>How to submit:</strong> After filling the form, email it to{' '}
+        <a href="mailto:alumni@grcp.ac.in" style={{ color: primaryColor, textDecoration: 'underline' }}>
+          alumni@grcp.ac.in
+        </a>{' '}
+        or deliver it in person to the Alumni Coordinator at the college office. You will receive a confirmation within 5 working days.
+      </InfoBox>
+
+      <div className="mt-8">
+        <h3 className="font-hind font-bold text-[19px] mb-4" style={{ color: primaryColor }}>
+          What Information is Required?
+        </h3>
+        <ul className="space-y-2 font-dm-sans text-[14px] text-gray-700 list-disc list-inside">
+          <li>Full name and contact details (phone, email, address)</li>
+          <li>Year of passing and programme (B. Pharm / M. Pharm)</li>
+          <li>Hall Ticket / Register number</li>
+          <li>Current employer, designation, and work location</li>
+          <li>Areas of expertise and interest</li>
+          <li>Willingness to mentor current students (optional)</li>
+        </ul>
+      </div>
+
+      <div
+        className="mt-8 p-5 rounded-lg"
+        style={{ backgroundColor: `${greenAccent}0D`, borderLeft: `4px solid ${greenAccent}` }}
+      >
+        <p className="font-dm-sans text-[14px]" style={{ color: '#374151' }}>
+          <strong style={{ color: greenAccent }}>Alumni Coordinator:</strong> Mrs. B. Karuna Devi, Assistant Professor &mdash;{' '}
+          <a href="mailto:karuna8062@grcp.ac.in" style={{ color: primaryColor, textDecoration: 'underline' }}>
+            karuna8062@grcp.ac.in
+          </a>
+        </p>
+      </div>
+    </div>
+  );
+}
+
+// ── Section: Executive Members ─────────────────────────────────────────────────
+
 function ExecutiveMembersSection() {
-  const { executiveBody } = college.alumni;
+  const members = college.alumni.execCommittee;
 
   return (
-    <div className="space-y-8">
-      <SectionHeader label="Leadership" title="Executive Members" />
-      <p className="font-dm-sans text-[15px] leading-[26px] text-[#474747] max-w-[680px]">
-        The GRCP Alumni Association is governed by an elected executive committee that works to strengthen
-        alumni connections, support current students, and contribute to the institution's growth.
+    <div>
+      <SectionHeader label="Alumni Association" title="Executive Committee" />
+
+      <p className="font-dm-sans text-[15px] text-gray-600 mb-8 leading-relaxed">
+        The GRCP Alumni Association is governed by an executive committee comprising faculty members and student representatives dedicated to fostering alumni engagement and institutional growth.
       </p>
-      <div className="overflow-x-auto rounded-2xl border max-w-[680px]" style={{ borderColor: `${college.primaryColor}18` }}>
-        <table className="w-full min-w-[480px]">
+
+      <div className="overflow-x-auto rounded-xl border" style={{ borderColor: '#e5e7eb' }}>
+        <table className="w-full border-collapse">
           <thead>
-            <tr style={{ backgroundColor: college.greenAccent }}>
-              {['Role', 'Name', 'Batch Year'].map((h) => (
-                <th
-                  key={h}
-                  className="font-dm-sans font-semibold text-[13px] text-white text-left px-6 py-3.5"
-                >
-                  {h}
-                </th>
-              ))}
+            <tr>
+              <th style={{ ...thStyle, width: '60px' }}>S.No.</th>
+              <th style={thStyle}>Name</th>
+              <th style={thStyle}>Designation</th>
+              <th style={thStyle}>Position</th>
+              <th style={{ ...thStyle, borderRight: 'none' }}>Email</th>
             </tr>
           </thead>
           <tbody>
-            {executiveBody.map((member, i) => (
+            {members.map((m, i) => (
               <tr
-                key={i}
-                className="border-t"
-                style={{ borderColor: `${college.primaryColor}10`, backgroundColor: i % 2 === 0 ? '#fff' : '#FAFAFA' }}
+                key={m.sno}
+                style={{ backgroundColor: i % 2 === 0 ? '#ffffff' : '#f9fafb' }}
               >
-                <td className="px-6 py-4">
-                  <span
-                    className="font-dm-sans font-semibold text-[13px] px-3 py-1 rounded-full"
-                    style={{ backgroundColor: `${college.primaryColor}12`, color: college.primaryColor }}
-                  >
-                    {member.role}
-                  </span>
+                <td style={{ ...tdStyle, textAlign: 'center', fontWeight: 600, color: primaryColor }}>
+                  {m.sno}
                 </td>
-                <td className="font-dm-sans text-[14px] text-[#474747] px-6 py-4">{member.name}</td>
-                <td className="font-dm-sans text-[14px] text-[#474747] px-6 py-4">{member.batch}</td>
+                <td style={{ ...tdStyle, fontWeight: 500 }}>{m.name}</td>
+                <td style={tdStyle}>{m.designation}</td>
+                <td style={tdStyle}>
+                  <PositionBadge position={m.position} />
+                </td>
+                <td style={{ ...tdStyle, borderRight: 'none' }}>
+                  <a
+                    href={`mailto:${m.email}`}
+                    className="hover:underline"
+                    style={{ color: primaryColor }}
+                  >
+                    {m.email}
+                  </a>
+                </td>
               </tr>
             ))}
           </tbody>
@@ -155,330 +318,306 @@ function ExecutiveMembersSection() {
   );
 }
 
-function EnrollmentSection() {
-  const benefits = [
-    { title: 'Professional Networking', desc: 'Connect with GRCP graduates working across pharma, healthcare, research, and regulatory sectors.' },
-    { title: 'Mentorship Opportunities', desc: 'Guide current students through career counselling, internship advice, and industry insights.' },
-    { title: 'Placement Support', desc: 'Access exclusive job postings and referral opportunities within the GRCP alumni network.' },
-    { title: 'Events & Reunions', desc: 'Participate in annual alumni meets, seminars, webinars, and commemorative events at GRCP.' },
-  ];
+// ── Section: Alumni List ───────────────────────────────────────────────────────
 
-  const steps = [
-    { step: '01', label: 'Fill Registration Form', desc: 'Complete the online alumni registration form with your details.' },
-    { step: '02', label: 'Verification', desc: 'The alumni team verifies your academic records and batch details.' },
-    { step: '03', label: 'Membership Issued', desc: 'Receive your alumni membership certificate and association ID.' },
-    { step: '04', label: 'Stay Connected', desc: 'Join WhatsApp groups, attend events, and contribute to the GRCP community.' },
-  ];
-
-  return (
-    <div className="space-y-12">
-      <SectionHeader label="Alumni Association" title="Alumni Enrollment" />
-      <p className="font-dm-sans text-[15px] leading-[26px] text-[#474747] max-w-[720px]">
-        Joining the GRCP Alumni Association keeps you connected to your roots and opens doors to a
-        vibrant professional community. Enrollment is open to all graduates of B.Pharmacy and M.Pharmacy programs.
-      </p>
-
-      <section>
-        <h3
-          className="font-hind font-semibold text-[18px] mb-6"
-          style={{ color: college.primaryColor }}
-        >
-          Benefits of Enrollment
-        </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-[760px]">
-          {benefits.map((b, i) => (
-            <div
-              key={i}
-              className="rounded-2xl p-5 border"
-              style={{ borderColor: `${college.primaryColor}18`, backgroundColor: '#FAFAFA' }}
-            >
-              <div
-                className="w-8 h-8 rounded-lg flex items-center justify-center mb-3"
-                style={{ backgroundColor: college.greenAccent }}
-              >
-                <span className="font-dm-sans font-bold text-[13px] text-white">{i + 1}</span>
-              </div>
-              <h4 className="font-hind font-semibold text-[15px] mb-1.5" style={{ color: college.primaryColor }}>
-                {b.title}
-              </h4>
-              <p className="font-dm-sans text-[13px] leading-[22px] text-[#474747]">{b.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section>
-        <h3
-          className="font-hind font-semibold text-[18px] mb-6"
-          style={{ color: college.primaryColor }}
-        >
-          Enrollment Steps
-        </h3>
-        <div className="space-y-4 max-w-[680px]">
-          {steps.map((s) => (
-            <div key={s.step} className="flex items-start gap-5">
-              <span
-                className="font-hind font-bold text-[22px] flex-shrink-0 w-10 text-center leading-none mt-1"
-                style={{ color: college.greenAccent }}
-              >
-                {s.step}
-              </span>
-              <div
-                className="flex-1 rounded-xl p-4 border"
-                style={{ borderColor: `${college.primaryColor}18`, backgroundColor: '#FAFAFA' }}
-              >
-                <h4 className="font-hind font-semibold text-[14px] mb-1" style={{ color: college.primaryColor }}>
-                  {s.label}
-                </h4>
-                <p className="font-dm-sans text-[13px] text-[#474747]">{s.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-    </div>
-  );
-}
+const sampleAlumni = [
+  { name: 'Shruthi Challa', course: 'B Pharmacy', batch: '2004-2008', workingDetails: 'Regulatory Affairs Manager, Grifols Australia' },
+  { name: 'Satish Dabbeta', course: 'B Pharmacy', batch: '2004-2008', workingDetails: 'Medical Coder at University Hospital Sharjah' },
+  { name: 'Gangadhar M', course: 'B Pharmacy', batch: '2005-09', workingDetails: 'Novartis Health care pvt. Ltd. Hyderabad' },
+  { name: 'Bhukya Jagadeesh', course: 'B Pharmacy', batch: '2014-2018', workingDetails: 'Research associate, Sailife sciences' },
+  { name: 'Vasavi Pachakantha', course: 'M Pharmacy', batch: '2012-14', workingDetails: 'Medical writer in Novartis Hyderabad' },
+];
 
 function AlumniListSection() {
+  const [search, setSearch] = useState('');
+  const [filterYear, setFilterYear] = useState('');
+
   return (
-    <div className="space-y-8">
-      <SectionHeader label="Our Graduates" title="List of Alumni" />
-      <div
-        className="rounded-2xl p-10 border max-w-[600px]"
-        style={{ borderColor: `${college.primaryColor}18`, backgroundColor: '#FAFAFA' }}
-      >
-        <div
-          className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-6"
-          style={{ backgroundColor: `${college.primaryColor}12` }}
+    <div>
+      <SectionHeader label="GRCP Alumni" title="List of Alumni" />
+
+      {/* Count badge + description */}
+      <div className="flex flex-wrap items-center gap-4 mb-6">
+        <span
+          className="inline-flex items-center gap-2 px-5 py-2 rounded-full font-hind font-bold text-[22px] text-white shadow"
+          style={{ backgroundColor: primaryColor }}
         >
-          <svg viewBox="0 0 24 24" fill="none" className="w-7 h-7" stroke={college.primaryColor} strokeWidth="1.5">
-            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" strokeLinecap="round" strokeLinejoin="round" />
-            <circle cx="9" cy="7" r="4" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </div>
-        <h3
-          className="font-hind font-semibold text-[18px] text-center mb-3"
-          style={{ color: college.primaryColor }}
+          272+ Registered Alumni
+        </span>
+        <span
+          className="inline-block px-3 py-1 rounded-full font-dm-sans font-semibold text-[12px]"
+          style={{ backgroundColor: `${greenAccent}15`, color: greenAccent }}
         >
-          Alumni Database
+          B. Pharm &amp; M. Pharm
+        </span>
+      </div>
+
+      <InfoBox>
+        The GRCP Alumni network spans <strong>272+ registered alumni</strong> across B. Pharmacy and M. Pharmacy programs. Our graduates are making an impact in pharmaceutical companies, hospitals, research institutions, and regulatory bodies across India and worldwide.
+      </InfoBox>
+
+      {/* Search/filter UI (decorative - full database requires backend) */}
+      <div className="flex flex-col sm:flex-row gap-3 mb-6">
+        <input
+          type="text"
+          placeholder="Search by name..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="flex-1 px-4 py-2.5 border rounded font-dm-sans text-[14px] outline-none focus:ring-2"
+          style={{ borderColor: '#d1d5db' }}
+        />
+        <input
+          type="text"
+          placeholder="Filter by batch year..."
+          value={filterYear}
+          onChange={(e) => setFilterYear(e.target.value)}
+          className="w-full sm:w-48 px-4 py-2.5 border rounded font-dm-sans text-[14px] outline-none focus:ring-2"
+          style={{ borderColor: '#d1d5db' }}
+        />
+      </div>
+
+      {/* Sample alumni table */}
+      <div className="mb-8">
+        <h3 className="font-hind font-bold text-[18px] mb-3" style={{ color: primaryColor }}>
+          Sample Alumni Entries
         </h3>
-        <p className="font-dm-sans text-[15px] leading-[26px] text-[#474747] text-center mb-6">
-          The complete alumni database is maintained by the GRCP Alumni Association.
-          For specific queries regarding alumni contacts or batch information, please contact the college office.
-        </p>
-        <div
-          className="rounded-xl p-5 border"
-          style={{ borderColor: `${college.primaryColor}18`, backgroundColor: '#fff' }}
-        >
-          <p className="font-dm-sans font-semibold text-[13px] text-[#474747] mb-1">Contact the Alumni Office</p>
-          <a
-            href={`mailto:${college.email}`}
-            className="font-dm-sans text-[14px] underline"
-            style={{ color: college.primaryColor }}
-          >
-            {college.email}
-          </a>
-          <span className="font-dm-sans text-[13px] text-[#6B7280] block mt-1">
-            or call{' '}
-            <a href={`tel:${college.phone}`} className="underline" style={{ color: college.primaryColor }}>
-              {college.phone}
-            </a>
-          </span>
+        <div className="overflow-x-auto rounded-xl border" style={{ borderColor: '#e5e7eb' }}>
+          <table className="w-full border-collapse">
+            <thead>
+              <tr>
+                <th style={{ ...thStyle, width: '40px' }}>#</th>
+                <th style={thStyle}>Name</th>
+                <th style={thStyle}>Course</th>
+                <th style={thStyle}>Batch</th>
+                <th style={{ ...thStyle, borderRight: 'none' }}>Working Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              {sampleAlumni.map((a, i) => (
+                <tr key={i} style={{ backgroundColor: i % 2 === 0 ? '#ffffff' : '#f9fafb' }}>
+                  <td style={{ ...tdStyle, textAlign: 'center', fontWeight: 600, color: primaryColor }}>{i + 1}</td>
+                  <td style={{ ...tdStyle, fontWeight: 500, color: primaryColor }}>{a.name}</td>
+                  <td style={tdStyle}>{a.course}</td>
+                  <td style={{ ...tdStyle, whiteSpace: 'nowrap' }}>{a.batch}</td>
+                  <td style={{ ...tdStyle, borderRight: 'none' }}>{a.workingDetails}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
+        <p className="font-dm-sans text-[12px] text-gray-400 mt-2 italic">
+          Showing 5 sample entries. The full database contains 272+ alumni records.
+        </p>
+      </div>
+
+      {/* Distinguished Alumni PDF download */}
+      <div
+        className="flex flex-col sm:flex-row items-start sm:items-center gap-4 p-5 rounded-xl border mb-6"
+        style={{ borderColor: `${primaryColor}33`, backgroundColor: `${primaryColor}05` }}
+      >
+        <div className="flex-1">
+          <p className="font-hind font-semibold text-[15px] mb-1" style={{ color: primaryColor }}>
+            Distinguished Alumni List (PDF)
+          </p>
+          <p className="font-dm-sans text-[13px] text-gray-500">
+            Download the complete list of distinguished alumni recognised by GRCP.
+          </p>
+        </div>
+        <a
+          href="https://grcp.ac.in/downloads/Distinguished%20Alumni.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex-shrink-0 inline-flex items-center gap-2 px-5 py-2 rounded font-dm-sans font-semibold text-[13px] text-white transition-opacity hover:opacity-90"
+          style={{ backgroundColor: primaryColor }}
+        >
+          Download PDF
+        </a>
+      </div>
+
+      {/* Contact note for full list */}
+      <div
+        className="p-5 rounded-lg border-l-4 font-dm-sans text-[14px]"
+        style={{ backgroundColor: '#fefce8', borderLeftColor: '#eab308', color: '#713f12' }}
+      >
+        <p className="font-semibold mb-1">Access the Complete Alumni Database</p>
+        <p>
+          For the complete alumni database, please contact{' '}
+          <a href="mailto:alumni@grcp.ac.in" style={{ color: primaryColor, textDecoration: 'underline' }}>
+            alumni@grcp.ac.in
+          </a>
+          . You may also visit the college administrative office during working hours.
+        </p>
       </div>
     </div>
   );
 }
+
+// ── Section: Distinguished Alumni ─────────────────────────────────────────────
 
 function DistinguishedSection() {
-  const { distinguished } = college.alumni;
+  const alumni = college.alumni.distinguished;
+
+  function getInitials(name) {
+    return name
+      .split(' ')
+      .filter((w) => w.length > 2)
+      .slice(0, 2)
+      .map((w) => w[0])
+      .join('');
+  }
 
   return (
-    <div className="space-y-8">
-      <SectionHeader label="Our Pride" title="Distinguished Alumni" />
-      <p className="font-dm-sans text-[15px] leading-[26px] text-[#474747] max-w-[720px]">
-        GRCP is proud of its alumni who have gone on to make significant contributions to the pharmaceutical
-        industry, clinical research, and healthcare. Here are some of our distinguished graduates.
+    <div>
+      <SectionHeader label="GRCP Alumni" title="Distinguished Alumni" />
+
+      <p className="font-dm-sans text-[15px] text-gray-600 mb-8 leading-relaxed">
+        GRCP takes pride in its distinguished alumni who have made significant contributions to the pharmaceutical and healthcare sectors nationally and internationally.
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {distinguished.map((alum, i) => (
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {alumni.map((a, i) => (
           <div
             key={i}
-            className="rounded-2xl p-7 flex flex-col"
-            style={{ backgroundColor: '#005a28' }}
+            className="rounded-xl border p-6 flex flex-col gap-4 hover:shadow-md transition-shadow"
+            style={{ borderColor: `${primaryColor}22` }}
           >
-            <div
-              className="w-12 h-12 rounded-full flex items-center justify-center mb-5"
-              style={{ backgroundColor: college.greenAccent }}
-            >
-              <span className="font-dm-sans font-bold text-[18px] text-white">
-                {alum.name.charAt(0)}
-              </span>
-            </div>
-            <div className="flex-1">
-              <h4 className="font-hind font-bold text-[17px] text-white mb-1">{alum.name}</h4>
-              <span
-                className="font-dm-sans font-semibold text-[11px] px-2.5 py-1 rounded-full inline-block mb-3"
-                style={{ backgroundColor: college.greenAccent, color: '#fff' }}
-              >
-                Batch of {alum.batch}
-              </span>
-              <p className="font-dm-sans text-[13px] text-white/75 mb-3">{alum.currentRole}</p>
+            <div className="flex items-center gap-4">
               <div
-                className="w-8 h-0.5 rounded-full mb-3"
-                style={{ backgroundColor: college.greenAccent }}
-              />
-              <p className="font-dm-sans text-[13px] leading-[22px] text-white/65">{alum.achievement}</p>
+                className="w-14 h-14 rounded-full flex items-center justify-center font-hind font-bold text-[18px] text-white flex-shrink-0"
+                style={{ backgroundColor: i % 2 === 0 ? primaryColor : greenAccent }}
+              >
+                {getInitials(a.name)}
+              </div>
+              <div>
+                <p className="font-hind font-bold text-[15px] leading-tight" style={{ color: primaryColor }}>
+                  {a.name}
+                </p>
+                <span
+                  className="inline-block mt-1 px-2 py-0.5 rounded text-[11px] font-dm-sans font-semibold"
+                  style={{ backgroundColor: `${primaryColor}15`, color: primaryColor }}
+                >
+                  Batch {a.batch}
+                </span>
+              </div>
+            </div>
+
+            <div>
+              <p className="font-dm-sans text-[13px] font-semibold text-gray-700 mb-1">{a.currentRole}</p>
+              <p className="font-dm-sans text-[13px] text-gray-500 leading-relaxed">{a.achievement}</p>
             </div>
           </div>
         ))}
       </div>
+
+      <div className="mt-8">
+        <InfoBox>
+          To nominate an alumnus for the Distinguished Alumni award, please write to{' '}
+          <a href="mailto:alumni@grcp.ac.in" style={{ color: primaryColor, textDecoration: 'underline' }}>
+            alumni@grcp.ac.in
+          </a>{' '}
+          with the nominee's details and their contributions to the field.
+        </InfoBox>
+      </div>
     </div>
   );
 }
+
+// ── Section: Alumni Contribution (Lecture Series) ──────────────────────────────
 
 function ContributionSection() {
-  const contributions = [
-    {
-      title: 'Guest Lectures & Seminars',
-      desc: 'Alumni return to campus as guest faculty, sharing real-world pharmaceutical industry experience with current students.',
-      icon: (
-        <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 0v10l6-3M12 12l-6-3" strokeLinecap="round" strokeLinejoin="round" />
-      ),
-    },
-    {
-      title: 'Placement Support',
-      desc: 'Alumni at leading pharma companies actively refer GRCP students for internships and full-time positions through their networks.',
-      icon: (
-        <path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2zM16 3H8a2 2 0 00-2 2v2h12V5a2 2 0 00-2-2z" strokeLinecap="round" strokeLinejoin="round" />
-      ),
-    },
-    {
-      title: 'Scholarship Donations',
-      desc: 'Distinguished alumni contribute to scholarship funds to support meritorious students from economically weaker backgrounds.',
-      icon: (
-        <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8v1m0 10v1m6-6a9 9 0 11-18 0 9 9 0 0118 0z" strokeLinecap="round" strokeLinejoin="round" />
-      ),
-    },
-    {
-      title: 'Infrastructure Contributions',
-      desc: 'Alumni have supported the college through donations toward laboratory equipment, library resources, and campus infrastructure.',
-      icon: (
-        <path d="M3 21h18M3 7l9-4 9 4M4 7v14M20 7v14M9 21V9h6v12" strokeLinecap="round" strokeLinejoin="round" />
-      ),
-    },
-    {
-      title: 'Mentorship Programs',
-      desc: 'One-on-one and group mentorship programs pair final-year students with experienced alumni for career guidance and industry readiness.',
-      icon: (
-        <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0" strokeLinecap="round" strokeLinejoin="round" />
-      ),
-    },
-  ];
+  const lectures = college.alumni.lectures;
 
   return (
-    <div className="space-y-10">
-      <SectionHeader label="Giving Back" title="Alumni Contribution" />
-      <p className="font-dm-sans text-[15px] leading-[26px] text-[#474747] max-w-[720px]">
-        GRCP alumni are the institution's greatest ambassadors. Through their expertise, time, and generosity,
-        our graduates continue to shape the next generation of pharmacy professionals.
+    <div>
+      <SectionHeader label="Alumni Contributions" title="Alumni Lecture Series" />
+
+      <p className="font-dm-sans text-[15px] text-gray-600 mb-8 leading-relaxed">
+        The GRCP Alumni Association organises an annual lecture series where distinguished alumni share their industry experience, research insights, and career guidance with current students. Below is a record of all sessions conducted.
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {contributions.map((c, i) => (
-          <div
-            key={i}
-            className="rounded-2xl p-6 border"
-            style={{ borderColor: `${college.primaryColor}18`, backgroundColor: '#FAFAFA' }}
+
+      {lectures.map((yearGroup) => (
+        <div key={yearGroup.year} className="mb-10">
+          <h3
+            className="font-hind font-bold text-[18px] mb-4 px-4 py-2 rounded"
+            style={{ color: '#ffffff', backgroundColor: primaryColor }}
           >
-            <div
-              className="w-11 h-11 rounded-xl flex items-center justify-center mb-4"
-              style={{ backgroundColor: `${college.primaryColor}10` }}
-            >
-              <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5" stroke={college.primaryColor} strokeWidth="1.5">
-                {c.icon}
-              </svg>
-            </div>
-            <h4
-              className="font-hind font-semibold text-[15px] mb-2"
-              style={{ color: college.primaryColor }}
-            >
-              {c.title}
-            </h4>
-            <p className="font-dm-sans text-[13px] leading-[22px] text-[#474747]">{c.desc}</p>
+            Academic Year: {yearGroup.year}
+          </h3>
+          <div className="overflow-x-auto rounded-xl border" style={{ borderColor: '#e5e7eb' }}>
+            <table className="w-full border-collapse">
+              <thead>
+                <tr>
+                  <th style={thStyle}>Speaker</th>
+                  <th style={thStyle}>Qualification / Current Role</th>
+                  <th style={thStyle}>Topic</th>
+                  <th style={{ ...thStyle, borderRight: 'none' }}>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                {yearGroup.items.map((item, i) => (
+                  <tr
+                    key={i}
+                    style={{ backgroundColor: i % 2 === 0 ? '#ffffff' : '#f9fafb' }}
+                  >
+                    <td style={{ ...tdStyle, fontWeight: 500, color: primaryColor }}>{item.name}</td>
+                    <td style={tdStyle}>{item.qualification || '—'}</td>
+                    <td style={tdStyle}>{item.topic}</td>
+                    <td style={{ ...tdStyle, borderRight: 'none', whiteSpace: 'nowrap' }}>{item.date}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
-        ))}
-      </div>
-      <div
-        className="rounded-2xl p-6 border max-w-[680px]"
-        style={{ borderColor: `${college.greenAccent}30`, backgroundColor: `${college.greenAccent}0D` }}
-      >
-        <p className="font-dm-sans text-[14px] text-[#474747]">
-          <span className="font-semibold">Interested in contributing?</span> Contact the Alumni Association or reach out to the college at{' '}
-          <a href={`mailto:${college.email}`} className="underline" style={{ color: college.primaryColor }}>
-            {college.email}
-          </a>
-          . We welcome all forms of engagement from our distinguished graduates.
-        </p>
-      </div>
+        </div>
+      ))}
     </div>
   );
 }
 
+// ── Section config ─────────────────────────────────────────────────────────────
+
 const sectionConfig = {
-  overview: {
-    title: 'Alumni',
-    subtitle: 'Connecting GRCP graduates across the pharmaceutical and healthcare world',
-    breadcrumb: ['Alumni'],
-  },
-  registration: {
+  'alumni-registration': {
     title: 'Alumni Registration',
-    subtitle: 'Register with the GRCP Alumni Association and stay connected',
+    subtitle: 'Register with the GRCP Alumni Association and stay connected with your alma mater',
     breadcrumb: ['Alumni', 'Alumni Registration'],
   },
   'executive-members': {
     title: 'Executive Members',
-    subtitle: 'The elected leadership of the GRCP Alumni Association',
+    subtitle: 'Meet the team driving the GRCP Alumni Association',
     breadcrumb: ['Alumni', 'Executive Members'],
   },
-  enrollment: {
-    title: 'Alumni Enrollment',
-    subtitle: 'Join the GRCP Alumni Association and become part of a thriving community',
-    breadcrumb: ['Alumni', 'Alumni Enrollment'],
-  },
-  list: {
+  'list-of-alumni': {
     title: 'List of Alumni',
-    subtitle: 'GRCP graduates serving the pharmaceutical and healthcare sectors',
+    subtitle: '272+ registered alumni connected through the GRCP Alumni Network',
     breadcrumb: ['Alumni', 'List of Alumni'],
   },
-  distinguished: {
+  'distinguished-alumni': {
     title: 'Distinguished Alumni',
-    subtitle: 'GRCP graduates who have made outstanding contributions to their fields',
+    subtitle: 'Honouring GRCP graduates who have made exceptional contributions to their fields',
     breadcrumb: ['Alumni', 'Distinguished Alumni'],
   },
-  contribution: {
+  'alumni-contribution': {
     title: 'Alumni Contribution',
-    subtitle: 'Ways in which our alumni give back to the GRCP community',
+    subtitle: 'Alumni lecture series and industry interaction sessions for current students',
     breadcrumb: ['Alumni', 'Alumni Contribution'],
   },
 };
 
 const sectionContent = {
-  overview: <EnrollmentSection />,
-  registration: <RegistrationSection />,
+  'alumni-registration': <RegistrationSection />,
   'executive-members': <ExecutiveMembersSection />,
-  enrollment: <EnrollmentSection />,
-  list: <AlumniListSection />,
-  distinguished: <DistinguishedSection />,
-  contribution: <ContributionSection />,
+  'list-of-alumni': <AlumniListSection />,
+  'distinguished-alumni': <DistinguishedSection />,
+  'alumni-contribution': <ContributionSection />,
 };
 
+// ── Page ───────────────────────────────────────────────────────────────────────
+
 export default function AlumniPage() {
-  const { section } = useParams();
-  const activeSection = section || 'overview';
-  const config = sectionConfig[activeSection] || sectionConfig.overview;
+  const { section = 'alumni-registration' } = useParams();
   const location = useLocation();
+  const config = sectionConfig[section] || sectionConfig['alumni-registration'];
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
@@ -486,8 +625,7 @@ export default function AlumniPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white overflow-x-hidden">
-      <Navbar college={college} />
-      <NavStrip college={college} />
+      <SiteHeader college={college} />
       <PageHero
         college={college}
         title={config.title}
@@ -497,7 +635,7 @@ export default function AlumniPage() {
       />
       <main className="flex-1 section-pad">
         <div className="max-w-[1200px] mx-auto">
-          {sectionContent[activeSection] || sectionContent.overview}
+          {sectionContent[section] || sectionContent['alumni-registration']}
         </div>
       </main>
       <AdmissionsCTA college={college} />

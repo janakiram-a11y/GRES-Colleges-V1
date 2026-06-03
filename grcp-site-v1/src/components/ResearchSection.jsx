@@ -1,4 +1,4 @@
-﻿export default function ResearchSection({ college }) {
+export default function ResearchSection({ college }) {
   return (
     <section className="w-full section-pad" style={{ background: 'linear-gradient(135deg, #1E5C3A 0%, #2D7A50 60%, #1A4D33 100%)' }}>
       <div className="max-w-[1200px] mx-auto flex flex-col gap-12">
@@ -19,7 +19,7 @@
             >
               <span className="font-hind font-bold text-[30px] leading-[38px] text-[#F3DAB2]">{count}</span>
               <span className="font-hind font-semibold text-[18px] leading-7 text-white">{label}</span>
-              <span className="font-dm-sans font-normal text-[14px] leading-5" style={{ color: 'rgba(205,240,220,0.80)' }}>{desc}</span>
+              <span className="font-dm-sans font-normal text-[16px] leading-[26px]" style={{ color: 'rgba(205,240,220,0.80)' }}>{desc}</span>
             </div>
           ))}
         </div>

@@ -23,11 +23,27 @@ function FlyoutSubMenu({ items, college, visible }) {
           borderTopColor: college.greenAccent,
         }}
       >
-        {items.map((sub) => (
+        {items.map((sub) => sub.external ? (
+          <a
+            key={sub.href}
+            href={sub.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center px-4 py-2 text-[14px] font-dm-sans font-medium transition-colors whitespace-nowrap"
+            style={{
+              color: college.primaryColor,
+              borderBottom: `1px solid ${withAlpha(college.primaryColor, 0.08)}`,
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = college.greenAccent)}
+            onMouseLeave={(e) => (e.currentTarget.style.color = college.primaryColor)}
+          >
+            {sub.label} ↗
+          </a>
+        ) : (
           <Link
             key={sub.href}
             to={sub.href}
-            className="flex items-center px-4 py-2 text-[12px] font-dm-sans font-medium transition-colors whitespace-nowrap"
+            className="flex items-center px-4 py-2 text-[14px] font-dm-sans font-medium transition-colors whitespace-nowrap"
             style={{
               color: college.primaryColor,
               borderBottom: `1px solid ${withAlpha(college.primaryColor, 0.08)}`,
@@ -68,7 +84,7 @@ function DropdownItem({ item, college }) {
       >
         <Link
           to={item.href}
-          className="flex items-center gap-1 px-4 py-2 text-[13px] font-dm-sans font-medium transition-colors whitespace-nowrap"
+          className="flex items-center gap-1 px-4 py-2 text-[14px] font-dm-sans font-medium transition-colors whitespace-nowrap"
           style={{
             color: college.primaryColor,
             borderBottom: `1px solid ${withAlpha(college.primaryColor, 0.1)}`,
@@ -84,10 +100,29 @@ function DropdownItem({ item, college }) {
     );
   }
 
+  if (item.external) {
+    return (
+      <a
+        href={item.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block px-4 py-2 text-[14px] font-dm-sans font-medium transition-colors whitespace-nowrap"
+        style={{
+          color: college.primaryColor,
+          borderBottom: `1px solid ${withAlpha(college.primaryColor, 0.1)}`,
+        }}
+        onMouseEnter={(e) => (e.currentTarget.style.color = college.greenAccent)}
+        onMouseLeave={(e) => (e.currentTarget.style.color = college.primaryColor)}
+      >
+        {item.label} ↗
+      </a>
+    );
+  }
+
   return (
     <Link
       to={item.href}
-      className="block px-4 py-2 text-[13px] font-dm-sans font-medium transition-colors whitespace-nowrap"
+      className="block px-4 py-2 text-[14px] font-dm-sans font-medium transition-colors whitespace-nowrap"
       style={{
         color: college.primaryColor,
         borderBottom: `1px solid ${withAlpha(college.primaryColor, 0.1)}`,
@@ -135,7 +170,7 @@ function NavItem({ name, href, active, dropdown, college }) {
     return (
       <Link
         to={href || '/'}
-        className="font-dm-sans font-semibold text-[14px] leading-[17px] transition-colors"
+        className="font-dm-sans font-semibold text-[16px] leading-[22px] transition-colors"
         style={isActive ? activeStyle : inactiveStyle}
         onMouseEnter={(e) => { if (!isActive) e.currentTarget.style.color = '#F3DAB2'; }}
         onMouseLeave={(e) => { if (!isActive) e.currentTarget.style.color = '#ffffff'; }}
@@ -156,7 +191,7 @@ function NavItem({ name, href, active, dropdown, college }) {
         <div className="flex items-center">
           <Link
             to={href}
-            className="font-dm-sans font-semibold text-[14px] leading-[17px] transition-colors py-2"
+            className="font-dm-sans font-semibold text-[16px] leading-[22px] transition-colors py-2"
             style={open || isActive ? activeStyle : inactiveStyle}
             onMouseEnter={(e) => { if (!open && !isActive) e.currentTarget.style.color = '#F3DAB2'; }}
             onMouseLeave={(e) => { if (!open && !isActive) e.currentTarget.style.color = '#ffffff'; }}
@@ -182,7 +217,7 @@ function NavItem({ name, href, active, dropdown, college }) {
       ) : (
         <button
           onClick={() => setOpen((v) => !v)}
-          className="flex items-center gap-1 font-dm-sans font-semibold text-[14px] leading-[17px] transition-colors py-2"
+          className="flex items-center gap-1 font-dm-sans font-semibold text-[16px] leading-[22px] transition-colors py-2"
           style={open || isActive ? activeStyle : inactiveStyle}
           onMouseEnter={(e) => { if (!open && !isActive) e.currentTarget.style.color = '#F3DAB2'; }}
           onMouseLeave={(e) => { if (!open && !isActive) e.currentTarget.style.color = '#ffffff'; }}
@@ -222,7 +257,7 @@ function NavItem({ name, href, active, dropdown, college }) {
 export default function NavStrip({ college }) {
   return (
     <div
-      className="w-full py-3 sticky top-[72px] sm:top-[80px] lg:top-[88px] z-40"
+      className="w-full py-3 sticky top-0 z-40"
       style={{
         backgroundColor: college.primaryColor,
         borderBottom: `1px solid ${withAlpha('#000000', 0.1)}`,

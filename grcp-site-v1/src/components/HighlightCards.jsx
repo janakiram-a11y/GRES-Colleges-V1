@@ -43,7 +43,7 @@ export default function HighlightCards({ college }) {
                 <h3 className="font-hind font-semibold text-[18px] leading-7" style={{ color: college.primaryColor }}>
                   {title}
                 </h3>
-                <p className="font-dm-sans font-normal text-[14px] leading-[22px]" style={{ color: '#606060' }}>
+                <p className="font-dm-sans font-normal text-[16px] leading-[26px]" style={{ color: '#606060' }}>
                   {desc}
                 </p>
               </div>

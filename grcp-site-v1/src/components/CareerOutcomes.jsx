@@ -1,4 +1,4 @@
-﻿export default function CareerOutcomes({ college }) {
+export default function CareerOutcomes({ college }) {
   return (
     <section className="w-full bg-[#F0F7F3] section-pad">
       <div className="max-w-[1200px] mx-auto flex items-center gap-24">

@@ -176,7 +176,7 @@ const college = {
   heroSubtext: 'Gokaraju Rangaraju College of Pharmacy creates an environment of opportunity, producing highly qualified human resources who are academically superior and ethically strong. NBA Accredited, PCI Approved, and affiliated with Osmania University.',
   heroCTALabel: 'Admissions Open 2025',
   heroCTAHref: '/admissions/admission-procedure',
-  heroBgImage: '/imgi_5_aboutusbanner.jpg',
+  heroBgImage: '/hero-campus.jpg',
 
   statsBarItems: ['NBA Accredited 2025–28', 'PCI Approved', 'Osmania University Affiliated', 'B.Pharm & M.Pharm Programs'],
 

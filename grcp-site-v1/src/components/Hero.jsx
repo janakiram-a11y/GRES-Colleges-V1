@@ -8,7 +8,7 @@ export default function Hero({ college }) {
           src={college.heroBgImage}
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
-          style={{ filter: 'saturate(0.90) brightness(0.94) contrast(1.02)' }}
+          style={{ objectPosition: 'center 40%', filter: 'saturate(0.90) brightness(0.85) contrast(1.02)' }}
         />
       )}
 

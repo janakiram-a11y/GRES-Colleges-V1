@@ -1,3 +1,4 @@
+import React from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import college from '../theme';
 import AdminSidebarLayout from '../components/AdminSidebarLayout';
@@ -12,13 +13,13 @@ function SectionHeader({ label, title }) {
     <div className="flex flex-col gap-2 mb-8">
       {label && (
         <span
-          className="font-dm-sans font-semibold text-[11px] tracking-[0.2em] uppercase"
+          className="font-display font-bold text-type-label tracking-[0.12em] uppercase"
           style={{ color: `${primary}80` }}
         >
           {label}
         </span>
       )}
-      <h2 className="font-hind font-bold text-[26px] leading-tight" style={{ color: primary }}>
+      <h2 className="font-display font-bold text-type-h3-mob" style={{ color: primary }}>
         {title}
       </h2>
       <div className="w-14 h-[3px] rounded-full" style={{ backgroundColor: accent }} />
@@ -28,7 +29,7 @@ function SectionHeader({ label, title }) {
 
 function SubHeading({ children }) {
   return (
-    <h3 className="font-hind font-semibold text-[17px] mb-5 mt-8 first:mt-0" style={{ color: primary }}>
+    <h3 className="font-display font-semibold text-type-body-lg mb-5 mt-8 first:mt-0" style={{ color: primary }}>
       {children}
     </h3>
   );
@@ -43,7 +44,7 @@ function InfoCallout({ children }) {
       <svg className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: accent }} fill="currentColor" viewBox="0 0 20 20">
         <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
       </svg>
-      <p className="font-dm-sans text-[14px] leading-[24px] text-[#4B5563]">{children}</p>
+      <p className="font-body text-type-body-xs text-[#4B5563]">{children}</p>
     </div>
   );
 }
@@ -57,7 +58,7 @@ function DataTable({ rows, columns }) {
             {columns.map((col) => (
               <th
                 key={col.key}
-                className="text-left font-dm-sans font-semibold text-[12px] text-white px-5 py-3.5 tracking-wide"
+                className="text-left font-display font-semibold text-type-cap text-white px-5 py-3.5 tracking-wide"
               >
                 {col.label}
               </th>
@@ -70,7 +71,7 @@ function DataTable({ rows, columns }) {
               {columns.map((col) => (
                 <td
                   key={col.key}
-                  className="font-dm-sans text-[14px] px-5 py-3.5"
+                  className="font-body text-type-body-xs px-5 py-3.5"
                   style={col.accent ? { color: primary, fontWeight: 600 } : { color: '#374151' }}
                 >
                   {row[col.key] ?? '—'}
@@ -173,8 +174,8 @@ function SyllabusContent() {
             </svg>
           </div>
           <div>
-            <h3 className="font-hind font-bold text-[17px]" style={{ color: primary }}>B.Pharmacy Syllabus</h3>
-            <p className="font-dm-sans text-[12px]" style={{ color: `${primary}70` }}>Osmania University — Semester-wise Download</p>
+            <h3 className="font-display font-bold text-type-body-lg" style={{ color: primary }}>B.Pharmacy Syllabus</h3>
+            <p className="font-display text-type-cap" style={{ color: `${primary}70` }}>Osmania University — Semester-wise Download</p>
           </div>
         </div>
 
@@ -185,7 +186,7 @@ function SyllabusContent() {
               className="flex items-center justify-between gap-4 px-5 py-3 border-b last:border-0"
               style={{ backgroundColor: i % 2 === 0 ? '#fff' : '#FAFAFA', borderColor: '#F3F4F6' }}
             >
-              <span className="font-dm-sans text-[14px] text-[#374151]">Semester {sem}</span>
+              <span className="font-body text-type-body-xs text-[#374151]">Semester {sem}</span>
               <DownloadBtn href={`https://grcp.ac.in/downloads/syllabus/${sem} SEM.pdf`} />
             </div>
           ))}
@@ -195,7 +196,7 @@ function SyllabusContent() {
           href="https://grcp.ac.in/downloads/syllabus/B_Pharm_PCI_Rules.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="font-dm-sans text-[13px] font-semibold underline"
+          className="font-display text-type-ui-sm font-semibold underline"
           style={{ color: accent }}
         >
           B.Pharm PCI Rules &amp; Regulations
@@ -217,8 +218,8 @@ function SyllabusContent() {
             </svg>
           </div>
           <div>
-            <h3 className="font-hind font-bold text-[17px]" style={{ color: primary }}>M.Pharmacy Syllabus</h3>
-            <p className="font-dm-sans text-[12px]" style={{ color: `${primary}70` }}>Specialization-wise Semester Downloads</p>
+            <h3 className="font-display font-bold text-type-body-lg" style={{ color: primary }}>M.Pharmacy Syllabus</h3>
+            <p className="font-display text-type-cap" style={{ color: `${primary}70` }}>Specialization-wise Semester Downloads</p>
           </div>
         </div>
 
@@ -229,7 +230,7 @@ function SyllabusContent() {
               className="rounded-xl border p-4"
               style={{ borderColor: `${primary}18`, backgroundColor: `${primary}04` }}
             >
-              <p className="font-dm-sans font-semibold text-[13px] mb-3" style={{ color: primary }}>
+              <p className="font-display font-semibold text-type-ui-sm mb-3" style={{ color: primary }}>
                 {spec.name}
               </p>
               <div className="flex gap-2 flex-wrap">
@@ -271,7 +272,7 @@ function CalendarContent() {
   return (
     <>
       <SectionHeader label="Academic Schedule" title="Academic Calendar 2025–26" />
-      <p className="font-dm-sans text-[15px] leading-[27px] text-[#474747] mb-8">
+      <p className="font-body text-type-body text-[#474747] mb-8">
         The Academic Calendar for GRCP is prepared in accordance with the Osmania University almanac and
         PCI norms. Download the official almanac documents below for B.Pharmacy and M.Pharmacy programs.
       </p>
@@ -293,10 +294,10 @@ function CalendarContent() {
                 </svg>
               </div>
               <div>
-                <h3 className="font-hind font-bold text-[16px] leading-snug" style={{ color: primary }}>
+                <h3 className="font-display font-bold text-type-body leading-snug" style={{ color: primary }}>
                   {d.title}
                 </h3>
-                <p className="font-dm-sans text-[12px] text-[#6B7280] mt-1">Official Academic Almanac — PDF</p>
+                <p className="font-display text-type-cap text-[#6B7280] mt-1">Official Academic Almanac — PDF</p>
               </div>
             </div>
             <DownloadBtn href={d.href} label="Download PDF" />
@@ -342,7 +343,7 @@ function TimetableRow({ row, columns }) {
         ) : (
           <td
             key={col.key}
-            className="font-dm-sans text-[14px] px-5 py-3.5"
+            className="font-body text-type-body-xs px-5 py-3.5"
             style={col.accent ? { color: primary, fontWeight: 600 } : { color: '#374151' }}
           >
             {row[col.key] ?? '—'}
@@ -362,7 +363,7 @@ function TTTable({ rows, columns }) {
             {columns.map((col) => (
               <th
                 key={col.key}
-                className="text-left font-dm-sans font-semibold text-[12px] text-white px-5 py-3.5 tracking-wide"
+                className="text-left font-display font-semibold text-type-cap text-white px-5 py-3.5 tracking-wide"
               >
                 {col.label}
               </th>
@@ -548,14 +549,14 @@ function LibraryContent() {
             className="flex items-center gap-2 px-4 py-2.5 rounded-full border"
             style={{ borderColor: `${primary}25`, backgroundColor: `${primary}07` }}
           >
-            <span className="font-hind font-bold text-[17px]" style={{ color: primary }}>{stat.value}</span>
-            <span className="font-dm-sans text-[12px] text-[#6B7280]">{stat.label}</span>
+            <span className="font-display font-bold text-type-body-lg" style={{ color: primary }}>{stat.value}</span>
+            <span className="font-display text-type-cap text-[#6B7280]">{stat.label}</span>
           </div>
         ))}
       </div>
 
       {/* Description */}
-      <p className="font-dm-sans text-[15px] leading-[27px] text-[#474747] mb-10">
+      <p className="font-body text-type-body text-[#474747] mb-10">
         The GRCP Library is a well-equipped resource centre designed to support the academic and research needs of students and faculty. With a collection of 12,962 volumes and 1,779 distinct titles, the library offers extensive resources across a range of disciplines. It subscribes to 34 national journals and provides access to 380 international online journals, enriching the academic experience with diverse and high-quality research material. Additionally, the library has a Delnet subscription, which expands the resources available to users through a network of shared materials. To streamline access and enhance user experience, the library is fully automated using Koha software, a robust library management system that simplifies cataloging, circulation, and online access. This automation allows users to efficiently search for and access resources, both on-campus and remotely. Additionally, the GRCP Library offers a book bank facility, allowing students to borrow textbooks for the entire semester and return them after completing their semester exams, supporting continuous learning and reducing the need for additional book purchases.
       </p>
 
@@ -576,12 +577,12 @@ function LibraryContent() {
             </div>
             <div>
               <h3
-                className="font-hind font-bold text-[16px] mb-1.5 group-hover:underline"
+                className="font-display font-bold text-type-body mb-1.5 group-hover:underline"
                 style={{ color: primary }}
               >
                 {sub.title}
               </h3>
-              <p className="font-dm-sans text-[13px] leading-[22px] text-[#6B7280]">{sub.desc}</p>
+              <p className="font-body text-type-ui-sm text-[#6B7280]">{sub.desc}</p>
             </div>
           </a>
         ))}
@@ -592,7 +593,7 @@ function LibraryContent() {
         <SectionHeader label="Usage Policy" title="Library Rules" />
         <ol className="list-decimal list-outside ml-5 space-y-3">
           {LIBRARY_RULES.map((rule, i) => (
-            <li key={i} className="font-dm-sans text-[14px] leading-[24px] text-[#374151] pl-1">
+            <li key={i} className="font-body text-type-body-xs text-[#374151] pl-1">
               {rule}
             </li>
           ))}
@@ -604,7 +605,7 @@ function LibraryContent() {
         <SectionHeader label="Mission & Goals" title="Library Objectives" />
         <ol className="list-decimal list-outside ml-5 space-y-3">
           {LIBRARY_OBJECTIVES.map((obj, i) => (
-            <li key={i} className="font-dm-sans text-[14px] leading-[24px] text-[#374151] pl-1">
+            <li key={i} className="font-body text-type-body-xs text-[#374151] pl-1">
               {obj}
             </li>
           ))}
@@ -621,7 +622,7 @@ function LibraryContent() {
                 {['Sl.No.', 'Name', 'Designation', 'Position', 'Email'].map((col) => (
                   <th
                     key={col}
-                    className="text-left font-dm-sans font-semibold text-[12px] text-white px-5 py-3.5 tracking-wide"
+                    className="text-left font-display font-semibold text-type-cap text-white px-5 py-3.5 tracking-wide"
                   >
                     {col}
                   </th>
@@ -631,11 +632,11 @@ function LibraryContent() {
             <tbody>
               {LIBRARY_COMMITTEE.map((row, i) => (
                 <tr key={row.sno} style={{ backgroundColor: i % 2 === 0 ? '#fff' : '#FAFAFA' }}>
-                  <td className="font-dm-sans text-[14px] px-5 py-3.5 text-[#374151]">{row.sno}</td>
-                  <td className="font-dm-sans text-[14px] px-5 py-3.5 font-semibold" style={{ color: primary }}>{row.name}</td>
-                  <td className="font-dm-sans text-[14px] px-5 py-3.5 text-[#374151]">{row.designation}</td>
-                  <td className="font-dm-sans text-[14px] px-5 py-3.5 text-[#374151]">{row.position}</td>
-                  <td className="font-dm-sans text-[13px] px-5 py-3.5">
+                  <td className="font-body text-type-body-xs px-5 py-3.5 text-[#374151]">{row.sno}</td>
+                  <td className="font-body text-type-body-xs px-5 py-3.5 font-semibold" style={{ color: primary }}>{row.name}</td>
+                  <td className="font-body text-type-body-xs px-5 py-3.5 text-[#374151]">{row.designation}</td>
+                  <td className="font-body text-type-body-xs px-5 py-3.5 text-[#374151]">{row.position}</td>
+                  <td className="font-body text-type-ui-sm px-5 py-3.5">
                     <a href={`mailto:${row.email}`} className="underline" style={{ color: primary }}>{row.email}</a>
                   </td>
                 </tr>
@@ -655,70 +656,213 @@ function LibraryContent() {
 
 // ── Section: Faculty ──────────────────────────────────────────────────────────
 
+const GRCP_MEDIA = 'https://grcp.ac.in/media/';
+
 const FACULTY_DATA = [
-  { sno: '1',  name: 'Dr. M. Ganga Raju',               designation: 'Professor and Principal',         dept: 'Pharmacology',             qual: 'M. Pharm., Ph.D',         exp: '22.5 years', email: 'mgr8000@grcp.ac.in' },
-  { sno: '2',  name: 'Dr. N.V.L Suvarchala Reddy V',    designation: 'Professor and HOD',               dept: 'Pharmacology',             qual: 'M. Pharm., Ph.D',         exp: '19.7 years', email: 'suvarchala8018@grcp.ac.in' },
-  { sno: '3',  name: 'Dr. Monika Nijhawan',             designation: 'Professor and HOD',               dept: 'Pharmaceutics',            qual: 'M. Pharm., Ph.D',         exp: '21.6 years', email: 'monika8009@grcp.ac.in' },
-  { sno: '4',  name: 'Dr. Ceema Mathew',                designation: 'Professor',                        dept: 'Pharmaceutical Analysis',  qual: 'M. Pharm., Ph.D',         exp: '22 years',   email: 'ceema8003@grcp.ac.in' },
-  { sno: '5',  name: 'Dr. A. Seetha Devi',              designation: 'Professor',                        dept: 'Pharmaceutics',            qual: 'M. Pharm., Ph.D',         exp: '24.8 years', email: 'seethadevi8090@grcp.ac.in' },
-  { sno: '6',  name: 'Dr. Gyati Shilakari Asthana',     designation: 'Professor',                        dept: 'Pharmaceutics',            qual: 'M. Pharm., Ph.D',         exp: '22.5 years', email: 'gyati8061@grcp.ac.in' },
-  { sno: '7',  name: 'Dr. Jagadeesh Induru',            designation: 'Associate Professor',              dept: 'Pharmaceutics',            qual: 'M. Pharm., Ph.D',         exp: '29 years',   email: 'jagadeesh8002@grcp.ac.in' },
-  { sno: '8',  name: 'Dr. A D Panikumar',               designation: 'Associate Professor and HOD',     dept: 'Pharmaceutical Analysis',  qual: 'M. Pharm., Ph.D',         exp: '18 years',   email: 'durga8017@grcp.ac.in' },
-  { sno: '9',  name: 'Dr. Shashikala Metri',            designation: 'Associate Professor',              dept: 'Pharmacognosy',            qual: 'M. Pharm., Ph.D',         exp: '17.2 years', email: 'shashikala8052@grcp.ac.in' },
-  { sno: '10', name: 'Dr. P. Veeresh Babu',             designation: 'Associate Professor',              dept: 'Pharmacology',             qual: 'M. Pharm., Ph.D',         exp: '15 years',   email: 'veeresh8034@grcp.ac.in' },
-  { sno: '11', name: 'Dr. Nisha Shri Chengama Raju',    designation: 'Associate Professor',              dept: 'Pharmacology',             qual: 'M. Pharm., Ph.D.',        exp: '12 years',   email: 'nisha8091@grcp.ac.in' },
-  { sno: '12', name: 'Dr. G. Sailaja',                  designation: 'Associate Professor',              dept: 'Pharmaceutics',            qual: 'M. Pharm., Ph.D',         exp: '16.5 years', email: 'sailaja8082@grcp.ac.in' },
-  { sno: '13', name: 'Dr. Talat Farheen Mohammed Aref', designation: 'Associate Professor',              dept: 'Pharmaceutics',            qual: 'M. Pharm., Ph.D',         exp: '13 years',   email: 'talatfarheen8097@grcp.ac.in' },
-  { sno: '14', name: 'Dr. M. Lakshmi Madhuri',          designation: 'Associate Professor',              dept: 'Pharmaceutical Chemistry', qual: 'M. Pharm., Ph.D',         exp: '7.11 years', email: 'madhuri8072@grcp.ac.in' },
-  { sno: '15', name: 'Dr. N. Sree Lakshmi',             designation: 'Associate Professor',              dept: 'Pharmacology',             qual: 'M. Pharm., Ph.D',         exp: '11.3 years', email: 'lakshmi8064@grcp.ac.in' },
-  { sno: '16', name: 'Dr. K. Lalitha',                  designation: 'Associate Professor',              dept: 'Pharmacology',             qual: 'M. Pharm., Ph.D',         exp: '17.5 years', email: 'kalakotalalitha8094@grcp.ac.in' },
-  { sno: '17', name: 'Dr. Venna R Surya Anusha',        designation: 'Assistant Professor',              dept: 'Pharmaceutics',            qual: 'M. Pharm., Ph.D',         exp: '10.3 years', email: 'vrsanusha8088@grcp.ac.in' },
-  { sno: '18', name: 'Dr. K. Mamatha',                  designation: 'Assistant Professor',              dept: 'Pharmaceutics',            qual: 'M. Pharm., Ph.D',         exp: '16.3 years', email: 'kolamamatha8074@grcp.ac.in' },
-  { sno: '19', name: 'Mr. Vivek Kumar Tiwari',          designation: 'Assistant Professor',              dept: 'Pharmacology',             qual: 'M. Pharm., (Ph.D)',       exp: '11 years',   email: 'vivek8033@grcp.ac.in' },
-  { sno: '20', name: 'Mrs. Ch. Soujanya',               designation: 'Assistant Professor',              dept: 'Pharmaceutical Chemistry', qual: 'M. Pharm., (Ph.D)',       exp: '11 years',   email: 'soujanya8056@grcp.ac.in' },
-  { sno: '21', name: 'Mrs. B. Karuna Devi',             designation: 'Assistant Professor',              dept: 'Pharmaceutical Chemistry', qual: 'M. Pharm., (Ph.D)',       exp: '15.1 years', email: 'karuna8062@grcp.ac.in' },
-  { sno: '22', name: 'Mrs. M. Mamatha',                 designation: 'Assistant Professor',              dept: 'Pharmacology',             qual: 'M. Pharmacy',             exp: '5.1 years',  email: 'mamatha8069@grcp.ac.in' },
-  { sno: '23', name: 'Mrs. G. Kinnera Ratna Sri',       designation: 'Assistant Professor',              dept: 'Pharmacology',             qual: 'M. Pharmacy',             exp: '3.7 years',  email: 'kinnera8077@grcp.ac.in' },
-  { sno: '24', name: 'Mrs. Shabnam Kumari Thakur',      designation: 'Assistant Professor',              dept: 'Pharmacology',             qual: 'M. Pharmacy',             exp: '3.8 years',  email: 'shabnam8079@grcp.ac.in' },
-  { sno: '25', name: 'Mrs. Nabamita Basu',              designation: 'Assistant Professor',              dept: 'Pharmaceutics',            qual: 'M. Pharm., (Ph.D)',       exp: '5 years',    email: 'nabamita8080@grcp.ac.in' },
-  { sno: '26', name: 'Mrs. Kabita Banik',               designation: 'Assistant Professor',              dept: 'Pharmaceutics',            qual: 'M. Pharmacy',             exp: '10 years',   email: 'kabita8092@grcp.ac.in' },
-  { sno: '27', name: 'Mrs. Syed Sara Afreen',           designation: 'Assistant Professor',              dept: 'Pharmaceutical Analysis',  qual: 'M. Pharmacy',             exp: '4.3 years',  email: 'sara8073@grcp.ac.in' },
-  { sno: '28', name: 'Mrs. D. Vijaya Durga',            designation: 'Assistant Professor',              dept: 'Pharmaceutical Analysis',  qual: 'M. Pharmacy',             exp: '15.5 years', email: 'vijayadurga8076@grcp.ac.in' },
-  { sno: '29', name: 'Mrs. Rupali Rupasmita Rout',      designation: 'Assistant Professor',              dept: 'Pharmacology',             qual: 'M. Pharm., (Ph.D)',       exp: '5.5 years',  email: 'rupali8096@grcp.ac.in' },
-  { sno: '30', name: 'Mrs. B. Prathyusha',              designation: 'Assistant Professor',              dept: 'Pharmaceutics',            qual: 'M. Pharmacy',             exp: '3 years',    email: 'prathyusha8083@grcp.ac.in' },
-  { sno: '31', name: 'Mrs. P. A D G Lakshmi',          designation: 'Assistant Professor',              dept: 'Pharmacology',             qual: 'M. Pharmacy',             exp: '2 years',    email: 'ahalyapati8087@grcp.ac.in' },
-  { sno: '32', name: 'Mrs. S.L.S. Mounica Pratyusha',  designation: 'Assistant Professor',              dept: 'Pharmaceutical Analysis',  qual: 'M. Pharm., (Ph.D)',       exp: '3.7 years',  email: 'slsmounicapratyusha8093@grcp.ac.in' },
-  { sno: '33', name: 'Mrs. K. Sudha Rani',             designation: 'Assistant Professor',              dept: 'Pharmaceutical Chemistry', qual: 'M. Pharmacy',             exp: '10.9 years', email: 'sudharani8095@grcp.ac.in' },
-  { sno: '34', name: 'Mrs. Vishnu Priya Kadiyala',     designation: 'Assistant Professor',              dept: 'Pharmacognosy',            qual: 'M. Pharmacy',             exp: '—',          email: 'vishnupriya8098@grcp.ac.in' },
-  { sno: '35', name: 'Mrs. Azhar Sulthana Inkollu',    designation: 'Assistant Professor',              dept: 'Pharmacology',             qual: 'M. Pharmacy',             exp: '1.5 years',  email: 'azharsulthana8099@grcp.ac.in' },
-  { sno: '36', name: 'Mrs. P. Naveena',                designation: 'Assistant Professor',              dept: 'Pharmaceutical Analysis',  qual: 'M. Pharm., (Ph.D)',       exp: '10 years',   email: '' },
-  { sno: '37', name: 'Mrs. K. Pavani',                 designation: 'Assistant Professor',              dept: 'Pharmacology',             qual: 'M. Pharmacy',             exp: '3 years',    email: 'pavani8071@grcp.ac.in' },
-  { sno: '38', name: 'Mrs. K. Aruna',                  designation: 'Assistant Professor',              dept: 'General Studies',          qual: 'M.A English Literature', exp: '24 years',   email: 'arunakavuru5@gmail.com' },
-  { sno: '39', name: 'Dr. Venkata Krishna Sarma. S',   designation: 'Asst. Professor (part-time)',     dept: 'General Studies',          qual: 'M.Sc., Ph.D.',            exp: '18 years',   email: 'sarma.krishna1@gmail.com' },
-  { sno: '40', name: 'Mr. Ravikrishna Bursu',          designation: 'Asst. Professor (part-time)',     dept: 'General Studies',          qual: 'M. Tech',                 exp: '10 years',   email: 'ravikrishnab@griet.ac.in' },
+  { sno: '1',  name: 'Dr. M. Ganga Raju',               designation: 'Professor and Principal',         dept: 'Pharmacology',             qual: 'M. Pharm., Ph.D',         exp: '22.5 years', email: 'mgr8000@grcp.ac.in',                   photo: `${GRCP_MEDIA}635a7da25727d8000.jpg` },
+  { sno: '2',  name: 'Dr. N.V.L Suvarchala Reddy V',    designation: 'Professor and HOD',               dept: 'Pharmacology',             qual: 'M. Pharm., Ph.D',         exp: '19.7 years', email: 'suvarchala8018@grcp.ac.in',             photo: `${GRCP_MEDIA}635c9fd69db668018.jpg` },
+  { sno: '3',  name: 'Dr. Monika Nijhawan',             designation: 'Professor and HOD',               dept: 'Pharmaceutics',            qual: 'M. Pharm., Ph.D',         exp: '21.6 years', email: 'monika8009@grcp.ac.in',                photo: `${GRCP_MEDIA}635c020cd27048009.jpg` },
+  { sno: '4',  name: 'Dr. Ceema Mathew',                designation: 'Professor',                        dept: 'Pharmaceutical Analysis',  qual: 'M. Pharm., Ph.D',         exp: '22 years',   email: 'ceema8003@grcp.ac.in',                 photo: `${GRCP_MEDIA}635ca0bfee3db8003.jpg` },
+  { sno: '5',  name: 'Dr. A. Seetha Devi',              designation: 'Professor',                        dept: 'Pharmaceutics',            qual: 'M. Pharm., Ph.D',         exp: '24.8 years', email: 'seethadevi8090@grcp.ac.in',            photo: `${GRCP_MEDIA}666813811105cASD Photo.jpg` },
+  { sno: '6',  name: 'Dr. Gyati Shilakari Asthana',     designation: 'Professor',                        dept: 'Pharmaceutics',            qual: 'M. Pharm., Ph.D',         exp: '22.5 years', email: 'gyati8061@grcp.ac.in',                 photo: `${GRCP_MEDIA}635ca67f5f45cphoto - Dr. Gyati Shilakari Asthana.jpg` },
+  { sno: '7',  name: 'Dr. Jagadeesh Induru',            designation: 'Associate Professor',              dept: 'Pharmaceutics',            qual: 'M. Pharm., Ph.D',         exp: '29 years',   email: 'jagadeesh8002@grcp.ac.in',             photo: `${GRCP_MEDIA}635ca199d221bIj photo22kb.jpg` },
+  { sno: '8',  name: 'Dr. A D Panikumar',               designation: 'Associate Professor and HOD',     dept: 'Pharmaceutical Analysis',  qual: 'M. Pharm., Ph.D',         exp: '18 years',   email: 'durga8017@grcp.ac.in',                 photo: `${GRCP_MEDIA}635c00af3199e8017.jpg` },
+  { sno: '9',  name: 'Dr. Shashikala Metri',            designation: 'Associate Professor',              dept: 'Pharmacognosy',            qual: 'M. Pharm., Ph.D',         exp: '17.2 years', email: 'shashikala8052@grcp.ac.in',            photo: `${GRCP_MEDIA}635bfe83a52baShasikala Photo.jpg` },
+  { sno: '10', name: 'Dr. P. Veeresh Babu',             designation: 'Associate Professor',              dept: 'Pharmacology',             qual: 'M. Pharm., Ph.D',         exp: '15 years',   email: 'veeresh8034@grcp.ac.in',               photo: `${GRCP_MEDIA}635bfd7862c3f8034.jpg` },
+  { sno: '11', name: 'Dr. Nisha Shri Chengama Raju',    designation: 'Associate Professor',              dept: 'Pharmacology',             qual: 'M. Pharm., Ph.D.',        exp: '12 years',   email: 'nisha8091@grcp.ac.in',                 photo: `${GRCP_MEDIA}66ed40d209d85Dr Nisha pic.jpg` },
+  { sno: '12', name: 'Dr. G. Sailaja',                  designation: 'Associate Professor',              dept: 'Pharmaceutics',            qual: 'M. Pharm., Ph.D',         exp: '16.5 years', email: 'sailaja8082@grcp.ac.in',               photo: `${GRCP_MEDIA}635bf1feeda94Sailaja.jpeg` },
+  { sno: '13', name: 'Dr. Talat Farheen Mohammed Aref', designation: 'Associate Professor',              dept: 'Pharmaceutics',            qual: 'M. Pharm., Ph.D',         exp: '13 years',   email: 'talatfarheen8097@grcp.ac.in',          photo: `${GRCP_MEDIA}6900be941c496Talat image.jpg` },
+  { sno: '14', name: 'Dr. M. Lakshmi Madhuri',          designation: 'Associate Professor',              dept: 'Pharmaceutical Chemistry', qual: 'M. Pharm., Ph.D',         exp: '7.11 years', email: 'madhuri8072@grcp.ac.in',               photo: `${GRCP_MEDIA}635aa214ee4928072.jpg` },
+  { sno: '15', name: 'Dr. N. Sree Lakshmi',             designation: 'Associate Professor',              dept: 'Pharmacology',             qual: 'M. Pharm., Ph.D',         exp: '11.3 years', email: 'lakshmi8064@grcp.ac.in',               photo: `${GRCP_MEDIA}635be9481e59b8064.jpg` },
+  { sno: '16', name: 'Dr. K. Lalitha',                  designation: 'Associate Professor',              dept: 'Pharmacology',             qual: 'M. Pharm., Ph.D',         exp: '17.5 years', email: 'kalakotalalitha8094@grcp.ac.in',        photo: `${GRCP_MEDIA}680a7a63e83dak lalitha jpg.jpg` },
+  { sno: '17', name: 'Dr. Venna R Surya Anusha',        designation: 'Assistant Professor',              dept: 'Pharmaceutics',            qual: 'M. Pharm., Ph.D',         exp: '10.3 years', email: 'vrsanusha8088@grcp.ac.in',             photo: `${GRCP_MEDIA}6623fe57313d7Dr Rajeshwari anusha pic.jpg` },
+  { sno: '18', name: 'Dr. K. Mamatha',                  designation: 'Assistant Professor',              dept: 'Pharmaceutics',            qual: 'M. Pharm., Ph.D',         exp: '16.3 years', email: 'kolamamatha8074@grcp.ac.in',            photo: `${GRCP_MEDIA}635be7e094ce08074.jpg` },
+  { sno: '19', name: 'Mr. Vivek Kumar Tiwari',          designation: 'Assistant Professor',              dept: 'Pharmacology',             qual: 'M. Pharm., (Ph.D)',       exp: '11 years',   email: 'vivek8033@grcp.ac.in',                 photo: `${GRCP_MEDIA}635be68a7e15b8033.jpg` },
+  { sno: '20', name: 'Mrs. Ch. Soujanya',               designation: 'Assistant Professor',              dept: 'Pharmaceutical Chemistry', qual: 'M. Pharm., (Ph.D)',       exp: '11 years',   email: 'soujanya8056@grcp.ac.in',              photo: `${GRCP_MEDIA}635be170a123a8056.jpg` },
+  { sno: '21', name: 'Mrs. B. Karuna Devi',             designation: 'Assistant Professor',              dept: 'Pharmaceutical Chemistry', qual: 'M. Pharm., (Ph.D)',       exp: '15.1 years', email: 'karuna8062@grcp.ac.in',                photo: `${GRCP_MEDIA}635abdb818147Karuna.jpg` },
+  { sno: '22', name: 'Mrs. M. Mamatha',                 designation: 'Assistant Professor',              dept: 'Pharmacology',             qual: 'M. Pharmacy',             exp: '5.1 years',  email: 'mamatha8069@grcp.ac.in',               photo: `${GRCP_MEDIA}635abb417a18a8069.jpg` },
+  { sno: '23', name: 'Mrs. G. Kinnera Ratna Sri',       designation: 'Assistant Professor',              dept: 'Pharmacology',             qual: 'M. Pharmacy',             exp: '3.7 years',  email: 'kinnera8077@grcp.ac.in',               photo: `${GRCP_MEDIA}635a9d3bed53f8077.jpg` },
+  { sno: '24', name: 'Mrs. Shabnam Kumari Thakur',      designation: 'Assistant Professor',              dept: 'Pharmacology',             qual: 'M. Pharmacy',             exp: '3.8 years',  email: 'shabnam8079@grcp.ac.in',               photo: `${GRCP_MEDIA}635a96d7cb2568079.jpg` },
+  { sno: '25', name: 'Mrs. Nabamita Basu',              designation: 'Assistant Professor',              dept: 'Pharmaceutics',            qual: 'M. Pharm., (Ph.D)',       exp: '5 years',    email: 'nabamita8080@grcp.ac.in',              photo: `${GRCP_MEDIA}635a9bb4e32aa8080.jpg` },
+  { sno: '26', name: 'Mrs. Kabita Banik',               designation: 'Assistant Professor',              dept: 'Pharmaceutics',            qual: 'M. Pharmacy',             exp: '10 years',   email: 'kabita8092@grcp.ac.in',                photo: `${GRCP_MEDIA}67440217977e6kabita photo.jpg` },
+  { sno: '27', name: 'Mrs. Syed Sara Afreen',           designation: 'Assistant Professor',              dept: 'Pharmaceutical Analysis',  qual: 'M. Pharmacy',             exp: '4.3 years',  email: 'sara8073@grcp.ac.in',                  photo: `${GRCP_MEDIA}635abeb2b84098073.JPG` },
+  { sno: '28', name: 'Mrs. D. Vijaya Durga',            designation: 'Assistant Professor',              dept: 'Pharmaceutical Analysis',  qual: 'M. Pharmacy',             exp: '15.5 years', email: 'vijayadurga8076@grcp.ac.in',           photo: `${GRCP_MEDIA}635aa055673508076.jpg` },
+  { sno: '29', name: 'Mrs. Rupali Rupasmita Rout',      designation: 'Assistant Professor',              dept: 'Pharmacology',             qual: 'M. Pharm., (Ph.D)',       exp: '5.5 years',  email: 'rupali8096@grcp.ac.in',                photo: `${GRCP_MEDIA}68c7e56eb326eRupali_pic.png` },
+  { sno: '30', name: 'Mrs. B. Prathyusha',              designation: 'Assistant Professor',              dept: 'Pharmaceutics',            qual: 'M. Pharmacy',             exp: '3 years',    email: 'prathyusha8083@grcp.ac.in',            photo: `${GRCP_MEDIA}64df24c93b92aprathyusha.jpeg` },
+  { sno: '31', name: 'Mrs. P. A D G Lakshmi',          designation: 'Assistant Professor',              dept: 'Pharmacology',             qual: 'M. Pharmacy',             exp: '2 years',    email: 'ahalyapati8087@grcp.ac.in',            photo: `${GRCP_MEDIA}66222d789b8b4ahalya pic.jpg` },
+  { sno: '32', name: 'Mrs. S.L.S. Mounica Pratyusha',  designation: 'Assistant Professor',              dept: 'Pharmaceutical Analysis',  qual: 'M. Pharm., (Ph.D)',       exp: '3.7 years',  email: 'slsmounicapratyusha8093@grcp.ac.in',   photo: `${GRCP_MEDIA}67fb8290e0f47monica prathyusha.jpg` },
+  { sno: '33', name: 'Mrs. K. Sudha Rani',             designation: 'Assistant Professor',              dept: 'Pharmaceutical Chemistry', qual: 'M. Pharmacy',             exp: '10.9 years', email: 'sudharani8095@grcp.ac.in',             photo: `${GRCP_MEDIA}6899b0c588789k sudharani pic.jpg` },
+  { sno: '34', name: 'Mrs. Vishnu Priya Kadiyala',     designation: 'Assistant Professor',              dept: 'Pharmacognosy',            qual: 'M. Pharmacy',             exp: '—',          email: 'vishnupriya8098@grcp.ac.in',           photo: `${GRCP_MEDIA}697f7ce874670vishnu priya_page-0001.jpg` },
+  { sno: '35', name: 'Mrs. Azhar Sulthana Inkollu',    designation: 'Assistant Professor',              dept: 'Pharmacology',             qual: 'M. Pharmacy',             exp: '1.5 years',  email: 'azharsulthana8099@grcp.ac.in',         photo: `${GRCP_MEDIA}69828391c29ecazra sulthana pic.jpeg` },
+  { sno: '36', name: 'Mrs. P. Naveena',                designation: 'Assistant Professor',              dept: 'Pharmaceutical Analysis',  qual: 'M. Pharm., (Ph.D)',       exp: '10 years',   email: '',                                     photo: `${GRCP_MEDIA}6a0ff620797ceP. Naveena JPG.jpeg` },
+  { sno: '37', name: 'Mrs. K. Pavani',                 designation: 'Assistant Professor',              dept: 'Pharmacology',             qual: 'M. Pharmacy',             exp: '3 years',    email: 'pavani8071@grcp.ac.in',                photo: null },
+  { sno: '38', name: 'Mrs. K. Aruna',                  designation: 'Assistant Professor',              dept: 'General Studies',          qual: 'M.A English Literature',  exp: '24 years',   email: 'arunakavuru5@gmail.com',               photo: `${GRCP_MEDIA}662e76f2c4368aruna pic.jpg` },
+  { sno: '39', name: 'Dr. Venkata Krishna Sarma. S',   designation: 'Asst. Professor (part-time)',      dept: 'General Studies',          qual: 'M.Sc., Ph.D.',            exp: '18 years',   email: 'sarma.krishna1@gmail.com',             photo: `${GRCP_MEDIA}679a496c1601f63788802-6d67-42b8-908a-54cdf4842487.jpg` },
+  { sno: '40', name: 'Mr. Ravikrishna Bursu',          designation: 'Asst. Professor (part-time)',      dept: 'General Studies',          qual: 'M. Tech',                 exp: '10 years',   email: 'ravikrishnab@griet.ac.in',             photo: `${GRCP_MEDIA}69eb090bb61b0ravi krishna .jpeg` },
 ];
 
+const DEPT_COLORS = {
+  'Pharmacology':             { bg: '#EEF6FF', border: '#BFDBFE', text: '#1D4ED8' },
+  'Pharmaceutics':            { bg: '#F0FDF4', border: '#BBF7D0', text: '#15803D' },
+  'Pharmaceutical Analysis':  { bg: '#FFF7ED', border: '#FED7AA', text: '#C2410C' },
+  'Pharmaceutical Chemistry': { bg: '#FDF4FF', border: '#E9D5FF', text: '#7E22CE' },
+  'Pharmacognosy':            { bg: '#FFFBEB', border: '#FDE68A', text: '#92400E' },
+  'General Studies':          { bg: '#F1F5F9', border: '#CBD5E1', text: '#475569' },
+};
+
+function getInitials(name) {
+  return name
+    .replace(/^(Dr\.|Mrs\.|Mr\.|Ms\.)\s+/i, '')
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((w) => w[0].toUpperCase())
+    .join('');
+}
+
+function getDesignationTier(designation) {
+  const d = designation.toLowerCase();
+  if (d.includes('principal')) return { color: accent };
+  if (d.includes('hod')) return { color: primary };
+  if (d.includes('professor') && !d.includes('associate') && !d.includes('assistant') && !d.includes('asst')) return { color: primary };
+  if (d.includes('associate')) return { color: `${primary}BB` };
+  return { color: '#6B7280' };
+}
+
+function FacultyCard({ member }) {
+  const initials = getInitials(member.name);
+  const deptStyle = DEPT_COLORS[member.dept] ?? DEPT_COLORS['General Studies'];
+  const tier = getDesignationTier(member.designation);
+
+  return (
+    <div
+      className="group relative flex flex-col rounded-2xl border bg-white overflow-hidden transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
+      style={{ borderColor: `${primary}18` }}
+    >
+      {/* Top accent bar */}
+      <div className="h-1 w-full flex-shrink-0" style={{ backgroundColor: tier.color }} />
+
+      <div className="flex flex-col flex-1 p-5 gap-4">
+        {/* Avatar + name */}
+        <div className="flex items-center gap-4">
+          <div
+            className="w-24 h-24 rounded-2xl flex-shrink-0 overflow-hidden shadow-sm"
+            style={{ backgroundColor: `${tier.color}22`, border: `2px solid ${tier.color}33` }}
+          >
+            {member.photo ? (
+              <img
+                src={member.photo}
+                alt={member.name}
+                className="w-full h-full object-cover object-top"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  e.currentTarget.nextSibling.style.display = 'flex';
+                }}
+              />
+            ) : null}
+            <div
+              className="w-full h-full items-center justify-center font-display font-bold text-type-h6 select-none"
+              style={{ display: member.photo ? 'none' : 'flex', color: tier.color }}
+            >
+              {initials}
+            </div>
+          </div>
+          <div className="min-w-0 flex-1">
+            <h3 className="font-display font-bold text-type-body leading-snug" style={{ color: primary }}>
+              {member.name}
+            </h3>
+            <p className="font-display text-type-cap text-[#6B7280] mt-0.5">
+              {member.designation}
+            </p>
+            <p
+              className="font-display font-semibold text-type-cap mt-1"
+              style={{ color: deptStyle.text }}
+            >
+              {member.dept}
+            </p>
+          </div>
+        </div>
+
+        {/* Qualification + Experience */}
+        <div className="flex flex-col gap-1.5 flex-1">
+          <div className="flex items-start gap-2">
+            <span className="font-display text-type-label font-semibold uppercase tracking-wide text-[#9CA3AF] w-14 flex-shrink-0 pt-0.5">Qual.</span>
+            <span className="font-body text-type-ui-sm text-[#374151] leading-snug">{member.qual}</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="font-display text-type-label font-semibold uppercase tracking-wide text-[#9CA3AF] w-14 flex-shrink-0">Exp.</span>
+            <span className="font-body text-type-ui-sm text-[#374151]">{member.exp}</span>
+          </div>
+        </div>
+
+        {/* Email */}
+        <div className="mt-auto pt-3 border-t" style={{ borderColor: `${primary}10` }}>
+          {member.email ? (
+            <a
+              href={`mailto:${member.email}`}
+              className="flex items-center gap-1.5 font-display text-type-cap truncate transition-opacity hover:opacity-70"
+              style={{ color: primary }}
+            >
+              <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+              </svg>
+              <span className="truncate">{member.email}</span>
+            </a>
+          ) : (
+            <span className="font-display text-type-cap text-[#9CA3AF]">—</span>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const ALL_DEPTS = ['All', ...Array.from(new Set(FACULTY_DATA.map((f) => f.dept)))];
+
 function FacultyContent() {
+  const [activeDept, setActiveDept] = React.useState('All');
+
+  const filtered = activeDept === 'All'
+    ? FACULTY_DATA
+    : FACULTY_DATA.filter((f) => f.dept === activeDept);
+
   return (
     <>
       <SectionHeader label="Academic Staff" title="Faculty List" />
-      <p className="font-dm-sans text-[15px] leading-[27px] text-[#474747] mb-8">
+      <p className="font-body text-type-body text-[#474747] mb-6">
         GRCP has a team of 40 highly qualified and experienced faculty members across all departments.
         The listing below reflects the teaching staff as maintained by the administration.
       </p>
 
-      <DataTable
-        rows={FACULTY_DATA}
-        columns={[
-          { key: 'sno',         label: 'S.No.' },
-          { key: 'name',        label: 'Name', accent: true },
-          { key: 'designation', label: 'Designation' },
-          { key: 'dept',        label: 'Department' },
-          { key: 'qual',        label: 'Qualification' },
-          { key: 'exp',         label: 'Experience' },
-          { key: 'email',       label: 'Email' },
-        ]}
-      />
+      {/* Department filter tabs */}
+      <div className="flex flex-wrap gap-2 mb-8">
+        {ALL_DEPTS.map((dept) => {
+          const count = dept === 'All' ? FACULTY_DATA.length : FACULTY_DATA.filter((f) => f.dept === dept).length;
+          const isActive = activeDept === dept;
+          return (
+            <button
+              key={dept}
+              onClick={() => setActiveDept(dept)}
+              className="px-3.5 py-1.5 rounded-full font-display text-type-cap font-semibold border transition-all duration-150"
+              style={
+                isActive
+                  ? { backgroundColor: primary, borderColor: primary, color: '#fff' }
+                  : { backgroundColor: '#fff', borderColor: `${primary}25`, color: '#6B7280' }
+              }
+            >
+              {dept}
+              <span className="ml-1.5 opacity-70">({count})</span>
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Faculty card grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+        {filtered.map((member) => (
+          <FacultyCard key={member.sno} member={member} />
+        ))}
+      </div>
 
       <InfoCallout>
         The complete faculty list with photographs and detailed profiles is available at the college office
@@ -774,7 +918,7 @@ function NonTeachingContent() {
   return (
     <>
       <SectionHeader label="Support Staff" title="Non-Teaching Staff" />
-      <p className="font-dm-sans text-[15px] leading-[27px] text-[#474747] mb-8">
+      <p className="font-body text-type-body text-[#474747] mb-8">
         GRCP's non-teaching staff provide essential support across laboratories, administration, library,
         and other departments — ensuring smooth day-to-day operations of the institution.
       </p>
@@ -817,17 +961,17 @@ function InformationCenterContent() {
       <SectionHeader label="Library" title="Information Center @ GRCP" />
       <div className="space-y-8 max-w-[820px]">
         <div className="rounded-xl p-6 border" style={{ borderColor: `${primary}18`, backgroundColor: '#FAFAFA' }}>
-          <h3 className="font-hind font-semibold text-[17px] mb-3" style={{ color: primary }}>Librarian Contact</h3>
-          <p className="font-dm-sans text-[14px] text-[#474747]">Lakshmana Rao Indurthi</p>
-          <p className="font-dm-sans text-[14px] text-[#474747]">Phone: 9441080112</p>
-          <a href="mailto:grcplibrary@gmail.com" className="font-dm-sans text-[14px]" style={{ color: primary }}>grcplibrary@gmail.com</a>
+          <h3 className="font-display font-semibold text-type-body-lg mb-3" style={{ color: primary }}>Librarian Contact</h3>
+          <p className="font-body text-type-body-xs text-[#474747]">Lakshmana Rao Indurthi</p>
+          <p className="font-body text-type-body-xs text-[#474747]">Phone: 9441080112</p>
+          <a href="mailto:grcplibrary@gmail.com" className="font-body text-type-body-xs" style={{ color: primary }}>grcplibrary@gmail.com</a>
         </div>
         <div>
-          <h3 className="font-hind font-semibold text-[17px] mb-3" style={{ color: primary }}>OPAC (Online Public Access Catalogue)</h3>
-          <a href="http://grcph.bestbookbuddies.com" target="_blank" rel="noopener noreferrer" className="font-dm-sans text-[14px] underline" style={{ color: primary }}>http://grcph.bestbookbuddies.com</a>
+          <h3 className="font-display font-semibold text-type-body-lg mb-3" style={{ color: primary }}>OPAC (Online Public Access Catalogue)</h3>
+          <a href="http://grcph.bestbookbuddies.com" target="_blank" rel="noopener noreferrer" className="font-body text-type-body-xs underline" style={{ color: primary }}>http://grcph.bestbookbuddies.com</a>
         </div>
         <div>
-          <h3 className="font-hind font-semibold text-[17px] mb-3" style={{ color: primary }}>Subscribed Databases</h3>
+          <h3 className="font-display font-semibold text-type-body-lg mb-3" style={{ color: primary }}>Subscribed Databases</h3>
           <ul className="space-y-2">
             {[{ name: 'DELNET eJournals', url: 'https://discovery.delnet.in' }, { name: 'Science Direct', url: 'https://www.sciencedirect.com' }].map((db) => (
               <li key={db.name} className="flex items-center gap-3">
@@ -838,7 +982,7 @@ function InformationCenterContent() {
           </ul>
         </div>
         <div>
-          <h3 className="font-hind font-semibold text-[17px] mb-3" style={{ color: primary }}>Open Access Resources</h3>
+          <h3 className="font-display font-semibold text-type-body-lg mb-3" style={{ color: primary }}>Open Access Resources</h3>
           <ul className="space-y-2">
             {[
               { name: 'National Digital Library',           url: 'https://ndl.iitkgp.ac.in' },
@@ -867,7 +1011,7 @@ function InformationCenterContent() {
           </ul>
         </div>
         <div>
-          <h3 className="font-hind font-semibold text-[17px] mb-3" style={{ color: primary }}>Thesis Resources</h3>
+          <h3 className="font-display font-semibold text-type-body-lg mb-3" style={{ color: primary }}>Thesis Resources</h3>
           <ul className="space-y-2">
             {[
               { name: 'Thesis',                url: 'http://shodhganga.inflibnet.ac.in' },
@@ -1069,8 +1213,8 @@ function EJournalsContent() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2">
           {EJOURNALS_LIST.map((journal, idx) => (
             <div key={idx} className="flex items-start gap-1.5 py-1 border-b" style={{ borderColor: `${primary}10` }}>
-              <span className="font-dm-sans text-[13px] font-semibold flex-shrink-0 w-7 text-right" style={{ color: primary }}>{idx + 1}.</span>
-              <span className="font-dm-sans text-[13px] text-[#333333] leading-snug">{journal}</span>
+              <span className="font-display text-type-ui-sm font-semibold flex-shrink-0 w-7 text-right" style={{ color: primary }}>{idx + 1}.</span>
+              <span className="font-body text-type-ui-sm text-[#333333] leading-snug">{journal}</span>
             </div>
           ))}
         </div>
@@ -1083,7 +1227,7 @@ function DailyNewsPapersContent() {
   return (
     <>
       <SectionHeader label="Library" title="Daily Newspapers" />
-      <p className="font-dm-sans text-[15px] leading-[27px] text-[#474747] mb-8 max-w-[720px]">
+      <p className="font-body text-type-body text-[#474747] mb-8 max-w-[720px]">
         The GRCP Library subscribes to the following newspapers. Physical copies are available in the library reading room.
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-[760px]">
@@ -1092,7 +1236,7 @@ function DailyNewsPapersContent() {
             <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${primary}10` }}>
               <svg className="w-5 h-5" style={{ color: primary }} fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" /></svg>
             </div>
-            <p className="font-hind font-semibold text-[15px]" style={{ color: primary }}>{p.name}</p>
+            <p className="font-display font-semibold text-type-body" style={{ color: primary }}>{p.name}</p>
           </a>
         ))}
       </div>
@@ -1150,30 +1294,30 @@ function LibraryStatisticsContent() {
       <div className="flex flex-wrap gap-3 mb-10">
         {stats.map((s) => (
           <div key={s.label} className="flex items-center gap-2 px-4 py-2.5 rounded-full border" style={{ borderColor: `${primary}25`, backgroundColor: `${primary}07` }}>
-            <span className="font-hind font-bold text-[17px]" style={{ color: primary }}>{s.value}</span>
-            <span className="font-dm-sans text-[12px] text-[#6B7280]">{s.label}</span>
+            <span className="font-display font-bold text-type-body-lg" style={{ color: primary }}>{s.value}</span>
+            <span className="font-display text-type-cap text-[#6B7280]">{s.label}</span>
           </div>
         ))}
       </div>
 
       {/* Programme-wise Book Statistics */}
-      <h3 className="font-hind font-semibold text-[17px] mb-4" style={{ color: primary }}>Programme-wise Book Statistics 2025-26</h3>
+      <h3 className="font-display font-semibold text-type-body-lg mb-4" style={{ color: primary }}>Programme-wise Book Statistics 2025-26</h3>
       <div className="overflow-x-auto rounded-xl border border-[#E5E7EB] mb-10">
         <table className="w-full min-w-[480px]">
           <thead>
             <tr style={{ backgroundColor: accent }}>
               {['Programme', 'Volumes', 'Titles', 'Journals'].map((col) => (
-                <th key={col} className="text-left font-dm-sans font-semibold text-[12px] text-white px-5 py-3.5 tracking-wide">{col}</th>
+                <th key={col} className="text-left font-display font-semibold text-type-cap text-white px-5 py-3.5 tracking-wide">{col}</th>
               ))}
             </tr>
           </thead>
           <tbody>
             {PROG_BOOK_STATS.map((row, i) => (
               <tr key={row.programme} style={{ backgroundColor: i % 2 === 0 ? '#fff' : '#FAFAFA' }}>
-                <td className="font-dm-sans text-[14px] px-5 py-3.5" style={{ color: row.programme === 'Total' ? primary : '#374151', fontWeight: row.programme === 'Total' ? 700 : 400 }}>{row.programme}</td>
-                <td className="font-dm-sans text-[14px] px-5 py-3.5" style={{ color: row.programme === 'Total' ? primary : '#374151', fontWeight: row.programme === 'Total' ? 700 : 400 }}>{row.volumes}</td>
-                <td className="font-dm-sans text-[14px] px-5 py-3.5" style={{ color: row.programme === 'Total' ? primary : '#374151', fontWeight: row.programme === 'Total' ? 700 : 400 }}>{row.titles}</td>
-                <td className="font-dm-sans text-[14px] px-5 py-3.5" style={{ color: row.programme === 'Total' ? primary : '#374151', fontWeight: row.programme === 'Total' ? 700 : 400 }}>{row.journals}</td>
+                <td className="font-body text-type-body-xs px-5 py-3.5" style={{ color: row.programme === 'Total' ? primary : '#374151', fontWeight: row.programme === 'Total' ? 700 : 400 }}>{row.programme}</td>
+                <td className="font-body text-type-body-xs px-5 py-3.5" style={{ color: row.programme === 'Total' ? primary : '#374151', fontWeight: row.programme === 'Total' ? 700 : 400 }}>{row.volumes}</td>
+                <td className="font-body text-type-body-xs px-5 py-3.5" style={{ color: row.programme === 'Total' ? primary : '#374151', fontWeight: row.programme === 'Total' ? 700 : 400 }}>{row.titles}</td>
+                <td className="font-body text-type-body-xs px-5 py-3.5" style={{ color: row.programme === 'Total' ? primary : '#374151', fontWeight: row.programme === 'Total' ? 700 : 400 }}>{row.journals}</td>
               </tr>
             ))}
           </tbody>
@@ -1181,22 +1325,22 @@ function LibraryStatisticsContent() {
       </div>
 
       {/* National Print Journals */}
-      <h3 className="font-hind font-semibold text-[17px] mb-4" style={{ color: primary }}>National Print Journals</h3>
+      <h3 className="font-display font-semibold text-type-body-lg mb-4" style={{ color: primary }}>National Print Journals</h3>
       <div className="overflow-x-auto rounded-xl border border-[#E5E7EB]">
         <table className="w-full min-w-[400px]">
           <thead>
             <tr style={{ backgroundColor: accent }}>
-              <th className="text-left font-dm-sans font-semibold text-[12px] text-white px-5 py-3.5 tracking-wide w-8">#</th>
-              <th className="text-left font-dm-sans font-semibold text-[12px] text-white px-5 py-3.5 tracking-wide">Name</th>
-              <th className="text-left font-dm-sans font-semibold text-[12px] text-white px-5 py-3.5 tracking-wide">Frequency</th>
+              <th className="text-left font-display font-semibold text-type-cap text-white px-5 py-3.5 tracking-wide w-8">#</th>
+              <th className="text-left font-display font-semibold text-type-cap text-white px-5 py-3.5 tracking-wide">Name</th>
+              <th className="text-left font-display font-semibold text-type-cap text-white px-5 py-3.5 tracking-wide">Frequency</th>
             </tr>
           </thead>
           <tbody>
             {NATIONAL_JOURNALS.map((j, i) => (
               <tr key={j.name} style={{ backgroundColor: i % 2 === 0 ? '#fff' : '#FAFAFA' }}>
-                <td className="font-dm-sans text-[13px] px-5 py-3 text-[#9CA3AF]">{i + 1}</td>
-                <td className="font-dm-sans text-[14px] px-5 py-3 text-[#374151]">{j.name}</td>
-                <td className="font-dm-sans text-[14px] px-5 py-3 text-[#374151]">{j.freq}</td>
+                <td className="font-body text-type-ui-sm px-5 py-3 text-[#9CA3AF]">{i + 1}</td>
+                <td className="font-body text-type-body-xs px-5 py-3 text-[#374151]">{j.name}</td>
+                <td className="font-body text-type-body-xs px-5 py-3 text-[#374151]">{j.freq}</td>
               </tr>
             ))}
           </tbody>
@@ -1301,10 +1445,10 @@ function TitleVolumesContent() {
   return (
     <>
       <SectionHeader label="Library" title="Titles &amp; Volumes 2025–26" />
-      <p className="font-dm-sans text-[15px] leading-[27px] text-[#474747] mb-2 max-w-[900px]">
+      <p className="font-body text-type-body text-[#474747] mb-2 max-w-[900px]">
         New books added to the GRCP Library collection in 2025-26.
       </p>
-      <p className="font-dm-sans text-[13px] text-[#6B7280] mb-6 max-w-[900px]">
+      <p className="font-body text-type-ui-sm text-[#6B7280] mb-6 max-w-[900px]">
         Total: 83 new titles added in 2025-26 (539 total volumes)
       </p>
       <div className="overflow-x-auto rounded-xl border border-[#E5E7EB]">
@@ -1312,21 +1456,21 @@ function TitleVolumesContent() {
           <thead>
             <tr style={{ backgroundColor: accent }}>
               {['Acc. No.', 'Title', 'Author', 'Subject', 'Edition', 'Publisher', 'Year', 'Copies'].map((col) => (
-                <th key={col} className="text-left font-dm-sans font-semibold text-[11px] text-white px-4 py-3 tracking-wide whitespace-nowrap">{col}</th>
+                <th key={col} className="text-left font-display font-semibold text-type-label text-white px-4 py-3 tracking-wide whitespace-nowrap">{col}</th>
               ))}
             </tr>
           </thead>
           <tbody>
             {TITLE_VOLUMES_DATA.map((row, i) => (
               <tr key={row.acc} style={{ backgroundColor: i % 2 === 0 ? '#fff' : '#FAFAFA' }}>
-                <td className="font-dm-sans text-[12px] px-4 py-3 whitespace-nowrap" style={{ color: primary, fontWeight: 600 }}>{row.acc}</td>
-                <td className="font-dm-sans text-[13px] px-4 py-3 text-[#374151] max-w-[280px]">{row.title}</td>
-                <td className="font-dm-sans text-[13px] px-4 py-3 text-[#374151] whitespace-nowrap">{row.author}</td>
-                <td className="font-dm-sans text-[12px] px-4 py-3 whitespace-nowrap text-[#6B7280]">{row.subject}</td>
-                <td className="font-dm-sans text-[13px] px-4 py-3 text-center text-[#374151]">{row.edition}</td>
-                <td className="font-dm-sans text-[12px] px-4 py-3 whitespace-nowrap text-[#374151]">{row.publisher}</td>
-                <td className="font-dm-sans text-[13px] px-4 py-3 text-[#374151]">{row.year}</td>
-                <td className="font-dm-sans text-[13px] px-4 py-3 text-center font-semibold" style={{ color: primary }}>{row.copies}</td>
+                <td className="font-body text-type-cap px-4 py-3 whitespace-nowrap" style={{ color: primary, fontWeight: 600 }}>{row.acc}</td>
+                <td className="font-body text-type-ui-sm px-4 py-3 text-[#374151] max-w-[280px]">{row.title}</td>
+                <td className="font-body text-type-ui-sm px-4 py-3 text-[#374151] whitespace-nowrap">{row.author}</td>
+                <td className="font-body text-type-cap px-4 py-3 whitespace-nowrap text-[#6B7280]">{row.subject}</td>
+                <td className="font-body text-type-ui-sm px-4 py-3 text-center text-[#374151]">{row.edition}</td>
+                <td className="font-body text-type-cap px-4 py-3 whitespace-nowrap text-[#374151]">{row.publisher}</td>
+                <td className="font-body text-type-ui-sm px-4 py-3 text-[#374151]">{row.year}</td>
+                <td className="font-body text-type-ui-sm px-4 py-3 text-center font-semibold" style={{ color: primary }}>{row.copies}</td>
               </tr>
             ))}
           </tbody>

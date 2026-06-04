@@ -35,14 +35,14 @@ function SectionHeader({ label, title }) {
     <div className="mb-8">
       {label && (
         <span
-          className="font-dm-sans font-semibold text-[12px] uppercase tracking-[2px] mb-2 block"
+          className="font-display font-bold text-type-cap uppercase tracking-[0.12em] mb-2 block"
           style={{ color: college.greenAccent }}
         >
           {label}
         </span>
       )}
       <h2
-        className="font-hind font-semibold text-[28px] leading-9 pb-3"
+        className="font-display font-semibold text-type-h2-mob pb-3"
         style={{
           color: college.primaryColor,
           borderBottom: `3px solid ${college.greenAccent}`,
@@ -58,7 +58,7 @@ function SectionHeader({ label, title }) {
 function SubHeading({ children }) {
   return (
     <h3
-      className="font-hind font-bold text-[19px] mb-4 mt-6"
+      className="font-display font-bold text-type-body-lg mb-4 mt-6"
       style={{ color: college.primaryColor }}
     >
       {children}
@@ -69,7 +69,7 @@ function SubHeading({ children }) {
 function IntakeBox({ text }) {
   return (
     <div
-      className="font-dm-sans text-[14px] font-semibold px-5 py-3 rounded mb-6"
+      className="font-display text-type-ui font-semibold px-5 py-3 rounded mb-6"
       style={{
         backgroundColor: `${college.primaryColor}0D`,
         borderLeft: `4px solid ${college.primaryColor}`,
@@ -90,7 +90,7 @@ function BulletList({ items }) {
             className="w-2 h-2 rounded-full flex-shrink-0 mt-[8px]"
             style={{ backgroundColor: college.greenAccent }}
           />
-          <span className="font-dm-sans text-[14px] leading-[24px] text-[#474747]">{item}</span>
+          <span className="font-body text-type-body-xs text-[#474747]">{item}</span>
         </li>
       ))}
     </ul>
@@ -134,14 +134,14 @@ function ProcedureProgram({ heading, data, showLateralEntry }) {
       <IntakeBox text={data.intake} />
 
       <h4
-        className="font-hind font-semibold text-[16px] mb-3"
+        className="font-display font-semibold text-type-body mb-3"
         style={{ color: college.primaryColor }}
       >
         {data.firstYear.heading}
       </h4>
       <div className="space-y-3 mb-4">
         {data.firstYear.items.map((item, i) => (
-          <div key={i} className="flex gap-3 font-dm-sans text-[14px] leading-[24px] text-[#474747]">
+          <div key={i} className="flex gap-3 font-body text-type-body-xs text-[#474747]">
             <span className="font-semibold flex-shrink-0" style={{ color: college.primaryColor }}>
               {item.label}
             </span>
@@ -159,7 +159,7 @@ function ProcedureProgram({ heading, data, showLateralEntry }) {
           }}
         >
           <p
-            className="font-dm-sans font-semibold text-[12px] uppercase tracking-[1.5px] mb-2"
+            className="font-display font-bold text-type-cap uppercase tracking-[0.12em] mb-2"
             style={{ color: college.greenAccent }}
           >
             Notes
@@ -171,14 +171,14 @@ function ProcedureProgram({ heading, data, showLateralEntry }) {
       {showLateralEntry && data.lateralEntry && (
         <div className="mt-8">
           <h4
-            className="font-hind font-semibold text-[16px] mb-3"
+            className="font-display font-semibold text-type-body mb-3"
             style={{ color: college.primaryColor }}
           >
             {data.lateralEntry.heading}
           </h4>
           <div className="space-y-3">
             {data.lateralEntry.items.map((item, i) => (
-              <div key={i} className="flex gap-3 font-dm-sans text-[14px] leading-[24px] text-[#474747]">
+              <div key={i} className="flex gap-3 font-body text-type-body-xs text-[#474747]">
                 <span className="font-semibold flex-shrink-0" style={{ color: college.primaryColor }}>
                   {item.label}
                 </span>
@@ -217,7 +217,7 @@ function FeeBlock({ title, headers, rows }) {
   return (
     <div className="mb-8">
       <h3
-        className="font-hind font-semibold text-[17px] mb-3"
+        className="font-display font-semibold text-type-body-lg mb-3"
         style={{ color: college.primaryColor }}
       >
         {title}
@@ -268,7 +268,7 @@ function EamcetRankContent() {
       {college.admissions.eamcetYears.map((yearData) => (
         <div key={yearData.year} className="mb-10">
           <h3
-            className="font-hind font-semibold text-[17px] mb-3"
+            className="font-display font-semibold text-type-body-lg mb-3"
             style={{ color: college.primaryColor }}
           >
             Academic Year: {yearData.year}
@@ -316,7 +316,7 @@ function PgecetSpecialization({ label, data }) {
       {data.map((yearEntry) => (
         <div key={yearEntry.year} className="mb-6">
           <h4
-            className="font-hind font-semibold text-[15px] mb-3 pl-3"
+            className="font-display font-semibold text-type-body mb-3 pl-3"
             style={{
               color: college.primaryColor,
               borderLeft: `3px solid ${college.primaryColor}`,
@@ -364,11 +364,11 @@ function PgecetRankContent() {
           border: `1px solid ${college.greenAccent}40`,
         }}
       >
-        <span className="font-dm-sans font-bold text-[13px]" style={{ color: college.primaryColor }}>
+        <span className="font-display font-bold text-type-ui-sm" style={{ color: college.primaryColor }}>
           TG PGECET Counselling Code:
         </span>
         <span
-          className="font-dm-sans font-bold text-[15px] px-3 py-0.5 rounded"
+          className="font-display font-bold text-type-body px-3 py-0.5 rounded"
           style={{ backgroundColor: college.primaryColor, color: '#ffffff' }}
         >
           GRCP1

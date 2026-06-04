@@ -1,4 +1,4 @@
-﻿import { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import college from '../theme';
 import SiteHeader from '../components/SiteHeader';
@@ -58,7 +58,7 @@ function ContactInfoCards() {
       Icon: MapPinIcon,
       heading: 'Our Address',
       content: (
-        <p className="font-dm-sans text-[14px] leading-[24px] text-[#474747]">
+        <p className="font-body text-type-body-xs text-[#474747]">
           {college.address}
         </p>
       ),
@@ -70,20 +70,20 @@ function ContactInfoCards() {
         <div className="space-y-1.5">
           <a
             href={`tel:${college.phone}`}
-            className="font-dm-sans text-[14px] block underline"
+            className="font-display text-type-body-xs block underline"
             style={{ color: college.primaryColor }}
           >
             {college.phone}
           </a>
-          <p className="font-dm-sans text-[13px] text-[#6B7280]">Admissions:</p>
+          <p className="font-display text-type-ui-sm text-[#6B7280]">Admissions:</p>
           <a
             href={`tel:${college.admissionsPhone}`}
-            className="font-dm-sans text-[14px] block underline"
+            className="font-display text-type-body-xs block underline"
             style={{ color: college.primaryColor }}
           >
             {college.admissionsPhone}
           </a>
-          <p className="font-dm-sans text-[12px] text-[#6B7280]">{college.admissionsLabel}</p>
+          <p className="font-display text-type-cap text-[#6B7280]">{college.admissionsLabel}</p>
         </div>
       ),
     },
@@ -93,7 +93,7 @@ function ContactInfoCards() {
       content: (
         <a
           href={`mailto:${college.email}`}
-          className="font-dm-sans text-[14px] underline break-all"
+          className="font-display text-type-body-xs underline break-all"
           style={{ color: college.primaryColor }}
         >
           {college.email}
@@ -108,7 +108,7 @@ function ContactInfoCards() {
           href="https://www.instagram.com/grcp_offic"
           target="_blank"
           rel="noopener noreferrer"
-          className="font-dm-sans text-[14px] underline break-all"
+          className="font-display text-type-body-xs underline break-all"
           style={{ color: college.primaryColor }}
         >
           @grcp_offic
@@ -132,7 +132,7 @@ function ContactInfoCards() {
             <card.Icon color={college.primaryColor} />
           </div>
           <h3
-            className="font-hind font-semibold text-[16px] mb-3"
+            className="font-display font-semibold text-type-body mb-3"
             style={{ color: college.primaryColor }}
           >
             {card.heading}
@@ -160,21 +160,21 @@ function WorkingHoursCard() {
           </div>
           <div className="flex-1">
             <h3
-              className="font-hind font-semibold text-[17px] mb-4"
+              className="font-display font-semibold text-type-body-lg mb-4"
               style={{ color: college.primaryColor }}
             >
               Working Hours
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-2 mb-4">
-              <div className="flex justify-between font-dm-sans text-[14px]">
+              <div className="flex justify-between font-display text-type-body-xs">
                 <span className="text-[#6B7280]">Monday – Saturday</span>
                 <span className="font-semibold text-[#474747]">9:00 AM – 4:00 PM</span>
               </div>
-              <div className="flex justify-between font-dm-sans text-[14px]">
+              <div className="flex justify-between font-display text-type-body-xs">
                 <span className="text-[#6B7280]">2nd Saturday</span>
                 <span className="font-semibold text-[#474747]">Holiday</span>
               </div>
-              <div className="flex justify-between font-dm-sans text-[14px]">
+              <div className="flex justify-between font-display text-type-body-xs">
                 <span className="text-[#6B7280]">Sunday</span>
                 <span className="font-semibold text-[#474747]">Closed</span>
               </div>
@@ -183,7 +183,7 @@ function WorkingHoursCard() {
               className="rounded-xl p-4"
               style={{ backgroundColor: `${college.primaryColor}08`, border: `1px solid ${college.primaryColor}18` }}
             >
-              <p className="font-dm-sans text-[13px] text-[#474747]">
+              <p className="font-display text-type-ui-sm text-[#474747]">
                 <span className="font-semibold">Ragging Helpline (24×7):</span>{' '}
                 <a
                   href="tel:18001805522"
@@ -204,7 +204,7 @@ function WorkingHoursCard() {
 
 function ContactForm() {
   const inputClass =
-    'w-full font-dm-sans text-[14px] text-[#474747] border rounded-lg px-4 py-2.5 outline-none bg-white focus:ring-2 transition-shadow';
+    'w-full font-display text-type-body-xs text-[#474747] border rounded-lg px-4 py-2.5 outline-none bg-white focus:ring-2 transition-shadow';
   const borderStyle = { borderColor: `${college.primaryColor}28` };
 
   return (
@@ -214,17 +214,17 @@ function ContactForm() {
         style={{ borderColor: `${college.primaryColor}18` }}
       >
         <h2
-          className="font-hind font-bold text-[22px] mb-1"
+          className="font-display font-bold text-type-h3-mob mb-1"
           style={{ color: college.primaryColor }}
         >
           Get In Touch
         </h2>
-        <p className="font-dm-sans text-[14px] text-[#6B7280] mb-7">
+        <p className="font-body text-type-body-xs text-[#6B7280] mb-7">
           Send us a message and we'll get back to you within 1–2 working days.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
           <div>
-            <label className="font-dm-sans font-semibold text-[13px] text-[#474747] block mb-1.5">
+            <label className="font-display font-semibold text-type-ui-sm text-[#474747] block mb-1.5">
               Full Name
             </label>
             <input
@@ -235,7 +235,7 @@ function ContactForm() {
             />
           </div>
           <div>
-            <label className="font-dm-sans font-semibold text-[13px] text-[#474747] block mb-1.5">
+            <label className="font-display font-semibold text-type-ui-sm text-[#474747] block mb-1.5">
               Email Address
             </label>
             <input
@@ -246,7 +246,7 @@ function ContactForm() {
             />
           </div>
           <div>
-            <label className="font-dm-sans font-semibold text-[13px] text-[#474747] block mb-1.5">
+            <label className="font-display font-semibold text-type-ui-sm text-[#474747] block mb-1.5">
               Phone Number
             </label>
             <input
@@ -257,7 +257,7 @@ function ContactForm() {
             />
           </div>
           <div>
-            <label className="font-dm-sans font-semibold text-[13px] text-[#474747] block mb-1.5">
+            <label className="font-display font-semibold text-type-ui-sm text-[#474747] block mb-1.5">
               Programme Interested In
             </label>
             <select
@@ -274,7 +274,7 @@ function ContactForm() {
             </select>
           </div>
           <div className="sm:col-span-2">
-            <label className="font-dm-sans font-semibold text-[13px] text-[#474747] block mb-1.5">
+            <label className="font-display font-semibold text-type-ui-sm text-[#474747] block mb-1.5">
               Message
             </label>
             <textarea
@@ -286,7 +286,7 @@ function ContactForm() {
           </div>
         </div>
         <button
-          className="font-dm-sans font-semibold text-[14px] text-white px-8 py-3 rounded-lg transition-opacity hover:opacity-85"
+          className="font-display font-semibold text-type-ui text-white px-8 py-3 rounded-lg transition-opacity hover:opacity-85 tracking-[0.02em]"
           style={{ backgroundColor: college.greenAccent }}
         >
           Send Message
@@ -315,7 +315,7 @@ function HowToReachSection() {
   return (
     <section>
       <h2
-        className="font-hind font-bold text-[22px] mb-6"
+        className="font-display font-bold text-type-h3-mob mb-6"
         style={{ color: college.primaryColor }}
       >
         How to Reach Us
@@ -331,15 +331,15 @@ function HowToReachSection() {
               className="w-8 h-8 rounded-lg flex items-center justify-center mb-4"
               style={{ backgroundColor: college.greenAccent }}
             >
-              <span className="font-dm-sans font-bold text-[13px] text-white">{i + 1}</span>
+              <span className="font-display font-bold text-type-ui-sm text-white">{i + 1}</span>
             </div>
             <h4
-              className="font-hind font-semibold text-[15px] mb-2"
+              className="font-display font-semibold text-type-body mb-2"
               style={{ color: college.primaryColor }}
             >
               {o.mode}
             </h4>
-            <p className="font-dm-sans text-[13px] leading-[22px] text-[#474747]">{o.desc}</p>
+            <p className="font-body text-type-ui-sm text-[#474747]">{o.desc}</p>
           </div>
         ))}
       </div>
@@ -347,7 +347,7 @@ function HowToReachSection() {
         className="mt-5 rounded-xl p-5 border"
         style={{ borderColor: `${college.greenAccent}30`, backgroundColor: `${college.greenAccent}0D` }}
       >
-        <p className="font-dm-sans text-[14px] text-[#474747]">
+        <p className="font-body text-type-body-xs text-[#474747]">
           <span className="font-semibold">Landmark:</span> GRCP is situated on Nizampet Bachupally Road, Kukatpally. The college is easily identifiable
           from the main road and has adequate parking for visitors.
         </p>
@@ -360,7 +360,7 @@ function GoogleMapSection() {
   return (
     <section>
       <h2
-        className="font-hind font-bold text-[22px] mb-6"
+        className="font-display font-bold text-type-h3-mob mb-6"
         style={{ color: college.primaryColor }}
       >
         Our Location
@@ -380,7 +380,7 @@ function GoogleMapSection() {
           referrerPolicy="no-referrer-when-downgrade"
         />
         <div
-          className="px-5 py-3 font-dm-sans text-[13px]"
+          className="px-5 py-3 font-display text-type-ui-sm"
           style={{ backgroundColor: '#FAFAFA', borderTop: `1px solid ${college.primaryColor}18`, color: '#6B7280' }}
         >
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
@@ -397,7 +397,7 @@ function GrievanceSection() {
   return (
     <section>
       <h2
-        className="font-hind font-bold text-[22px] mb-4"
+        className="font-display font-bold text-type-h3-mob mb-4"
         style={{ color: college.primaryColor }}
       >
         Grievance Redressal
@@ -414,12 +414,12 @@ function GrievanceSection() {
         }}
       >
         <p
-          className="font-hind font-semibold text-[15px] mb-2"
+          className="font-display font-semibold text-type-body mb-2"
           style={{ color: college.primaryColor }}
         >
           Student / Faculty / Parent Grievances
         </p>
-        <p className="font-dm-sans text-[14px] leading-[26px] text-[#474747]">
+        <p className="font-body text-type-body-xs text-[#474747]">
           For any academic or administrative grievances, students may contact the Grievance Redressal
           Committee at{' '}
           <a
@@ -482,19 +482,19 @@ function CounsellingCodesStrip() {
             )}
             <div>
               <p
-                className="font-dm-sans font-bold text-[12px] uppercase tracking-wider mb-1"
+                className="font-display font-bold text-type-cap uppercase tracking-[0.12em] mb-1"
                 style={{ color: 'rgba(255,255,255,0.7)' }}
               >
                 {item.label}
               </p>
               <p
-                className="font-hind font-bold text-[16px]"
+                className="font-display font-bold text-type-body"
                 style={{ color: item.label === 'Working Hours' ? '#fff' : '#7fffd4' }}
               >
                 {item.value}
               </p>
               {item.note && (
-                <p className="font-dm-sans text-[12px]" style={{ color: 'rgba(255,255,255,0.65)' }}>
+                <p className="font-display text-type-cap" style={{ color: 'rgba(255,255,255,0.65)' }}>
                   {item.note}
                 </p>
               )}

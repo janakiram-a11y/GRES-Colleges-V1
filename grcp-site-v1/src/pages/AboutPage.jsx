@@ -1,4 +1,4 @@
-﻿import { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import college from '../theme';
 import SiteHeader from '../components/SiteHeader';
@@ -11,14 +11,14 @@ function SectionHeader({ label, title }) {
     <div className="mb-6">
       {label && (
         <span
-          className="font-dm-sans font-semibold text-[12px] uppercase tracking-[2px] mb-2 block"
+          className="font-display font-bold text-type-cap uppercase tracking-[0.12em] mb-2 block"
           style={{ color: college.greenAccent }}
         >
           {label}
         </span>
       )}
       <h2
-        className="font-hind font-semibold text-[28px] leading-9 pb-3"
+        className="font-display font-semibold text-type-h2-mob pb-3"
         style={{
           color: college.primaryColor,
           borderBottom: `3px solid ${college.greenAccent}`,
@@ -33,7 +33,7 @@ function SectionHeader({ label, title }) {
 
 function SectionDesc({ text }) {
   return (
-    <p className="font-dm-sans font-normal text-[16px] leading-6 text-[#474747]">
+    <p className="font-body font-normal text-type-body text-[#474747]">
       {text}
     </p>
   );
@@ -48,7 +48,7 @@ function ObjectivesList({ items }) {
             className="w-2 h-2 rounded-full flex-shrink-0 mt-[9px]"
             style={{ backgroundColor: college.greenAccent }}
           />
-          <span className="font-dm-sans text-[15px] leading-[26px] text-[#474747]">{item}</span>
+          <span className="font-body text-type-body text-[#474747]">{item}</span>
         </li>
       ))}
     </ul>
@@ -61,7 +61,7 @@ function AboutSection() {
       label: 'Our Vision',
       title: 'Vision',
       content: (
-        <p className="font-dm-sans font-normal text-[14px] leading-[22px] text-[#474747]">{college.vision}</p>
+        <p className="font-body font-normal text-type-body-xs text-[#474747]">{college.vision}</p>
       ),
     },
     {
@@ -75,7 +75,7 @@ function AboutSection() {
                 className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-[9px]"
                 style={{ backgroundColor: college.greenAccent }}
               />
-              <span className="font-dm-sans font-normal text-[14px] leading-[22px] text-[#474747]">{item}</span>
+              <span className="font-body font-normal text-type-body-xs text-[#474747]">{item}</span>
             </li>
           ))}
         </ul>
@@ -85,7 +85,7 @@ function AboutSection() {
       label: 'Our Standard',
       title: 'Quality Policy',
       content: (
-        <p className="font-dm-sans font-normal text-[14px] leading-[22px] text-[#474747]">{college.qualityPolicy}</p>
+        <p className="font-body font-normal text-type-body-xs text-[#474747]">{college.qualityPolicy}</p>
       ),
     },
     {
@@ -99,7 +99,7 @@ function AboutSection() {
                 className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-[9px]"
                 style={{ backgroundColor: college.greenAccent }}
               />
-              <span className="font-dm-sans font-normal text-[14px] leading-[22px] text-[#474747]">{item}</span>
+              <span className="font-body font-normal text-type-body-xs text-[#474747]">{item}</span>
             </li>
           ))}
         </ul>
@@ -145,12 +145,12 @@ function AboutSection() {
                 style={{ border: '1px solid rgba(0,90,40,0.10)' }}
               >
                 <span
-                  className="font-dm-sans font-semibold text-[11px] uppercase tracking-[2px] mb-2 block"
+                  className="font-display font-bold text-type-label uppercase tracking-[0.12em] mb-2 block"
                   style={{ color: college.greenAccent }}
                 >
                   {card.label}
                 </span>
-                <h3 className="font-hind font-semibold text-[24px] leading-8 mb-3" style={{ color: college.primaryColor }}>{card.title}</h3>
+                <h3 className="font-display font-semibold text-type-h3-mob mb-3" style={{ color: college.primaryColor }}>{card.title}</h3>
                 <div
                   className="w-8 h-[3px] mb-4 rounded-full"
                   style={{ backgroundColor: college.greenAccent }}
@@ -166,12 +166,12 @@ function AboutSection() {
           >
             <div className="mb-7 text-center">
               <span
-                className="font-dm-sans font-semibold text-[11px] uppercase tracking-[2px] mb-2 block"
+                className="font-display font-bold text-type-label uppercase tracking-[0.12em] mb-2 block"
                 style={{ color: college.greenAccent }}
               >
                 Our Foundation
               </span>
-              <h3 className="font-hind font-semibold text-[24px] leading-8" style={{ color: college.primaryColor }}>Core Values</h3>
+              <h3 className="font-display font-semibold text-type-h3-mob" style={{ color: college.primaryColor }}>Core Values</h3>
               <div
                 className="w-10 h-[3px] rounded-full mx-auto mt-3"
                 style={{ backgroundColor: college.greenAccent }}
@@ -184,8 +184,8 @@ function AboutSection() {
                   className="bg-white rounded-xl p-5"
                   style={{ border: '1px solid rgba(0,90,40,0.10)', borderLeftWidth: '4px', borderLeftColor: college.primaryColor }}
                 >
-                  <h4 className="font-hind font-medium text-[14px] leading-[22px] mb-1.5" style={{ color: college.primaryColor }}>{value.name}</h4>
-                  <p className="font-dm-sans text-[13px] leading-[22px] text-[#474747]">{value.desc}</p>
+                  <h4 className="font-display font-medium text-type-body-xs mb-1.5" style={{ color: college.primaryColor }}>{value.name}</h4>
+                  <p className="font-body text-type-ui-sm text-[#474747]">{value.desc}</p>
                 </div>
               ))}
             </div>
@@ -201,7 +201,7 @@ function PeoSection() {
     <div className="space-y-6">
       <div className="mb-8">
         <SectionHeader label="About PEOs" title="Programme Educational Objectives" />
-        <p className="font-dm-sans font-normal text-[16px] leading-6 text-[#474747] mt-4 max-w-[720px]">
+        <p className="font-body font-normal text-type-body text-[#474747] mt-4 max-w-[720px]">
           Programme Educational Objectives are broad statements that describe what graduates are expected
           to achieve within a few years after graduation.
         </p>
@@ -218,17 +218,17 @@ function PeoSection() {
           >
             <div className="flex-shrink-0">
               <span
-                className="font-dm-sans font-bold text-[12px] px-3 py-1.5 rounded-full whitespace-nowrap"
+                className="font-display font-bold text-type-cap px-3 py-1.5 rounded-full whitespace-nowrap"
                 style={{ backgroundColor: college.greenAccent, color: '#fff' }}
               >
                 {item.code}
               </span>
             </div>
             <div>
-              <h4 className="font-hind font-medium text-[16px] leading-6 mb-1.5" style={{ color: college.primaryColor }}>
+              <h4 className="font-display font-medium text-type-body mb-1.5" style={{ color: college.primaryColor }}>
                 {item.title}
               </h4>
-              <p className="font-dm-sans font-normal text-[14px] leading-[22px] text-[#474747]">{item.desc}</p>
+              <p className="font-body font-normal text-type-body-xs text-[#474747]">{item.desc}</p>
             </div>
           </div>
         ))}
@@ -242,7 +242,7 @@ function PosSection() {
     <div className="space-y-6">
       <div className="mb-8">
         <SectionHeader label="About POs" title="Programme Outcomes" />
-        <p className="font-dm-sans font-normal text-[16px] leading-6 text-[#474747] mt-4 max-w-[720px]">
+        <p className="font-body font-normal text-type-body text-[#474747] mt-4 max-w-[720px]">
           Programme Outcomes describe what students are expected to know, understand, and be able to do
           by the time of graduation.
         </p>
@@ -264,21 +264,21 @@ function PosSection() {
             <div className="pl-2">
               <div className="flex items-center gap-3 mb-2">
                 <span
-                  className="font-dm-sans font-bold text-[11px] px-2.5 py-1 rounded-full"
+                  className="font-display font-bold text-type-label px-2.5 py-1 rounded-full"
                   style={{ backgroundColor: college.greenAccent, color: '#fff' }}
                 >
                   {item.code}
                 </span>
                 <span
-                  className="font-dm-sans font-semibold text-[11px] text-[#9CA3AF]"
+                  className="font-display font-semibold text-type-label text-[#9CA3AF]"
                 >
                   #{String(index + 1).padStart(2, '0')}
                 </span>
               </div>
-              <h4 className="font-hind font-medium text-[14px] leading-[22px] mb-1.5" style={{ color: college.primaryColor }}>
+              <h4 className="font-display font-medium text-type-body-xs mb-1.5" style={{ color: college.primaryColor }}>
                 {item.title}
               </h4>
-              <p className="font-dm-sans font-normal text-[14px] leading-[22px] text-[#474747]">{item.desc}</p>
+              <p className="font-body font-normal text-type-body-xs text-[#474747]">{item.desc}</p>
             </div>
           </div>
         ))}

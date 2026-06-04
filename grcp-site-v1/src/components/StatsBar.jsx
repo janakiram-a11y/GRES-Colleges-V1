@@ -27,7 +27,7 @@
                 }}
               />
               <span
-                className="font-dm-sans font-semibold text-[15px] leading-6 tracking-wide whitespace-nowrap"
+                className="font-display font-semibold text-type-body tracking-wide whitespace-nowrap"
                 style={{ color: college.primaryColor }}
               >
                 {item}

@@ -24,14 +24,14 @@ const gradients = [
 */
 
 const layout = [
-  { col: '1 / 3', row: '1 / 3', titleSize: 'text-[22px]', descSize: 'text-[14px]', pad: 'p-7' },   // 0 – large
-  { col: '3 / 4', row: '1 / 2', titleSize: 'text-[15px]', descSize: 'text-[12px]', pad: 'p-4' },   // 1
-  { col: '4 / 5', row: '1 / 2', titleSize: 'text-[15px]', descSize: 'text-[12px]', pad: 'p-4' },   // 2
-  { col: '3 / 4', row: '2 / 3', titleSize: 'text-[15px]', descSize: 'text-[12px]', pad: 'p-4' },   // 3
-  { col: '4 / 5', row: '2 / 3', titleSize: 'text-[15px]', descSize: 'text-[12px]', pad: 'p-4' },   // 4
-  { col: '1 / 2', row: '3 / 4', titleSize: 'text-[15px]', descSize: 'text-[12px]', pad: 'p-4' },   // 5
-  { col: '2 / 4', row: '3 / 4', titleSize: 'text-[18px]', descSize: 'text-[13px]', pad: 'p-5' },   // 6 – medium
-  { col: '4 / 5', row: '3 / 4', titleSize: 'text-[15px]', descSize: 'text-[12px]', pad: 'p-4' },   // 7
+  { col: '1 / 3', row: '1 / 3', titleSize: 'text-type-h3-mob', descSize: 'text-type-ui', pad: 'p-7' },   // 0 – large
+  { col: '3 / 4', row: '1 / 2', titleSize: 'text-type-body', descSize: 'text-type-cap', pad: 'p-4' },   // 1
+  { col: '4 / 5', row: '1 / 2', titleSize: 'text-type-body', descSize: 'text-type-cap', pad: 'p-4' },   // 2
+  { col: '3 / 4', row: '2 / 3', titleSize: 'text-type-body', descSize: 'text-type-cap', pad: 'p-4' },   // 3
+  { col: '4 / 5', row: '2 / 3', titleSize: 'text-type-body', descSize: 'text-type-cap', pad: 'p-4' },   // 4
+  { col: '1 / 2', row: '3 / 4', titleSize: 'text-type-body', descSize: 'text-type-cap', pad: 'p-4' },   // 5
+  { col: '2 / 4', row: '3 / 4', titleSize: 'text-type-body-lg', descSize: 'text-type-ui-sm', pad: 'p-5' },   // 6 – medium
+  { col: '4 / 5', row: '3 / 4', titleSize: 'text-type-body', descSize: 'text-type-cap', pad: 'p-4' },   // 7
 ]
 
 export default function CampusLife({ college }) {
@@ -45,12 +45,12 @@ export default function CampusLife({ college }) {
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
           <div className="flex flex-col gap-3">
             <p
-              className="font-dm-sans font-bold text-[11px] uppercase tracking-widest"
+              className="font-display font-bold text-type-label uppercase"
               style={{ color: '#C72235', letterSpacing: '0.12em' }}
             >
               {college.campusLifeLabel}
             </p>
-            <h2 className="font-hind font-bold text-[28px] leading-9 lg:text-[38px] lg:leading-[46px] text-[#1A1A2E]">
+            <h2 className="font-display font-bold text-type-h2-mob lg:text-type-h2 text-[#1A1A2E]">
               {college.campusLifeHeading}
             </h2>
           </div>
@@ -91,10 +91,10 @@ export default function CampusLife({ college }) {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 <div className={`absolute bottom-0 left-0 right-0 ${pad}`}>
-                  <h4 className={`font-hind font-bold text-white leading-tight mb-1 ${titleSize}`}>
+                  <h4 className={`font-display font-bold text-white leading-tight mb-1 ${titleSize}`}>
                     {card.title}
                   </h4>
-                  <p className={`font-dm-sans font-normal text-white/80 ${descSize} leading-[1.45]`}>
+                  <p className={`font-body font-normal text-white/80 ${descSize}`}>
                     {card.desc}
                   </p>
                 </div>

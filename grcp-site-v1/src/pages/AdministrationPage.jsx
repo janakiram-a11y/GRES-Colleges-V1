@@ -51,14 +51,14 @@ function SectionHeader({ label, title }) {
     <div className="mb-6">
       {label && (
         <span
-          className="font-dm-sans font-semibold text-[12px] uppercase tracking-[2px] mb-2 block"
+          className="font-display font-bold text-type-cap uppercase tracking-[0.12em] mb-2 block"
           style={{ color: ac }}
         >
           {label}
         </span>
       )}
       <h2
-        className="font-hind font-bold text-[26px] leading-[34px] pb-3"
+        className="font-display font-bold text-type-h3-mob pb-3"
         style={{
           color: pc,
           borderBottom: `3px solid ${ac}`,
@@ -129,21 +129,21 @@ function ProfileCard({ person, institution, qualifications, bio }) {
         {/* Name / title / qualifications */}
         <div className="flex-1 min-w-0">
           <h3
-            className="font-hind font-bold text-[28px] leading-tight mb-1"
+            className="font-display font-bold text-type-h2-mob mb-1"
             style={{ color: pc }}
           >
             {name}
           </h3>
           {title && (
           <p
-            className="font-dm-sans font-semibold text-[15px] mb-1"
+            className="font-display font-semibold text-type-body mb-1"
             style={{ color: ac }}
           >
             {title}
           </p>
           )}
           {institution && (
-            <p className="font-dm-sans text-[14px] text-[#555] mb-3">
+            <p className="font-display text-type-ui text-[#555] mb-3">
               {institution}
             </p>
           )}
@@ -155,7 +155,7 @@ function ProfileCard({ person, institution, qualifications, bio }) {
                     className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-[7px]"
                     style={{ backgroundColor: pc }}
                   />
-                  <span className="font-dm-sans text-[14px] text-[#474747]">{q}</span>
+                  <span className="font-display text-type-ui text-[#474747]">{q}</span>
                 </li>
               ))}
             </ul>
@@ -169,7 +169,7 @@ function ProfileCard({ person, institution, qualifications, bio }) {
       {/* Bio paragraphs */}
       <div className="p-8 space-y-4">
         {bio.map((para, i) => (
-          <p key={i} className="font-dm-sans text-[15px] leading-[27px] text-[#474747]">
+          <p key={i} className="font-body text-type-body text-[#474747]">
             {para}
           </p>
         ))}
@@ -237,7 +237,7 @@ function GoverningBodySection() {
     <div className="space-y-6">
       <SectionHeader label="Governance" title="Governing Body" />
       {governingBody.year && (
-        <p className="font-dm-sans font-semibold text-[13px]" style={{ color: ac }}>
+        <p className="font-display font-semibold text-type-ui-sm" style={{ color: ac }}>
           Academic Year: {governingBody.year}
         </p>
       )}
@@ -248,7 +248,7 @@ function GoverningBodySection() {
               {['S.No.', 'Photo', 'Name', 'Designation', 'Category'].map((h) => (
                 <th
                   key={h}
-                  className="font-dm-sans font-semibold text-[13px] text-white text-left px-5 py-3.5 first:rounded-tl-xl last:rounded-tr-xl"
+                  className="font-display font-semibold text-type-ui-sm text-white text-left px-5 py-3.5 first:rounded-tl-xl last:rounded-tr-xl"
                 >
                   {h}
                 </th>
@@ -261,7 +261,7 @@ function GoverningBodySection() {
                 key={i}
                 style={{ backgroundColor: i % 2 === 0 ? '#FAFAFA' : '#FFFFFF' }}
               >
-                <td className="font-dm-sans text-[14px] text-[#474747] px-5 py-3.5 border-b align-middle" style={{ borderColor: `${pc}10` }}>
+                <td className="font-body text-type-ui text-[#474747] px-5 py-3.5 border-b align-middle" style={{ borderColor: `${pc}10` }}>
                   {m.no}
                 </td>
                 <td className="px-5 py-3.5 border-b align-middle" style={{ borderColor: `${pc}10` }}>
@@ -275,19 +275,19 @@ function GoverningBodySection() {
                   )}
                 </td>
                 <td className="px-5 py-3.5 border-b align-middle" style={{ borderColor: `${pc}10` }}>
-                  <span className="font-dm-sans font-semibold text-[14px]" style={{ color: pc }}>
+                  <span className="font-display font-semibold text-type-ui" style={{ color: pc }}>
                     {m.name}
                   </span>
                   {(m.org || m.details) && (
-                    <span className="block font-dm-sans text-[12px] text-[#6A7282] mt-0.5 whitespace-pre-line">
+                    <span className="block font-display text-type-cap text-[#6A7282] mt-0.5 whitespace-pre-line">
                       {m.org || m.details}
                     </span>
                   )}
                 </td>
-                <td className="font-dm-sans text-[14px] text-[#474747] px-5 py-3.5 border-b align-middle" style={{ borderColor: `${pc}10` }}>
+                <td className="font-body text-type-ui text-[#474747] px-5 py-3.5 border-b align-middle" style={{ borderColor: `${pc}10` }}>
                   {m.role}
                 </td>
-                <td className="font-dm-sans text-[14px] text-[#474747] px-5 py-3.5 border-b align-middle" style={{ borderColor: `${pc}10` }}>
+                <td className="font-body text-type-ui text-[#474747] px-5 py-3.5 border-b align-middle" style={{ borderColor: `${pc}10` }}>
                   {m.category}
                 </td>
               </tr>
@@ -306,7 +306,7 @@ function IdmcSection() {
   return (
     <div className="space-y-6">
       <SectionHeader label="Institutional Committee" title="IDMC" />
-      <p className="font-dm-sans text-[15px] leading-[27px] text-[#474747]">
+      <p className="font-body text-type-body text-[#474747]">
         {idmc.description}
       </p>
       <div className="overflow-x-auto rounded-xl border" style={{ borderColor: `${pc}18` }}>
@@ -316,7 +316,7 @@ function IdmcSection() {
               {['S.No.', 'Name', 'Designation', 'Position', 'Email'].map((h) => (
                 <th
                   key={h}
-                  className="font-dm-sans font-semibold text-[13px] text-white text-left px-5 py-3.5 first:rounded-tl-xl last:rounded-tr-xl"
+                  className="font-display font-semibold text-type-ui-sm text-white text-left px-5 py-3.5 first:rounded-tl-xl last:rounded-tr-xl"
                 >
                   {h}
                 </th>
@@ -329,29 +329,29 @@ function IdmcSection() {
                 key={i}
                 style={{ backgroundColor: i % 2 === 0 ? '#FAFAFA' : '#FFFFFF' }}
               >
-                <td className="font-dm-sans text-[14px] text-[#474747] px-5 py-3.5 border-b" style={{ borderColor: `${pc}10` }}>
+                <td className="font-body text-type-ui text-[#474747] px-5 py-3.5 border-b" style={{ borderColor: `${pc}10` }}>
                   {i + 1}.
                 </td>
-                <td className="font-dm-sans text-[14px] text-[#474747] px-5 py-3.5 border-b" style={{ borderColor: `${pc}10` }}>
+                <td className="font-body text-type-ui text-[#474747] px-5 py-3.5 border-b" style={{ borderColor: `${pc}10` }}>
                   {m.name}
                 </td>
-                <td className="font-dm-sans text-[14px] text-[#474747] px-5 py-3.5 border-b" style={{ borderColor: `${pc}10` }}>
+                <td className="font-body text-type-ui text-[#474747] px-5 py-3.5 border-b" style={{ borderColor: `${pc}10` }}>
                   {m.designation}
                 </td>
-                <td className="font-dm-sans text-[14px] text-[#474747] px-5 py-3.5 border-b" style={{ borderColor: `${pc}10` }}>
+                <td className="font-body text-type-ui text-[#474747] px-5 py-3.5 border-b" style={{ borderColor: `${pc}10` }}>
                   {m.role}
                 </td>
                 <td className="px-5 py-3.5 border-b" style={{ borderColor: `${pc}10` }}>
                   {m.email ? (
                     <a
                       href={`mailto:${m.email}`}
-                      className="font-dm-sans text-[13px] underline"
+                      className="font-display text-type-ui-sm underline"
                       style={{ color: pc }}
                     >
                       {m.email}
                     </a>
                   ) : (
-                    <span className="font-dm-sans text-[14px] text-[#474747]">&mdash;</span>
+                    <span className="font-body text-type-ui text-[#474747]">&mdash;</span>
                   )}
                 </td>
               </tr>

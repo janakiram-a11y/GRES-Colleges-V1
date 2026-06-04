@@ -62,7 +62,7 @@ export default function QuickLinks() {
                 {icon}
               </span>
               <span
-                className="font-dm-sans font-bold text-[11px] uppercase tracking-widest text-center transition-colors duration-200 group-hover:text-[#C72235]"
+                className="font-display font-bold text-type-label uppercase tracking-widest text-center transition-colors duration-200 group-hover:text-[#C72235]"
                 style={{ letterSpacing: '0.12em' }}
               >
                 {label}

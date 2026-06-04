@@ -23,7 +23,7 @@ import Footer from './components/Footer';
 export default function CollegeLayout({ college, children }) {
   return (
     <div
-      className="bg-[#FFFDFC] font-dm-sans"
+      className="bg-[#FFFDFC] font-display"
       style={{
         '--college-primary': college.primaryColor,
         '--college-accent': college.accentColor,

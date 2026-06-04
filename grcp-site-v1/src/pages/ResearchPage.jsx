@@ -16,14 +16,14 @@ function SectionHeader({ label, title }) {
     <div className="mb-6">
       {label && (
         <span
-          className="font-dm-sans font-semibold text-[12px] uppercase tracking-[2px] mb-2 block"
+          className="font-display font-bold text-type-cap uppercase tracking-[0.12em] mb-2 block"
           style={{ color: accent }}
         >
           {label}
         </span>
       )}
       <h2
-        className="font-hind font-semibold text-[28px] leading-9 pb-3"
+        className="font-display font-semibold text-type-h2-mob pb-3"
         style={{
           color: primary,
           borderBottom: `3px solid ${accent}`,
@@ -39,7 +39,7 @@ function SectionHeader({ label, title }) {
 function SubHeading({ children }) {
   return (
     <h3
-      className="font-hind font-semibold text-[20px] leading-8 mt-10 mb-4"
+      className="font-display font-semibold text-type-h5 mt-10 mb-4"
       style={{ color: primary }}
     >
       {children}
@@ -65,7 +65,7 @@ function InfoCallout({ children }) {
           clipRule="evenodd"
         />
       </svg>
-      <p className="font-dm-sans text-[14px] leading-[24px] text-[#4B5563]">{children}</p>
+      <p className="font-display text-type-body-xs text-[#4B5563]">{children}</p>
     </div>
   );
 }
@@ -79,7 +79,7 @@ function DataTable({ rows, columns, totalRow }) {
             {columns.map((col) => (
               <th
                 key={col.key}
-                className="text-left font-dm-sans font-semibold text-[12px] text-white px-5 py-3.5 tracking-wide"
+                className="text-left font-display font-semibold text-type-cap text-white px-5 py-3.5 tracking-wide"
               >
                 {col.label}
               </th>
@@ -92,7 +92,7 @@ function DataTable({ rows, columns, totalRow }) {
               {columns.map((col) => (
                 <td
                   key={col.key}
-                  className="font-dm-sans text-[14px] px-5 py-3.5 align-top"
+                  className="font-display text-type-body-xs px-5 py-3.5 align-top"
                   style={col.accent ? { color: primary, fontWeight: 600 } : { color: '#374151' }}
                 >
                   {row[col.key] ?? '—'}
@@ -105,7 +105,7 @@ function DataTable({ rows, columns, totalRow }) {
               {columns.map((col) => (
                 <td
                   key={col.key}
-                  className="font-dm-sans font-semibold text-[14px] px-5 py-3.5"
+                  className="font-display font-semibold text-type-body-xs px-5 py-3.5"
                   style={{ color: primary }}
                 >
                   {totalRow[col.key] ?? ''}
@@ -129,7 +129,7 @@ function StatusBadge({ status }) {
       : { bg: '#F3F4F6', text: '#6B7280' };
   return (
     <span
-      className="inline-block px-2.5 py-0.5 rounded-full font-dm-sans font-semibold text-[11px] tracking-wide"
+      className="inline-block px-2.5 py-0.5 rounded-full font-display font-semibold text-type-label tracking-wide"
       style={{ backgroundColor: style.bg, color: style.text }}
     >
       {status}
@@ -150,7 +150,7 @@ function OverviewSection() {
       {/* Overview */}
       <section>
         <SectionHeader label="Research at GRCP" title="Research @ GRCP" />
-        <p className="font-dm-sans font-normal text-[16px] leading-7 text-[#474747] mt-4 max-w-[820px]">
+        <p className="font-body font-normal text-type-body text-[#474747] mt-4 max-w-[820px]">
           {college.research.overview}
         </p>
       </section>
@@ -167,8 +167,8 @@ function OverviewSection() {
                   borderRight: i < college.research.highlights.length - 1 ? '1px solid rgba(255,255,255,0.10)' : 'none',
                 }}
               >
-                <span className="font-hind font-bold text-[38px] leading-none text-white">{h.count}</span>
-                <span className="font-dm-sans text-[13px] text-white/70 uppercase tracking-[1px] mt-2">{h.label}</span>
+                <span className="font-display font-bold text-type-h2 leading-none text-white">{h.count}</span>
+                <span className="font-display text-type-ui-sm text-white/70 uppercase tracking-[0.12em] mt-2">{h.label}</span>
               </div>
             ))}
           </div>
@@ -185,7 +185,7 @@ function OverviewSection() {
             <button
               key={dept.id}
               onClick={() => setActiveTab(dept.id)}
-              className="font-dm-sans font-semibold text-[13px] px-4 py-2 rounded-lg transition-colors"
+              className="font-display font-semibold text-type-ui-sm px-4 py-2 rounded-lg transition-colors"
               style={
                 activeTab === dept.id
                   ? { backgroundColor: primary, color: '#fff' }
@@ -204,7 +204,7 @@ function OverviewSection() {
             style={{ backgroundColor: `${primary}06`, border: `1px solid ${primary}14` }}
           >
             <h4
-              className="font-hind font-semibold text-[16px]"
+              className="font-display font-semibold text-type-body"
               style={{ color: primary }}
             >
               {activeDept.label}
@@ -212,7 +212,7 @@ function OverviewSection() {
 
             {/* Intro paragraph */}
             {activeDept.intro && (
-              <p className="font-dm-sans text-[14px] leading-[26px] text-[#374151]">
+              <p className="font-body text-type-body-xs text-[#374151]">
                 {activeDept.intro}
               </p>
             )}
@@ -220,7 +220,7 @@ function OverviewSection() {
             {/* Research areas */}
             {activeDept.researchAreas?.length > 0 && (
               <div>
-                <p className="font-dm-sans font-semibold text-[13px] uppercase tracking-wide mb-3" style={{ color: accent }}>
+                <p className="font-display font-semibold text-type-ui-sm uppercase tracking-wide mb-3" style={{ color: accent }}>
                   Research Areas
                 </p>
                 <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -230,7 +230,7 @@ function OverviewSection() {
                         className="w-2 h-2 rounded-full flex-shrink-0 mt-[9px]"
                         style={{ backgroundColor: accent }}
                       />
-                      <span className="font-dm-sans text-[14px] leading-[24px] text-[#374151]">{area}</span>
+                      <span className="font-body text-type-body-xs text-[#374151]">{area}</span>
                     </li>
                   ))}
                 </ul>
@@ -287,7 +287,7 @@ function ConsultancySection() {
     <div className="space-y-10">
       <section>
         <SectionHeader label="Funded Research" title="Sponsored Projects / Consultancy" />
-        <p className="font-dm-sans font-normal text-[16px] leading-7 text-[#474747] mt-4 max-w-[820px]">
+        <p className="font-body font-normal text-type-body text-[#474747] mt-4 max-w-[820px]">
           GRCP faculty have secured research grants from government and industry funding bodies for
           sponsored / consultancy projects in pharmaceutical sciences. These projects strengthen the
           research culture and contribute to societal healthcare needs.
@@ -308,7 +308,7 @@ function ConsultancySection() {
             ]}
           />
           {yr.grandTotal && (
-            <p className="font-dm-sans font-semibold text-[14px] mt-3 text-right" style={{ color: primary }}>
+            <p className="font-display font-semibold text-type-body-xs mt-3 text-right" style={{ color: primary }}>
               Grand Total: {yr.grandTotal}
             </p>
           )}
@@ -340,7 +340,7 @@ function PhdGuideships() {
     <div className="space-y-10">
       <section>
         <SectionHeader label="Doctoral Research" title="Ph.D Guideships" />
-        <p className="font-dm-sans font-normal text-[16px] leading-7 text-[#474747] mt-4 max-w-[820px]">
+        <p className="font-body font-normal text-type-body text-[#474747] mt-4 max-w-[820px]">
           GRCP faculty recognised as Ph.D guides at multiple universities actively supervise doctoral
           scholars across departments. Below are the details of recognised guides and the Ph.D scholar
           statistics.
@@ -405,7 +405,7 @@ function PublicationsSection() {
     <div className="space-y-10">
       <section>
         <SectionHeader label="Research Output" title="Publications" />
-        <p className="font-dm-sans font-normal text-[16px] leading-7 text-[#474747] mt-4 max-w-[820px]">
+        <p className="font-body font-normal text-type-body text-[#474747] mt-4 max-w-[820px]">
           GRCP faculty and postgraduate students publish research in reputed national and international
           pharmaceutical journals. Select an academic year below to view publication statistics.
         </p>
@@ -417,7 +417,7 @@ function PublicationsSection() {
           <button
             key={py.year}
             onClick={() => setActiveYear(py.year)}
-            className="font-dm-sans font-semibold text-[13px] px-4 py-2 rounded-lg transition-colors"
+            className="font-display font-semibold text-type-ui-sm px-4 py-2 rounded-lg transition-colors"
             style={
               activeYear === py.year
                 ? { backgroundColor: primary, color: '#fff' }
@@ -445,8 +445,8 @@ function PublicationsSection() {
                 className="rounded-xl p-4 text-center"
                 style={{ backgroundColor: `${primary}08`, border: `1px solid ${primary}14` }}
               >
-                <span className="font-hind font-bold text-[28px] block" style={{ color: primary }}>{s.value}</span>
-                <span className="font-dm-sans text-[12px] uppercase tracking-wide" style={{ color: accent }}>{s.label}</span>
+                <span className="font-display font-bold text-type-h2-mob block" style={{ color: primary }}>{s.value}</span>
+                <span className="font-display text-type-cap uppercase tracking-wide" style={{ color: accent }}>{s.label}</span>
               </div>
             ))}
           </div>
@@ -471,7 +471,7 @@ function PublicationsSection() {
           className="rounded-xl p-8 text-center"
           style={{ backgroundColor: `${primary}06`, border: `1px solid ${primary}14` }}
         >
-          <p className="font-dm-sans text-[15px] text-[#6B7280]">
+          <p className="font-body text-type-body text-[#6B7280]">
             Data for <strong>{activeYear}</strong> will be available shortly.
           </p>
         </div>
@@ -549,7 +549,7 @@ function PatentTable({ rows }) {
             {PATENT_COLS.map((col) => (
               <th
                 key={col.key}
-                className="text-left font-dm-sans font-semibold text-[12px] text-white px-4 py-3.5 tracking-wide"
+                className="text-left font-display font-semibold text-type-cap text-white px-4 py-3.5 tracking-wide"
                 style={col.key === 'title' ? { minWidth: 260 } : col.key === 'inventors' ? { minWidth: 180 } : {}}
               >
                 {col.label}
@@ -563,7 +563,7 @@ function PatentTable({ rows }) {
               {PATENT_COLS.map((col) => (
                 <td
                   key={col.key}
-                  className="font-dm-sans text-[13px] px-4 py-3.5 align-top"
+                  className="font-display text-type-ui-sm px-4 py-3.5 align-top"
                   style={col.accent ? { color: primary, fontWeight: 600 } : { color: '#374151' }}
                 >
                   {col.key === 'status' ? <StatusBadge status={row[col.key]} /> : (row[col.key] ?? '—')}
@@ -586,7 +586,7 @@ function PatentSummaryBadge({ label }) {
       <svg className="w-4 h-4 flex-shrink-0" style={{ color: accent }} fill="currentColor" viewBox="0 0 20 20">
         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
       </svg>
-      <span className="font-dm-sans font-semibold text-[13px]" style={{ color: primary }}>{label}</span>
+      <span className="font-display font-semibold text-type-ui-sm" style={{ color: primary }}>{label}</span>
     </div>
   );
 }
@@ -596,7 +596,7 @@ function PatentsSection() {
     <div className="space-y-10">
       <section>
         <SectionHeader label="Intellectual Property" title="Patents" />
-        <p className="font-dm-sans font-normal text-[16px] leading-7 text-[#474747] mt-4 max-w-[820px]">
+        <p className="font-body font-normal text-type-body text-[#474747] mt-4 max-w-[820px]">
           GRCP faculty and researchers have filed patents for novel pharmaceutical inventions, contributing
           to the intellectual property portfolio of the institution.
         </p>
@@ -605,7 +605,7 @@ function PatentsSection() {
       <section>
         <SubHeading>
           Patents 2024{' '}
-          <span className="font-dm-sans font-normal text-[14px] text-[#6B7280] ml-2">(23 patents)</span>
+          <span className="font-body font-normal text-type-body-xs text-[#6B7280] ml-2">(23 patents)</span>
         </SubHeading>
         <PatentTable rows={PATENTS_2024} />
         <PatentSummaryBadge label="Total: 23 patents in 2024 (16 Granted + 7 Published)" />
@@ -614,7 +614,7 @@ function PatentsSection() {
       <section>
         <SubHeading>
           Patents 2021–2023{' '}
-          <span className="font-dm-sans font-normal text-[14px] text-[#6B7280] ml-2">(15 patents)</span>
+          <span className="font-body font-normal text-type-body-xs text-[#6B7280] ml-2">(15 patents)</span>
         </SubHeading>
         <PatentTable rows={PATENTS_2021_2023} />
         <PatentSummaryBadge label="Total: 15 patents in 2021-2023 (9 Granted + 6 Published)" />

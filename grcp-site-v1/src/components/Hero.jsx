@@ -56,7 +56,7 @@ export default function Hero({ college }) {
 
           {/* Heading — elegant off-white, layered shadow */}
           <h1
-            className="font-hind font-semibold text-[32px] leading-[40px] sm:text-[38px] sm:leading-[50px] lg:text-[50px] lg:leading-[60px]"
+            className="font-display font-bold text-type-h3 sm:text-[38px] lg:text-type-h1"
             style={{
               color: '#E6F4EC',
               textShadow: '0 1px 4px rgba(0,0,0,0.42), 0 3px 16px rgba(0,0,0,0.32), 0 8px 36px rgba(0,0,0,0.18)',
@@ -68,7 +68,7 @@ export default function Hero({ college }) {
 
           {/* Subtext — warm green-white, readable and soft */}
           <p
-            className="font-dm-sans font-normal text-[16px] leading-[26px]"
+            className="font-body font-normal text-type-body"
             style={{
               color: 'rgba(208,238,220,0.80)',
               textShadow: '0 1px 10px rgba(0,0,0,0.36)',

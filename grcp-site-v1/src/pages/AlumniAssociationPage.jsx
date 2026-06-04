@@ -14,13 +14,13 @@ function SectionHeader({ label, title }) {
     <div className="flex flex-col gap-2 mb-8">
       {label && (
         <span
-          className="font-dm-sans font-semibold text-[11px] tracking-[0.2em] uppercase"
+          className="font-display font-bold text-type-label tracking-[0.12em] uppercase"
           style={{ color: `${primary}80` }}
         >
           {label}
         </span>
       )}
-      <h2 className="font-hind font-bold text-[26px] leading-tight" style={{ color: primary }}>
+      <h2 className="font-display font-bold text-type-h3-mob" style={{ color: primary }}>
         {title}
       </h2>
       <div className="w-14 h-[3px] rounded-full" style={{ backgroundColor: accent }} />
@@ -58,7 +58,7 @@ function PositionBadge({ position }) {
   const color = position === 'Member' ? primary : '#fff';
   return (
     <span
-      className="font-dm-sans font-semibold text-[12px] px-3 py-1 rounded-full inline-block"
+      className="font-display font-semibold text-type-cap px-3 py-1 rounded-full inline-block"
       style={{ backgroundColor: bg, color }}
     >
       {position}
@@ -90,13 +90,13 @@ export default function AlumniAssociationPage() {
           <section>
             <SectionHeader label="About" title="GRCP Alumni Association" />
             <div className="max-w-[780px] space-y-4">
-              <p className="font-dm-sans text-[15px] leading-[27px] text-[#474747]">
+              <p className="font-body text-type-body text-[#474747]">
                 Gokaraju Rangaraju College of Pharmacy Alumni Association was established in the year 2007.
                 The Alumni Association of GRCP maintains a healthy relationship between the institute and its
                 alumni, students, and other stakeholders. The association organizes annual alumni meets every
                 year during the month of February at the Nizampet campus.
               </p>
-              <p className="font-dm-sans text-[15px] leading-[27px] text-[#474747]">
+              <p className="font-body text-type-body text-[#474747]">
                 The association aims to strengthen the bond between alumni, current students, and the institution
                 while providing a platform for career guidance, networking, and knowledge sharing with the
                 pharmaceutical community.
@@ -114,10 +114,10 @@ export default function AlumniAssociationPage() {
                   className="flex flex-col gap-2 p-5 rounded-xl border bg-white hover:shadow-sm transition-shadow"
                   style={{ borderColor: `${primary}20`, borderLeft: `4px solid ${accent}` }}
                 >
-                  <p className="font-hind font-semibold text-[15px]" style={{ color: primary }}>
+                  <p className="font-display font-semibold text-type-body" style={{ color: primary }}>
                     {item.label}
                   </p>
-                  <p className="font-dm-sans text-[13px] leading-[22px] text-[#6B7280] flex-1">
+                  <p className="font-body text-type-ui-sm text-[#6B7280] flex-1">
                     {item.desc}
                   </p>
                   {item.external ? (
@@ -125,7 +125,7 @@ export default function AlumniAssociationPage() {
                       href={item.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-dm-sans font-semibold text-[13px] underline mt-1"
+                      className="font-display font-semibold text-type-ui-sm underline mt-1"
                       style={{ color: accent }}
                     >
                       Open ↗
@@ -133,7 +133,7 @@ export default function AlumniAssociationPage() {
                   ) : (
                     <Link
                       to={item.href}
-                      className="font-dm-sans font-semibold text-[13px] underline mt-1"
+                      className="font-display font-semibold text-type-ui-sm underline mt-1"
                       style={{ color: primary }}
                     >
                       View →
@@ -154,7 +154,7 @@ export default function AlumniAssociationPage() {
                     {['S.No.', 'Name', 'Designation', 'Position', 'Email'].map((h) => (
                       <th
                         key={h}
-                        className="font-dm-sans font-semibold text-[12px] text-white text-left px-5 py-3.5 tracking-wide"
+                        className="font-display font-semibold text-type-cap text-white text-left px-5 py-3.5 tracking-wide"
                       >
                         {h}
                       </th>
@@ -167,21 +167,21 @@ export default function AlumniAssociationPage() {
                       key={row.sno}
                       style={{ backgroundColor: i % 2 === 0 ? '#fff' : '#FAFAFA' }}
                     >
-                      <td className="font-dm-sans text-[14px] text-[#374151] px-5 py-3.5">{row.sno}</td>
-                      <td className="font-dm-sans font-semibold text-[14px] px-5 py-3.5" style={{ color: primary }}>{row.name}</td>
-                      <td className="font-dm-sans text-[14px] text-[#374151] px-5 py-3.5">{row.designation}</td>
+                      <td className="font-body text-type-ui text-[#374151] px-5 py-3.5">{row.sno}</td>
+                      <td className="font-display font-semibold text-type-ui px-5 py-3.5" style={{ color: primary }}>{row.name}</td>
+                      <td className="font-body text-type-ui text-[#374151] px-5 py-3.5">{row.designation}</td>
                       <td className="px-5 py-3.5"><PositionBadge position={row.position} /></td>
                       <td className="px-5 py-3.5">
                         {row.email ? (
                           <a
                             href={`mailto:${row.email}`}
-                            className="font-dm-sans text-[13px] underline"
+                            className="font-display text-type-ui-sm underline"
                             style={{ color: primary }}
                           >
                             {row.email}
                           </a>
                         ) : (
-                          <span className="font-dm-sans text-[13px] text-[#9CA3AF]">—</span>
+                          <span className="font-display text-type-ui-sm text-[#9CA3AF]">—</span>
                         )}
                       </td>
                     </tr>
@@ -200,7 +200,7 @@ export default function AlumniAssociationPage() {
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" strokeLinecap="round" strokeLinejoin="round" />
               <path d="M22 6l-10 7L2 6" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            <p className="font-dm-sans text-[14px] text-[#474747]">
+            <p className="font-body text-type-ui text-[#474747]">
               For alumni related queries, contact us at{' '}
               <a href="mailto:alumni@grcp.ac.in" className="font-semibold underline" style={{ color: accent }}>
                 alumni@grcp.ac.in

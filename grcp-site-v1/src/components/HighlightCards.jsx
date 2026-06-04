@@ -40,10 +40,10 @@ export default function HighlightCards({ college }) {
                 <Icon />
               </div>
               <div className="flex flex-col gap-2.5">
-                <h3 className="font-hind font-semibold text-[18px] leading-7" style={{ color: college.primaryColor }}>
+                <h3 className="font-display font-semibold text-type-h6" style={{ color: college.primaryColor }}>
                   {title}
                 </h3>
-                <p className="font-dm-sans font-normal text-[16px] leading-[26px]" style={{ color: '#606060' }}>
+                <p className="font-body font-normal text-type-body" style={{ color: '#606060' }}>
                   {desc}
                 </p>
               </div>

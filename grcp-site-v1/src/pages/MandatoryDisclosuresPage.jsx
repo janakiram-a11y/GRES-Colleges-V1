@@ -20,7 +20,7 @@ function PdfIcon() {
 function SectionHeader({ title }) {
   return (
     <div className="mb-5">
-      <h2 className="font-hind font-bold text-[20px]" style={{ color: primary }}>
+      <h2 className="font-display font-bold text-type-h5" style={{ color: primary }}>
         {title}
       </h2>
       <div className="w-10 h-[3px] rounded-full mt-2" style={{ backgroundColor: accent }} />
@@ -36,7 +36,7 @@ function PdfLink({ href, label }) {
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="font-dm-sans text-[14px] font-medium transition-colors hover:underline"
+        className="font-display text-type-ui font-medium transition-colors hover:underline"
         style={{ color: primary }}
       >
         {label}

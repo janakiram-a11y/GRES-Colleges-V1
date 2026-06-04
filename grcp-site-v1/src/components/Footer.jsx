@@ -52,7 +52,7 @@ const socialList = [
 function SectionLabel({ children }) {
   return (
     <p
-      className="font-dm-sans font-semibold text-[16px] leading-[22px] mb-5"
+      className="font-display font-semibold text-type-body mb-5"
       style={{ color: '#1A1A2E' }}
     >
       {children}
@@ -62,7 +62,7 @@ function SectionLabel({ children }) {
 
 function FLink({ href, college, children }) {
   const isExternal = href.startsWith('http');
-  const cls = 'font-dm-sans text-[14px] leading-relaxed transition-colors duration-150';
+  const cls = 'font-display text-type-ui leading-relaxed transition-colors duration-150';
   const style = { color: '#4B5563' };
   const hoverIn  = (e) => (e.currentTarget.style.color = college.primaryColor);
   const hoverOut = (e) => (e.currentTarget.style.color = '#4B5563');
@@ -100,7 +100,7 @@ export default function Footer({ college }) {
               alt={`${college.shortName} Logo`}
               className="h-16 w-auto object-contain object-left"
             />
-            <p className="font-dm-sans text-[14px] leading-relaxed" style={{ color: '#4B5563', maxWidth: 300 }}>
+            <p className="font-body text-type-body-xs leading-relaxed" style={{ color: '#4B5563', maxWidth: 300 }}>
               {college.tagline}
             </p>
 
@@ -174,7 +174,7 @@ export default function Footer({ college }) {
             <ul className="flex flex-col gap-4">
               <li className="flex items-start gap-3">
                 <span className="mt-0.5" style={{ color: '#2D7A50' }}><PinIcon /></span>
-                <span className="font-dm-sans text-[14px] leading-relaxed" style={{ color: '#4B5563' }}>
+                <span className="font-display text-type-ui leading-relaxed" style={{ color: '#4B5563' }}>
                   {college.address}
                 </span>
               </li>
@@ -182,7 +182,7 @@ export default function Footer({ college }) {
                 <span style={{ color: '#2D7A50' }}><PhoneIcon /></span>
                 <a
                   href={`tel:${college.phone}`}
-                  className="font-dm-sans text-[14px] transition-colors"
+                  className="font-display text-type-ui transition-colors"
                   style={{ color: '#4B5563' }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = '#2D7A50')}
                   onMouseLeave={(e) => (e.currentTarget.style.color = '#4B5563')}
@@ -194,7 +194,7 @@ export default function Footer({ college }) {
                 <span style={{ color: '#2D7A50' }}><MailIcon /></span>
                 <a
                   href={`mailto:${college.email}`}
-                  className="font-dm-sans text-[14px] transition-colors"
+                  className="font-display text-type-ui transition-colors"
                   style={{ color: '#4B5563' }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = '#2D7A50')}
                   onMouseLeave={(e) => (e.currentTarget.style.color = '#4B5563')}
@@ -226,7 +226,7 @@ export default function Footer({ college }) {
       {/* ── Bottom bar ──────────────────────────────────────────────────── */}
       <div className="max-w-[1320px] mx-auto px-6 sm:px-10 lg:px-[72px] py-5">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-3">
-          <p className="font-dm-sans text-[13px]" style={{ color: '#6B7280' }}>
+          <p className="font-display text-type-ui-sm" style={{ color: '#6B7280' }}>
             © {new Date().getFullYear()} {college.fullName}. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
@@ -238,7 +238,7 @@ export default function Footer({ college }) {
               <Link
                 key={text}
                 to={href}
-                className="font-dm-sans text-[13px] transition-colors"
+                className="font-display text-type-ui-sm transition-colors"
                 style={{ color: '#6B7280' }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = '#2D7A50')}
                 onMouseLeave={(e) => (e.currentTarget.style.color = '#6B7280')}

@@ -72,7 +72,7 @@ export default function PageHero({ college, title, subtitle, breadcrumb = [], bg
         <nav className="flex items-center gap-2 flex-wrap">
           <Link
             to="/"
-            className="font-dm-sans text-[13px] leading-4 transition-colors"
+            className="font-display text-type-ui-sm transition-colors"
             style={{ color: 'rgba(255,255,255,0.52)' }}
             onMouseEnter={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.90)')}
             onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.52)')}
@@ -85,7 +85,7 @@ export default function PageHero({ college, title, subtitle, breadcrumb = [], bg
                 <path d="M4 2l4 4-4 4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               <span
-                className="font-dm-sans text-[13px] leading-4"
+                className="font-display text-type-ui-sm"
                 style={{
                   color: i === breadcrumb.length - 1 ? 'rgba(255,255,255,0.92)' : 'rgba(255,255,255,0.52)',
                   fontWeight: i === breadcrumb.length - 1 ? 600 : 400,
@@ -99,7 +99,7 @@ export default function PageHero({ college, title, subtitle, breadcrumb = [], bg
 
         {/* Title */}
         <h1
-          className="font-hind font-bold text-[42px] leading-[52px] max-w-[700px]"
+          className="font-display font-bold text-type-h1-mob lg:text-type-h1 max-w-[700px]"
           style={{
             color: '#EEF7F1',
             textShadow: '0 2px 24px rgba(0,0,0,0.40)',
@@ -112,7 +112,7 @@ export default function PageHero({ college, title, subtitle, breadcrumb = [], bg
         {/* Subtitle */}
         {subtitle && (
           <p
-            className="font-dm-sans font-normal text-[16px] leading-[26px] max-w-[580px]"
+            className="font-body font-normal text-type-body max-w-[580px]"
             style={{
               color: 'rgba(220,240,228,0.78)',
               textShadow: '0 1px 10px rgba(0,0,0,0.25)',

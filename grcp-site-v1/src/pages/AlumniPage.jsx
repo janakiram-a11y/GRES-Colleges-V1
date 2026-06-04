@@ -38,14 +38,14 @@ function SectionHeader({ label, title }) {
     <div className="mb-8">
       {label && (
         <span
-          className="font-dm-sans font-semibold text-[12px] uppercase tracking-[2px] mb-2 block"
+          className="font-display font-bold text-type-cap uppercase tracking-[0.12em] mb-2 block"
           style={{ color: greenAccent }}
         >
           {label}
         </span>
       )}
       <h2
-        className="font-hind font-semibold text-[28px] leading-9 pb-3"
+        className="font-display font-semibold text-type-h2-mob pb-3"
         style={{
           color: primaryColor,
           borderBottom: `3px solid ${greenAccent}`,
@@ -61,7 +61,7 @@ function SectionHeader({ label, title }) {
 function InfoBox({ children }) {
   return (
     <div
-      className="font-dm-sans text-[14px] px-5 py-4 rounded mb-6"
+      className="font-display text-type-ui px-5 py-4 rounded mb-6"
       style={{
         backgroundColor: `${primaryColor}0D`,
         borderLeft: `4px solid ${primaryColor}`,
@@ -84,7 +84,7 @@ function PositionBadge({ position }) {
   }
   return (
     <span
-      className="inline-block px-3 py-1 rounded-full text-[11px] font-semibold font-dm-sans"
+      className="inline-block px-3 py-1 rounded-full text-type-label font-semibold font-display"
       style={style}
     >
       {position}
@@ -117,12 +117,12 @@ function EnrollmentSection() {
     <div>
       <SectionHeader label="GRCP Alumni Association" title="Alumni Enrollment" />
 
-      <p className="font-dm-sans text-[15px] text-gray-600 mb-6 leading-relaxed">
+      <p className="font-body text-type-body text-gray-600 mb-6">
         {college.alumni.overview} We welcome all graduates to register and stay connected with your alma mater, contribute to the growth of the institution, and support the next generation of pharmacy professionals.
       </p>
 
       <div className="mb-10">
-        <h3 className="font-hind font-bold text-[20px] mb-5" style={{ color: primaryColor }}>
+        <h3 className="font-display font-bold text-type-h5 mb-5" style={{ color: primaryColor }}>
           Enrollment Process
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
@@ -133,16 +133,16 @@ function EnrollmentSection() {
               style={{ borderColor: `${primaryColor}33` }}
             >
               <div
-                className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-hind font-bold text-[16px] text-white"
+                className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-display font-bold text-type-body text-white"
                 style={{ backgroundColor: primaryColor }}
               >
                 {s.step}
               </div>
               <div>
-                <p className="font-hind font-semibold text-[15px] mb-1" style={{ color: primaryColor }}>
+                <p className="font-display font-semibold text-type-body mb-1" style={{ color: primaryColor }}>
                   {s.title}
                 </p>
-                <p className="font-dm-sans text-[13px] text-gray-600">{s.desc}</p>
+                <p className="font-body text-type-ui-sm text-gray-600">{s.desc}</p>
               </div>
             </div>
           ))}
@@ -165,14 +165,14 @@ function EnrollmentSection() {
       </div>
 
       <div>
-        <h3 className="font-hind font-bold text-[20px] mb-5" style={{ color: primaryColor }}>
+        <h3 className="font-display font-bold text-type-h5 mb-5" style={{ color: primaryColor }}>
           Benefits of Membership
         </h3>
         <ul className="space-y-3">
           {benefits.map((b, i) => (
-            <li key={i} className="flex items-start gap-3 font-dm-sans text-[14px] text-gray-700">
+            <li key={i} className="flex items-start gap-3 font-body text-type-body-xs text-gray-700">
               <span
-                className="flex-shrink-0 mt-1 w-5 h-5 rounded-full flex items-center justify-center text-white text-[11px] font-bold"
+                className="flex-shrink-0 mt-1 w-5 h-5 rounded-full flex items-center justify-center text-white text-type-label font-bold"
                 style={{ backgroundColor: greenAccent }}
               >
                 ✓
@@ -193,7 +193,7 @@ function RegistrationSection() {
     <div>
       <SectionHeader label="GRCP Alumni" title="Alumni Registration" />
 
-      <p className="font-dm-sans text-[15px] text-gray-600 mb-8 leading-relaxed">
+      <p className="font-body text-type-body text-gray-600 mb-8">
         Register with the GRCP Alumni Association to stay connected with your college, access exclusive benefits, and contribute to the growth of our pharmacy community. Registration is free and open to all graduates of GRCP.
       </p>
 
@@ -208,10 +208,10 @@ function RegistrationSection() {
           📄
         </div>
         <div className="flex-1">
-          <p className="font-hind font-bold text-[16px] mb-1" style={{ color: primaryColor }}>
+          <p className="font-display font-bold text-type-body mb-1" style={{ color: primaryColor }}>
             Alumni Registration Form
           </p>
-          <p className="font-dm-sans text-[13px] text-gray-500 mb-3">
+          <p className="font-body text-type-ui-sm text-gray-500 mb-3">
             Download the official registration form (PDF). Fill in your details and submit to the college office or via email.
           </p>
           <a
@@ -234,10 +234,10 @@ function RegistrationSection() {
       </InfoBox>
 
       <div className="mt-8">
-        <h3 className="font-hind font-bold text-[19px] mb-4" style={{ color: primaryColor }}>
+        <h3 className="font-display font-bold text-type-h6 mb-4" style={{ color: primaryColor }}>
           What Information is Required?
         </h3>
-        <ul className="space-y-2 font-dm-sans text-[14px] text-gray-700 list-disc list-inside">
+        <ul className="space-y-2 font-body text-type-body-xs text-gray-700 list-disc list-inside">
           <li>Full name and contact details (phone, email, address)</li>
           <li>Year of passing and programme (B. Pharm / M. Pharm)</li>
           <li>Hall Ticket / Register number</li>
@@ -251,7 +251,7 @@ function RegistrationSection() {
         className="mt-8 p-5 rounded-lg"
         style={{ backgroundColor: `${greenAccent}0D`, borderLeft: `4px solid ${greenAccent}` }}
       >
-        <p className="font-dm-sans text-[14px]" style={{ color: '#374151' }}>
+        <p className="font-body text-type-body-xs" style={{ color: '#374151' }}>
           <strong style={{ color: greenAccent }}>Alumni Coordinator:</strong> Mrs. B. Karuna Devi, Assistant Professor &mdash;{' '}
           <a href="mailto:karuna8062@grcp.ac.in" style={{ color: primaryColor, textDecoration: 'underline' }}>
             karuna8062@grcp.ac.in
@@ -271,7 +271,7 @@ function ExecutiveMembersSection() {
     <div>
       <SectionHeader label="Alumni Association" title="Executive Committee" />
 
-      <p className="font-dm-sans text-[15px] text-gray-600 mb-8 leading-relaxed">
+      <p className="font-body text-type-body text-gray-600 mb-8">
         The GRCP Alumni Association is governed by an executive committee comprising faculty members and student representatives dedicated to fostering alumni engagement and institutional growth.
       </p>
 
@@ -339,13 +339,13 @@ function AlumniListSection() {
       {/* Count badge + description */}
       <div className="flex flex-wrap items-center gap-4 mb-6">
         <span
-          className="inline-flex items-center gap-2 px-5 py-2 rounded-full font-hind font-bold text-[22px] text-white shadow"
+          className="inline-flex items-center gap-2 px-5 py-2 rounded-full font-display font-bold text-type-h3-mob text-white shadow"
           style={{ backgroundColor: primaryColor }}
         >
           272+ Registered Alumni
         </span>
         <span
-          className="inline-block px-3 py-1 rounded-full font-dm-sans font-semibold text-[12px]"
+          className="inline-block px-3 py-1 rounded-full font-display font-semibold text-type-cap"
           style={{ backgroundColor: `${greenAccent}15`, color: greenAccent }}
         >
           B. Pharm &amp; M. Pharm
@@ -363,7 +363,7 @@ function AlumniListSection() {
           placeholder="Search by name..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="flex-1 px-4 py-2.5 border rounded font-dm-sans text-[14px] outline-none focus:ring-2"
+          className="flex-1 px-4 py-2.5 border rounded font-display text-type-ui outline-none focus:ring-2"
           style={{ borderColor: '#d1d5db' }}
         />
         <input
@@ -371,14 +371,14 @@ function AlumniListSection() {
           placeholder="Filter by batch year..."
           value={filterYear}
           onChange={(e) => setFilterYear(e.target.value)}
-          className="w-full sm:w-48 px-4 py-2.5 border rounded font-dm-sans text-[14px] outline-none focus:ring-2"
+          className="w-full sm:w-48 px-4 py-2.5 border rounded font-display text-type-ui outline-none focus:ring-2"
           style={{ borderColor: '#d1d5db' }}
         />
       </div>
 
       {/* Sample alumni table */}
       <div className="mb-8">
-        <h3 className="font-hind font-bold text-[18px] mb-3" style={{ color: primaryColor }}>
+        <h3 className="font-display font-bold text-type-h6 mb-3" style={{ color: primaryColor }}>
           Sample Alumni Entries
         </h3>
         <div className="overflow-x-auto rounded-xl border" style={{ borderColor: '#e5e7eb' }}>
@@ -405,7 +405,7 @@ function AlumniListSection() {
             </tbody>
           </table>
         </div>
-        <p className="font-dm-sans text-[12px] text-gray-400 mt-2 italic">
+        <p className="font-body text-type-cap text-gray-400 mt-2 italic">
           Showing 5 sample entries. The full database contains 272+ alumni records.
         </p>
       </div>
@@ -416,10 +416,10 @@ function AlumniListSection() {
         style={{ borderColor: `${primaryColor}33`, backgroundColor: `${primaryColor}05` }}
       >
         <div className="flex-1">
-          <p className="font-hind font-semibold text-[15px] mb-1" style={{ color: primaryColor }}>
+          <p className="font-display font-semibold text-type-body mb-1" style={{ color: primaryColor }}>
             Distinguished Alumni List (PDF)
           </p>
-          <p className="font-dm-sans text-[13px] text-gray-500">
+          <p className="font-body text-type-ui-sm text-gray-500">
             Download the complete list of distinguished alumni recognised by GRCP.
           </p>
         </div>
@@ -427,7 +427,7 @@ function AlumniListSection() {
           href="https://grcp.ac.in/downloads/Distinguished%20Alumni.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-shrink-0 inline-flex items-center gap-2 px-5 py-2 rounded font-dm-sans font-semibold text-[13px] text-white transition-opacity hover:opacity-90"
+          className="flex-shrink-0 inline-flex items-center gap-2 px-5 py-2 rounded font-display font-semibold text-type-ui-sm text-white transition-opacity hover:opacity-90"
           style={{ backgroundColor: primaryColor }}
         >
           Download PDF
@@ -436,7 +436,7 @@ function AlumniListSection() {
 
       {/* Contact note for full list */}
       <div
-        className="p-5 rounded-lg border-l-4 font-dm-sans text-[14px]"
+        className="p-5 rounded-lg border-l-4 font-body text-type-body-xs"
         style={{ backgroundColor: '#fefce8', borderLeftColor: '#eab308', color: '#713f12' }}
       >
         <p className="font-semibold mb-1">Access the Complete Alumni Database</p>
@@ -470,7 +470,7 @@ function DistinguishedSection() {
     <div>
       <SectionHeader label="GRCP Alumni" title="Distinguished Alumni" />
 
-      <p className="font-dm-sans text-[15px] text-gray-600 mb-8 leading-relaxed">
+      <p className="font-body text-type-body text-gray-600 mb-8">
         GRCP takes pride in its distinguished alumni who have made significant contributions to the pharmaceutical and healthcare sectors nationally and internationally.
       </p>
 
@@ -483,17 +483,17 @@ function DistinguishedSection() {
           >
             <div className="flex items-center gap-4">
               <div
-                className="w-14 h-14 rounded-full flex items-center justify-center font-hind font-bold text-[18px] text-white flex-shrink-0"
+                className="w-14 h-14 rounded-full flex items-center justify-center font-display font-bold text-type-h6 text-white flex-shrink-0"
                 style={{ backgroundColor: i % 2 === 0 ? primaryColor : greenAccent }}
               >
                 {getInitials(a.name)}
               </div>
               <div>
-                <p className="font-hind font-bold text-[15px] leading-tight" style={{ color: primaryColor }}>
+                <p className="font-display font-bold text-type-body leading-tight" style={{ color: primaryColor }}>
                   {a.name}
                 </p>
                 <span
-                  className="inline-block mt-1 px-2 py-0.5 rounded text-[11px] font-dm-sans font-semibold"
+                  className="inline-block mt-1 px-2 py-0.5 rounded text-type-label font-display font-semibold"
                   style={{ backgroundColor: `${primaryColor}15`, color: primaryColor }}
                 >
                   Batch {a.batch}
@@ -502,8 +502,8 @@ function DistinguishedSection() {
             </div>
 
             <div>
-              <p className="font-dm-sans text-[13px] font-semibold text-gray-700 mb-1">{a.currentRole}</p>
-              <p className="font-dm-sans text-[13px] text-gray-500 leading-relaxed">{a.achievement}</p>
+              <p className="font-body text-type-ui-sm font-semibold text-gray-700 mb-1">{a.currentRole}</p>
+              <p className="font-body text-type-ui-sm text-gray-500">{a.achievement}</p>
             </div>
           </div>
         ))}
@@ -531,14 +531,14 @@ function ContributionSection() {
     <div>
       <SectionHeader label="Alumni Contributions" title="Alumni Lecture Series" />
 
-      <p className="font-dm-sans text-[15px] text-gray-600 mb-8 leading-relaxed">
+      <p className="font-body text-type-body text-gray-600 mb-8">
         The GRCP Alumni Association organises an annual lecture series where distinguished alumni share their industry experience, research insights, and career guidance with current students. Below is a record of all sessions conducted.
       </p>
 
       {lectures.map((yearGroup) => (
         <div key={yearGroup.year} className="mb-10">
           <h3
-            className="font-hind font-bold text-[18px] mb-4 px-4 py-2 rounded"
+            className="font-display font-bold text-type-h6 mb-4 px-4 py-2 rounded"
             style={{ color: '#ffffff', backgroundColor: primaryColor }}
           >
             Academic Year: {yearGroup.year}

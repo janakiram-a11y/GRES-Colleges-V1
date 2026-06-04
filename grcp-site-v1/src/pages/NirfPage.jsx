@@ -20,7 +20,7 @@ function PdfIcon() {
 function SectionHeader({ title }) {
   return (
     <div className="mb-5">
-      <h2 className="font-hind font-bold text-[20px]" style={{ color: primary }}>
+      <h2 className="font-display font-bold text-type-h5" style={{ color: primary }}>
         {title}
       </h2>
       <div className="w-10 h-[3px] rounded-full mt-2" style={{ backgroundColor: accent }} />
@@ -36,7 +36,7 @@ function PdfLink({ href, label }) {
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="font-dm-sans text-[14px] font-medium transition-colors hover:underline"
+        className="font-display text-type-ui font-medium transition-colors hover:underline"
         style={{ color: primary }}
       >
         {label}
@@ -87,7 +87,7 @@ export default function NirfPage() {
             <svg className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: accent }} fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
             </svg>
-            <p className="font-dm-sans text-[14px] leading-[24px] text-[#4B5563]">
+            <p className="font-body text-type-body-xs text-[#4B5563]">
               The National Institutional Ranking Framework (NIRF) was approved by the MHRD (now Ministry of
               Education) and launched in September 2015. The methodology draws from the overall recommendations
               broad understanding arrived at by a Core Committee set up by MHRD.

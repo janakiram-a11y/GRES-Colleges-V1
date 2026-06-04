@@ -67,12 +67,12 @@ export default function AccreditationSection({ college }) {
         {/* Header */}
         <div className="flex flex-col items-center gap-4">
           <p
-            className="font-dm-sans font-bold text-[11px] uppercase tracking-widest text-center"
-            style={{ color: '#C72235', letterSpacing: '0.12em' }}
+            className="font-display font-bold text-type-label uppercase tracking-[0.12em] text-center"
+            style={{ color: '#C72235' }}
           >
             {college.whyChooseLabel}
           </p>
-          <h2 className="font-hind font-semibold text-[28px] leading-9 lg:text-[40px] lg:leading-[48px] text-[#1A1A2E] text-center max-w-[720px]">
+          <h2 className="font-display font-semibold text-type-h2-mob lg:text-type-h2 text-[#1A1A2E] text-center max-w-[720px]">
             {college.whyChooseHeading}
           </h2>
         </div>
@@ -94,10 +94,10 @@ export default function AccreditationSection({ college }) {
                   <Icon />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <h3 className="font-hind font-semibold text-[16px] leading-[22px] text-[#1A1A2E]">
+                  <h3 className="font-display font-semibold text-type-body text-[#1A1A2E]">
                     {card.title}
                   </h3>
-                  <p className="font-dm-sans font-normal text-[16px] leading-[26px] text-[#666]">
+                  <p className="font-body font-normal text-type-body text-[#666]">
                     {card.desc}
                   </p>
                 </div>

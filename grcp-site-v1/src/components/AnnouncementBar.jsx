@@ -15,20 +15,20 @@ function LOIModal({ college, onClose }) {
         <div className="flex items-center gap-2 mb-6">
           <img src={college.smallLogo} alt={college.shortName} className="h-10 w-10 object-contain" />
           <span
-            className="text-white font-dm-sans font-bold text-[11px] px-2 py-0.5 rounded"
+            className="text-white font-display font-bold text-type-label px-2 py-0.5 rounded"
             style={{ backgroundColor: college.accentColor }}
           >
             NEW
           </span>
         </div>
-        <p className="font-dm-sans text-[15px] leading-[26px] text-[#222222] mb-5">
+        <p className="font-body text-type-body text-[#222222] mb-5">
           We are pleased to inform you that the{' '}
           <strong style={{ color: college.primaryColor }}>Ministry of Education</strong>, upon the
           recommendation of the University Grants Commission (UGC), has issued a{' '}
           <strong style={{ color: college.primaryColor }}>Letter of Intent (LoI)</strong> to{' '}
           <strong style={{ color: college.primaryColor }}>{college.shortName}</strong>.
         </p>
-        <p className="font-dm-sans text-[15px] leading-[26px] text-[#222222]">
+        <p className="font-body text-type-body text-[#222222]">
           This signifies that {college.shortName} has been invited to fulfil the necessary requirements
           toward being granted{' '}
           <strong style={{ color: college.primaryColor }}>Deemed-to-be University</strong> status.
@@ -45,7 +45,7 @@ function LOIModal({ college, onClose }) {
 
 function TickerContent({ announcements, college, onLOIClick }) {
   return (
-    <div className="flex items-center gap-8 text-[13px] font-dm-sans font-medium shrink-0">
+    <div className="flex items-center gap-8 text-type-ui-sm font-display font-medium shrink-0">
       {announcements.map((ann, idx) => (
         <span key={idx} className="flex items-center gap-8">
           {idx > 0 && (
@@ -60,7 +60,7 @@ function TickerContent({ announcements, college, onLOIClick }) {
               <span className="group-hover:underline underline-offset-2">{ann.text}</span>
               {ann.badge && (
                 <span
-                  className="text-white font-bold text-[10px] px-1.5 py-0.5 rounded"
+                  className="text-white font-bold text-type-label px-1.5 py-0.5 rounded"
                   style={{ backgroundColor: college.accentColor }}
                 >
                   {ann.badge}
@@ -78,7 +78,7 @@ function TickerContent({ announcements, college, onLOIClick }) {
               <span className="group-hover:underline underline-offset-2">{ann.text}</span>
               {ann.badge && (
                 <span
-                  className="text-white font-bold text-[10px] px-1.5 py-0.5 rounded"
+                  className="text-white font-bold text-type-label px-1.5 py-0.5 rounded"
                   style={{ backgroundColor: college.accentColor }}
                 >
                   {ann.badge}
@@ -135,7 +135,7 @@ export default function AnnouncementBar({ college }) {
               <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2v-4.336l8 1.6A1 1 0 0018 12V3z" />
             </svg>
             <span
-              className="font-dm-sans font-bold text-[11px] uppercase tracking-widest"
+              className="font-display font-bold text-type-label uppercase tracking-[0.12em]"
               style={{ color: '#ffffff' }}
             >
               Announcements

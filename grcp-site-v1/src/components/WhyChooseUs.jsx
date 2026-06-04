@@ -32,13 +32,13 @@ export default function WhyChooseUs({ college }) {
     <section className="w-full bg-white section-pad">
       <div className="max-w-[1200px] mx-auto flex gap-[30px] items-start">
         <div className="flex-1 flex flex-col gap-3 pr-8">
-          <h2 className="font-hind font-semibold text-[28px] leading-9 lg:text-[40px] lg:leading-[48px] text-[#222222]">
+          <h2 className="font-display font-semibold text-type-h2-mob lg:text-type-h2 text-[#222222]">
             {college.aboutHeading}
           </h2>
-          <p className="font-dm-sans font-normal text-[16px] leading-6 text-[#666666]">
+          <p className="font-body font-normal text-type-body text-[#666666]">
             {college.aboutP1}
           </p>
-          <p className="font-dm-sans font-normal text-[16px] leading-6 text-[#666666]">
+          <p className="font-body font-normal text-type-body text-[#666666]">
             {college.aboutP2}
           </p>
           <div className="grid grid-cols-2 gap-x-4 gap-y-5 mt-3">
@@ -50,8 +50,8 @@ export default function WhyChooseUs({ college }) {
                     <Icon />
                   </div>
                   <div className="flex flex-col gap-1">
-                    <span className="font-dm-sans font-bold text-[14px] leading-5 text-[#222222]">{title}</span>
-                    <span className="font-dm-sans font-normal text-[12px] leading-4 text-[#666666]">{sub}</span>
+                    <span className="font-display font-bold text-type-ui text-[#222222]">{title}</span>
+                    <span className="font-display font-normal text-type-cap text-[#666666]">{sub}</span>
                   </div>
                 </div>
               )
@@ -70,8 +70,8 @@ export default function WhyChooseUs({ college }) {
               className="absolute -left-6 -bottom-5 w-[256px] bg-white border-l-4 border-l-[#2D7A50] rounded-3xl px-6 py-5"
               style={{ boxShadow: '0px 20px 25px -5px rgba(0,0,0,0.1), 0px 8px 10px -6px rgba(0,0,0,0.1)' }}
             >
-              <span className="font-hind font-bold text-[48px] leading-[48px] text-[#2D7A50] block">{college.aboutYears}</span>
-              <span className="font-dm-sans font-medium text-[14px] leading-5 text-[#666666]">
+              <span className="font-display font-bold text-type-h1 text-[#2D7A50] block">{college.aboutYears}</span>
+              <span className="font-display font-medium text-type-ui text-[#666666]">
                 {college.aboutYearsLabel}
               </span>
             </div>

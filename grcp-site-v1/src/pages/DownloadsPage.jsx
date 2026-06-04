@@ -55,7 +55,7 @@ function CategoryBlock({ cat }) {
   return (
     <div className="mb-8">
       <div
-        className="font-dm-sans font-bold text-[13px] tracking-wide uppercase text-white px-5 py-3 rounded-t-xl"
+        className="font-display font-bold text-type-ui-sm tracking-wide uppercase text-white px-5 py-3 rounded-t-xl"
         style={{ backgroundColor: accent }}
       >
         {cat.label}
@@ -69,13 +69,13 @@ function CategoryBlock({ cat }) {
                 className="border-b last:border-0"
                 style={{ backgroundColor: idx % 2 === 0 ? '#fff' : '#FAFAFA', borderColor: '#F3F4F6' }}
               >
-                <td className="font-dm-sans text-[13px] text-[#9CA3AF] px-5 py-3.5 w-10 text-center">
+                <td className="font-display text-type-ui-sm text-[#9CA3AF] px-5 py-3.5 w-10 text-center">
                   {idx + 1}
                 </td>
                 <td className="px-4 py-3.5">
                   <div className="flex items-center gap-2.5">
                     <FileIcon type={file.type} />
-                    <span className="font-dm-sans text-[14px] text-[#374151]">{file.name}</span>
+                    <span className="font-display text-type-ui text-[#374151]">{file.name}</span>
                   </div>
                 </td>
                 <td className="px-5 py-3.5 w-[130px] text-right">
@@ -119,11 +119,11 @@ export default function DownloadsPage() {
         <div className="max-w-[1200px] mx-auto">
 
           <div className="mb-8">
-            <h2 className="font-hind font-bold text-[26px] leading-tight mb-2" style={{ color: primary }}>
+            <h2 className="font-display font-bold text-type-h3-mob mb-2" style={{ color: primary }}>
               Document Repository
             </h2>
             <div className="w-14 h-[3px] rounded-full mb-6" style={{ backgroundColor: accent }} />
-            <p className="font-dm-sans text-[15px] leading-[27px] text-[#474747] max-w-[720px]">
+            <p className="font-body text-type-body text-[#474747] max-w-[720px]">
               Download official documents and application forms from Gokaraju Rangaraju College of Pharmacy.
               Click the <strong>Download</strong> button next to any file to open or save it.
             </p>

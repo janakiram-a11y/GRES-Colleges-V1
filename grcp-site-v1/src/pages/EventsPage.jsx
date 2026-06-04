@@ -69,23 +69,23 @@ function EventCard({ event }) {
       style={{ borderColor: `${primary}18`, borderLeft: `4px solid ${accent}` }}
     >
       <div
-        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full self-start font-dm-sans font-semibold text-[11px] text-white"
+        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full self-start font-display font-semibold text-type-label text-white"
         style={{ backgroundColor: primary }}
       >
         <CalendarIcon />
         {event.date}
       </div>
-      <h3 className="font-hind font-bold text-[15px] leading-snug" style={{ color: primary }}>
+      <h3 className="font-display font-bold text-type-body" style={{ color: primary }}>
         {event.title}
       </h3>
       {event.desc && (
-        <p className="font-dm-sans text-[13px] italic text-[#6B7280]">{event.desc}</p>
+        <p className="font-display text-type-ui-sm italic text-[#6B7280]">{event.desc}</p>
       )}
       <a
         href={event.link}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-1.5 self-start font-dm-sans font-semibold text-[12px] text-white px-4 py-1.5 rounded-lg transition-opacity hover:opacity-85"
+        className="inline-flex items-center gap-1.5 self-start font-display font-semibold text-type-cap text-white px-4 py-1.5 rounded-lg transition-opacity hover:opacity-85"
         style={{ backgroundColor: accent }}
       >
         <PhotosIcon />
@@ -119,7 +119,7 @@ export default function EventsPage() {
         <div className="max-w-[1200px] mx-auto">
 
           <div className="mb-6">
-            <h2 className="font-hind font-bold text-[26px] leading-tight mb-2" style={{ color: primary }}>
+            <h2 className="font-display font-bold text-type-h3-mob mb-2" style={{ color: primary }}>
               College Events
             </h2>
             <div className="w-14 h-[3px] rounded-full mb-6" style={{ backgroundColor: accent }} />
@@ -134,7 +134,7 @@ export default function EventsPage() {
               <button
                 key={year}
                 onClick={() => setActiveYear(year)}
-                className="inline-flex items-center gap-2 font-dm-sans font-semibold text-[14px] px-5 py-2 rounded-lg border transition-colors"
+                className="inline-flex items-center gap-2 font-display font-semibold text-type-ui px-5 py-2 rounded-lg border transition-colors"
                 style={
                   activeYear === year
                     ? { backgroundColor: primary, color: '#fff', borderColor: primary }
@@ -143,7 +143,7 @@ export default function EventsPage() {
               >
                 {year}
                 <span
-                  className="font-dm-sans font-bold text-[11px] px-2 py-0.5 rounded-full"
+                  className="font-display font-bold text-type-label px-2 py-0.5 rounded-full"
                   style={
                     activeYear === year
                       ? { backgroundColor: 'rgba(255,255,255,0.25)', color: '#fff' }

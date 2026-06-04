@@ -23,13 +23,13 @@ export default function AcademicPrograms({ college }) {
     <section className="w-full section-pad" style={{ background: 'linear-gradient(135deg, #1E5C3A 0%, #2D7A50 60%, #1A4D33 100%)' }}>
       <div className="max-w-[1200px] mx-auto flex items-center gap-0">
         <div className="flex flex-col gap-6 w-[600px]">
-          <p className="font-dm-sans font-bold text-[14px] leading-5 uppercase tracking-[1.4px] text-[#F3DAB2]">
+          <p className="font-display font-bold text-type-ui uppercase tracking-[0.12em] text-[#F3DAB2]">
             {college.academicProgramsLabel}
           </p>
-          <h2 className="font-hind font-semibold text-[28px] leading-9 lg:text-[40px] lg:leading-[48px] text-white">
+          <h2 className="font-display font-semibold text-type-h2-mob lg:text-type-h2 text-white">
             {college.academicProgramsHeading}
           </h2>
-          <p className="font-dm-sans font-normal text-[18px] leading-7" style={{ color: 'rgba(205,240,220,0.82)' }}>
+          <p className="font-body font-normal text-type-body-lg" style={{ color: 'rgba(205,240,220,0.82)' }}>
             {college.academicProgramsDesc}
           </p>
           <div className="flex items-center gap-4 mt-2">
@@ -48,12 +48,12 @@ export default function AcademicPrograms({ college }) {
                 className="w-[288px] h-[320px] bg-white/10 border border-white/20 rounded-3xl p-6 flex flex-col justify-center gap-3 transition-all duration-200 hover:bg-white/16"
               >
                 <div>
-                  <span className="font-hind font-bold text-[32px] leading-[38px] text-[#F3DAB2] block">{count}</span>
-                  <span className="font-hind font-bold text-[20px] leading-7 text-white block">{title}</span>
+                  <span className="font-display font-bold text-type-h3 text-[#F3DAB2] block">{count}</span>
+                  <span className="font-display font-bold text-type-h5 text-white block">{title}</span>
                 </div>
-                <p className="font-dm-sans font-normal text-[16px] leading-[26px]" style={{ color: 'rgba(205,240,220,0.80)' }}>{desc}</p>
+                <p className="font-body font-normal text-type-body" style={{ color: 'rgba(205,240,220,0.80)' }}>{desc}</p>
                 <div className="flex items-center justify-end gap-1">
-                  <span className="font-dm-sans font-semibold text-[14px] leading-5 text-white">Learn More</span>
+                  <span className="font-display font-semibold text-type-ui text-white">Learn More</span>
                   <ChevronRight />
                 </div>
               </div>

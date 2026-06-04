@@ -16,14 +16,14 @@ function SectionHeader({ label, title }) {
     <div className="mb-6">
       {label && (
         <span
-          className="font-dm-sans font-semibold text-[12px] uppercase tracking-[2px] mb-2 block"
+          className="font-display font-bold text-type-cap uppercase tracking-[0.12em] mb-2 block"
           style={{ color: greenAccent }}
         >
           {label}
         </span>
       )}
       <h2
-        className="font-hind font-semibold text-[28px] leading-9 pb-3"
+        className="font-display font-semibold text-type-h2-mob pb-3"
         style={{
           color: primaryColor,
           borderBottom: `3px solid ${greenAccent}`,
@@ -39,7 +39,7 @@ function SectionHeader({ label, title }) {
 function SubHeading({ children }) {
   return (
     <h3
-      className="font-hind font-semibold text-[20px] leading-7 mb-3 mt-8"
+      className="font-display font-semibold text-type-h5 mb-3 mt-8"
       style={{ color: primaryColor }}
     >
       {children}
@@ -50,7 +50,7 @@ function SubHeading({ children }) {
 function CommitteeTable({ rows, columns }) {
   return (
     <div className="overflow-x-auto rounded-xl shadow-sm border border-gray-100">
-      <table className="w-full text-[14px] font-dm-sans">
+      <table className="w-full text-type-ui font-display">
         <thead>
           <tr style={{ backgroundColor: greenAccent }}>
             {columns.map((col) => (
@@ -100,7 +100,7 @@ function BPharmacyContent() {
         {[bp.duration, bp.intake, bp.affiliation, bp.approval].map((badge, i) => (
           <span
             key={i}
-            className="inline-block px-4 py-1.5 rounded-full text-[13px] font-dm-sans font-medium border"
+            className="inline-block px-4 py-1.5 rounded-full text-type-ui-sm font-display font-medium border"
             style={{ borderColor: primaryColor, color: primaryColor }}
           >
             {badge}
@@ -112,7 +112,7 @@ function BPharmacyContent() {
         <SectionHeader label="B.Pharmacy" title="Program Overview" />
         <div className="space-y-4 mt-4">
           {bp.overview.map((para, i) => (
-            <p key={i} className="font-dm-sans text-[16px] leading-7 text-[#474747]">
+            <p key={i} className="font-body text-type-body text-[#474747]">
               {para}
             </p>
           ))}
@@ -128,7 +128,7 @@ function BPharmacyContent() {
                 className="mt-1 w-2 h-2 rounded-full flex-shrink-0"
                 style={{ backgroundColor: greenAccent }}
               />
-              <span className="font-dm-sans text-[15px] text-[#474747]">{item}</span>
+              <span className="font-body text-type-body text-[#474747]">{item}</span>
             </li>
           ))}
         </ul>
@@ -136,7 +136,7 @@ function BPharmacyContent() {
 
       <section>
         <SectionHeader label="Careers" title="Scope & Career Opportunities" />
-        <p className="mt-4 mb-4 font-dm-sans text-[16px] leading-7 text-[#474747]">
+        <p className="mt-4 mb-4 font-body text-type-body text-[#474747]">
           Graduates of B.Pharmacy are equipped for diverse roles across pharmaceutical manufacturing,
           clinical practice, regulatory affairs, and academia. Some of the career paths include:
         </p>
@@ -144,12 +144,12 @@ function BPharmacyContent() {
           {bp.careerPaths.map((path, i) => (
             <li key={i} className="flex items-start gap-3">
               <span
-                className="font-hind font-bold text-[14px] w-6 flex-shrink-0"
+                className="font-display font-bold text-type-body-xs w-6 flex-shrink-0"
                 style={{ color: greenAccent }}
               >
                 {i + 1}.
               </span>
-              <span className="font-dm-sans text-[15px] text-[#474747]">{path}</span>
+              <span className="font-body text-type-body text-[#474747]">{path}</span>
             </li>
           ))}
         </ol>
@@ -185,7 +185,7 @@ function MPharmacyOverview() {
         {[mp.duration, mp.approval].map((badge, i) => (
           <span
             key={i}
-            className="inline-block px-4 py-1.5 rounded-full text-[13px] font-dm-sans font-medium border"
+            className="inline-block px-4 py-1.5 rounded-full text-type-ui-sm font-display font-medium border"
             style={{ borderColor: primaryColor, color: primaryColor }}
           >
             {badge}
@@ -195,7 +195,7 @@ function MPharmacyOverview() {
 
       <section>
         <SectionHeader label="M.Pharmacy" title="Program Overview" />
-        <p className="mt-4 font-dm-sans text-[16px] leading-7 text-[#474747] max-w-[780px]">
+        <p className="mt-4 font-body text-type-body text-[#474747] max-w-[780px]">
           {mp.about}
         </p>
       </section>
@@ -214,22 +214,22 @@ function MPharmacyOverview() {
                 style={{ borderTop: `4px solid ${greenAccent}` }}
               >
                 <h3
-                  className="font-hind font-semibold text-[18px] mb-2 group-hover:underline"
+                  className="font-display font-semibold text-type-h6 mb-2 group-hover:underline"
                   style={{ color: primaryColor }}
                 >
                   {spec.name}
                 </h3>
-                <p className="font-dm-sans text-[14px] text-[#474747] leading-6 mb-4">
+                <p className="font-body text-type-body-xs text-[#474747] mb-4">
                   {spec.desc}
                 </p>
-                <div className="flex gap-4 text-[13px] text-[#888] font-dm-sans">
+                <div className="flex gap-4 text-type-ui-sm text-[#888] font-display">
                   <span>Est. {spec.established}</span>
                   <span>|</span>
                   <span>Intake: {spec.intake}</span>
                 </div>
               </div>
               <div
-                className="px-6 py-3 text-[13px] font-dm-sans font-semibold"
+                className="px-6 py-3 text-type-ui-sm font-display font-semibold"
                 style={{ backgroundColor: '#f6faf8', color: primaryColor }}
               >
                 View Details →
@@ -252,7 +252,7 @@ function MPharmSpec({ specializationSlug }) {
 
   if (!spec) {
     return (
-      <div className="py-20 text-center text-[#474747] font-dm-sans text-[16px]">
+      <div className="py-20 text-center text-[#474747] font-body text-type-body">
         Specialization not found.
       </div>
     );
@@ -265,7 +265,7 @@ function MPharmSpec({ specializationSlug }) {
           (badge, i) => (
             <span
               key={i}
-              className="inline-block px-4 py-1.5 rounded-full text-[13px] font-dm-sans font-medium border"
+              className="inline-block px-4 py-1.5 rounded-full text-type-ui-sm font-display font-medium border"
               style={{ borderColor: primaryColor, color: primaryColor }}
             >
               {badge}
@@ -278,7 +278,7 @@ function MPharmSpec({ specializationSlug }) {
         <SectionHeader label="M.Pharmacy" title={`${spec.name} – Overview`} />
         <div className="space-y-4 mt-4">
           {spec.overview.map((para, i) => (
-            <p key={i} className="font-dm-sans text-[16px] leading-7 text-[#474747]">
+            <p key={i} className="font-body text-type-body text-[#474747]">
               {para}
             </p>
           ))}
@@ -294,7 +294,7 @@ function MPharmSpec({ specializationSlug }) {
                 className="mt-1 w-2 h-2 rounded-full flex-shrink-0"
                 style={{ backgroundColor: greenAccent }}
               />
-              <span className="font-dm-sans text-[15px] text-[#474747]">{area}</span>
+              <span className="font-body text-type-body text-[#474747]">{area}</span>
             </li>
           ))}
         </ul>
@@ -309,7 +309,7 @@ function MPharmSpec({ specializationSlug }) {
                 className="mt-1 w-2 h-2 rounded-full flex-shrink-0"
                 style={{ backgroundColor: primaryColor }}
               />
-              <span className="font-dm-sans text-[15px] text-[#474747]">{career}</span>
+              <span className="font-body text-type-body text-[#474747]">{career}</span>
             </li>
           ))}
         </ul>
@@ -325,7 +325,7 @@ function MPharmSpec({ specializationSlug }) {
                   className="mt-1 w-2 h-2 rounded-full flex-shrink-0"
                   style={{ backgroundColor: greenAccent }}
                 />
-                <span className="font-dm-sans text-[15px] text-[#474747]">{item}</span>
+                <span className="font-body text-type-body text-[#474747]">{item}</span>
               </li>
             ))}
           </ul>
@@ -335,7 +335,7 @@ function MPharmSpec({ specializationSlug }) {
       <div>
         <Link
           to="/programmes/m-pharmacy"
-          className="inline-flex items-center gap-2 font-dm-sans text-[14px] font-semibold hover:underline"
+          className="inline-flex items-center gap-2 font-display text-type-ui font-semibold hover:underline"
           style={{ color: primaryColor }}
         >
           ← Back to M.Pharmacy Overview
@@ -366,7 +366,7 @@ function PgCommitteeContent() {
       <div>
         <Link
           to="/programmes/m-pharmacy"
-          className="inline-flex items-center gap-2 font-dm-sans text-[14px] font-semibold hover:underline"
+          className="inline-flex items-center gap-2 font-display text-type-ui font-semibold hover:underline"
           style={{ color: primaryColor }}
         >
           ← Back to M.Pharmacy Overview
@@ -453,7 +453,7 @@ export default function ProgrammesPage() {
     content = <MPharmSpec specializationSlug={specialization} />;
   } else {
     content = (
-      <div className="py-20 text-center font-dm-sans text-[16px] text-[#474747]">
+      <div className="py-20 text-center font-body text-type-body text-[#474747]">
         Programme not found. Please navigate using the menu.
       </div>
     );

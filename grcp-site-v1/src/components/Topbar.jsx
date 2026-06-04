@@ -144,7 +144,7 @@ export default function Topbar({ college }) {
         {/* Left: counselling code */}
         <div className="shrink-0 flex items-center">
           <span
-            className="font-dm-sans text-[13px] font-semibold hidden sm:inline"
+            className="font-display text-type-ui-sm font-semibold hidden sm:inline"
             style={{
               color: '#C72235',
               background: 'rgba(199,34,53,0.10)',
@@ -211,7 +211,7 @@ export default function Topbar({ college }) {
                 aria-label="Search"
                 tabIndex={searchOpen ? 0 : -1}
                 autoComplete="off"
-                className="font-dm-sans text-[13px] outline-none bg-white border rounded px-3 py-1 w-full placeholder:text-gray-400"
+                className="font-display text-type-ui-sm outline-none bg-white border rounded px-3 py-1 w-full placeholder:text-gray-400"
                 style={{
                   borderColor: 'rgba(199,34,53,0.40)',
                   color: '#222',
@@ -271,10 +271,10 @@ export default function Topbar({ college }) {
                 className="px-4 py-2.5 flex items-center justify-between"
                 style={{ borderBottom: '1px solid rgba(0,0,0,0.06)', backgroundColor: '#FAFAFA' }}
               >
-                <span className="font-dm-sans text-[11px] font-semibold uppercase tracking-widest" style={{ color: '#999', letterSpacing: '0.10em' }}>
+                <span className="font-display text-type-label font-bold uppercase tracking-[0.10em]" style={{ color: '#999' }}>
                   Results
                 </span>
-                <span className="font-dm-sans text-[11px]" style={{ color: '#bbb' }}>
+                <span className="font-display text-type-label" style={{ color: '#bbb' }}>
                   {results.length} found
                 </span>
               </div>
@@ -298,13 +298,13 @@ export default function Topbar({ college }) {
                       >
                         {/* Category badge */}
                         <span
-                          className="font-dm-sans font-semibold text-[10px] px-2 py-0.5 rounded-full flex-shrink-0"
+                          className="font-display font-bold text-type-label px-2 py-0.5 rounded-full flex-shrink-0"
                           style={{ backgroundColor: bg, color: text, letterSpacing: '0.04em' }}
                         >
                           {item.category}
                         </span>
                         {/* Title */}
-                        <span className="font-dm-sans font-medium text-[13px] flex-1 text-[#1A1A2E] truncate">
+                        <span className="font-display font-medium text-type-ui-sm flex-1 text-[#1A1A2E] truncate">
                           {item.title}
                         </span>
                         {/* Arrow */}
@@ -320,7 +320,7 @@ export default function Topbar({ college }) {
                 className="px-4 py-2 flex items-center gap-3"
                 style={{ backgroundColor: '#FAFAFA', borderTop: '1px solid rgba(0,0,0,0.06)' }}
               >
-                <span className="font-dm-sans text-[11px]" style={{ color: '#aaa' }}>
+                <span className="font-display text-type-label" style={{ color: '#aaa' }}>
                   ↑↓ navigate &nbsp;·&nbsp; Enter to go &nbsp;·&nbsp; Esc to close
                 </span>
               </div>
@@ -338,10 +338,10 @@ export default function Topbar({ college }) {
                 zIndex: 999,
               }}
             >
-              <p className="font-dm-sans text-[13px] text-[#888]">
+              <p className="font-display text-type-ui-sm text-[#888]">
                 No results for <strong style={{ color: '#222' }}>"{query}"</strong>
               </p>
-              <p className="font-dm-sans text-[12px] text-[#aaa] mt-1">
+              <p className="font-display text-type-cap text-[#aaa] mt-1">
                 Try searching for a page, programme, or topic.
               </p>
             </div>

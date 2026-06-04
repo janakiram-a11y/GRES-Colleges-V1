@@ -16,14 +16,14 @@ function SectionHeader({ label, title }) {
     <div className="mb-6">
       {label && (
         <span
-          className="font-dm-sans font-semibold text-[12px] uppercase tracking-[2px] mb-2 block"
+          className="font-display font-bold text-type-cap uppercase tracking-[0.12em] mb-2 block"
           style={{ color: ACCENT }}
         >
           {label}
         </span>
       )}
       <h2
-        className="font-hind font-bold text-[26px] leading-[34px] pb-3"
+        className="font-display font-bold text-type-h3-mob pb-3"
         style={{
           color: PRIMARY,
           borderBottom: `3px solid ${ACCENT}`,
@@ -45,7 +45,7 @@ function StripedTable({ headers, rows }) {
             {headers.map((h) => (
               <th
                 key={h}
-                className="font-dm-sans font-semibold text-[13px] text-white text-left px-5 py-3.5"
+                className="font-display font-semibold text-type-ui-sm text-white text-left px-5 py-3.5"
               >
                 {h}
               </th>
@@ -65,7 +65,7 @@ function StripedTable({ headers, rows }) {
               {cells.map((cell, j) => (
                 <td
                   key={j}
-                  className="font-dm-sans text-[14px] px-5 py-3.5"
+                  className="font-display text-type-ui px-5 py-3.5"
                   style={{ color: j === 0 ? PRIMARY : '#474747' }}
                 >
                   {cell}
@@ -90,7 +90,7 @@ function OverviewSection() {
       {/* 1. Overview paragraph */}
       <section>
         <SectionHeader label="Placements" title="Placement Cell @ GRCP" />
-        <p className="font-dm-sans text-[15px] leading-[26px] text-[#474747] mt-4 max-w-[820px]">
+        <p className="font-body text-type-body text-[#474747] mt-4 max-w-[820px]">
           {overview}
         </p>
       </section>
@@ -105,12 +105,12 @@ function OverviewSection() {
               style={{ borderColor: `${PRIMARY}18`, backgroundColor: '#FAFAFA' }}
             >
               <p
-                className="font-hind font-bold text-[30px] leading-none mb-1"
+                className="font-display font-bold text-[30px] leading-none mb-1"
                 style={{ color: PRIMARY }}
               >
                 {s.value}
               </p>
-              <p className="font-dm-sans text-[13px] text-[#6B7280] mt-1">{s.label}</p>
+              <p className="font-display text-type-ui-sm text-[#6B7280] mt-1">{s.label}</p>
             </div>
           ))}
         </div>
@@ -119,7 +119,7 @@ function OverviewSection() {
       {/* 3. Functions of the Placement Cell */}
       <section>
         <h3
-          className="font-hind font-semibold text-[20px] mb-5"
+          className="font-display font-semibold text-type-h5 mb-5"
           style={{ color: PRIMARY }}
         >
           Functions of the Placement Cell
@@ -128,12 +128,12 @@ function OverviewSection() {
           {fns.map((fn, i) => (
             <li key={i} className="flex items-start gap-4">
               <span
-                className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 text-white font-dm-sans font-bold text-[12px] mt-0.5"
+                className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 text-white font-display font-bold text-type-cap mt-0.5"
                 style={{ backgroundColor: ACCENT }}
               >
                 {i + 1}
               </span>
-              <span className="font-dm-sans text-[15px] leading-[26px] text-[#474747]">{fn}</span>
+              <span className="font-body text-type-body text-[#474747]">{fn}</span>
             </li>
           ))}
         </ol>
@@ -142,7 +142,7 @@ function OverviewSection() {
       {/* 4. Placement Committee */}
       <section>
         <h3
-          className="font-hind font-semibold text-[20px] mb-5"
+          className="font-display font-semibold text-type-h5 mb-5"
           style={{ color: PRIMARY }}
         >
           Placement Committee 2025-26
@@ -169,7 +169,7 @@ function OverviewSection() {
       {/* 5. Key Recruiters */}
       <section>
         <h3
-          className="font-hind font-semibold text-[20px] mb-5"
+          className="font-display font-semibold text-type-h5 mb-5"
           style={{ color: PRIMARY }}
         >
           Key Recruiters
@@ -178,7 +178,7 @@ function OverviewSection() {
           {recruiters.map((r, i) => (
             <span
               key={i}
-              className="font-dm-sans text-[13px] font-semibold px-4 py-2 rounded-full border"
+              className="font-display text-type-ui-sm font-semibold px-4 py-2 rounded-full border"
               style={{
                 color: PRIMARY,
                 borderColor: `${PRIMARY}40`,
@@ -222,7 +222,7 @@ function PlacementStatusSection() {
           <button
             key={y.year}
             onClick={() => setActiveYear(y.year)}
-            className="font-dm-sans font-semibold text-[13px] px-5 py-2.5 rounded-lg border transition-colors"
+            className="font-display font-semibold text-type-ui-sm px-5 py-2.5 rounded-lg border transition-colors"
             style={
               activeYear === y.year
                 ? { backgroundColor: PRIMARY, color: '#fff', borderColor: PRIMARY }
@@ -242,7 +242,7 @@ function PlacementStatusSection() {
               <button
                 key={prog}
                 onClick={() => setActiveProgramme(prog)}
-                className="font-dm-sans font-semibold text-[13px] px-5 py-2.5 rounded-lg border transition-colors"
+                className="font-display font-semibold text-type-ui-sm px-5 py-2.5 rounded-lg border transition-colors"
                 style={
                   activeProgramme === prog
                     ? { backgroundColor: ACCENT, color: '#fff', borderColor: ACCENT }
@@ -272,7 +272,7 @@ function PlacementStatusSection() {
               className="rounded-2xl p-8 text-center border"
               style={{ borderColor: `${PRIMARY}18`, backgroundColor: '#FAFAFA' }}
             >
-              <p className="font-dm-sans text-[15px] text-[#6B7280]">
+              <p className="font-body text-type-body text-[#6B7280]">
                 No placement data available for this programme.
               </p>
             </div>
@@ -293,10 +293,10 @@ function PlacementStatusSection() {
               <path d="M12 8v4l2.5 2.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
-          <p className="font-hind font-semibold text-[17px] mb-2" style={{ color: PRIMARY }}>
+          <p className="font-display font-semibold text-type-body-lg mb-2" style={{ color: PRIMARY }}>
             {activeYear} Placement Data
           </p>
-          <p className="font-dm-sans text-[14px] text-[#6B7280]">
+          <p className="font-display text-type-ui text-[#6B7280]">
             Data will be available shortly.
           </p>
         </div>

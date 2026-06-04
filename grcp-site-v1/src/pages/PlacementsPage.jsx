@@ -14,18 +14,10 @@ const ACCENT  = college.greenAccent;  // #C72235
 function SectionHeader({ label, title }) {
   return (
     <div className="mb-6">
-      {label && (
-        <span
-          className="font-display font-bold text-type-cap uppercase tracking-[0.12em] mb-2 block"
-          style={{ color: ACCENT }}
-        >
-          {label}
-        </span>
-      )}
       <h2
         className="font-display font-bold text-type-h3-mob pb-3"
         style={{
-          color: PRIMARY,
+          color: ACCENT,
           borderBottom: `3px solid ${ACCENT}`,
           display: 'inline-block',
         }}
@@ -105,7 +97,7 @@ function OverviewSection() {
               style={{ borderColor: `${PRIMARY}18`, backgroundColor: '#FAFAFA' }}
             >
               <p
-                className="font-display font-bold text-[30px] leading-none mb-1"
+                className="font-display font-bold text-type-h2-mob lg:text-type-h2 leading-none mb-1"
                 style={{ color: PRIMARY }}
               >
                 {s.value}
@@ -120,7 +112,7 @@ function OverviewSection() {
       <section>
         <h3
           className="font-display font-semibold text-type-h5 mb-5"
-          style={{ color: PRIMARY }}
+          style={{ color: ACCENT }}
         >
           Functions of the Placement Cell
         </h3>
@@ -143,7 +135,7 @@ function OverviewSection() {
       <section>
         <h3
           className="font-display font-semibold text-type-h5 mb-5"
-          style={{ color: PRIMARY }}
+          style={{ color: ACCENT }}
         >
           Placement Committee 2025-26
         </h3>
@@ -170,7 +162,7 @@ function OverviewSection() {
       <section>
         <h3
           className="font-display font-semibold text-type-h5 mb-5"
-          style={{ color: PRIMARY }}
+          style={{ color: ACCENT }}
         >
           Key Recruiters
         </h3>
@@ -296,7 +288,7 @@ function PlacementStatusSection() {
           <p className="font-display font-semibold text-type-body-lg mb-2" style={{ color: PRIMARY }}>
             {activeYear} Placement Data
           </p>
-          <p className="font-display text-type-ui text-[#6B7280]">
+          <p className="font-body text-type-ui text-[#6B7280]">
             Data will be available shortly.
           </p>
         </div>

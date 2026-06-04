@@ -66,13 +66,7 @@ export default function AccreditationSection({ college }) {
 
         {/* Header */}
         <div className="flex flex-col items-center gap-4">
-          <p
-            className="font-display font-bold text-type-label uppercase tracking-[0.12em] text-center"
-            style={{ color: '#C72235' }}
-          >
-            {college.whyChooseLabel}
-          </p>
-          <h2 className="font-display font-semibold text-type-h2-mob lg:text-type-h2 text-[#1A1A2E] text-center max-w-[720px]">
+          <h2 className="font-display font-semibold text-type-h2-mob lg:text-type-h2 text-center max-w-[720px]" style={{ color: '#C72235' }}>
             {college.whyChooseHeading}
           </h2>
         </div>

@@ -14,18 +14,10 @@ const greenAccent = '#C72235';
 function SectionHeader({ label, title }) {
   return (
     <div className="mb-6">
-      {label && (
-        <span
-          className="font-display font-bold text-type-cap uppercase tracking-[0.12em] mb-2 block"
-          style={{ color: greenAccent }}
-        >
-          {label}
-        </span>
-      )}
       <h2
         className="font-display font-semibold text-type-h2-mob pb-3"
         style={{
-          color: primaryColor,
+          color: greenAccent,
           borderBottom: `3px solid ${greenAccent}`,
           display: 'inline-block',
         }}
@@ -40,7 +32,7 @@ function SubHeading({ children }) {
   return (
     <h3
       className="font-display font-semibold text-type-h5 mb-3 mt-8"
-      style={{ color: primaryColor }}
+      style={{ color: greenAccent }}
     >
       {children}
     </h3>
@@ -50,13 +42,13 @@ function SubHeading({ children }) {
 function CommitteeTable({ rows, columns }) {
   return (
     <div className="overflow-x-auto rounded-xl shadow-sm border border-gray-100">
-      <table className="w-full text-type-ui font-display">
+      <table className="w-full text-type-ui">
         <thead>
           <tr style={{ backgroundColor: greenAccent }}>
             {columns.map((col) => (
               <th
                 key={col.key}
-                className="text-left px-4 py-3 text-white font-semibold uppercase tracking-wide"
+                className="font-display text-left px-4 py-3 text-white font-semibold uppercase tracking-wide"
               >
                 {col.label}
               </th>
@@ -67,7 +59,7 @@ function CommitteeTable({ rows, columns }) {
           {rows.map((row, i) => (
             <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
               {columns.map((col) => (
-                <td key={col.key} className="px-4 py-3 text-[#474747]">
+                <td key={col.key} className="font-body px-4 py-3 text-[#474747]">
                   {col.key === 'email' ? (
                     <a
                       href={`mailto:${row[col.key]}`}
@@ -215,7 +207,7 @@ function MPharmacyOverview() {
               >
                 <h3
                   className="font-display font-semibold text-type-h6 mb-2 group-hover:underline"
-                  style={{ color: primaryColor }}
+                  style={{ color: greenAccent }}
                 >
                   {spec.name}
                 </h3>

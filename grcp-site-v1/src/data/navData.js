@@ -109,16 +109,4 @@ export const navItems = [
       { label: 'Placement Status',    href: '/placements/placement-status' },
     ],
   },
-  {
-    label: 'ALUMNI',
-    href: '#',
-    dropdown: [
-      { label: 'Alumni Registration',  href: '/alumni/alumni-registration'                      },
-      { label: 'Executive Members',    href: '/alumni/executive-members'                        },
-      { label: 'Alumni Enrollment',    href: 'https://forms.gle/haTVpnDni9DB2gyU8', external: true },
-      { label: 'List of Alumni',       href: '/alumni/list-of-alumni'                          },
-      { label: 'Distinguished Alumni', href: '/alumni/distinguished-alumni'                     },
-      { label: 'Alumni Contribution',  href: '/alumni/alumni-contribution'                      },
-    ],
-  },
 ]

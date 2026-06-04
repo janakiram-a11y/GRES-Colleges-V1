@@ -44,13 +44,7 @@ export default function CampusLife({ college }) {
         {/* Header */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
           <div className="flex flex-col gap-3">
-            <p
-              className="font-display font-bold text-type-label uppercase"
-              style={{ color: '#C72235', letterSpacing: '0.12em' }}
-            >
-              {college.campusLifeLabel}
-            </p>
-            <h2 className="font-display font-bold text-type-h2-mob lg:text-type-h2 text-[#1A1A2E]">
+            <h2 className="font-display font-bold text-type-h2-mob lg:text-type-h2" style={{ color: '#C72235' }}>
               {college.campusLifeHeading}
             </h2>
           </div>

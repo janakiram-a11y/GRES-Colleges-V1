@@ -75,11 +75,11 @@ function EventCard({ event }) {
         <CalendarIcon />
         {event.date}
       </div>
-      <h3 className="font-display font-bold text-type-body" style={{ color: primary }}>
+      <h3 className="font-display font-bold text-type-body" style={{ color: accent }}>
         {event.title}
       </h3>
       {event.desc && (
-        <p className="font-display text-type-ui-sm italic text-[#6B7280]">{event.desc}</p>
+        <p className="font-body text-type-ui-sm italic text-[#6B7280]">{event.desc}</p>
       )}
       <a
         href={event.link}
@@ -119,7 +119,7 @@ export default function EventsPage() {
         <div className="max-w-[1200px] mx-auto">
 
           <div className="mb-6">
-            <h2 className="font-display font-bold text-type-h3-mob mb-2" style={{ color: primary }}>
+            <h2 className="font-display font-bold text-type-h3-mob mb-2" style={{ color: accent }}>
               College Events
             </h2>
             <div className="w-14 h-[3px] rounded-full mb-6" style={{ backgroundColor: accent }} />

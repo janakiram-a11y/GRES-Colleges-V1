@@ -119,7 +119,7 @@ export default function Topbar({ college }) {
   };
 
   const utilityLinks = [
-    { label: 'GRCP E-Bulletin', href: '/e-bulletin' },
+    { label: 'E-Bulletin', href: '/e-bulletin' },
     { label: 'Downloads',       href: '/downloads'   },
     { label: 'Contact Us',      href: '/contact'     },
   ];

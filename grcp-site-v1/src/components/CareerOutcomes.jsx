@@ -4,10 +4,7 @@ export default function CareerOutcomes({ college }) {
       <div className="max-w-[1200px] mx-auto flex items-center gap-24">
         <div className="flex flex-col flex-1 gap-6">
           <div>
-            <p className="font-display font-bold text-type-sub uppercase tracking-[0.12em] mb-3" style={{ color: '#C72235' }}>
-              {college.careerLabel}
-            </p>
-            <h2 className="font-display font-semibold text-type-h2-mob lg:text-type-h2 text-[#222222] mb-4">
+            <h2 className="font-display font-semibold text-type-h2-mob lg:text-type-h2 mb-4" style={{ color: '#C72235' }}>
               {college.careerHeading}
             </h2>
             <p className="font-body font-normal text-type-body text-[#4B5563] max-w-[512px]">

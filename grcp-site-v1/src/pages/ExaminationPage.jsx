@@ -9,18 +9,10 @@ import Footer from '../components/Footer';
 function SectionHeader({ label, title }) {
   return (
     <div className="mb-6">
-      {label && (
-        <span
-          className="font-display font-bold text-type-cap uppercase tracking-[0.12em] mb-2 block"
-          style={{ color: college.greenAccent }}
-        >
-          {label}
-        </span>
-      )}
       <h2
         className="font-display font-bold text-type-h3-mob pb-3"
         style={{
-          color: college.primaryColor,
+          color: college.greenAccent,
           borderBottom: `3px solid ${college.greenAccent}`,
           display: 'inline-block',
         }}
@@ -53,13 +45,13 @@ function CommitteeTable({ members }) {
         <tbody>
           {members.map((m, i) => (
             <tr key={m.sno} style={{ backgroundColor: i % 2 === 0 ? '#fff' : '#FAFAFA' }}>
-              <td className="font-display text-type-body-xs text-[#474747] px-4 py-3" style={{ textAlign: 'center', border: `1px solid ${college.primaryColor}10` }}>
+              <td className="font-body text-type-body-xs text-[#474747] px-4 py-3" style={{ textAlign: 'center', border: `1px solid ${college.primaryColor}10` }}>
                 {m.sno}
               </td>
               <td className="font-display font-semibold text-type-body-xs px-4 py-3" style={{ color: college.primaryColor, border: `1px solid ${college.primaryColor}10` }}>
                 {m.name}
               </td>
-              <td className="font-display text-type-body-xs text-[#474747] px-4 py-3" style={{ border: `1px solid ${college.primaryColor}10` }}>
+              <td className="font-body text-type-body-xs text-[#474747] px-4 py-3" style={{ border: `1px solid ${college.primaryColor}10` }}>
                 {m.designation}
               </td>
               <td className="px-4 py-3" style={{ border: `1px solid ${college.primaryColor}10` }}>
@@ -77,7 +69,7 @@ function CommitteeTable({ members }) {
                   {m.position}
                 </span>
               </td>
-              <td className="font-display text-type-body-xs px-4 py-3" style={{ border: `1px solid ${college.primaryColor}10` }}>
+              <td className="font-body text-type-body-xs px-4 py-3" style={{ border: `1px solid ${college.primaryColor}10` }}>
                 <a href={`mailto:${m.email}`} className="underline" style={{ color: college.primaryColor }}>
                   {m.email}
                 </a>
@@ -180,7 +172,7 @@ function ExaminationBranchSection() {
           Contact
         </h3>
         <div
-          className="rounded-xl px-6 py-4 flex flex-wrap gap-4 max-w-[760px] text-type-body-xs font-display font-medium text-[#383838]"
+          className="rounded-xl px-6 py-4 flex flex-wrap gap-4 max-w-[760px] text-type-body-xs font-body font-medium text-[#383838]"
           style={{ backgroundColor: '#f8f9fa', border: `1px solid ${college.primaryColor}20`, borderLeft: `4px solid ${college.primaryColor}` }}
         >
           <span>

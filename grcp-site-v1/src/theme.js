@@ -135,17 +135,6 @@ const college = {
         { label: 'Placement Status',      href: '/placements/placement-status' },
       ],
     },
-    {
-      name: 'Alumni',
-      dropdown: [
-        { label: 'Alumni Registration',  href: '/alumni/alumni-registration' },
-        { label: 'Executive Members',    href: '/alumni/executive-members' },
-        { label: 'Alumni Enrollment',    href: 'https://forms.gle/haTVpnDni9DB2gyU8', external: true },
-        { label: 'List of Alumni',       href: '/alumni/list-of-alumni' },
-        { label: 'Distinguished Alumni', href: '/alumni/distinguished-alumni' },
-        { label: 'Alumni Contribution',  href: '/alumni/alumni-contribution' },
-      ],
-    },
   ],
 
   // Quick links shown in footer
@@ -159,8 +148,8 @@ const college = {
     { label: 'E-Bulletin', href: '/e-bulletin' },
     { label: 'Downloads', href: '/downloads' },
     { label: 'Mandatory Disclosures', href: '/mandatory-disclosures' },
-    { label: 'NIRF', href: '/nirf' },
     { label: 'Alumni Association', href: '/alumni-association' },
+    { label: 'NBA', href: '/nba' },
   ],
   resources: [
     { label: 'Anti-Ragging / Discipline', href: '/contact' },
@@ -265,13 +254,29 @@ const college = {
   // ── INNER PAGE CONTENT ─────────────────────────────────────────────────────
 
   // About page
-  aboutFounders: 'Gokaraju Rangaraju College of Pharmacy was instituted by Gokaraju Rangaraju Educational Society (GRES) in 2003. GRCP creates an environment that opens up new worlds of opportunity. From the day of its inception, the college is producing highly qualified human resources who are academically superior and ethically strong. GRCP is just 4 km from JNTU, Kukatpally, and is far from hustle, bustle of the city life and yet close enough for easy approach.',
-  aboutSociety: "The college is approved by PCI, New Delhi - affiliated to the Osmania University, Hyderabad. Osmania University has been re-accredited by the National Assessment and Accreditation Council (an autonomous institution of the University Grants Commission) as an 'A+' grade university. Osmania University retained place among the top ten 'Best Universities' in the country. This is based on a plethora of surveys conducted by reputed agencies, which led to the undisputable inference that Osmania University deserves one of the highest gradings.",
+  aboutInspirer: 'Gokaraju Rangaraju College of Pharmacy (GRCP) was established in 2003 by the Gokaraju Rangaraju Educational Society (GRES). The institution was founded in honor of Gokaraju Rangaraju, a renowned educationist, former Member of the Legislative Assembly (Undi Constituency), former Chairman of the Board of Trustees of Tirumala Tirupati Devasthanams, and a strong advocate of quality education. His vision and leadership continue to inspire the institution\'s commitment to academic excellence and professional development.',
+  aboutPromoter: 'Gokaraju Ganga Raju is an Indian politician, industrialist, and educationist who served as a Member of Parliament representing the Narsapuram Lok Sabha Constituency in the 16th Lok Sabha (2014–2019). He is the founder of the Kala Group of Companies and has made significant contributions to education, industry, and sports administration. He served as Secretary of the Andhra Cricket Association from 2001 to 2019 and as Vice President (South Zone) of the Board of Control for Cricket in India from 2015 to 2019. His leadership and vision continue to strengthen the growth and reputation of Gokaraju Rangaraju Educational Society and its institutions.',
+  aboutSociety: 'Dr. Gokaraju Ganga Raju started Gokaraju Rangaraju Educational Society in fond memory of his father late Shri Gokaraju Rangaraju with a motto to "Promote modern and scientific education and to help develop the character of the younger generation of all castes, communities and religions".',
   aboutDetailedParagraphs: [
-    'Gokaraju Rangaraju College of Pharmacy was instituted by Gokaraju Rangaraju Educational Society (GRES) in 2003. GRCP creates an environment that opens up new worlds of opportunity. From the day of its inception, the college is producing highly qualified human resources who are academically superior and ethically strong. GRCP is just 4 km from JNTU, Kukatpally, and is far from hustle, bustle of the city life and yet close enough for easy approach.',
-    "The college is approved by PCI, New Delhi - affiliated to the Osmania University, Hyderabad. Osmania University has been re-accredited by the National Assessment and Accreditation Council (an autonomous institution of the University Grants Commission) as an 'A+' grade university. Osmania University retained place among the top ten 'Best Universities' in the country.",
-    'B. Pharmacy course offered by Gokaraju Rangaraju college of Pharmacy is accredited by National Board of Accreditation (NBA) from 2009 till date. It also offers M. Pharmacy courses in Pharmaceutics, Pharmaceutical Analysis and Pharmacology. The college has highly qualified faculty, well equipped laboratories, lecture halls, computer lab, auditorium, library, museum, herbal garden and other supporting facilities.',
+    'GRCP creates an environment that opens up new worlds of opportunity. From the day of its inception, the college is producing highly qualified human resources who are academically superior and ethically strong. The college is approved by PCI, New Delhi — affiliated to the Osmania University, Hyderabad.',
+    'B. Pharmacy course offered by Gokaraju Rangaraju College of Pharmacy is accredited by National Board of Accreditation (NBA) from 2009 till date. It also offers M. Pharmacy courses in Pharmaceutics, Pharmaceutical Analysis and Pharmacology. The college has highly qualified faculty, well equipped laboratories, lecture halls, computer lab, auditorium, library, museum, herbal garden and other supporting facilities.',
   ],
+  ouAdmin: {
+    vc: {
+      name: 'Prof. Kumar Molugaram',
+      role: 'Vice-Chancellor',
+      qualification: 'Ph.D., IIT Bombay',
+      description: 'Vice-Chancellor, Osmania University & Senior Professor, Department of Civil Engineering, University College of Engineering, Osmania University.',
+      photo: 'https://media.almabaseapp.com/222/uploads/d40a7ff8d35548aabee2e555e4baab00.jpg',
+    },
+    registrar: {
+      name: 'CMA. Dr. Gaddam Naresh Reddy',
+      role: 'Registrar',
+      qualification: 'M.Com., MBA, CMA, Ph.D.',
+      description: 'Registrar & Professor of Commerce, Osmania University.',
+      photo: 'https://otbi.in/wp-content/uploads/2025/04/Screenshot-2025-04-08-135357.png',
+    },
+  },
 
   vision: '"To be one among the best pharmacy colleges that promotes knowledge, skill development and responsive to the changes towards the healthcare needs of the society."',
 
@@ -304,24 +309,25 @@ const college = {
 
   // PEO & POs (About page)
   peo: [
-    { code: 'PEO 1', title: 'Competent Professionals', desc: 'Graduates will apply pharmaceutical knowledge and skills to contribute effectively to the pharmaceutical industry, hospitals, regulatory agencies, and research organisations.' },
-    { code: 'PEO 2', title: 'Lifelong Learners', desc: 'Graduates will pursue continuous professional development and stay current with evolving pharmaceutical sciences, regulations, and technologies.' },
-    { code: 'PEO 3', title: 'Ethical Practitioners', desc: 'Graduates will demonstrate ethical conduct, professional responsibility, and a commitment to patient safety and public health.' },
-    { code: 'PEO 4', title: 'Innovative Researchers', desc: 'Graduates will engage in pharmaceutical research and development, contributing to the discovery and optimisation of new drug products.' },
-    { code: 'PEO 5', title: 'Leaders & Entrepreneurs', desc: 'Graduates will lead and manage pharmaceutical operations, and explore entrepreneurial opportunities in the healthcare sector.' },
+    { code: 'PEO 1', title: '', desc: 'Graduates will be able to discharge the responsibilities of pharmacist with adequate understanding of supportive areas as needed in this multidisciplinary area of healthcare system.' },
+    { code: 'PEO 2', title: '', desc: 'Pharmacists should be able to plan, design, execute and simulate experiments and provide solutions related to drugs and dosage forms.' },
+    { code: 'PEO 3', title: '', desc: 'Integrate the knowledge base of pharmaceuticals for better design of drugs and dosage regimen.' },
+    { code: 'PEO 4', title: '', desc: 'Pharmacists will be able to be a part of the team to communicate well with other professionals in providing medicines needed to the society with standards, professional ethics and social responsibilities.' },
+    { code: 'PEO 5', title: '', desc: 'Pharmacist will be able to become a lifelong learner to absorb newer technologies and thus offer leadership role in the society.' },
   ],
 
   pos: [
-    { code: 'PO 1', title: 'Pharmaceutical Knowledge', desc: 'Apply knowledge of pharmaceutical sciences — including pharmacology, pharmacognosy, pharmaceutics, and pharmaceutical chemistry — to professional practice.' },
-    { code: 'PO 2', title: 'Problem Analysis', desc: 'Identify, formulate, and solve complex pharmaceutical and healthcare problems using scientific principles.' },
-    { code: 'PO 3', title: 'Modern Tool Usage', desc: 'Use modern instruments, laboratory equipment, and computational tools relevant to pharmaceutical sciences.' },
-    { code: 'PO 4', title: 'Ethics & Professionalism', desc: 'Practice pharmacy with ethical values, professional standards, and a commitment to patient welfare.' },
-    { code: 'PO 5', title: 'Communication Skills', desc: 'Communicate pharmaceutical information effectively with peers, patients, and other healthcare professionals.' },
-    { code: 'PO 6', title: 'Research Aptitude', desc: 'Design and conduct experiments, analyse and interpret data, and draw meaningful conclusions in pharmaceutical research.' },
-    { code: 'PO 7', title: 'Regulatory Awareness', desc: 'Understand drug regulatory frameworks and quality assurance practices relevant to pharmaceutical manufacturing and distribution.' },
-    { code: 'PO 8', title: 'Lifelong Learning', desc: 'Recognise the need for and engage in continuous learning to adapt to advances in pharmaceutical sciences.' },
-    { code: 'PO 9', title: 'Social Responsibility', desc: 'Understand the role of the pharmacist in promoting public health, patient counselling, and rational drug use.' },
-    { code: 'PO 10', title: 'Project Management', desc: 'Apply management principles to pharmaceutical projects, team leadership, and entrepreneurial initiatives.' },
+    { title: 'Pharmacy Knowledge',       desc: 'Possess knowledge and comprehension of the core and basic knowledge associated with the profession of pharmacy, including biomedical sciences, pharmaceutical sciences, behavioural, social, and administrative pharmacy sciences, and manufacturing practices.' },
+    { title: 'Planning Abilities',       desc: 'Demonstrate effective planning abilities including time management, resource management, delegation skills and organizational skills. Develop and implement plans and organize work to meet deadlines.' },
+    { title: 'Problem analysis',         desc: 'Utilize the principles of scientific enquiry, thinking analytically, clearly and critically, while solving problems and making decisions during daily practice. Find, analyze, evaluate and apply information systematically and shall make defensible decisions.' },
+    { title: 'Modern tool usage',        desc: 'Learn, select, and apply appropriate methods and procedures, resources, and modern pharmacy-related computing tools with an understanding of the limitations.' },
+    { title: 'Leadership skills',        desc: 'Understand and consider the human reaction to change, motivation issues, leadership and team-building when planning changes required for fulfilment of practice, professional and societal responsibilities. Assume participatory roles as responsible citizens or leadership roles when appropriate to facilitate improvement in health and well-being.' },
+    { title: 'Professional Identity',    desc: 'Understand, analyze and communicate the value of their professional roles in society (e.g. health care professionals, promoters of health, educators, managers, employers, employees).' },
+    { title: 'Pharmaceutical Ethics',    desc: 'Honour personal values and apply ethical principles in professional and social contexts. Demonstrate behavior that recognizes cultural and personal variability in values, communication and lifestyles. Use ethical frameworks; apply ethical principles while making decisions and take responsibility for the outcomes associated with the decisions.' },
+    { title: 'Communication',            desc: 'Communicate effectively with the pharmacy community and with society at large, such as, being able to comprehend and write effective reports, make effective presentations and documentation, and give and receive clear instructions.' },
+    { title: 'The Pharmacist and society', desc: 'Apply reasoning informed by the contextual knowledge to assess societal, health, safety and legal issues and the consequent responsibilities relevant to the professional pharmacy practice.' },
+    { title: 'Environment and sustainability', desc: 'Understand the impact of the professional pharmacy solutions in societal and environmental contexts, and demonstrate the knowledge of, and need for sustainable development.' },
+    { title: 'Life-long learning',       desc: 'Recognize the need for, and have the preparation and ability to engage in independent and life-long learning in the broadest context of technological change. Self-assess and use feedback effectively from others to identify learning needs and to satisfy these needs on an on going basis.' },
   ],
 
   // Administration page
@@ -357,7 +363,7 @@ const college = {
       ],
     },
     governingBody: {
-      year: '2024–25',
+      year: null,
       members: [
         { no: '1', name: 'Dr. G. Ganga Raju', details: 'Chairman, Laila Group of Industries, Vijayawada, AP', role: 'President', category: 'Chairman Society Nominee', photo: 'https://grcp.ac.in/images/ob_1.jpg', org: 'Chairman, Laila Group of Industries\nVijayawada, AP' },
         { no: '2', name: 'Sri G.V.K. Ranga Raju', details: 'M.D., Delta Paper Mills, Hyderabad', role: 'Vice President', category: 'Society Nominee', photo: 'https://grcp.ac.in/images/ob_2.jpg', org: 'M.D., Delta Paper Mills, Hyderabad' },
@@ -467,7 +473,7 @@ const college = {
       objectives: [
         'Develop and implement quality benchmarks for institutional activities.',
         'Coordinate feedback mechanisms from students, faculty, and employers.',
-        'Facilitate accreditation and assessment processes (NBA, NAAC).',
+        'Facilitate accreditation and assessment processes (OU, PCI, NBA, MoE & Governing body meetings).',
         'Promote best practices in teaching, learning, and research.',
         'Prepare and submit Annual Quality Assurance Reports.',
       ],
@@ -523,7 +529,7 @@ const college = {
       },
     },
     bPharmFees: [
-      { title: 'Year of admission 2025-26 (Four Years Duration)', headers: ['Component', 'I Year', 'II Year', 'III Year', 'IV Year'], rows: [{ label: 'Tuition Fee', values: ['₹ 75,000/-', '₹ 75,000/-', '₹ 75,000/-', '₹ 75,000/-'] }, { label: 'Special Fee', values: ['₹ 5,500', '₹ 2,500', '₹ 2,500', '₹ 2,500'] }, { label: 'NBA Fee', values: ['₹ 3,000/-', '₹ 3,000/-', '₹ 3,000/-', '₹ 3,000/-'] }] },
+      { title: 'Year of admission 2025-26 (Four Years Duration)', headers: ['Component', 'I Year', 'II Year', 'III Year', 'IV Year'], rows: [{ label: 'Tuition Fee', values: ['₹ 84,000/-', '₹ 84,000/-', '₹ 84,000/-', '₹ 84,000/-'] }, { label: 'Special Fee', values: ['₹ 5,500', '₹ 2,500', '₹ 2,500', '₹ 2,500'] }, { label: 'NBA Fee', values: ['₹ 3,000/-', '₹ 3,000/-', '₹ 3,000/-', '₹ 3,000/-'] }] },
       { title: 'Year of admission 2024-25 (Four Years Duration)', headers: ['Component', 'I Year', 'II Year', 'III Year', 'IV Year'], rows: [{ label: 'Tuition Fee', values: ['₹ 75,000/-', '₹ 75,000/-', '₹ 75,000/-', '₹ 75,000/-'] }, { label: 'Special Fee', values: ['₹ 5,500', '₹ 2,500', '₹ 2,500', '₹ 2,500'] }, { label: 'NBA Fee', values: ['₹ 3,000/-', '₹ 3,000/-', '₹ 3,000/-', '₹ 3,000/-'] }] },
       { title: 'Year of admission 2023-24 (Four Years Duration)', headers: ['Component', 'I Year', 'II Year', 'III Year', 'IV Year'], rows: [{ label: 'Tuition Fee', values: ['₹ 75,000/-', '₹ 75,000/-', '₹ 75,000/-', '₹ 75,000/-'] }, { label: 'Special Fee', values: ['₹ 5,500', '₹ 2,500', '₹ 2,500', '₹ 2,500'] }, { label: 'NBA Fee', values: ['₹ 3,000/-', '₹ 3,000/-', '₹ 3,000/-', '₹ 3,000/-'] }] },
       { title: 'Year of admission 2022-23 (Four Years Duration)', headers: ['Component', 'I Year', 'II Year', 'III Year', 'IV Year'], rows: [{ label: 'Tuition Fee', values: ['₹ 75,000/-', '₹ 75,000/-', '₹ 75,000/-', '₹ 75,000/-'] }, { label: 'Special Fee', values: ['₹ 5,500', '₹ 2,500', '₹ 2,500', '₹ 2,500'] }, { label: 'NBA Fee', values: ['₹ 3,000/-', '₹ 3,000/-', '₹ 3,000/-', '₹ 3,000/-'] }] },
@@ -755,7 +761,7 @@ const college = {
     overview: 'The Examination Branch at GRCP coordinates all examination-related activities for B.Pharmacy and M.Pharmacy programs in accordance with Osmania University guidelines and PCI norms. The branch ensures transparent, timely, and fair conduct of internal and external examinations.',
     contact: { name: 'Examination Branch, GRCP', phone: '7095271271', email: 'exams@grcp.ac.in', hours: 'Monday to Saturday, 9:00 AM – 4:00 PM (2nd Saturday Holiday)' },
     activities: ['Conduct of Sessional (Mid-term) Examinations', 'Coordination with Osmania University for Theory and Practical Examinations', 'Issuance of Hall Tickets', 'Tabulation and display of sessional marks', 'Coordination for supplementary / backlog examinations', 'Submission of internal assessment marks to the university'],
-    functions: ['Conduction of sessional examinations for B.Pharmacy and M.Pharmacy programmes', 'Answer script evaluation and marks entry into the university portal', 'SMS notifications to students for absentees and result announcements', 'Conduct of end-semester practical examinations', 'Result analysis for both sessional and end-semester examinations', 'Preparation and maintenance of documentation for accreditation bodies (NBA, NAAC)'],
+    functions: ['Conduction of sessional examinations for B.Pharmacy and M.Pharmacy programmes', 'Answer script evaluation and marks entry into the university portal', 'SMS notifications to students for absentees and result announcements', 'Conduct of end-semester practical examinations', 'Result analysis for both sessional and end-semester examinations', 'Preparation and maintenance of documentation for accreditation bodies – OU, PCI, NBA, MoE & Governing body meetings.'],
     ugSessionalCommittee: [
       { sno: 1, name: 'Dr. M. Ganga Raju',  designation: 'Professor & Principal',  position: 'Chairperson',      email: 'ganga8000@grcp.ac.in' },
       { sno: 2, name: 'Mrs. Ch. Soujanya',  designation: 'Assistant Professor',    position: 'Co-ordinator – 1', email: 'soujanya8056@grcp.ac.in' },
@@ -782,8 +788,8 @@ const college = {
     ],
     sessionalTimetables: [
       { heading: 'B.Pharmacy', items: [{ label: 'B.Pharmacy III, V, VII Sem – Second Sessional (Theory) Exam TT 25-26', href: 'https://grcp.ac.in/media/6983ee0a3c0d8B.Pharm-III,V&VIIsem-II-SessionalTT(T).pdf' }, { label: 'B.Pharmacy III, V, VII Sem – Second Sessional (Practical) Exam TT 25-26', href: 'https://grcp.ac.in/media/6983ef1f971ddB.Pharm-III,V&VIIsem-II-SessionalTT(P).pdf' }, { label: 'B.Pharmacy I Sem – First Sessional (Theory & Practical) Exam TT 25-26', href: 'https://grcp.ac.in/media/6983f09e6dccbB.Pharm-Isem-I-SessionalTT(T&PR).pdf' }] },
-      { heading: 'M.Pharmacy (2025-26)', items: [{ label: 'M.Pharmacy III Sem – Second Sessional (Theory) Exam TT 25-26', href: 'https://grcp.ac.in/media/69e1f6c8a1bbdMPhaRM3SEM25-26.pdf' }, { label: 'M.Pharmacy I Sem – Second Sessional (Theory) Exam TT 25-26', href: 'https://grcp.ac.in/media/69b929059c97eM.Pharmfirstsem2sessionaltimetable25-26.pdf' }] },
-      { heading: 'M.Pharmacy (2024-25)', items: [{ label: 'M.Pharmacy III Sem – Second Sessional (Theory) Exam TT 24-25', href: 'https://grcp.ac.in/media/6849e2c7638d7iiisemises.jpg' }, { label: 'M.Pharmacy III Sem – First Sessional (Theory) Exam TT 24-25', href: 'https://grcp.ac.in/media/6849e29c0f84aiiisemises.jpg' }, { label: 'M.Pharmacy I Sem – Second Sessional (Theory) Exam TT 24-25', href: 'https://grcp.ac.in/media/6849e3142b872M.PharmacyIsemIIsessional(theory)examTT24-25.pdf.pdf' }] },
+      { heading: 'M.Pharmacy', items: [{ label: 'M.Pharmacy III Sem – Second Sessional (Theory) Exam TT 25-26', href: 'https://grcp.ac.in/media/69e1f6c8a1bbdMPhaRM3SEM25-26.pdf' }, { label: 'M.Pharmacy I Sem – Second Sessional (Theory) Exam TT 25-26', href: 'https://grcp.ac.in/media/69b929059c97eM.Pharmfirstsem2sessionaltimetable25-26.pdf' }] },
+      { heading: 'M.Pharmacy', items: [{ label: 'M.Pharmacy III Sem – Second Sessional (Theory) Exam TT 24-25', href: 'https://grcp.ac.in/media/6849e2c7638d7iiisemises.jpg' }, { label: 'M.Pharmacy III Sem – First Sessional (Theory) Exam TT 24-25', href: 'https://grcp.ac.in/media/6849e29c0f84aiiisemises.jpg' }, { label: 'M.Pharmacy I Sem – Second Sessional (Theory) Exam TT 24-25', href: 'https://grcp.ac.in/media/6849e3142b872M.PharmacyIsemIIsessional(theory)examTT24-25.pdf.pdf' }] },
     ],
     ouTimetables: [
       { heading: 'B.Pharmacy', items: [{ label: 'B.Pharmacy (PCI) Main & Backlog Examinations, February March-2026', href: 'https://grcp.ac.in/media/69828dcf96d64B.Pharmacy (PCI) Main & Backlog Examinations, February March-2026.pdf' }, { label: 'B.Pharmacy (Non-CBCS) IV-Year II-Semester One Time Chance (Backlog) Examinations, Dec-2025 Jan-2026', href: 'https://grcp.ac.in/media/69828de7e69ceB.Pharmacy (Non-CBCS) IV-Year II-Semeser One Time Chance (Backlog) Examinations, Dec-2025Jan-2026.pdf' }, { label: 'B.Pharmacy (PCI CBCS & Non-CBCS) One Time Chance Backlog Examinations, Dec-2025 – January-2026', href: 'https://grcp.ac.in/media/69829025cf474B.Pharmacy (PCI CBCS & Non-CBCS) One Time Chance Backlog Examinations, Dec-2025January-2026.pdf' }, { label: 'B.Pharmacy (PCI) Regular and Backlog Examinations, Sep-Oct-2025', href: 'https://grcp.ac.in/media/6982903f6916eB.Pharmacy (PCI) Regular and Backlog Examiantions, SepOct-2025.pdf' }] },

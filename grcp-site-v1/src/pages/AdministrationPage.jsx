@@ -1,5 +1,6 @@
 ﻿import { useParams } from 'react-router-dom';
 import college from '../theme';
+import { idmcIntro } from '../data/administrationData';
 import SiteHeader from '../components/SiteHeader';
 import PageHero from '../components/PageHero';
 import AdmissionsCTA from '../components/AdmissionsCTA';
@@ -49,18 +50,10 @@ const sectionConfig = {
 function SectionHeader({ label, title }) {
   return (
     <div className="mb-6">
-      {label && (
-        <span
-          className="font-display font-bold text-type-cap uppercase tracking-[0.12em] mb-2 block"
-          style={{ color: ac }}
-        >
-          {label}
-        </span>
-      )}
       <h2
         className="font-display font-bold text-type-h3-mob pb-3"
         style={{
-          color: pc,
+          color: ac,
           borderBottom: `3px solid ${ac}`,
           display: 'inline-block',
         }}
@@ -143,7 +136,7 @@ function ProfileCard({ person, institution, qualifications, bio }) {
           </p>
           )}
           {institution && (
-            <p className="font-display text-type-ui text-[#555] mb-3">
+            <p className="font-body text-type-ui text-[#555] mb-3">
               {institution}
             </p>
           )}
@@ -155,7 +148,7 @@ function ProfileCard({ person, institution, qualifications, bio }) {
                     className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-[7px]"
                     style={{ backgroundColor: pc }}
                   />
-                  <span className="font-display text-type-ui text-[#474747]">{q}</span>
+                  <span className="font-body text-type-ui text-[#474747]">{q}</span>
                 </li>
               ))}
             </ul>
@@ -236,11 +229,7 @@ function GoverningBodySection() {
   return (
     <div className="space-y-6">
       <SectionHeader label="Governance" title="Governing Body" />
-      {governingBody.year && (
-        <p className="font-display font-semibold text-type-ui-sm" style={{ color: ac }}>
-          Academic Year: {governingBody.year}
-        </p>
-      )}
+
       <div className="overflow-x-auto rounded-xl border" style={{ borderColor: `${pc}18` }}>
         <table className="w-full border-collapse">
           <thead>
@@ -279,7 +268,7 @@ function GoverningBodySection() {
                     {m.name}
                   </span>
                   {(m.org || m.details) && (
-                    <span className="block font-display text-type-cap text-[#6A7282] mt-0.5 whitespace-pre-line">
+                    <span className="block font-body text-type-cap text-[#6A7282] mt-0.5 whitespace-pre-line">
                       {m.org || m.details}
                     </span>
                   )}
@@ -301,14 +290,71 @@ function GoverningBodySection() {
 
 // ── Section: IDMC ─────────────────────────────────────────────────────────────
 
+const IDMC_INTRO = 'The Institutional Development and Monitoring Committee (IDMC) shall be the principal academic body of the institute and shall, in addition to all other powers and duties vested in it, have the following powers and duties.';
+
+const IDMC_POINTS = [
+  'To exercise general supervision over the academic activities of the college and to give directions regarding methods of instruction, evaluation, research, or improvements in academic standards.',
+  'To consider matters of academic interest, either on its own initiative or at the instance of the governing body, and to take proper action thereon.',
+  'To make arrangements for the conduct of examinations in conformity with the laws of Osmania University.',
+  'To maintain proper standards of the examinations.',
+  'To promote research within the institute, acquire reports on such research activities from time to time.',
+  'To suggest measures for co-ordination for individual classes.',
+];
+
+const IDMC_RECOMMENDATIONS = [
+  'Measure the improvement of standards of teaching, training, and research.',
+  'Institute fellowships, travelling fellowships, scholarships, medals, prizes, etc.',
+  'Establish or abolish departments/centers, and bye-laws covering the academic functioning of the college, discipline, admissions, examinations, award of fellowships, studentships, concessions, attendance, etc.',
+];
+
+const IDMC_POINTS_AFTER = [
+  'To make a periodic review of the activities of the college, and to take appropriate action (including the making of recommendations to the governing body), to maintain and improve the standards of instruction.',
+  'To exercise such other powers, and perform such other duties, as may be conferred or imposed upon it, by the rules and by-laws.',
+  'To recommend teaching posts of professors, associate professors, and assistant professors to the governing body of the college.',
+];
+
 function IdmcSection() {
   const { idmc } = college.administration;
   return (
     <div className="space-y-6">
       <SectionHeader label="Institutional Committee" title="IDMC" />
-      <p className="font-body text-type-body text-[#474747]">
-        {idmc.description}
-      </p>
+
+      {/* Intro paragraph */}
+      <p className="font-body text-type-body text-[#474747]">{IDMC_INTRO}</p>
+
+      {/* Main bullet points */}
+      <ul className="space-y-2.5">
+        {IDMC_POINTS.map((point, i) => (
+          <li key={i} className="flex items-start gap-2.5">
+            <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-[9px]" style={{ backgroundColor: pc }} />
+            <span className="font-body text-type-body text-[#474747]">{point}</span>
+          </li>
+        ))}
+
+        {/* "To make recommendations..." item with sub-list */}
+        <li className="flex items-start gap-2.5">
+          <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-[9px]" style={{ backgroundColor: pc }} />
+          <div className="flex-1">
+            <span className="font-body text-type-body text-[#474747]">To make recommendations to the board of management on:</span>
+            <ul className="mt-2 space-y-2 ml-4">
+              {IDMC_RECOMMENDATIONS.map((rec, j) => (
+                <li key={j} className="flex items-start gap-2.5">
+                  <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-[9px]" style={{ backgroundColor: `${pc}80` }} />
+                  <span className="font-body text-type-body text-[#474747]">{rec}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </li>
+
+        {/* Remaining points */}
+        {IDMC_POINTS_AFTER.map((point, i) => (
+          <li key={i} className="flex items-start gap-2.5">
+            <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-[9px]" style={{ backgroundColor: pc }} />
+            <span className="font-body text-type-body text-[#474747]">{point}</span>
+          </li>
+        ))}
+      </ul>
       <div className="overflow-x-auto rounded-xl border" style={{ borderColor: `${pc}18` }}>
         <table className="w-full border-collapse">
           <thead>

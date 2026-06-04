@@ -83,7 +83,7 @@ function ContactInfoCards() {
           >
             {college.admissionsPhone}
           </a>
-          <p className="font-display text-type-cap text-[#6B7280]">{college.admissionsLabel}</p>
+          <p className="font-body text-type-cap text-[#6B7280]">{college.admissionsLabel}</p>
         </div>
       ),
     },
@@ -133,7 +133,7 @@ function ContactInfoCards() {
           </div>
           <h3
             className="font-display font-semibold text-type-body mb-3"
-            style={{ color: college.primaryColor }}
+            style={{ color: college.greenAccent }}
           >
             {card.heading}
           </h3>
@@ -161,7 +161,7 @@ function WorkingHoursCard() {
           <div className="flex-1">
             <h3
               className="font-display font-semibold text-type-body-lg mb-4"
-              style={{ color: college.primaryColor }}
+              style={{ color: college.greenAccent }}
             >
               Working Hours
             </h3>
@@ -183,7 +183,7 @@ function WorkingHoursCard() {
               className="rounded-xl p-4"
               style={{ backgroundColor: `${college.primaryColor}08`, border: `1px solid ${college.primaryColor}18` }}
             >
-              <p className="font-display text-type-ui-sm text-[#474747]">
+              <p className="font-body text-type-ui-sm text-[#474747]">
                 <span className="font-semibold">Ragging Helpline (24×7):</span>{' '}
                 <a
                   href="tel:18001805522"
@@ -215,7 +215,7 @@ function ContactForm() {
       >
         <h2
           className="font-display font-bold text-type-h3-mob mb-1"
-          style={{ color: college.primaryColor }}
+          style={{ color: college.greenAccent }}
         >
           Get In Touch
         </h2>
@@ -316,7 +316,7 @@ function HowToReachSection() {
     <section>
       <h2
         className="font-display font-bold text-type-h3-mob mb-6"
-        style={{ color: college.primaryColor }}
+        style={{ color: college.greenAccent }}
       >
         How to Reach Us
       </h2>
@@ -335,7 +335,7 @@ function HowToReachSection() {
             </div>
             <h4
               className="font-display font-semibold text-type-body mb-2"
-              style={{ color: college.primaryColor }}
+              style={{ color: college.greenAccent }}
             >
               {o.mode}
             </h4>
@@ -361,7 +361,7 @@ function GoogleMapSection() {
     <section>
       <h2
         className="font-display font-bold text-type-h3-mob mb-6"
-        style={{ color: college.primaryColor }}
+        style={{ color: college.greenAccent }}
       >
         Our Location
       </h2>
@@ -398,7 +398,7 @@ function GrievanceSection() {
     <section>
       <h2
         className="font-display font-bold text-type-h3-mob mb-4"
-        style={{ color: college.primaryColor }}
+        style={{ color: college.greenAccent }}
       >
         Grievance Redressal
       </h2>

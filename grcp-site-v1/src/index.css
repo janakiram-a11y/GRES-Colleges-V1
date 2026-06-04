@@ -301,11 +301,14 @@ body {
    ══════════════════════════════════════════════════════════════════════════ */
 @layer utilities {
 
-  /* Global section padding */
+  /* Global section padding
+     Mobile  : 24px H  / 48px V
+     Tablet  : 60px H  / 60px V
+     Desktop : 120px H / 80px V  ← source of truth */
   .section-pad {
-    padding-left:   1.25rem;
-    padding-right:  1.25rem;
-    padding-top:    3rem;
+    padding-left:   1.5rem;    /* 24px */
+    padding-right:  1.5rem;
+    padding-top:    3rem;      /* 48px */
     padding-bottom: 3rem;
   }
   @media (min-width: 768px) {

@@ -67,7 +67,7 @@ export const bPharmFees = [
     title: 'Year of admission 2025-26 (Four Years Duration)',
     headers: BPHARM_FEE_HEADERS,
     rows: [
-      { label: 'Tuition Fee', values: ['₹ 75,000/-', '₹ 75,000/-', '₹ 75,000/-', '₹ 75,000/-'] },
+      { label: 'Tuition Fee', values: ['₹ 84,000/-', '₹ 84,000/-', '₹ 84,000/-', '₹ 84,000/-'] },
       { label: 'Special Fee', values: ['₹ 5,500',   '₹ 2,500',   '₹ 2,500',   '₹ 2,500'] },
       { label: 'NBA Fee',     values: ['₹ 3,000/-', '₹ 3,000/-', '₹ 3,000/-', '₹ 3,000/-'] },
     ],

@@ -38,7 +38,7 @@ const searchIndex = [
   { title: 'Alumni',                  desc: 'Alumni network graduates past students',          route: '/alumni',                        category: 'Page' },
   { title: 'Alumni Association',      desc: 'Alumni association membership register',          route: '/alumni-association',            category: 'Page' },
   { title: 'Contact Us',              desc: 'Contact address phone email location map',        route: '/contact',                       category: 'Page' },
-  { title: 'NIRF',                    desc: 'NIRF ranking national institutional ranking framework', route: '/nirf',                   category: 'Page' },
+  { title: 'NBA',                      desc: 'NBA accreditation national board of accreditation B.Pharmacy', route: '/nba',              category: 'Page' },
   { title: 'Mandatory Disclosures',   desc: 'Mandatory disclosures AICTE PCI compliance',     route: '/mandatory-disclosures',         category: 'Page' },
   { title: 'Events',                  desc: 'College events activities seminars workshops',    route: '/events',                        category: 'Page' },
   { title: 'Downloads',               desc: 'Download forms documents brochures PDF',          route: '/downloads',                     category: 'Page' },

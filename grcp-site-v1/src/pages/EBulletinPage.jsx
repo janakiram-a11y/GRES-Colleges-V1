@@ -129,7 +129,7 @@ export default function EBulletinPage() {
 
           {/* About */}
           <div className="mb-10">
-            <h2 className="font-display font-bold text-type-h3-mob mb-2" style={{ color: primary }}>
+            <h2 className="font-display font-bold text-type-h2-mob lg:text-type-h2 mb-2" style={{ color: accent }}>
               About the E-Bulletin
             </h2>
             <div className="w-14 h-[3px] rounded-full mb-6" style={{ backgroundColor: accent }} />
@@ -144,7 +144,7 @@ export default function EBulletinPage() {
 
           {/* Editions */}
           <div className="mb-8">
-            <h2 className="font-display font-bold text-type-h5 mb-2" style={{ color: primary }}>
+            <h2 className="font-display font-bold text-type-h5 mb-2" style={{ color: accent }}>
               Editions
             </h2>
             <div className="w-10 h-[3px] rounded-full mb-6" style={{ backgroundColor: accent }} />

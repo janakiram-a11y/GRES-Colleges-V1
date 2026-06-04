@@ -90,7 +90,7 @@ export default function Footer({ college }) {
     <footer className="w-full" style={{ backgroundColor: '#F8FAF8', borderTop: '1px solid rgba(45,122,80,0.14)' }}>
 
       {/* ── Upper section ───────────────────────────────────────────────── */}
-      <div className="max-w-[1320px] mx-auto px-6 sm:px-10 lg:px-[72px] pt-16 pb-12">
+      <div className="max-w-[1320px] mx-auto px-6 sm:px-10 lg:px-[120px] pt-16 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-12">
 
           {/* Brand column — 4/12 */}
@@ -219,12 +219,12 @@ export default function Footer({ college }) {
       </div>
 
       {/* ── Divider ─────────────────────────────────────────────────────── */}
-      <div className="max-w-[1320px] mx-auto px-6 sm:px-10 lg:px-[72px]">
+      <div className="max-w-[1320px] mx-auto px-6 sm:px-10 lg:px-[120px]">
         <div style={{ height: 1, backgroundColor: 'rgba(45,122,80,0.12)' }} />
       </div>
 
       {/* ── Bottom bar ──────────────────────────────────────────────────── */}
-      <div className="max-w-[1320px] mx-auto px-6 sm:px-10 lg:px-[72px] py-5">
+      <div className="max-w-[1320px] mx-auto px-6 sm:px-10 lg:px-[120px] py-5">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-3">
           <p className="font-display text-type-ui-sm" style={{ color: '#6B7280' }}>
             © {new Date().getFullYear()} {college.fullName}. All rights reserved.

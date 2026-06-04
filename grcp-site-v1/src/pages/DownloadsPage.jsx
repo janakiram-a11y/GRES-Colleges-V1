@@ -75,7 +75,7 @@ function CategoryBlock({ cat }) {
                 <td className="px-4 py-3.5">
                   <div className="flex items-center gap-2.5">
                     <FileIcon type={file.type} />
-                    <span className="font-display text-type-ui text-[#374151]">{file.name}</span>
+                    <span className="font-body text-type-ui text-[#374151]">{file.name}</span>
                   </div>
                 </td>
                 <td className="px-5 py-3.5 w-[130px] text-right">
@@ -119,7 +119,7 @@ export default function DownloadsPage() {
         <div className="max-w-[1200px] mx-auto">
 
           <div className="mb-8">
-            <h2 className="font-display font-bold text-type-h3-mob mb-2" style={{ color: primary }}>
+            <h2 className="font-display font-bold text-type-h2-mob lg:text-type-h2 mb-2" style={{ color: accent }}>
               Document Repository
             </h2>
             <div className="w-14 h-[3px] rounded-full mb-6" style={{ backgroundColor: accent }} />

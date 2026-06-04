@@ -85,13 +85,7 @@ export default function CampusIntro({ college }) {
 
         {/* ── Header ──────────────────────────────────────────────────── */}
         <div className="flex flex-col items-center gap-2">
-          <p
-            className="font-display font-bold text-type-sub uppercase tracking-[0.12em] text-center"
-            style={{ color: '#C72235' }}
-          >
-            {college.campusIntroLabel}
-          </p>
-          <h2 className="font-display font-semibold text-type-h2-mob lg:text-type-h2 text-[#222222] text-center">
+          <h2 className="font-display font-semibold text-type-h2-mob lg:text-type-h2 text-center" style={{ color: '#C72235' }}>
             {college.campusIntroHeading}
           </h2>
           <p className="font-body font-normal text-type-body text-[#666666] text-center max-w-[680px]">

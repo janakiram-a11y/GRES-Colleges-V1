@@ -3,9 +3,6 @@ export default function ResearchSection({ college }) {
     <section className="w-full section-pad" style={{ background: 'linear-gradient(135deg, #1E5C3A 0%, #2D7A50 60%, #1A4D33 100%)' }}>
       <div className="max-w-[1200px] mx-auto flex flex-col gap-12">
         <div className="flex flex-col items-center gap-3">
-          <p className="font-display font-bold text-type-sub uppercase tracking-[0.12em] text-[#F3DAB2] text-center">
-            {college.researchLabel}
-          </p>
           <h2 className="font-display font-semibold text-type-h2-mob lg:text-type-h2 text-white text-center">
             {college.researchHeading}
           </h2>

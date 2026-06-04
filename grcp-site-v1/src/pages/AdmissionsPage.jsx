@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import college from '../theme';
 import SiteHeader from '../components/SiteHeader';
@@ -13,7 +13,6 @@ const thStyle = {
   color: '#ffffff',
   padding: '11px 16px',
   fontFamily: 'inherit',
-  fontSize: '13px',
   fontWeight: 600,
   textAlign: 'left',
   borderRight: '1px solid rgba(255,255,255,0.15)',
@@ -22,7 +21,6 @@ const thStyle = {
 
 const tdStyle = {
   padding: '10px 16px',
-  fontSize: '13px',
   color: '#374151',
   borderBottom: '1px solid #e5e7eb',
   borderRight: '1px solid #e5e7eb',
@@ -33,18 +31,10 @@ const tdStyle = {
 function SectionHeader({ label, title }) {
   return (
     <div className="mb-8">
-      {label && (
-        <span
-          className="font-display font-bold text-type-cap uppercase tracking-[0.12em] mb-2 block"
-          style={{ color: college.greenAccent }}
-        >
-          {label}
-        </span>
-      )}
       <h2
         className="font-display font-semibold text-type-h2-mob pb-3"
         style={{
-          color: college.primaryColor,
+          color: college.greenAccent,
           borderBottom: `3px solid ${college.greenAccent}`,
           display: 'inline-block',
         }}
@@ -104,18 +94,18 @@ function DataTable({ headers, rows }) {
         <thead>
           <tr>
             {headers.map((h) => (
-              <th key={h} style={thStyle}>{h}</th>
+              <th key={h} className="text-type-ui-sm" style={thStyle}>{h}</th>
             ))}
           </tr>
         </thead>
         <tbody>
           {rows.map((row, i) => (
             <tr key={i} style={{ backgroundColor: i % 2 === 0 ? '#ffffff' : '#f9fafb' }}>
-              <td style={{ ...tdStyle, fontWeight: 600, color: college.primaryColor }}>
+              <td className="text-type-ui-sm" style={{ ...tdStyle, fontWeight: 600, color: college.primaryColor }}>
                 {row.label}
               </td>
               {row.values.map((val, j) => (
-                <td key={j} style={tdStyle}>{val}</td>
+                <td key={j} className="text-type-ui-sm" style={tdStyle}>{val}</td>
               ))}
             </tr>
           ))}
@@ -278,24 +268,24 @@ function EamcetRankContent() {
               <thead>
                 <tr>
                   {eamcetCols.map((col) => (
-                    <th key={col} style={thStyle}>{col}</th>
+                    <th key={col} className="text-type-ui-sm" style={thStyle}>{col}</th>
                   ))}
                 </tr>
               </thead>
               <tbody>
                 {yearData.rows.map((row, i) => (
                   <tr key={i} style={{ backgroundColor: i % 2 === 0 ? '#ffffff' : '#f9fafb' }}>
-                    <td style={{ ...tdStyle, fontWeight: 600, color: college.primaryColor, whiteSpace: 'nowrap' }}>
+                    <td className="text-type-ui-sm" style={{ ...tdStyle, fontWeight: 600, color: college.primaryColor, whiteSpace: 'nowrap' }}>
                       {row.stream}
                     </td>
-                    <td style={tdStyle}>{row.OC}</td>
-                    <td style={tdStyle}>{row.BCA}</td>
-                    <td style={tdStyle}>{row.BCB}</td>
-                    <td style={tdStyle}>{row.BCC}</td>
-                    <td style={tdStyle}>{row.BCD}</td>
-                    <td style={tdStyle}>{row.BCE}</td>
-                    <td style={tdStyle}>{row.SC}</td>
-                    <td style={tdStyle}>{row.ST}</td>
+                    <td className="text-type-ui-sm" style={tdStyle}>{row.OC}</td>
+                    <td className="text-type-ui-sm" style={tdStyle}>{row.BCA}</td>
+                    <td className="text-type-ui-sm" style={tdStyle}>{row.BCB}</td>
+                    <td className="text-type-ui-sm" style={tdStyle}>{row.BCC}</td>
+                    <td className="text-type-ui-sm" style={tdStyle}>{row.BCD}</td>
+                    <td className="text-type-ui-sm" style={tdStyle}>{row.BCE}</td>
+                    <td className="text-type-ui-sm" style={tdStyle}>{row.SC}</td>
+                    <td className="text-type-ui-sm" style={tdStyle}>{row.ST}</td>
                   </tr>
                 ))}
               </tbody>
@@ -309,60 +299,104 @@ function EamcetRankContent() {
 
 // ── Section: PGECET Ranks ──────────────────────────────────────────────────────
 
-function PgecetSpecialization({ label, data }) {
+// Preferred column order matching the reference site
+const PGECET_COL_ORDER = ['OC', 'BC', 'SC', 'ST', 'GPAT', 'GPAT-A', 'GPAT-B', 'GPAT-C', 'GPAT-D', 'GPAT-E'];
+
+function PgecetPivotTable({ entries }) {
+  if (!entries || entries.length === 0) {
+    return (
+      <p className="font-body text-type-body-xs text-[#6b7280] italic py-3">
+        No data available for this year.
+      </p>
+    );
+  }
+
+  // Build set of categories that have at least one data point
+  const presentCats = new Set(entries.map((e) => e.category));
+  const cols = PGECET_COL_ORDER.filter((c) => presentCats.has(c));
+
+  // Build set of genders present (preserve Boys → Girls order)
+  const genders = ['Boys', 'Girls'].filter((g) =>
+    entries.some((e) => e.gender === g)
+  );
+
+  // Pivot lookup: gender + category → rank
+  const pivot = {};
+  entries.forEach(({ gender, category, rank }) => {
+    pivot[`${gender}__${category}`] = rank;
+  });
+
+  return (
+    <div className="overflow-x-auto rounded-xl border mb-2" style={{ borderColor: `${college.primaryColor}18` }}>
+      <table className="w-full border-collapse min-w-[480px]">
+        <thead>
+          <tr style={{ backgroundColor: college.greenAccent }}>
+            <th
+              className="font-display font-semibold text-type-ui-sm text-white text-left px-4 py-3 sticky left-0"
+              style={{ borderRight: '1px solid rgba(255,255,255,0.2)', minWidth: 80 }}
+            >
+              Gender
+            </th>
+            {cols.map((cat) => (
+              <th
+                key={cat}
+                className="font-display font-semibold text-type-ui-sm text-white text-center px-4 py-3 whitespace-nowrap"
+                style={{ borderRight: '1px solid rgba(255,255,255,0.2)' }}
+              >
+                {cat}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {genders.map((gender, i) => (
+            <tr key={gender} style={{ backgroundColor: i % 2 === 0 ? '#fff' : '#FAFAFA' }}>
+              <td
+                className="font-display font-semibold text-type-ui px-4 py-3"
+                style={{ color: college.primaryColor, borderRight: `1px solid ${college.primaryColor}10`, borderBottom: `1px solid ${college.primaryColor}10` }}
+              >
+                {gender}
+              </td>
+              {cols.map((cat) => (
+                <td
+                  key={cat}
+                  className="font-body text-type-ui text-center px-4 py-3"
+                  style={{ color: '#374151', borderRight: `1px solid ${college.primaryColor}10`, borderBottom: `1px solid ${college.primaryColor}10` }}
+                >
+                  {pivot[`${gender}__${cat}`] ?? '—'}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function PgecetSpecializationForYear({ label, data, selectedYear }) {
+  const yearEntry = data.find((entry) => entry.year === selectedYear);
   return (
     <div className="mb-10">
       <SubHeading>{label}</SubHeading>
-      {data.map((yearEntry) => (
-        <div key={yearEntry.year} className="mb-6">
-          <h4
-            className="font-display font-semibold text-type-body mb-3 pl-3"
-            style={{
-              color: college.primaryColor,
-              borderLeft: `3px solid ${college.primaryColor}`,
-            }}
-          >
-            {yearEntry.year}
-          </h4>
-          <div className="overflow-x-auto">
-            <table className="w-full border-collapse" style={{ border: '1px solid #e5e7eb' }}>
-              <thead>
-                <tr>
-                  {['Gender', 'Category', 'Last Rank'].map((col) => (
-                    <th key={col} style={thStyle}>{col}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {yearEntry.entries.map((entry, i) => (
-                  <tr key={i} style={{ backgroundColor: i % 2 === 0 ? '#ffffff' : '#f9fafb' }}>
-                    <td style={{ ...tdStyle, fontWeight: 600 }}>{entry.gender}</td>
-                    <td style={tdStyle}>{entry.category}</td>
-                    <td style={{ ...tdStyle, fontWeight: 600, color: college.primaryColor }}>
-                      {entry.rank}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      ))}
+      <PgecetPivotTable entries={yearEntry?.entries} />
     </div>
   );
 }
 
 function PgecetRankContent() {
   const { pharmaceutics, pharmaceuticalAnalysis, pharmacology } = college.admissions.pgecetRanks;
+  const years = pharmaceutics.map((entry) => entry.year);
+  const [selectedYear, setSelectedYear] = useState(years[0]);
+
   return (
     <div>
       <SectionHeader label="Admissions" title="PGECET Last Ranks" />
+
+      {/* Counselling code */}
       <div
         className="mb-8 flex items-center gap-3 px-4 py-3 rounded"
-        style={{
-          backgroundColor: `${college.greenAccent}15`,
-          border: `1px solid ${college.greenAccent}40`,
-        }}
+        style={{ backgroundColor: `${college.greenAccent}15`, border: `1px solid ${college.greenAccent}40` }}
       >
         <span className="font-display font-bold text-type-ui-sm" style={{ color: college.primaryColor }}>
           TG PGECET Counselling Code:
@@ -374,9 +408,32 @@ function PgecetRankContent() {
           GRCP1
         </span>
       </div>
-      <PgecetSpecialization label="Pharmaceutics" data={pharmaceutics} />
-      <PgecetSpecialization label="Pharmaceutical Analysis" data={pharmaceuticalAnalysis} />
-      <PgecetSpecialization label="Pharmacology" data={pharmacology} />
+
+      {/* Year tab bar */}
+      <div className="flex flex-wrap gap-2 mb-8">
+        {years.map((year) => {
+          const isActive = year === selectedYear;
+          return (
+            <button
+              key={year}
+              onClick={() => setSelectedYear(year)}
+              className="font-display font-semibold text-type-ui-sm px-4 py-1.5 rounded-full transition-colors"
+              style={
+                isActive
+                  ? { backgroundColor: college.primaryColor, color: '#fff', border: `1px solid ${college.primaryColor}` }
+                  : { backgroundColor: 'transparent', color: '#6b7280', border: '1px solid #d1d5db' }
+              }
+            >
+              {year}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Three specialisation pivot tables */}
+      <PgecetSpecializationForYear label="Pharmaceutics"           data={pharmaceutics}          selectedYear={selectedYear} />
+      <PgecetSpecializationForYear label="Pharmaceutical Analysis" data={pharmaceuticalAnalysis}  selectedYear={selectedYear} />
+      <PgecetSpecializationForYear label="Pharmacology"            data={pharmacology}            selectedYear={selectedYear} />
     </div>
   );
 }

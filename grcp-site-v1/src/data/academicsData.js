@@ -99,7 +99,7 @@ export const academicCalendarItems = [
 // ── Time Tables ───────────────────────────────────────────────────────────────
 
 export const bPharmTimetables = {
-  year: '2025-2026',
+  year: null,
   rows: [
     { sem: 'II Sem',   section: 'A', href: BASE + 'media/69ef3acc84ce5B. Pharm AY(25-26) - II Sem (A) - Academic TT.pdf'   },
     { sem: 'II Sem',   section: 'B', href: BASE + 'media/69ef3add24adcB. Pharm AY(25-26) - II Sem (B) - Academic TT.pdf'   },
@@ -113,7 +113,7 @@ export const bPharmTimetables = {
 }
 
 export const mPharmTimetables = {
-  year: '2025-27',
+  year: null,
   rows: [
     { specialisation: 'Pharmaceutical Analysis',           sem: 'I Sem', href: BASE + 'media/693cc1189cafcM. PHARM _ FIRST SEM_ PH. ANALYSIS_25-26TT.pdf'   },
     { specialisation: 'Pharmacology',                      sem: 'I Sem', href: BASE + 'media/693cc140bd018M. PHARM _ FIRST SEM_ PHARMACOLOGY_25-26TT.pdf'    },

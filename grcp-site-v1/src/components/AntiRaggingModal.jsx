@@ -29,21 +29,23 @@ export default function AntiRaggingModal({ onClose }) {
     };
   }, [handleKeyDown]);
 
-  /* ── Shared link style ────────────────────────────────────────────────── */
-  const linkStyle = {
-    color: '#0d6efd',
-    textDecoration: 'none',
-    fontSize: '14px',
-    fontFamily: 'Montserrat, sans-serif',
-  };
-  const linkHover = (e) => (e.currentTarget.style.textDecoration = 'underline');
-  const linkOut  = (e) => (e.currentTarget.style.textDecoration = 'none');
+  /* ── Link styles matching reference exactly ──────────────────────────── */
+  const font     = "'Montserrat', Arial, sans-serif";
+  const baseSz   = '14px';
+
+  // Standard blue links (email, website, PDF)
+  const blueLink = { color: '#0d6efd', textDecoration: 'none', fontSize: baseSz, fontFamily: font };
+  // Teal/cyan links (ARC, ARS) — matches reference site
+  const tealLink = { color: '#17a2b8', textDecoration: 'none', fontSize: baseSz, fontFamily: font };
+
+  const hoverOn  = (e) => (e.currentTarget.style.textDecoration = 'underline');
+  const hoverOff = (e) => (e.currentTarget.style.textDecoration = 'none');
 
   return (
     /* ── Backdrop ─────────────────────────────────────────────────────────── */
     <div
       className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
-      style={{ backgroundColor: 'rgba(0,0,0,0.55)' }}
+      style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}
       onClick={onClose}
       role="dialog"
       aria-modal="true"
@@ -51,172 +53,104 @@ export default function AntiRaggingModal({ onClose }) {
     >
       {/* ── Modal card ────────────────────────────────────────────────────── */}
       <div
-        className="relative bg-white w-full max-w-[600px] max-h-[90vh] overflow-y-auto"
+        className="relative bg-white w-full max-w-[560px] max-h-[90vh] overflow-y-auto"
         style={{
-          border: '3px solid #d31329',
+          border: '2px solid #dc3545',
           borderRadius: '4px',
-          boxShadow: '0 4px 24px rgba(0,0,0,0.22)',
+          boxShadow: '0 2px 12px rgba(0,0,0,0.25)',
         }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Close button */}
+        {/* ── Close button ────────────────────────────────────────────────── */}
         <button
           onClick={onClose}
           aria-label="Close Anti-Ragging modal"
           style={{
             position: 'absolute',
-            top: '10px',
-            right: '14px',
-            fontSize: '24px',
+            top: '8px',
+            right: '12px',
+            fontSize: '22px',
             fontWeight: '400',
             lineHeight: 1,
-            color: '#555',
+            color: '#000',
             background: 'none',
             border: 'none',
             cursor: 'pointer',
-            padding: 0,
+            padding: '2px 6px',
+            opacity: 0.5,
             zIndex: 10,
           }}
-          onMouseEnter={(e) => (e.currentTarget.style.color = '#000')}
-          onMouseLeave={(e) => (e.currentTarget.style.color = '#555')}
+          onMouseEnter={(e) => (e.currentTarget.style.opacity = '1')}
+          onMouseLeave={(e) => (e.currentTarget.style.opacity = '0.5')}
         >
-          &#x00D7;
+          ×
         </button>
 
-        {/* Content */}
-        <div
-          style={{
-            padding: '24px 28px 28px',
-            fontFamily: 'Montserrat, sans-serif',
-            fontSize: '14px',
-            lineHeight: '1.65',
-            color: '#212529',
-          }}
-        >
+        {/* ── Body ────────────────────────────────────────────────────────── */}
+        <div style={{ padding: '20px 24px 24px', fontFamily: font, color: '#212529', lineHeight: '1.6' }}>
+
           {/* Title */}
           <h2
             id="anti-ragging-title"
-            style={{
-              fontSize: '22px',
-              fontWeight: '700',
-              color: '#212529',
-              marginBottom: '4px',
-              paddingRight: '28px',
-              lineHeight: '1.3',
-            }}
+            style={{ fontSize: '20px', fontWeight: '700', color: '#212529', margin: '0 0 6px', paddingRight: '24px', lineHeight: '1.35' }}
           >
             National Ragging Prevention Programme
           </h2>
-          <p style={{ fontSize: '14px', color: '#212529', marginBottom: '18px' }}>
+
+          {/* Helpline label */}
+          <p style={{ fontSize: baseSz, color: '#212529', margin: '0 0 14px' }}>
             National Anti-Ragging Helpline
           </p>
 
-          {/* Helpline */}
-          <p style={{ fontSize: '14px', color: '#212529', marginBottom: '2px' }}>
-            24X7 Toll Free
-          </p>
-          <p style={{ fontSize: '14px', fontWeight: '700', color: '#212529', marginBottom: '22px' }}>
+          {/* Toll-free number */}
+          <p style={{ fontSize: baseSz, color: '#212529', margin: '0 0 2px' }}>24X7 Toll Free</p>
+          <p style={{ fontSize: baseSz, fontWeight: '700', color: '#212529', margin: '0 0 18px' }}>
             1800-180-5522
           </p>
 
-          {/* UGC Monitoring Agency */}
-          <h3
-            style={{
-              fontSize: '20px',
-              fontWeight: '400',
-              color: '#212529',
-              marginBottom: '4px',
-              lineHeight: '1.3',
-            }}
-          >
+          {/* UGC section heading */}
+          <h3 style={{ fontSize: '22px', fontWeight: '400', color: '#212529', margin: '0 0 6px', lineHeight: '1.35' }}>
             UGC Monitoring Agency
           </h3>
-          <p style={{ fontSize: '14px', color: '#212529', marginBottom: '4px' }}>
-            Centre for Youth (C4Y)
-          </p>
-          <p style={{ marginBottom: '22px' }}>
-            <a
-              href="mailto:antiragging@c4yindia.org"
-              style={linkStyle}
-              onMouseEnter={linkHover}
-              onMouseLeave={linkOut}
-            >
+
+          {/* C4Y */}
+          <p style={{ fontSize: baseSz, color: '#212529', margin: '0 0 4px' }}>Centre for Youth (C4Y)</p>
+          <p style={{ margin: '0 0 18px' }}>
+            <a href="mailto:antiragging@c4yindia.org" style={blueLink} onMouseEnter={hoverOn} onMouseLeave={hoverOff}>
               antiragging@c4yindia.org
             </a>
             {' | '}
-            <a
-              href="https://www.c4yindia.org"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={linkStyle}
-              onMouseEnter={linkHover}
-              onMouseLeave={linkOut}
-            >
+            <a href="https://www.c4yindia.org" target="_blank" rel="noopener noreferrer" style={blueLink} onMouseEnter={hoverOn} onMouseLeave={hoverOff}>
               www.c4yindia.org
             </a>
           </p>
 
-          {/* Nodal officers */}
-          <p
-            style={{
-              fontSize: '14px',
-              fontWeight: '700',
-              color: '#212529',
-              marginBottom: '8px',
-              lineHeight: '1.5',
-            }}
-          >
+          {/* Nodal officers heading */}
+          <p style={{ fontSize: baseSz, fontWeight: '700', color: '#212529', margin: '0 0 8px', lineHeight: '1.5' }}>
             Contact Details of the Nodal Officers of Anti-Ragging Committee and Squad
           </p>
-          <p style={{ marginBottom: '22px' }}>
-            <a
-              href="https://grcp.ac.in/Anti_Ragging_Committee.php"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={linkStyle}
-              onMouseEnter={linkHover}
-              onMouseLeave={linkOut}
-            >
+
+          {/* ARC / ARS links — teal/cyan matching reference */}
+          <p style={{ margin: '0 0 18px' }}>
+            <a href="https://grcp.ac.in/Anti_Ragging_Committee.php" target="_blank" rel="noopener noreferrer" style={tealLink} onMouseEnter={hoverOn} onMouseLeave={hoverOff}>
               Anti-Ragging Committee (ARC)
             </a>
             {' | '}
-            <a
-              href="https://grcp.ac.in/Anti_Ragging_Squad.php"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={linkStyle}
-              onMouseEnter={linkHover}
-              onMouseLeave={linkOut}
-            >
+            <a href="https://grcp.ac.in/Anti_Ragging_Squad.php" target="_blank" rel="noopener noreferrer" style={tealLink} onMouseEnter={hoverOn} onMouseLeave={hoverOff}>
               Anti-Ragging Squad (ARS)
             </a>
           </p>
 
-          {/* Warning */}
-          <p
-            style={{
-              fontSize: '14px',
-              fontWeight: '700',
-              color: '#d31329',
-              marginBottom: '18px',
-              lineHeight: '1.55',
-            }}
-          >
-            Ragging is a criminal offence and the culprits will attract punitive
-            action as mentioned in the UGC Regulations
+          {/* Warning — bold red */}
+          <p style={{ fontSize: baseSz, fontWeight: '700', color: '#dc3545', margin: '0 0 16px', lineHeight: '1.55' }}>
+            Ragging is a criminal offence and the culprits will attract punitive action as mentioned in the UGC Regulations
           </p>
 
           {/* PDF link */}
-          <a
-            href="https://www.ugc.gov.in/oldpdf/ugcregulations09.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={linkStyle}
-            onMouseEnter={linkHover}
-            onMouseLeave={linkOut}
-          >
+          <a href="https://www.ugc.gov.in/oldpdf/ugcregulations09.pdf" target="_blank" rel="noopener noreferrer" style={blueLink} onMouseEnter={hoverOn} onMouseLeave={hoverOff}>
             UGC Regulations PDF
           </a>
+
         </div>
       </div>
     </div>

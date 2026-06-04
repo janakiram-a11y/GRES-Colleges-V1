@@ -12,15 +12,7 @@ const accent = college.greenAccent;
 function SectionHeader({ label, title }) {
   return (
     <div className="flex flex-col gap-2 mb-8">
-      {label && (
-        <span
-          className="font-display font-bold text-type-label tracking-[0.12em] uppercase"
-          style={{ color: `${primary}80` }}
-        >
-          {label}
-        </span>
-      )}
-      <h2 className="font-display font-bold text-type-h3-mob" style={{ color: primary }}>
+      <h2 className="font-display font-bold text-type-h3-mob" style={{ color: accent }}>
         {title}
       </h2>
       <div className="w-14 h-[3px] rounded-full" style={{ backgroundColor: accent }} />
@@ -181,7 +173,7 @@ export default function AlumniAssociationPage() {
                             {row.email}
                           </a>
                         ) : (
-                          <span className="font-display text-type-ui-sm text-[#9CA3AF]">—</span>
+                          <span className="font-body text-type-ui-sm text-[#9CA3AF]">—</span>
                         )}
                       </td>
                     </tr>

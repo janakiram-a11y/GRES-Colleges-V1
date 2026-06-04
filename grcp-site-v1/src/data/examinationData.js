@@ -8,7 +8,7 @@ export const examBranchFunctions = [
   'SMS notifications to students for absentees and result announcements',
   'Conduct of end-semester practical examinations',
   'Result analysis for both sessional and end-semester examinations',
-  'Preparation and maintenance of documentation for accreditation bodies (NBA, NAAC)',
+  'Preparation and maintenance of documentation for accreditation bodies – OU, PCI, NBA, MoE & Governing body meetings.',
 ]
 
 export const ugSessionalCommittee = [
@@ -64,11 +64,11 @@ export const sessionalTimetableSections = [
     programme: 'M.Pharmacy',
     items: [
       {
-        label: 'M.Pharmacy III Sem – Second Sessional (Theory) Exam TT 25-26',
+        label: 'M.Pharmacy III Sem – Second Sessional (Theory) Exam TT',
         href: `${BASE}/media/69e1f6c8a1bbdMPhaRM3SEM25-26.pdf`,
       },
       {
-        label: 'M.Pharmacy I Sem – Second Sessional (Theory) Exam TT 25-26',
+        label: 'M.Pharmacy I Sem – Second Sessional (Theory) Exam TT',
         href: `${BASE}/media/69b929059c97eM.Pharmfirstsem2sessionaltimetable25-26.pdf`,
       },
     ],
@@ -78,15 +78,15 @@ export const sessionalTimetableSections = [
     programme: 'M.Pharmacy',
     items: [
       {
-        label: 'M.Pharmacy III Sem – Second Sessional (Theory) Exam TT 24-25',
+        label: 'M.Pharmacy III Sem – Second Sessional (Theory) Exam TT',
         href: `${BASE}/media/6849e2c7638d7iiisemises.jpg`,
       },
       {
-        label: 'M.Pharmacy III Sem – First Sessional (Theory) Exam TT 24-25',
+        label: 'M.Pharmacy III Sem – First Sessional (Theory) Exam TT',
         href: `${BASE}/media/6849e29c0f84aiiisemises.jpg`,
       },
       {
-        label: 'M.Pharmacy I Sem – Second Sessional (Theory) Exam TT 24-25',
+        label: 'M.Pharmacy I Sem – Second Sessional (Theory) Exam TT',
         href: `${BASE}/media/6849e3142b872M.PharmacyIsemIIsessional(theory)examTT24-25.pdf.pdf`,
       },
     ],

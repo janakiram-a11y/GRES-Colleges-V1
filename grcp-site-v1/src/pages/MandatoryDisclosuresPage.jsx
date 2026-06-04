@@ -20,7 +20,7 @@ function PdfIcon() {
 function SectionHeader({ title }) {
   return (
     <div className="mb-5">
-      <h2 className="font-display font-bold text-type-h5" style={{ color: primary }}>
+      <h2 className="font-display font-bold text-type-h5" style={{ color: accent }}>
         {title}
       </h2>
       <div className="w-10 h-[3px] rounded-full mt-2" style={{ backgroundColor: accent }} />
@@ -96,15 +96,6 @@ export default function MandatoryDisclosuresPage() {
             ]}
           />
 
-          <DisclosureSection
-            title="NIRF Disclosures"
-            links={[
-              { label: 'NIRF Innovation', href: 'https://grcp.ac.in/downloads/NIRF-innovation.pdf' },
-              { label: 'Data Submitted by Institution for India Rankings 2024', href: 'https://grcp.ac.in/downloads/Gokaraju%20Rangaraju%20College%20of%20Pharmacy20240127-.pdf' },
-              { label: 'Data Submitted by Institution for India Rankings 2023', href: 'https://grcp.ac.in/downloads/NIRF_Data_2023.pdf' },
-              { label: 'Data Submitted by Institution for India Rankings 2022', href: 'https://grcp.ac.in/downloads/Data%20Submitted%20by%20Institution%20for%20India%20Rankings2022.pdf' },
-            ]}
-          />
 
           <DisclosureSection
             title="OU Disclosures"

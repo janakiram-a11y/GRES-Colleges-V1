@@ -42,19 +42,21 @@ export default function Navbar({ college }) {
         {/* Single row: college logo | divider | auto-scroll strip */}
         <div
           className="max-w-[1320px] mx-auto px-4 sm:px-8 lg:px-[60px] flex items-center"
-          style={{ minHeight: 120 }}
+          style={{ minHeight: 130 }}
         >
 
           {/* ── College logo ─────────────────────────────────────────────── */}
-          <div className="flex items-center flex-shrink-0 py-3">
+          <div className="flex items-center flex-shrink-0 py-2">
             <img
               src={college.logo}
               alt={`${college.fullName} Logo`}
               style={{
-                height: 110,
+                height: 'auto',
                 width: 'auto',
+                maxHeight: 120,
+                maxWidth: 420,
                 objectFit: 'contain',
-                maxWidth: 340,
+                display: 'block',
               }}
             />
           </div>
@@ -65,7 +67,7 @@ export default function Navbar({ college }) {
               width: 1,
               alignSelf: 'stretch',
               background: withAlpha(college.primaryColor, 0.18),
-              margin: '14px 28px',
+              margin: '14px 14px',
               flexShrink: 0,
             }}
           />

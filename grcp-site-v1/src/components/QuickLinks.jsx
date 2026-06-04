@@ -15,11 +15,11 @@ const links = [
     ),
   },
   {
-    label: 'NIRF',
-    href: '/nirf',
+    label: 'NBA',
+    href: '/nba',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+        <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
       </svg>
     ),
   },
@@ -35,6 +35,18 @@ const links = [
       </svg>
     ),
   },
+  {
+    label: 'Alumni Association',
+    href: '/alumni-association',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M23 21v-2a4 4 0 00-3-3.87" />
+        <path d="M16 3.13a4 4 0 010 7.75" />
+      </svg>
+    ),
+  },
 ];
 
 export default function QuickLinks() {
@@ -43,8 +55,8 @@ export default function QuickLinks() {
       className="w-full"
       style={{ backgroundColor: '#F3DAB2', borderBottom: '1px solid rgba(199,34,53,0.12)' }}
     >
-      <div className="max-w-[1320px] mx-auto px-4 sm:px-8 lg:px-[60px]">
-        <div className="grid grid-cols-3" style={{ height: 90 }}>
+      <div className="w-full">
+        <div className="grid grid-cols-2 sm:grid-cols-4" style={{ height: 90 }}>
           {links.map(({ label, href, icon }, idx) => (
             <Link
               key={label}
@@ -52,6 +64,7 @@ export default function QuickLinks() {
               className="group flex flex-row items-center justify-center gap-3 transition-all duration-200"
               style={{
                 borderRight: idx < links.length - 1 ? '1px solid rgba(74,20,40,0.18)' : 'none',
+                borderLeft: idx === 0 ? 'none' : undefined,
                 color: '#4A1428',
               }}
             >
@@ -62,8 +75,8 @@ export default function QuickLinks() {
                 {icon}
               </span>
               <span
-                className="font-display font-bold text-type-label uppercase tracking-widest text-center transition-colors duration-200 group-hover:text-[#C72235]"
-                style={{ letterSpacing: '0.12em' }}
+                className="font-display font-bold uppercase tracking-widest text-center transition-colors duration-200 group-hover:text-[#C72235]"
+                style={{ letterSpacing: '0.12em', fontSize: '16px' }}
               >
                 {label}
               </span>

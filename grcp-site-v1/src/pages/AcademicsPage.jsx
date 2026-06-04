@@ -2,6 +2,9 @@ import React from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import college from '../theme';
 import AdminSidebarLayout from '../components/AdminSidebarLayout';
+import { facultyList as facultyListWithCV } from '../data/academicsData';
+
+const CV_MAP = Object.fromEntries(facultyListWithCV.map(f => [f.name.trim(), f.cv]));
 
 const primary = college.primaryColor; // #2D7A50
 const accent  = college.greenAccent;  // #C72235
@@ -11,15 +14,7 @@ const accent  = college.greenAccent;  // #C72235
 function SectionHeader({ label, title }) {
   return (
     <div className="flex flex-col gap-2 mb-8">
-      {label && (
-        <span
-          className="font-display font-bold text-type-label tracking-[0.12em] uppercase"
-          style={{ color: `${primary}80` }}
-        >
-          {label}
-        </span>
-      )}
-      <h2 className="font-display font-bold text-type-h3-mob" style={{ color: primary }}>
+      <h2 className="font-display font-bold text-type-h3-mob" style={{ color: accent }}>
         {title}
       </h2>
       <div className="w-14 h-[3px] rounded-full" style={{ backgroundColor: accent }} />
@@ -297,7 +292,7 @@ function CalendarContent() {
                 <h3 className="font-display font-bold text-type-body leading-snug" style={{ color: primary }}>
                   {d.title}
                 </h3>
-                <p className="font-display text-type-cap text-[#6B7280] mt-1">Official Academic Almanac — PDF</p>
+                <p className="font-body text-type-cap text-[#6B7280] mt-1">Official Academic Almanac — PDF</p>
               </div>
             </div>
             <DownloadBtn href={d.href} label="Download PDF" />
@@ -381,31 +376,67 @@ function TTTable({ rows, columns }) {
 }
 
 function TimetablesContent() {
+  const [activeProgram, setActiveProgram] = React.useState('bpharm');
+
+  const programTabs = [
+    { key: 'bpharm', label: 'B.Pharmacy' },
+    { key: 'mpharm', label: 'M.Pharmacy' },
+  ];
+
   return (
     <>
       <SectionHeader label="Class & Lab Schedules" title="Time Tables" />
 
-      <SubHeading>B.Pharmacy (2025–2026)</SubHeading>
-      <TTTable
-        rows={BPHARM_TT}
-        columns={[
-          { key: 'sno',      label: 'S.No.' },
-          { key: 'semester', label: 'Semester', accent: true },
-          { key: 'section',  label: 'Section' },
-          { key: 'download', label: 'Download' },
-        ]}
-      />
+      {/* Program tab bar */}
+      <div className="flex gap-2 mb-8">
+        {programTabs.map((tab) => {
+          const isActive = activeProgram === tab.key;
+          return (
+            <button
+              key={tab.key}
+              onClick={() => setActiveProgram(tab.key)}
+              className="px-4 py-2 rounded-full font-display text-type-ui-sm font-semibold border transition-all duration-150"
+              style={
+                isActive
+                  ? { backgroundColor: primary, borderColor: primary, color: '#fff' }
+                  : { backgroundColor: '#fff', borderColor: '#D1D5DB', color: '#6B7280' }
+              }
+            >
+              {tab.label}
+            </button>
+          );
+        })}
+      </div>
 
-      <SubHeading>M.Pharmacy (2025–27)</SubHeading>
-      <TTTable
-        rows={MPHARM_TT}
-        columns={[
-          { key: 'sno',           label: 'S.No.' },
-          { key: 'specialisation', label: 'Specialisation', accent: true },
-          { key: 'semester',      label: 'Semester' },
-          { key: 'download',      label: 'Download' },
-        ]}
-      />
+      {activeProgram === 'bpharm' && (
+        <>
+          <SubHeading>B.Pharmacy</SubHeading>
+          <TTTable
+            rows={BPHARM_TT}
+            columns={[
+              { key: 'sno',      label: 'S.No.' },
+              { key: 'semester', label: 'Semester', accent: true },
+              { key: 'section',  label: 'Section' },
+              { key: 'download', label: 'Download' },
+            ]}
+          />
+        </>
+      )}
+
+      {activeProgram === 'mpharm' && (
+        <>
+          <SubHeading>M.Pharmacy</SubHeading>
+          <TTTable
+            rows={MPHARM_TT}
+            columns={[
+              { key: 'sno',           label: 'S.No.' },
+              { key: 'specialisation', label: 'Specialisation', accent: true },
+              { key: 'semester',      label: 'Semester' },
+              { key: 'download',      label: 'Download' },
+            ]}
+          />
+        </>
+      )}
 
       <InfoCallout>
         Timetables are updated each semester. Contact the college office at{' '}
@@ -733,6 +764,7 @@ function FacultyCard({ member }) {
   const initials = getInitials(member.name);
   const deptStyle = DEPT_COLORS[member.dept] ?? DEPT_COLORS['General Studies'];
   const tier = getDesignationTier(member.designation);
+  const cv = CV_MAP[member.name?.trim()] || '';
 
   return (
     <div
@@ -741,6 +773,14 @@ function FacultyCard({ member }) {
     >
       {/* Top accent bar */}
       <div className="h-1 w-full flex-shrink-0" style={{ backgroundColor: tier.color }} />
+
+      {/* Sequential number badge */}
+      <div
+        className="absolute top-3 left-3 w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 z-10"
+        style={{ backgroundColor: primary }}
+      >
+        <span className="font-display font-bold text-white text-type-label" style={{ lineHeight: 1 }}>{member.sno}</span>
+      </div>
 
       <div className="flex flex-col flex-1 p-5 gap-4">
         {/* Avatar + name */}
@@ -795,12 +835,12 @@ function FacultyCard({ member }) {
           </div>
         </div>
 
-        {/* Email */}
-        <div className="mt-auto pt-3 border-t" style={{ borderColor: `${primary}10` }}>
+        {/* Email + CV */}
+        <div className="mt-auto pt-3 border-t flex items-center justify-between gap-2 flex-wrap" style={{ borderColor: `${primary}10` }}>
           {member.email ? (
             <a
               href={`mailto:${member.email}`}
-              className="flex items-center gap-1.5 font-display text-type-cap truncate transition-opacity hover:opacity-70"
+              className="flex items-center gap-1.5 font-display text-type-cap truncate transition-opacity hover:opacity-70 min-w-0"
               style={{ color: primary }}
             >
               <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
@@ -810,6 +850,20 @@ function FacultyCard({ member }) {
             </a>
           ) : (
             <span className="font-display text-type-cap text-[#9CA3AF]">—</span>
+          )}
+          {cv && (
+            <a
+              href={`https://grcp.ac.in/${cv}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 font-display text-type-cap font-semibold flex-shrink-0 transition-opacity hover:opacity-70"
+              style={{ color: primary }}
+            >
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v12m0 0l-4-4m4 4l4-4M3 17v2a2 2 0 002 2h14a2 2 0 002-2v-2" />
+              </svg>
+              CV
+            </a>
           )}
         </div>
       </div>
@@ -955,7 +1009,7 @@ function NonTeachingContent() {
 // ── Library Sub-page Content ──────────────────────────────────────────────────
 
 function InformationCenterContent() {
-  const linkStyle = { color: primary, textDecoration: 'underline', fontSize: '14px', fontFamily: 'inherit' };
+  const linkStyle = { color: primary, textDecoration: 'underline' };
   return (
     <>
       <SectionHeader label="Library" title="Information Center @ GRCP" />
@@ -976,7 +1030,7 @@ function InformationCenterContent() {
             {[{ name: 'DELNET eJournals', url: 'https://discovery.delnet.in' }, { name: 'Science Direct', url: 'https://www.sciencedirect.com' }].map((db) => (
               <li key={db.name} className="flex items-center gap-3">
                 <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: accent }} />
-                <a href={db.url} target="_blank" rel="noopener noreferrer" style={linkStyle}>{db.name}</a>
+                <a href={db.url} target="_blank" rel="noopener noreferrer" className="font-body text-type-ui" style={linkStyle}>{db.name}</a>
               </li>
             ))}
           </ul>
@@ -1005,7 +1059,7 @@ function InformationCenterContent() {
             ].map((r) => (
               <li key={r.name} className="flex items-center gap-3">
                 <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: accent }} />
-                <a href={r.url} target="_blank" rel="noopener noreferrer" style={linkStyle}>{r.name}</a>
+                <a href={r.url} target="_blank" rel="noopener noreferrer" className="font-body text-type-ui" style={linkStyle}>{r.name}</a>
               </li>
             ))}
           </ul>
@@ -1020,7 +1074,7 @@ function InformationCenterContent() {
             ].map((r) => (
               <li key={r.name} className="flex items-center gap-3">
                 <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: accent }} />
-                <a href={r.url} target="_blank" rel="noopener noreferrer" style={linkStyle}>{r.name}</a>
+                <a href={r.url} target="_blank" rel="noopener noreferrer" className="font-body text-type-ui" style={linkStyle}>{r.name}</a>
               </li>
             ))}
           </ul>

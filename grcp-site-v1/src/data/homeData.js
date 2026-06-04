@@ -65,7 +65,7 @@ export const tickerText =
 export const secondaryLinks = [
   { label: 'ALUMNI ASSOCIATION',    href: '/alumni-association'    },
   { label: 'MANDATORY DISCLOSURES', href: '/mandatory-disclosures' },
-  { label: 'NIRF',                  href: '/nirf'                  },
+  { label: 'NBA',                    href: '/nba'                    },
   { label: 'EVENTS',                href: '/events'                },
 ]
 

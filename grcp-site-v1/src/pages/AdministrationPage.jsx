@@ -1,4 +1,5 @@
-﻿import { useParams } from 'react-router-dom';
+﻿import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import college from '../theme';
 import { idmcIntro } from '../data/administrationData';
 import SiteHeader from '../components/SiteHeader';
@@ -42,6 +43,66 @@ const sectionConfig = {
     title: 'Organizational Chart',
     subtitle: 'Administrative hierarchy of Gokaraju Rangaraju College of Pharmacy',
     breadcrumb: ['Administration', 'Organizational Chart'],
+  },
+  'anti-ragging': {
+    title: 'Anti-Ragging / Discipline Committee',
+    subtitle: 'Zero tolerance policy against ragging — GRCP campus safety',
+    breadcrumb: ['Administration', 'Anti-Ragging / Discipline'],
+  },
+  'anti-harassment': {
+    title: 'Anti-Sexual Harassment / ICC / Women Development',
+    subtitle: 'Internal Complaints Committee — safe and dignified campus environment',
+    breadcrumb: ['Administration', 'Anti-Sexual Harassment / ICC'],
+  },
+  grievance: {
+    title: 'Grievance Redressal Committee',
+    subtitle: 'Transparent and fair mechanism for addressing student, faculty, and staff concerns',
+    breadcrumb: ['Administration', 'Grievance Redressal Committee'],
+  },
+  iiic: {
+    title: 'Industry Institute Interaction Committee (IIIC)',
+    subtitle: 'Bridging academia and industry at Gokaraju Rangaraju College of Pharmacy',
+    breadcrumb: ['Administration', 'IIIC'],
+  },
+  iic: {
+    title: "Institution's Innovation Council (IIC)",
+    subtitle: "Fostering a culture of innovation and entrepreneurship at GRCP",
+    breadcrumb: ['Administration', "Institution's Innovation Council"],
+  },
+  'sc-st': {
+    title: 'SC / ST Committee',
+    subtitle: 'Safeguarding the welfare and interests of SC/ST students and staff at GRCP',
+    breadcrumb: ['Administration', 'SC / ST Committee'],
+  },
+  iaec: {
+    title: 'Institutional Animal Ethics Committee (IAEC)',
+    subtitle: 'Ensuring humane and ethical use of animals in research — CPCSEA compliant',
+    breadcrumb: ['Administration', 'IAEC'],
+  },
+  'mentor-mentee': {
+    title: 'Mentor Mentee Committee',
+    subtitle: 'Structured mentoring for holistic student support at GRCP',
+    breadcrumb: ['Administration', 'Mentor Mentee Committee'],
+  },
+  'equal-opportunity': {
+    title: 'Equal Opportunity Cell Committee',
+    subtitle: 'Promoting inclusive and equitable access to education at GRCP',
+    breadcrumb: ['Administration', 'Equal Opportunity Cell Committee'],
+  },
+  'other-committees': {
+    title: 'Other Committees',
+    subtitle: 'Statutory and non-statutory committees supporting GRCP operations',
+    breadcrumb: ['Administration', 'Other Committees'],
+  },
+  'professional-associations': {
+    title: 'Professional Associations / Societies',
+    subtitle: 'GRCP faculty and students in leading pharmaceutical professional bodies',
+    breadcrumb: ['Achievements', 'Professional Associations / Societies'],
+  },
+  'student-achievements': {
+    title: 'Student Achievements',
+    subtitle: 'Academic excellence, research, and professional accomplishments of GRCP students',
+    breadcrumb: ['Achievements', 'Student Achievements'],
   },
 };
 
@@ -433,6 +494,426 @@ function OrgChartSection() {
   );
 }
 
+// ── Shared: Committee Member Table ────────────────────────────────────────────
+
+function CommitteeMemberTable({ members, cols }) {
+  const columns = cols || ['S.No.', 'Name', 'Designation', 'Position', 'Email'];
+  return (
+    <div className="overflow-x-auto rounded-xl border" style={{ borderColor: `${pc}18` }}>
+      <table className="w-full border-collapse">
+        <thead>
+          <tr style={{ backgroundColor: ac }}>
+            {columns.map((h) => (
+              <th key={h} className="font-display font-semibold text-type-ui-sm text-white text-left px-5 py-3.5 first:rounded-tl-xl last:rounded-tr-xl">
+                {h}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {members.map((m, i) => (
+            <tr key={i} style={{ backgroundColor: i % 2 === 0 ? '#FAFAFA' : '#FFFFFF' }}>
+              <td className="font-body text-type-ui text-[#474747] px-5 py-3.5 border-b" style={{ borderColor: `${pc}10` }}>{m.sno || i + 1}</td>
+              <td className="font-display font-semibold text-type-ui px-5 py-3.5 border-b" style={{ color: pc, borderColor: `${pc}10` }}>{m.name}</td>
+              <td className="font-body text-type-ui text-[#474747] px-5 py-3.5 border-b" style={{ borderColor: `${pc}10` }}>{m.designation}</td>
+              {m.position !== undefined && (
+                <td className="font-body text-type-ui text-[#474747] px-5 py-3.5 border-b" style={{ borderColor: `${pc}10` }}>{m.position}</td>
+              )}
+              {m.email !== undefined && (
+                <td className="px-5 py-3.5 border-b" style={{ borderColor: `${pc}10` }}>
+                  {m.email ? (
+                    <a href={`mailto:${m.email}`} className="font-display text-type-ui-sm underline" style={{ color: pc }}>{m.email}</a>
+                  ) : <span className="text-[#9CA3AF]">—</span>}
+                </td>
+              )}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function BulletList({ items }) {
+  return (
+    <ul className="space-y-2.5">
+      {items.map((item, i) => (
+        <li key={i} className="flex items-start gap-2.5">
+          <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-[9px]" style={{ backgroundColor: pc }} />
+          <span className="font-body text-type-body text-[#474747]">{item}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function YearTabs({ compositions, contactHeader }) {
+  const [activeYear, setActiveYear] = useState(compositions[0]?.year);
+  const active = compositions.find(c => c.year === activeYear) ?? compositions[0];
+  const contactCol = active?.contactHeader || contactHeader;
+  return (
+    <div>
+      <div className="flex flex-wrap gap-2 mb-5">
+        {compositions.map(c => (
+          <button
+            key={c.year}
+            onClick={() => setActiveYear(c.year)}
+            className="font-display font-semibold text-type-ui-sm px-4 py-2 rounded-lg transition-colors"
+            style={activeYear === c.year
+              ? { backgroundColor: pc, color: '#fff' }
+              : { backgroundColor: `${pc}0D`, color: pc }
+            }
+          >
+            {c.label || c.year}
+          </button>
+        ))}
+      </div>
+      {active && (
+        <div className="overflow-x-auto rounded-xl border" style={{ borderColor: `${pc}18` }}>
+          <table className="w-full border-collapse">
+            <thead>
+              <tr style={{ backgroundColor: ac }}>
+                {['S.No.', 'Name', 'Designation', 'Position', contactCol || 'Email'].map((h) => (
+                  <th key={h} className="font-display font-semibold text-type-ui-sm text-white text-left px-5 py-3.5">{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {active.members.map((m, i) => (
+                <tr key={i} style={{ backgroundColor: i % 2 === 0 ? '#FAFAFA' : '#FFFFFF' }}>
+                  <td className="font-body text-type-ui text-[#474747] px-5 py-3 border-b" style={{ borderColor: `${pc}10` }}>{m.sno || i + 1}</td>
+                  <td className="font-display font-semibold text-type-ui px-5 py-3 border-b" style={{ color: pc, borderColor: `${pc}10` }}>{m.name}</td>
+                  <td className="font-body text-type-ui text-[#474747] px-5 py-3 border-b" style={{ borderColor: `${pc}10` }}>{m.designation}</td>
+                  <td className="font-body text-type-ui text-[#474747] px-5 py-3 border-b" style={{ borderColor: `${pc}10` }}>{m.position || m.role}</td>
+                  <td className="px-5 py-3 border-b" style={{ borderColor: `${pc}10` }}>
+                    {(m.email || m.contact || m.phone)
+                      ? <span className="font-body text-type-ui-sm text-[#374151]">{m.email || m.contact || m.phone}</span>
+                      : <span className="text-[#9CA3AF]">—</span>
+                    }
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function SubHeading({ children }) {
+  return (
+    <h3 className="font-display font-semibold text-type-h5 mt-8 mb-3" style={{ color: pc }}>{children}</h3>
+  );
+}
+
+// ── Section: Anti-Ragging ─────────────────────────────────────────────────────
+
+function AntiRaggingSection() {
+  const d = college.administration.antiRagging;
+  return (
+    <div className="space-y-6">
+      <SectionHeader label="Committee" title="Anti-Ragging / Discipline Committee" />
+      <p className="font-body text-type-body text-[#474747]">{d.description}</p>
+
+      <SubHeading>Core Responsibilities of the Anti-Ragging Committee</SubHeading>
+      <BulletList items={d.measures} />
+
+      <SubHeading>Committee Composition</SubHeading>
+      <YearTabs compositions={d.yearlyCompositions} />
+    </div>
+  );
+}
+
+// ── Section: Anti-Sexual Harassment ──────────────────────────────────────────
+
+function AntiHarassmentSection() {
+  const d = college.administration.antiHarassment;
+  return (
+    <div className="space-y-6">
+      <SectionHeader label="Committee" title="Anti-Sexual Harassment / ICC / Women Development" />
+      <p className="font-body text-type-body text-[#474747]">{d.description}</p>
+
+      <SubHeading>Roles &amp; Responsibilities of the ICC</SubHeading>
+      <BulletList items={d.functions} />
+
+      <SubHeading>Committee Composition</SubHeading>
+      <YearTabs compositions={d.iccYears} />
+
+      <SubHeading>Women's Development Cell — Objectives</SubHeading>
+      <BulletList items={d.wdcObjectives} />
+
+      <SubHeading>Women's Development Cell Composition</SubHeading>
+      <YearTabs compositions={d.wdcYears} />
+    </div>
+  );
+}
+
+// ── Section: Grievance Redressal ──────────────────────────────────────────────
+
+function GrievanceSection() {
+  const d = college.administration.grievance;
+  return (
+    <div className="space-y-6">
+      <SectionHeader label="Committee" title="Grievance Redressal Committee" />
+      <p className="font-body text-type-body text-[#474747]">{d.description}</p>
+
+      <SubHeading>Objectives / Functions</SubHeading>
+      <BulletList items={d.objectives} />
+
+      <SubHeading>Committee Composition</SubHeading>
+      <YearTabs compositions={d.yearlyCompositions} />
+    </div>
+  );
+}
+
+// ── Section: IIIC ─────────────────────────────────────────────────────────────
+
+function IiicSection() {
+  const d = college.administration.iiic;
+  return (
+    <div className="space-y-6">
+      <SectionHeader label="Committee" title="Industry Institute Interaction Committee (IIIC)" />
+      <p className="font-body text-type-body text-[#474747]">{d.description}</p>
+
+      <SubHeading>Objectives</SubHeading>
+      <BulletList items={d.objectives} />
+
+      <SubHeading>Key Activities</SubHeading>
+      <BulletList items={d.activities} />
+
+      <SubHeading>Committee Composition</SubHeading>
+      <YearTabs compositions={d.yearlyCompositions} />
+    </div>
+  );
+}
+
+// ── Section: IIC ──────────────────────────────────────────────────────────────
+
+function IicSection() {
+  const d = college.administration.iic;
+  return (
+    <div className="space-y-6">
+      <SectionHeader label="Committee" title="Institution's Innovation Council (IIC)" />
+      <p className="font-body text-type-body text-[#474747]">{d.description}</p>
+
+      <SubHeading>Core Roles &amp; Responsibilities</SubHeading>
+      <BulletList items={d.objectives} />
+
+      <SubHeading>Committee Composition</SubHeading>
+      <YearTabs compositions={d.yearlyCompositions} />
+    </div>
+  );
+}
+
+// ── Section: SC/ST Committee ──────────────────────────────────────────────────
+
+function ScStSection() {
+  const d = college.administration.scSt;
+  return (
+    <div className="space-y-6">
+      <SectionHeader label="Committee" title="SC / ST Committee" />
+      <p className="font-body text-type-body text-[#474747]">{d.description}</p>
+
+      <SubHeading>Roles &amp; Responsibilities</SubHeading>
+      <BulletList items={d.rolesAndResponsibilities} />
+
+      <SubHeading>Committee Composition</SubHeading>
+      <YearTabs compositions={d.yearlyCompositions} />
+    </div>
+  );
+}
+
+// ── Section: IAEC ─────────────────────────────────────────────────────────────
+
+function IaecSection() {
+  const d = college.administration.iaec;
+  return (
+    <div className="space-y-6">
+      <SectionHeader label="Committee" title="Institutional Animal Ethics Committee (IAEC)" />
+      <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg font-display font-semibold text-type-ui-sm" style={{ backgroundColor: `${pc}10`, color: pc }}>
+        CPCSEA Registration: {d.cpcsea}
+      </div>
+      <p className="font-body text-type-body text-[#474747]">{d.description}</p>
+
+      <SubHeading>Roles &amp; Responsibilities</SubHeading>
+      <BulletList items={d.responsibilities} />
+
+      <SubHeading>Committee Composition</SubHeading>
+      <YearTabs compositions={d.yearlyCompositions} />
+    </div>
+  );
+}
+
+// ── Section: Mentor-Mentee ────────────────────────────────────────────────────
+
+function MentorMenteeSection() {
+  const d = college.administration.mentorMentee;
+  return (
+    <div className="space-y-6">
+      <SectionHeader label="Committee" title="Mentor Mentee Committee" />
+      <p className="font-body text-type-body text-[#474747]">{d.description}</p>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="rounded-xl p-5" style={{ backgroundColor: `${pc}06`, border: `1px solid ${pc}14` }}>
+          <p className="font-display font-semibold text-type-body mb-3" style={{ color: pc }}>Mentor Responsibilities</p>
+          <BulletList items={d.mentorResponsibilities} />
+        </div>
+        <div className="rounded-xl p-5" style={{ backgroundColor: `${ac}08`, border: `1px solid ${ac}20` }}>
+          <p className="font-display font-semibold text-type-body mb-3" style={{ color: ac }}>Mentee Responsibilities</p>
+          <BulletList items={d.menteeResponsibilities} />
+        </div>
+      </div>
+
+      <SubHeading>Committee Composition</SubHeading>
+      <YearTabs compositions={d.yearlyCompositions} />
+    </div>
+  );
+}
+
+// ── Section: Equal Opportunity Cell ──────────────────────────────────────────
+
+function EqualOpportunitySection() {
+  const d = college.administration.equalOpportunity;
+  return (
+    <div className="space-y-6">
+      <SectionHeader label="Committee" title="Equal Opportunity Cell Committee" />
+      <p className="font-body text-type-body text-[#474747]">{d.description}</p>
+
+      <SubHeading>Core Objectives</SubHeading>
+      <BulletList items={d.objectives} />
+
+      <SubHeading>Future Plans</SubHeading>
+      <BulletList items={d.futurePlans} />
+
+      <SubHeading>Committee Composition</SubHeading>
+      <YearTabs compositions={d.yearlyCompositions} />
+    </div>
+  );
+}
+
+// ── Section: Other Committees ─────────────────────────────────────────────────
+
+function OtherCommitteesSection() {
+  const committees = college.administration.otherCommittees;
+  return (
+    <div className="space-y-6">
+      <SectionHeader label="Committees" title="Other Committees" />
+      <div className="space-y-8">
+        {committees.map((c, idx) => (
+          <div key={idx} className="rounded-2xl p-6" style={{ border: `1px solid ${pc}18`, backgroundColor: '#FAFAFA' }}>
+            <h3 className="font-display font-bold text-type-h5 mb-4" style={{ color: pc }}>{c.name}</h3>
+            <div className="overflow-x-auto rounded-xl border" style={{ borderColor: `${pc}18` }}>
+              <table className="w-full border-collapse">
+                <thead>
+                  <tr style={{ backgroundColor: ac }}>
+                    {['S.No.', 'Name', 'Designation', 'Position'].map((h) => (
+                      <th key={h} className="font-display font-semibold text-type-ui-sm text-white text-left px-4 py-3">{h}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {c.members.map((m, i) => (
+                    <tr key={i} style={{ backgroundColor: i % 2 === 0 ? '#FFFFFF' : '#F9FAFB' }}>
+                      <td className="font-body text-type-ui text-[#474747] px-4 py-3 border-b" style={{ borderColor: `${pc}10` }}>{i + 1}</td>
+                      <td className="font-display font-semibold text-type-ui px-4 py-3 border-b" style={{ color: pc, borderColor: `${pc}10` }}>{m.name}</td>
+                      <td className="font-body text-type-ui text-[#474747] px-4 py-3 border-b" style={{ borderColor: `${pc}10` }}>{m.designation}</td>
+                      <td className="font-body text-type-ui text-[#474747] px-4 py-3 border-b" style={{ borderColor: `${pc}10` }}>{m.position}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ── Section: Professional Associations ───────────────────────────────────────
+
+function ProfessionalAssociationsSection() {
+  const assocs = college.administration.professionalAssociations;
+  return (
+    <div className="space-y-6">
+      <SectionHeader label="Achievements" title="Professional Associations / Societies" />
+      <div className="space-y-4">
+        {assocs.map((a, i) => (
+          <div key={i} className="flex items-center justify-between rounded-xl px-5 py-4 border" style={{ borderColor: `${pc}18`, backgroundColor: '#fff' }}>
+            <div className="flex items-center gap-3">
+              <svg className="w-5 h-5 flex-shrink-0" style={{ color: ac }} fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clipRule="evenodd" />
+              </svg>
+              <span className="font-body text-type-ui text-[#374151]">{a.name}</span>
+            </div>
+            {a.pdfHref && (
+              <a
+                href={a.pdfHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 font-display font-semibold text-type-ui-sm px-4 py-2 rounded-lg text-white transition-opacity hover:opacity-80 flex-shrink-0 ml-4"
+                style={{ backgroundColor: pc }}
+              >
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v12m0 0l-4-4m4 4l4-4M3 17v2a2 2 0 002 2h14a2 2 0 002-2v-2" />
+                </svg>
+                Download
+              </a>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ── Section: Student Achievements ────────────────────────────────────────────
+
+function StudentAchievementsSection() {
+  const d = college.administration.studentAchievements;
+  return (
+    <div className="space-y-6">
+      <SectionHeader label="Achievements" title="Student Achievements" />
+      <p className="font-body text-type-body text-[#474747]">{d.description}</p>
+
+      {/* Highlights strip */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {d.highlights.map((h, i) => (
+          <div key={i} className="rounded-xl p-5 text-center" style={{ backgroundColor: `${pc}08`, border: `1px solid ${pc}14` }}>
+            <span className="font-display font-bold text-type-h2-mob block" style={{ color: pc }}>{h.count}</span>
+            <span className="font-display text-type-cap uppercase tracking-wide block" style={{ color: ac }}>{h.label}</span>
+            <span className="font-body text-type-cap text-[#6B7280] block mt-0.5">{h.year}</span>
+          </div>
+        ))}
+      </div>
+
+      <SubHeading>Achievement Categories</SubHeading>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {d.categories.map((cat, i) => (
+          <div key={i} className="rounded-2xl p-5" style={{ border: `1px solid ${pc}18`, backgroundColor: '#FAFAFA' }}>
+            <h3 className="font-display font-bold text-type-body mb-2" style={{ color: pc }}>{cat.title}</h3>
+            <p className="font-body text-type-body-xs text-[#474747] mb-3">{cat.desc}</p>
+            {cat.href && (
+              <a
+                href={cat.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 font-display font-semibold text-type-ui-sm transition-colors"
+                style={{ color: ac }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = pc)}
+                onMouseLeave={(e) => (e.currentTarget.style.color = ac)}
+              >
+                View Records ↗
+              </a>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 const sectionRegistry = {
   chairman: { label: 'Chairman', content: <ChairmanSection /> },
   'vice-president': { label: 'Vice President', content: <VicePresidentSection /> },
@@ -440,6 +921,18 @@ const sectionRegistry = {
   'governing-body': { label: 'Governing Body', content: <GoverningBodySection /> },
   idmc: { label: 'IDMC', content: <IdmcSection /> },
   'org-chart': { label: 'Organizational Chart', content: <OrgChartSection /> },
+  'anti-ragging': { label: 'Anti-Ragging / Discipline', content: <AntiRaggingSection /> },
+  'anti-harassment': { label: 'Anti-Sexual Harassment / ICC', content: <AntiHarassmentSection /> },
+  grievance: { label: 'Grievance Redressal', content: <GrievanceSection /> },
+  iiic: { label: 'IIIC', content: <IiicSection /> },
+  iic: { label: "Institution's Innovation Council", content: <IicSection /> },
+  'sc-st': { label: 'SC / ST Committee', content: <ScStSection /> },
+  iaec: { label: 'IAEC', content: <IaecSection /> },
+  'mentor-mentee': { label: 'Mentor Mentee', content: <MentorMenteeSection /> },
+  'equal-opportunity': { label: 'Equal Opportunity Cell', content: <EqualOpportunitySection /> },
+  'other-committees': { label: 'Other Committees', content: <OtherCommitteesSection /> },
+  'professional-associations': { label: 'Professional Associations', content: <ProfessionalAssociationsSection /> },
+  'student-achievements': { label: 'Student Achievements', content: <StudentAchievementsSection /> },
 };
 
 export default function AdministrationPage() {

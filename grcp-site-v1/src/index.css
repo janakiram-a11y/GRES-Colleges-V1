@@ -336,7 +336,7 @@ body {
     scrollbar-color: transparent transparent;
     transition: scrollbar-color 0.25s ease;
   }
-  .sidebar-scroll:hover { scrollbar-color: #2D7A50 transparent; }
+  .sidebar-scroll:hover { scrollbar-color: #C72235 transparent; }
   .sidebar-scroll::-webkit-scrollbar { width: 4px; }
   .sidebar-scroll::-webkit-scrollbar-track { background: transparent; }
   .sidebar-scroll::-webkit-scrollbar-thumb {
@@ -344,7 +344,7 @@ body {
     border-radius: 4px;
     transition: background-color 0.25s ease;
   }
-  .sidebar-scroll:hover::-webkit-scrollbar-thumb { background-color: #2D7A50; }
+  .sidebar-scroll:hover::-webkit-scrollbar-thumb { background-color: #C72235; }
 
   /* Card hover lift */
   .premium-card {

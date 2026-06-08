@@ -151,6 +151,40 @@ const college = {
     { label: 'Alumni Association', href: '/alumni-association' },
     { label: 'NBA', href: '/nba' },
   ],
+
+  // ── Footer committees column ──────────────────────────────────────────────
+  footerCommittees: [
+    { label: 'Anti-Ragging / Discipline',                      href: 'https://grcp.ac.in/Anti_Ragging_Committee.php',               external: true },
+    { label: 'Anti-Sexual Harassment/ICC/Women Development',   href: 'https://grcp.ac.in/Anti_Sexual_Harassment_Cell.php',          external: true },
+    { label: 'Grievance Redressal Committee',                  href: 'https://grcp.ac.in/Grievance_Redressal_Committee.php',        external: true },
+    { label: 'Industry Institute Interaction Committee (IIIC)',href: 'https://grcp.ac.in/industry_Institute_Interaction_Committee.php', external: true },
+    { label: "Institution's Innovation Council (IIC)",         href: 'https://grcp.ac.in/IICs.php',                                 external: true },
+    { label: 'SC / ST Committee',                              href: 'https://grcp.ac.in/sc_st.php',                                external: true },
+    { label: 'IQAC',                                           href: '/administration/idmc' },
+    { label: 'IAEC',                                           href: 'https://grcp.ac.in/IAEC.php',                                 external: true },
+    { label: 'Mentor Mentee Committee',                        href: 'https://grcp.ac.in/Mentor-Mentee-Committee.php',              external: true },
+    { label: 'Equal Opportunity Cell Committee',               href: 'https://grcp.ac.in/Equal-Opportunity-Cell-Committee.php',     external: true },
+    { label: 'Other Committees',                               href: 'https://grcp.ac.in/Other-Committees.php',                    external: true },
+  ],
+
+  // ── Footer achievements column ────────────────────────────────────────────
+  footerAchievements: [
+    { label: 'Professional Associations / Societies', href: 'https://grcp.ac.in/professional_association.php', external: true },
+    { label: 'Faculty Achievements',                  href: '/academics/faculty' },
+    { label: 'Student Achievements',                  href: 'https://grcp.ac.in/student_achievements.php',    external: true },
+  ],
+
+  // ── Footer quick links column ─────────────────────────────────────────────
+  footerQuickLinks: [
+    { label: 'GRCP: Approvals and Recognitions', href: '/mandatory-disclosures' },
+    { label: 'Rules and Regulations',            href: '/mandatory-disclosures' },
+    { label: 'Infrastructure',                   href: '/about' },
+    { label: 'Teaching Learning Methods',        href: '/academics' },
+    { label: 'Student Support and Progression',  href: '/academics' },
+    { label: 'Skill Series',                     href: '/placements' },
+  ],
+
+  // Legacy — kept for any code that still references these
   resources: [
     { label: 'Anti-Ragging / Discipline', href: '/contact' },
     { label: 'Anti-Sexual Harassment / ICC', href: '/contact' },
@@ -226,10 +260,10 @@ const college = {
   researchLabel: 'Research & Recognition',
   researchHeading: 'Excellence in Pharmaceutical Sciences at GRCP',
   researchStats: [
-    { count: 'NBA', label: 'Accreditation 2025–28', desc: 'B.Pharmacy recognized by the National Board of Accreditation.' },
-    { count: 'PCI', label: 'Approved Programs', desc: 'All pharmacy programs approved by the Pharmacy Council of India.' },
-    { count: '35+', label: 'Awards & Recognition', desc: 'Faculty and student achievements in conferences, competitions, and academic excellence.' },
-    { count: '12+', label: 'Years of Excellence', desc: 'Dedicated to pharmaceutical education and research since inception.' },
+    { count: 'Publications & Patents', label: 'in reputed national & international journals, along with patent filings and grants', desc: 'in reputed national & international journals, along with patent filings and grants' },
+    { count: 'Research Collaborations', label: 'Partnering with leading institutions to advance knowledge & discovery', desc: 'Partnering with leading institutions to advance knowledge & discovery' },
+    { count: 'Industry Partnerships', label: 'Working alongside industry leaders to drive innovation & real world solutions', desc: 'Working alongside industry leaders to drive innovation & real world solutions' },
+    { count: 'Awards & Recognition', label: 'Faculty and student achievements in conferences. Competitions and academic excellence', desc: 'Faculty and student achievements in conferences. Competitions and academic excellence' },
   ],
 
   campusLifeLabel: 'Student Experience',
@@ -704,7 +738,7 @@ const college = {
   // Research page
   research: {
     overview: 'Research at GRCP is driven by a commitment to advancing pharmaceutical sciences and contributing to healthcare solutions. Faculty and postgraduate students engage in projects spanning drug formulation, pharmacology, analytical chemistry, and pharmacognosy — supported by well-equipped research laboratories and collaborations with pharmaceutical industry partners.',
-    highlights: [{ count: '50+', label: 'Research Publications' }, { count: '10+', label: 'Faculty with Ph.D' }, { count: '5+', label: 'Ongoing Projects' }, { count: '3', label: 'Ph.D Guideship Areas' }],
+    highlights: [{ count: '200+', label: 'Research Publications' }, { count: '20+', label: 'Faculty with Ph.D' }, { count: '30+', label: 'Ongoing Projects' }, { count: '3', label: 'Ph.D Guideship Areas' }],
     depts: [
       { id: 'pharmaceutics', label: 'Pharmaceutics', intro: 'The Department of Pharmaceutics at GRCP focuses on cutting-edge research in drug formulation and delivery systems. Our faculty and scholars actively investigate advanced technologies to improve the therapeutic efficacy and patient compliance of pharmaceutical products.', researchAreas: ["Solubility enhancement of API's", 'Novel drug delivery systems', 'Herbal drug delivery systems', 'Excipient research', 'Nanomedicine', 'Chronotherapeutic delivery'], images: ['https://grcp.ac.in/images/research/img1.jpg', 'https://grcp.ac.in/images/research/img2.jpg', 'https://grcp.ac.in/images/research/img3.jpg'] },
       { id: 'analysis', label: 'Pharmaceutical Analysis', intro: 'The Pharmaceutical Analysis department undertakes innovative research in analytical method development, validation, and quality assurance. The department is equipped with state-of-the-art instrumentation including HPLC, UPLC, Spectrofluorometer, and UV/Visible Spectrophotometer.', researchAreas: ['Application of Quality by Design (QbD) approach for development of HPLC methods', 'Biogenic synthesis of metallic nanoparticles and their pharmaceutical applications', 'Analytical method validation using HPLC, UPLC, Spectrofluorometer and UV/Vis Spectrophotometer', 'Analytical methods for simultaneous estimation of fixed-dose combinations by chemometrics'], images: ['https://grcp.ac.in/images/research/img4.jpg', 'https://grcp.ac.in/images/research/img5.jpg', 'https://grcp.ac.in/images/research/img6.jpg', 'https://grcp.ac.in/images/research/img7.jpg'] },
@@ -788,8 +822,7 @@ const college = {
     ],
     sessionalTimetables: [
       { heading: 'B.Pharmacy', items: [{ label: 'B.Pharmacy III, V, VII Sem – Second Sessional (Theory) Exam TT 25-26', href: 'https://grcp.ac.in/media/6983ee0a3c0d8B.Pharm-III,V&VIIsem-II-SessionalTT(T).pdf' }, { label: 'B.Pharmacy III, V, VII Sem – Second Sessional (Practical) Exam TT 25-26', href: 'https://grcp.ac.in/media/6983ef1f971ddB.Pharm-III,V&VIIsem-II-SessionalTT(P).pdf' }, { label: 'B.Pharmacy I Sem – First Sessional (Theory & Practical) Exam TT 25-26', href: 'https://grcp.ac.in/media/6983f09e6dccbB.Pharm-Isem-I-SessionalTT(T&PR).pdf' }] },
-      { heading: 'M.Pharmacy', items: [{ label: 'M.Pharmacy III Sem – Second Sessional (Theory) Exam TT 25-26', href: 'https://grcp.ac.in/media/69e1f6c8a1bbdMPhaRM3SEM25-26.pdf' }, { label: 'M.Pharmacy I Sem – Second Sessional (Theory) Exam TT 25-26', href: 'https://grcp.ac.in/media/69b929059c97eM.Pharmfirstsem2sessionaltimetable25-26.pdf' }] },
-      { heading: 'M.Pharmacy', items: [{ label: 'M.Pharmacy III Sem – Second Sessional (Theory) Exam TT 24-25', href: 'https://grcp.ac.in/media/6849e2c7638d7iiisemises.jpg' }, { label: 'M.Pharmacy III Sem – First Sessional (Theory) Exam TT 24-25', href: 'https://grcp.ac.in/media/6849e29c0f84aiiisemises.jpg' }, { label: 'M.Pharmacy I Sem – Second Sessional (Theory) Exam TT 24-25', href: 'https://grcp.ac.in/media/6849e3142b872M.PharmacyIsemIIsessional(theory)examTT24-25.pdf.pdf' }] },
+      { heading: 'M.Pharmacy', items: [{ label: 'M.Pharmacy III Sem – Second Sessional (Theory) Exam TT 25-26', href: 'https://grcp.ac.in/media/69e1f6c8a1bbdMPhaRM3SEM25-26.pdf' }, { label: 'M.Pharmacy I Sem – Second Sessional (Theory) Exam TT 25-26', href: 'https://grcp.ac.in/media/69b929059c97eM.Pharmfirstsem2sessionaltimetable25-26.pdf' }, { label: 'M.Pharmacy III Sem – Second Sessional (Theory) Exam TT 24-25', href: 'https://grcp.ac.in/media/6849e2c7638d7iiisemises.jpg' }, { label: 'M.Pharmacy III Sem – First Sessional (Theory) Exam TT 24-25', href: 'https://grcp.ac.in/media/6849e29c0f84aiiisemises.jpg' }, { label: 'M.Pharmacy I Sem – Second Sessional (Theory) Exam TT 24-25', href: 'https://grcp.ac.in/media/6849e3142b872M.PharmacyIsemIIsessional(theory)examTT24-25.pdf.pdf' }] },
     ],
     ouTimetables: [
       { heading: 'B.Pharmacy', items: [{ label: 'B.Pharmacy (PCI) Main & Backlog Examinations, February March-2026', href: 'https://grcp.ac.in/media/69828dcf96d64B.Pharmacy (PCI) Main & Backlog Examinations, February March-2026.pdf' }, { label: 'B.Pharmacy (Non-CBCS) IV-Year II-Semester One Time Chance (Backlog) Examinations, Dec-2025 Jan-2026', href: 'https://grcp.ac.in/media/69828de7e69ceB.Pharmacy (Non-CBCS) IV-Year II-Semeser One Time Chance (Backlog) Examinations, Dec-2025Jan-2026.pdf' }, { label: 'B.Pharmacy (PCI CBCS & Non-CBCS) One Time Chance Backlog Examinations, Dec-2025 – January-2026', href: 'https://grcp.ac.in/media/69829025cf474B.Pharmacy (PCI CBCS & Non-CBCS) One Time Chance Backlog Examinations, Dec-2025January-2026.pdf' }, { label: 'B.Pharmacy (PCI) Regular and Backlog Examinations, Sep-Oct-2025', href: 'https://grcp.ac.in/media/6982903f6916eB.Pharmacy (PCI) Regular and Backlog Examiantions, SepOct-2025.pdf' }] },

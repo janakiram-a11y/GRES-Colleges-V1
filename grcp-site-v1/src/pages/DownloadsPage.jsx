@@ -18,11 +18,6 @@ const categories = [
     files: [
       { name: 'GRCP Student ID Card Application Form', file: 'GRCP%20Student%20ID%20Card%20Application%20Form.docx', type: 'word' },
       { name: 'Application Form for Faculty Positions', file: 'APPLICATION%20FORM%20FOR%20FACULTY%20POSITIONS.docx', type: 'word' },
-      { name: 'Approvals and Recognitions', file: 'Approvals%20and%20Recognitions.pdf', type: 'pdf' },
-      { name: 'Teaching Learning Methods', file: 'Teaching%20Learning%20Methods.pdf', type: 'pdf' },
-      { name: 'Student Support and Progression', file: 'Student%20Support%20and%20Progression.pdf', type: 'pdf' },
-      { name: 'Alumni Registration', file: 'Alumni%20Registration.pdf', type: 'pdf' },
-      { name: 'Distinguished Alumni', file: 'Distinguished%20Alumni.pdf', type: 'pdf' },
     ],
   },
 ];

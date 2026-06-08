@@ -48,39 +48,49 @@ const socialList = [
   { Icon: FacebookIcon,  label: 'Facebook',    href: 'https://www.facebook.com/grcp.pharmacy' },
 ];
 
-/* ── Sub-components ───────────────────────────────────────────────────────── */
-function SectionLabel({ children }) {
+/* ── Shared sub-components ────────────────────────────────────────────────── */
+function ColHeading({ children }) {
   return (
-    <p
-      className="font-display font-semibold text-type-body mb-5"
-      style={{ color: '#1A1A2E' }}
-    >
+    <p className="font-display font-bold text-type-body mb-5" style={{ color: '#1A1A2E' }}>
       {children}
     </p>
   );
 }
 
-function FLink({ href, college, children }) {
-  const isExternal = href.startsWith('http');
+function FLink({ href, external, college, children }) {
   const cls = 'font-display text-type-ui leading-relaxed transition-colors duration-150';
   const style = { color: '#4B5563' };
-  const hoverIn  = (e) => (e.currentTarget.style.color = college.primaryColor);
+  const hoverIn  = (e) => (e.currentTarget.style.color = college.greenAccent);
   const hoverOut = (e) => (e.currentTarget.style.color = '#4B5563');
 
-  if (isExternal) {
+  if (external || href.startsWith('http')) {
     return (
       <a href={href} target="_blank" rel="noopener noreferrer"
-        className={cls} style={style}
-        onMouseEnter={hoverIn} onMouseLeave={hoverOut}>
+        className={cls} style={style} onMouseEnter={hoverIn} onMouseLeave={hoverOut}>
         {children}
       </a>
     );
   }
   return (
-    <Link to={href} className={cls} style={style}
-      onMouseEnter={hoverIn} onMouseLeave={hoverOut}>
+    <Link to={href} className={cls} style={style} onMouseEnter={hoverIn} onMouseLeave={hoverOut}>
       {children}
     </Link>
+  );
+}
+
+function LinkList({ items, college }) {
+  return (
+    <ul className="flex flex-col gap-2.5">
+      {items.map((item) => {
+        const label = item.label || item;
+        const href  = item.href  || '#';
+        return (
+          <li key={label}>
+            <FLink href={href} external={item.external} college={college}>{label}</FLink>
+          </li>
+        );
+      })}
+    </ul>
   );
 }
 
@@ -89,130 +99,120 @@ export default function Footer({ college }) {
   return (
     <footer className="w-full" style={{ backgroundColor: '#F8FAF8', borderTop: '1px solid rgba(45,122,80,0.14)' }}>
 
-      {/* ── Upper section ───────────────────────────────────────────────── */}
-      <div className="max-w-[1320px] mx-auto px-6 sm:px-10 lg:px-[120px] pt-16 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-12">
-
-          {/* Brand column — 4/12 */}
-          <div className="md:col-span-4 flex flex-col gap-6">
+      {/* ── Brand strip — logo + tagline + socials ───────────────────────── */}
+      <div className="max-w-[1320px] mx-auto px-6 sm:px-10 lg:px-[120px] pt-12 pb-8">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
+          <div className="flex flex-col gap-2">
             <img
               src={college.logo}
               alt={`${college.shortName} Logo`}
-              className="h-16 w-auto object-contain object-left"
+              className="h-14 w-auto object-contain object-left"
             />
-            <p className="font-body text-type-body-xs leading-relaxed" style={{ color: '#4B5563', maxWidth: 300 }}>
+            <p className="font-body text-type-body-xs" style={{ color: '#6B7280', maxWidth: 400 }}>
               {college.tagline}
             </p>
+          </div>
+          {/* Social icons */}
+          <div className="flex items-center gap-3">
+            {socialList.map(({ Icon, label, href }) => (
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer"
+                aria-label={label}
+                className="w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-150"
+                style={{ backgroundColor: 'rgba(45,122,80,0.08)', color: '#2D7A50', border: '1px solid rgba(45,122,80,0.14)' }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#C72235'; e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = '#C72235'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'rgba(45,122,80,0.08)'; e.currentTarget.style.color = '#2D7A50'; e.currentTarget.style.borderColor = 'rgba(45,122,80,0.14)'; }}
+              >
+                <Icon />
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
 
-            {/* Social icons */}
-            <div className="flex items-center gap-3">
-              {socialList.map(({ Icon, label, href }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className="w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-150"
-                  style={{
-                    backgroundColor: 'rgba(45,122,80,0.08)',
-                    color: '#2D7A50',
-                    border: '1px solid rgba(45,122,80,0.14)',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#2D7A50';
-                    e.currentTarget.style.color = '#fff';
-                    e.currentTarget.style.borderColor = '#2D7A50';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = 'rgba(45,122,80,0.08)';
-                    e.currentTarget.style.color = '#2D7A50';
-                    e.currentTarget.style.borderColor = 'rgba(45,122,80,0.14)';
-                  }}
-                >
-                  <Icon />
-                </a>
-              ))}
+      {/* ── Thin divider ─────────────────────────────────────────────────── */}
+      <div className="max-w-[1320px] mx-auto px-6 sm:px-10 lg:px-[120px]">
+        <div style={{ height: 1, backgroundColor: 'rgba(45,122,80,0.10)' }} />
+      </div>
+
+      {/* ── Main columns ─────────────────────────────────────────────────── */}
+      <div className="max-w-[1320px] mx-auto px-6 sm:px-10 lg:px-[120px] pt-10 pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-12">
+
+          {/* ── Col 1: Committees ─────────────────────────────────────────── */}
+          <div className="md:col-span-4">
+            <ColHeading>Committees</ColHeading>
+            <LinkList items={college.footerCommittees} college={college} />
+          </div>
+
+          {/* ── Col 2: Achievements + Quick Links ────────────────────────── */}
+          <div className="md:col-span-4">
+            <ColHeading>Achievements</ColHeading>
+            <LinkList items={college.footerAchievements} college={college} />
+
+            <div className="mt-8">
+              <ColHeading>Quick Links</ColHeading>
+              <LinkList items={college.footerQuickLinks} college={college} />
             </div>
           </div>
 
-          {/* Quick Links — 2.5/12 */}
-          <div className="md:col-span-3">
-            <SectionLabel>Quick Links</SectionLabel>
-            <ul className="flex flex-col gap-3">
-              {college.quickLinks.map((l) => {
-                const label = l.label || l;
-                const href  = l.href  || '#';
-                return (
-                  <li key={label}>
-                    <FLink href={href} college={college}>{label}</FLink>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+          {/* ── Col 3: Contact + QR code ──────────────────────────────────── */}
+          <div className="md:col-span-4">
+            <ColHeading>Contact us</ColHeading>
+            <ul className="flex flex-col gap-3.5">
 
-          {/* Resources — 2.5/12 */}
-          <div className="md:col-span-2">
-            <SectionLabel>Resources</SectionLabel>
-            <ul className="flex flex-col gap-3">
-              {college.resources.map((l) => {
-                const label = l.label || l;
-                const href  = l.href  || '#';
-                return (
-                  <li key={label}>
-                    <FLink href={href} college={college}>{label}</FLink>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+              {/* College name */}
+              <li>
+                <p className="font-display font-semibold text-type-body" style={{ color: '#1A1A2E' }}>
+                  {college.fullName}
+                </p>
+              </li>
 
-          {/* Contact — 3/12 */}
-          <div className="md:col-span-3">
-            <SectionLabel>Contact</SectionLabel>
-            <ul className="flex flex-col gap-4">
+              {/* Address */}
               <li className="flex items-start gap-3">
-                <span className="mt-0.5" style={{ color: '#2D7A50' }}><PinIcon /></span>
+                <span style={{ color: '#2D7A50' }}><PinIcon /></span>
                 <span className="font-display text-type-ui leading-relaxed" style={{ color: '#4B5563' }}>
                   {college.address}
                 </span>
               </li>
+
+              {/* Phone */}
               <li className="flex items-center gap-3">
                 <span style={{ color: '#2D7A50' }}><PhoneIcon /></span>
-                <a
-                  href={`tel:${college.phone}`}
-                  className="font-display text-type-ui transition-colors"
-                  style={{ color: '#4B5563' }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = '#2D7A50')}
+                <a href={`tel:${college.phone}`}
+                  className="font-display text-type-ui transition-colors" style={{ color: '#4B5563' }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = '#C72235')}
                   onMouseLeave={(e) => (e.currentTarget.style.color = '#4B5563')}
                 >
                   {college.phone}
                 </a>
               </li>
+
+              {/* Email */}
               <li className="flex items-center gap-3">
                 <span style={{ color: '#2D7A50' }}><MailIcon /></span>
-                <a
-                  href={`mailto:${college.email}`}
-                  className="font-display text-type-ui transition-colors"
-                  style={{ color: '#4B5563' }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = '#2D7A50')}
+                <a href={`mailto:${college.email}`}
+                  className="font-display text-type-ui transition-colors" style={{ color: '#4B5563' }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = '#C72235')}
                   onMouseLeave={(e) => (e.currentTarget.style.color = '#4B5563')}
                 >
                   {college.email}
                 </a>
               </li>
-
-              {/* Admissions CTA */}
-              <li className="mt-2">
-                <Link
-                  to="/admissions/admission-procedure"
-                  className="btn-red btn-sm inline-flex"
-                >
-                  Apply for Admissions
-                </Link>
-              </li>
             </ul>
+
+            {/* QR code section */}
+            <div className="mt-6">
+              <p className="font-display font-semibold text-type-ui mb-3" style={{ color: '#C72235' }}>
+                Scan this QR Code to reach the college
+              </p>
+              <img
+                src="https://grcp.ac.in/images/qr1666778877694.png"
+                alt="GRCP Location QR Code"
+                className="rounded-lg border"
+                style={{ width: 140, height: 140, objectFit: 'contain', borderColor: 'rgba(45,122,80,0.15)' }}
+                loading="lazy"
+              />
+            </div>
           </div>
 
         </div>
@@ -235,12 +235,9 @@ export default function Footer({ college }) {
               { text: 'Terms of Service', href: '/mandatory-disclosures' },
               { text: 'Contact Us',       href: '/contact' },
             ].map(({ text, href }) => (
-              <Link
-                key={text}
-                to={href}
-                className="font-display text-type-ui-sm transition-colors"
-                style={{ color: '#6B7280' }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = '#2D7A50')}
+              <Link key={text} to={href}
+                className="font-display text-type-ui-sm transition-colors" style={{ color: '#6B7280' }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = '#C72235')}
                 onMouseLeave={(e) => (e.currentTarget.style.color = '#6B7280')}
               >
                 {text}

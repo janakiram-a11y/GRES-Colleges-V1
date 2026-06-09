@@ -260,10 +260,10 @@ const college = {
   researchLabel: 'Research & Recognition',
   researchHeading: 'Excellence in Pharmaceutical Sciences at GRCP',
   researchStats: [
-    { count: 'Publications & Patents', label: 'in reputed national & international journals, along with patent filings and grants', desc: 'in reputed national & international journals, along with patent filings and grants' },
-    { count: 'Research Collaborations', label: 'Partnering with leading institutions to advance knowledge & discovery', desc: 'Partnering with leading institutions to advance knowledge & discovery' },
-    { count: 'Industry Partnerships', label: 'Working alongside industry leaders to drive innovation & real world solutions', desc: 'Working alongside industry leaders to drive innovation & real world solutions' },
-    { count: 'Awards & Recognition', label: 'Faculty and student achievements in conferences. Competitions and academic excellence', desc: 'Faculty and student achievements in conferences. Competitions and academic excellence' },
+    { count: 'Publications & Patents', label: 'in reputed national & international journals, along with patent filings and grants', desc: '' },
+    { count: 'Research Collaborations', label: 'Partnering with leading institutions to advance knowledge & discovery', desc: '' },
+    { count: 'Industry Partnerships', label: 'Working alongside industry leaders to drive innovation & real world solutions', desc: '' },
+    { count: 'Awards & Recognition', label: 'Faculty and student achievements in conferences. Competitions and academic excellence', desc: '' },
   ],
 
   campusLifeLabel: 'Student Experience',

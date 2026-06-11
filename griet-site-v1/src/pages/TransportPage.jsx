@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 const ROUTES = [
@@ -58,11 +58,11 @@ export default function TransportPage() {
       <div className="flex flex-wrap items-center gap-6 mb-8 p-4 rounded-xl bg-gray-50 border border-gray-200">
         <div className="text-center">
           <p className="font-hind font-bold text-[32px]" style={{ color: college.primaryColor }}>27</p>
-          <p className="font-dm-sans text-[12px] text-gray-500 font-semibold">Bus Routes</p>
+          <p className="font-dm-sans text-[0.875rem] text-gray-500 font-semibold">Bus Routes</p>
         </div>
         <div className="w-px h-12 bg-gray-200 hidden sm:block" />
         <div>
-          <p className="font-hind font-bold text-[14px] text-gray-800">College-Operated Fleet</p>
+          <p className="font-hind font-bold text-base text-gray-800">College-Operated Fleet</p>
           <p className="font-dm-sans text-[12.5px] text-gray-500">Covering Hyderabad, Secunderabad, and surrounding districts. Safe, reliable, and affordable daily transport for students and staff.</p>
         </div>
       </div>
@@ -111,7 +111,7 @@ export default function TransportPage() {
       <section className="mb-6">
         <SectionLabel>Contact</SectionLabel>
         <div className="p-5 rounded-xl bg-gray-50 border border-gray-200">
-          <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed">
+          <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed">
             For transport enquiries, route information, or pass-related matters, please contact the <strong>Transport In-Charge</strong> at the college office or write to{' '}
             <a href="mailto:transport@griet.ac.in" className="hover:underline" style={{ color: college.accentColor }}>transport@griet.ac.in</a>.
           </p>

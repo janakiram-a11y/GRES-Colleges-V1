@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import college from '../theme';
 import CollegeLayout from '../CollegeLayout';
 import { AcademicsBanner } from '../components/AcademicsLayout';
@@ -7,7 +7,7 @@ import { AcademicsBanner } from '../components/AcademicsLayout';
 function SectionHeading({ children }) {
   return (
     <h2
-      className="font-hind font-bold text-xl sm:text-2xl md:text-3xl mb-5 pb-2 inline-block"
+      className="font-display font-bold text-xl mb-4 pb-2 inline-block"
       style={{ color: college.primaryColor, borderBottom: `2px solid ${college.accentColor}` }}
     >
       {children}
@@ -33,7 +33,7 @@ function RankingEntry({ logo, alt, children, link, linkLabel }) {
           <img src={logo} alt={alt || 'Ranking logo'} className="max-h-full max-w-full object-contain" />
         </div>
       )}
-      <div className={`flex-1 font-dm-sans text-[14px] leading-relaxed text-gray-700 ${!logo ? 'pl-2' : ''}`}>
+      <div className={`flex-1 font-dm-sans text-base leading-relaxed text-gray-700 ${!logo ? 'pl-2' : ''}`}>
         <span className="inline-block w-4 h-4 rounded-full mr-2 align-middle flex-shrink-0"
           style={{ backgroundColor: college.primaryColor, display: 'inline-block' }} />
         <span>{children}</span>
@@ -42,7 +42,7 @@ function RankingEntry({ logo, alt, children, link, linkLabel }) {
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="block mt-1 font-semibold text-[13px] hover:underline"
+            className="block mt-1 font-semibold text-[0.9375rem] hover:underline"
             style={{ color: college.primaryColor }}
           >
             {linkLabel || link}
@@ -254,7 +254,7 @@ export default function RankingsPage() {
             ].map((item, i) => (
               <div key={i} className="p-5 rounded-lg border border-gray-100 bg-white text-center hover:shadow-sm transition-shadow">
                 <RankingValue>{item.value}</RankingValue>
-                <p className="mt-2 font-dm-sans text-[13px] text-gray-600 leading-snug">{item.label}</p>
+                <p className="mt-2 font-dm-sans text-[0.9375rem] text-gray-600 leading-snug">{item.label}</p>
               </div>
             ))}
           </div>
@@ -273,7 +273,7 @@ export default function RankingsPage() {
           ))}
           <div className="mt-2 space-y-2">
             {rankings2023.textOnly.map((item, i) => (
-              <div key={i} className="flex items-start gap-3 px-4 py-2 font-dm-sans text-[14px] leading-relaxed text-gray-700">
+              <div key={i} className="flex items-start gap-3 px-4 py-2 font-dm-sans text-base leading-relaxed text-gray-700">
                 {item.logo ? (
                   <div className="w-full max-w-[80px] sm:max-w-[100px] aspect-square flex-shrink-0 flex items-center justify-center">
                     <img src={item.logo} alt={item.alt} className="max-h-full max-w-full object-contain" />
@@ -330,13 +330,13 @@ export default function RankingsPage() {
         </YearAccordion>
 
         <YearAccordion year={2024}>
-          <p className="font-dm-sans text-[14px] text-gray-500 italic px-2 py-1">
+          <p className="font-dm-sans text-base text-gray-500 italic px-2 py-1">
             Rankings &amp; recognitions for 2024 will be updated shortly.
           </p>
         </YearAccordion>
 
         <YearAccordion year={2025}>
-          <p className="font-dm-sans text-[14px] text-gray-500 italic px-2 py-1">
+          <p className="font-dm-sans text-base text-gray-500 italic px-2 py-1">
             Rankings &amp; recognitions for 2025 will be updated shortly.
           </p>
         </YearAccordion>

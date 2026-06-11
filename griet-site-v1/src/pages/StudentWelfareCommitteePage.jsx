@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 const committeeMembers = [
@@ -53,10 +53,6 @@ const resources = [
 
 const downloads = [
   {
-    label: 'August 2024 Meeting Minutes',
-    href: 'https://www.griet.ac.in/Student_Welfare_Committee.php',
-  },
-  {
     label: 'Annual Report Downloads',
     href: 'https://www.griet.ac.in/Student_Welfare_Committee.php',
   },
@@ -73,7 +69,7 @@ export default function StudentWelfareCommitteePage() {
         {/* About */}
         <section>
           <h2
-            className="text-2xl font-bold mb-3"
+            className="text-xl font-bold mb-3"
             style={{ color: primary }}
           >
             About the Committee
@@ -89,7 +85,7 @@ export default function StudentWelfareCommitteePage() {
         {/* Committee Composition 2025-26 */}
         <section>
           <h2
-            className="text-2xl font-bold mb-3"
+            className="text-xl font-bold mb-3"
             style={{ color: primary }}
           >
             Committee Composition 2025&ndash;26
@@ -121,7 +117,7 @@ export default function StudentWelfareCommitteePage() {
         {/* Functions */}
         <section>
           <h2
-            className="text-2xl font-bold mb-3"
+            className="text-xl font-bold mb-3"
             style={{ color: primary }}
           >
             Functions
@@ -145,7 +141,7 @@ export default function StudentWelfareCommitteePage() {
         {/* Student Resources */}
         <section>
           <h2
-            className="text-2xl font-bold mb-3"
+            className="text-xl font-bold mb-3"
             style={{ color: primary }}
           >
             Student Resources
@@ -181,48 +177,11 @@ export default function StudentWelfareCommitteePage() {
           </div>
         </section>
 
-        {/* Meeting Minutes Downloads */}
-        <section>
-          <h2
-            className="text-2xl font-bold mb-3"
-            style={{ color: primary }}
-          >
-            Meeting Minutes &amp; Reports
-          </h2>
-          <div className="w-16 h-1 mb-5 rounded" style={{ backgroundColor: accent }} />
-          <div className="flex flex-col sm:flex-row gap-4">
-            {downloads.map((dl, idx) => (
-              <a
-                key={idx}
-                href={dl.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-lg text-white text-sm font-medium shadow hover:opacity-90 transition-opacity"
-                style={{ backgroundColor: primary }}
-              >
-                <svg
-                  className="w-4 h-4 flex-shrink-0"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"
-                  />
-                </svg>
-                {dl.label}
-              </a>
-            ))}
-          </div>
-        </section>
 
         {/* Contact */}
         <section>
           <h2
-            className="text-2xl font-bold mb-3"
+            className="text-xl font-bold mb-3"
             style={{ color: primary }}
           >
             Contact

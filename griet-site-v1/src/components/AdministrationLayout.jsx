@@ -7,7 +7,7 @@ export default function AdministrationLayout({ title, children }) {
   return (
     <CollegeLayout college={college}>
       <AcademicsBanner title={title} />
-      <div className="px-5 md:px-16 lg:px-[120px] py-8 md:py-14 lg:py-20">
+      <div className="page-content px-5 md:px-16 lg:px-[120px] py-8 md:py-14 lg:py-20">
         {/* Mobile / tablet: horizontal scrollable chip row */}
         <div className="lg:hidden mb-4">
           <AdministrationSidebar mobileChips />

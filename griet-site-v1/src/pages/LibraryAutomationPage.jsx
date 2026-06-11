@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 const FEATURES = [
@@ -34,7 +34,7 @@ export default function LibraryAutomationPage() {
         </p>
 
         <div className="p-5 rounded-xl bg-gray-50 border border-gray-200">
-          <p className="font-hind font-bold text-[13px] mb-4" style={{ color: college.primaryColor }}>
+          <p className="font-hind font-bold text-[0.9375rem] mb-4" style={{ color: college.primaryColor }}>
             Key Features
           </p>
           <ul className="flex flex-col gap-2.5">
@@ -50,14 +50,14 @@ export default function LibraryAutomationPage() {
 
       <section className="mb-6">
         <SectionLabel>OPAC Access</SectionLabel>
-        <p className="font-dm-sans text-[13px] text-gray-600 mb-4">
+        <p className="font-dm-sans text-[0.9375rem] text-gray-600 mb-4">
           Access the Online Public Access Catalogue to search the library's holdings:
         </p>
         <a
           href="https://griet.bestbookbuddies.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-dm-sans font-semibold text-[13px] text-white transition-opacity hover:opacity-90"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-dm-sans font-semibold text-[0.9375rem] text-white transition-opacity hover:opacity-90"
           style={{ backgroundColor: college.primaryColor }}
         >
           Open Library Catalogue (OPAC)

@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 const BASE = 'https://www.griet.ac.in/';
@@ -90,7 +90,7 @@ export default function LibraryEResourcesDocPage() {
     <AcademicsLayout title="Library — E-Resources Documents">
 
       <SectionLabel>Payment Receipts</SectionLabel>
-      <p className="font-dm-sans text-[13px] text-gray-500 mb-6">
+      <p className="font-dm-sans text-[0.9375rem] text-gray-500 mb-6">
         Click any year link to view the corresponding payment receipt PDF.
       </p>
 

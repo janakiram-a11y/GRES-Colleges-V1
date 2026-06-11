@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 const DATABASES = [
@@ -60,7 +60,7 @@ export default function LibraryOnlineDatabasesPage() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-dm-sans text-[12px] font-semibold hover:underline"
+                  className="font-dm-sans text-[0.875rem] font-semibold hover:underline"
                   style={{ color: college.accentColor }}
                 >
                   Access Database →
@@ -71,13 +71,13 @@ export default function LibraryOnlineDatabasesPage() {
                   href={ytHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-dm-sans text-[12px] font-semibold hover:underline text-gray-500"
+                  className="font-dm-sans text-[0.875rem] font-semibold hover:underline text-gray-500"
                 >
                   Watch on YouTube →
                 </a>
               )}
               {!href && (
-                <span className="font-dm-sans text-[12px] text-gray-400 italic">Available on campus devices</span>
+                <span className="font-dm-sans text-[0.875rem] text-gray-400 italic">Available on campus devices</span>
               )}
             </div>
           </div>

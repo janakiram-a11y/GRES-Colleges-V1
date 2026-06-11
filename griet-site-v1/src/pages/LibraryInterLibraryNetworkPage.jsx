@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 const SERVICES = [
@@ -35,7 +35,7 @@ export default function LibraryInterLibraryNetworkPage() {
         </p>
 
         <div className="p-5 rounded-xl bg-gray-50 border border-gray-200 mb-6">
-          <p className="font-hind font-bold text-[13px] mb-4" style={{ color: college.primaryColor }}>
+          <p className="font-hind font-bold text-[0.9375rem] mb-4" style={{ color: college.primaryColor }}>
             Services Offered
           </p>
           <ul className="flex flex-col gap-2.5">
@@ -52,7 +52,7 @@ export default function LibraryInterLibraryNetworkPage() {
           href="http://delnet.nic.in"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 font-dm-sans font-semibold text-[13px] hover:underline"
+          className="inline-flex items-center gap-2 font-dm-sans font-semibold text-[0.9375rem] hover:underline"
           style={{ color: college.accentColor }}
         >
           Visit DELNET Website →

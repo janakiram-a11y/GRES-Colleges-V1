@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 /* ── Helpers ─────────────────────────────────────────────────────────── */
@@ -78,7 +78,7 @@ export default function RoboticsClubPage() {
       <section className="mb-8">
         <SectionLabel>About the Club</SectionLabel>
         <div className="p-5 rounded-xl bg-gray-50 border border-gray-200">
-          <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed mb-3">
+          <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed mb-3">
             The <strong>GRIET Robotics Club</strong> is one of the most active technical clubs on campus. Students
             design, build, and program robots for national-level competitions, gaining invaluable hands-on engineering
             experience.
@@ -105,12 +105,12 @@ export default function RoboticsClubPage() {
           {ACTIVITIES.map(({ title, desc }) => (
             <div key={title} className="p-4 rounded-xl border border-gray-200 bg-white">
               <p
-                className="font-hind font-bold text-[13px] mb-1"
+                className="font-hind font-bold text-[0.9375rem] mb-1"
                 style={{ color: college.primaryColor }}
               >
                 {title}
               </p>
-              <p className="font-dm-sans text-[12px] text-gray-600 leading-relaxed">{desc}</p>
+              <p className="font-dm-sans text-[0.875rem] text-gray-600 leading-relaxed">{desc}</p>
             </div>
           ))}
         </div>
@@ -123,7 +123,7 @@ export default function RoboticsClubPage() {
           {TECHNOLOGIES.map((tech) => (
             <span
               key={tech}
-              className="px-3 py-1 rounded-full font-dm-sans text-[12px] font-semibold border"
+              className="px-3 py-1 rounded-full font-dm-sans text-[0.875rem] font-semibold border"
               style={{
                 borderColor: college.primaryColor,
                 color: college.primaryColor,
@@ -176,7 +176,7 @@ export default function RoboticsClubPage() {
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
                 <polyline points="14 2 14 8 20 8" />
               </svg>
-              <span className="font-dm-sans text-[12px] text-gray-700 group-hover:font-medium">{label}</span>
+              <span className="font-dm-sans text-[0.875rem] text-gray-700 group-hover:font-medium">{label}</span>
             </a>
           ))}
         </div>

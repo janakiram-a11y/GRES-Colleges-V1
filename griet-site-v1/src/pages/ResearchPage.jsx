@@ -1,4 +1,4 @@
-import college from '../theme';
+﻿import college from '../theme';
 import CollegeLayout from '../CollegeLayout';
 import { AcademicsBanner } from '../components/AcademicsLayout';
 import { Link, useLocation } from 'react-router-dom';
@@ -43,7 +43,7 @@ function ResearchRightRibbon() {
           className="rounded-t-lg px-5 py-3"
           style={{ background: `linear-gradient(135deg, ${college.primaryColor} 0%, #3a0b1a 100%)` }}
         >
-          <span className="font-hind font-bold text-[13px] text-white tracking-wide">
+          <span className="font-hind font-bold text-[0.9375rem] text-white tracking-wide">
             Policies
           </span>
         </div>
@@ -52,7 +52,7 @@ function ResearchRightRibbon() {
             <li key={label}>
               <a
                 href={href}
-                className="flex items-center gap-3 px-5 py-2.5 font-dm-sans text-[13px] font-medium transition-colors hover:bg-gray-50"
+                className="flex items-center gap-3 px-5 py-2.5 font-dm-sans text-[0.9375rem] font-medium transition-colors hover:bg-gray-50"
                 style={{ color: '#374151' }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = '#C32033')}
                 onMouseLeave={(e) => (e.currentTarget.style.color = '#374151')}
@@ -71,7 +71,7 @@ function ResearchRightRibbon() {
           <a
             key={label}
             href={href}
-            className="flex-shrink-0 px-3 py-1.5 rounded-full border font-dm-sans text-[12px] font-medium whitespace-nowrap transition-colors"
+            className="flex-shrink-0 px-3 py-1.5 rounded-full border font-dm-sans text-[0.875rem] font-medium whitespace-nowrap transition-colors"
             style={{ borderColor: college.primaryColor, color: college.primaryColor, background: '#fff' }}
           >
             {label}
@@ -91,7 +91,7 @@ function ResearchSidebar() {
           <a
             key={label}
             href={href}
-            className="flex-shrink-0 px-3 py-1.5 rounded-full border font-dm-sans text-[12px] font-medium whitespace-nowrap transition-colors"
+            className="flex-shrink-0 px-3 py-1.5 rounded-full border font-dm-sans text-[0.875rem] font-medium whitespace-nowrap transition-colors"
             style={{ borderColor: college.primaryColor, color: college.primaryColor, background: '#fff' }}
           >
             {label}
@@ -105,7 +105,7 @@ function ResearchSidebar() {
           className="rounded-t-lg px-5 py-3"
           style={{ background: `linear-gradient(135deg, ${college.primaryColor} 0%, #3a0b1a 100%)` }}
         >
-          <span className="font-hind font-bold text-[13px] text-white tracking-wide">
+          <span className="font-hind font-bold text-[0.9375rem] text-white tracking-wide">
             Research Links
           </span>
         </div>
@@ -114,7 +114,7 @@ function ResearchSidebar() {
             <li key={label}>
               <a
                 href={href}
-                className="flex items-center gap-3 px-5 py-2.5 font-dm-sans text-[13px] font-medium transition-colors hover:bg-gray-50"
+                className="flex items-center gap-3 px-5 py-2.5 font-dm-sans text-[0.9375rem] font-medium transition-colors hover:bg-gray-50"
                 style={{ color: '#374151' }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = '#C32033')}
                 onMouseLeave={(e) => (e.currentTarget.style.color = '#374151')}
@@ -137,7 +137,7 @@ function StatCard({ count, label, desc }) {
     <div className="bg-white/10 border border-white/20 rounded-xl px-6 py-8 flex flex-col items-center text-center gap-2">
       <span className="font-hind font-bold text-3xl" style={{ color: '#F3DAB2' }}>{count}</span>
       <span className="font-hind font-semibold text-base text-white">{label}</span>
-      {desc && <span className="font-dm-sans text-[12px] text-white/70 leading-relaxed">{desc}</span>}
+      {desc && <span className="font-dm-sans text-[0.875rem] text-white/70 leading-relaxed">{desc}</span>}
     </div>
   );
 }
@@ -183,7 +183,7 @@ export default function ResearchPage() {
               </div>
 
               <div className="bg-gray-50 rounded-lg p-5 border border-gray-100">
-                <p className="font-dm-sans text-[14px] leading-relaxed text-gray-700">
+                <p className="font-dm-sans text-base leading-relaxed text-gray-700">
                   Major focus areas of each program at GRIET is to be sensitive to Society and industry requirements
                   and problems, based on which the Research and Development program gets its impetus. The Institution
                   follows the dictum: <em>"Every project should yield a product."</em>
@@ -213,7 +213,7 @@ export default function ResearchPage() {
             {/* Research Projects */}
             <section id="research-projects">
               <SectionHeading>Research Projects</SectionHeading>
-              <p className="font-dm-sans text-[14px] leading-relaxed text-gray-700 mb-4">
+              <p className="font-dm-sans text-base leading-relaxed text-gray-700 mb-4">
                 GRIET has been active in sponsored research funded by prestigious agencies such as DST, AICTE,
                 NRB, DRDO, and leading industry partners. The research projects cover domains including VLSI,
                 Embedded Systems, AI &amp; ML, Power Systems, Materials Science, and more.
@@ -230,10 +230,10 @@ export default function ResearchPage() {
                     <div className="flex items-center gap-2 mb-2">
                       <span className="w-2 h-2 rounded-full flex-shrink-0"
                         style={{ backgroundColor: college.primaryColor }} />
-                      <h3 className="font-hind font-semibold text-[14px]"
+                      <h3 className="font-hind font-semibold text-base"
                         style={{ color: college.primaryColor }}>{p.title}</h3>
                     </div>
-                    <p className="font-dm-sans text-[12px] text-gray-600 leading-relaxed">{p.desc}</p>
+                    <p className="font-dm-sans text-[0.875rem] text-gray-600 leading-relaxed">{p.desc}</p>
                   </div>
                 ))}
               </div>
@@ -242,17 +242,17 @@ export default function ResearchPage() {
             {/* Consultancy */}
             <section id="consultancy">
               <SectionHeading>Consultancy</SectionHeading>
-              <p className="font-dm-sans text-[14px] leading-relaxed text-gray-700 mb-4">
+              <p className="font-dm-sans text-base leading-relaxed text-gray-700 mb-4">
                 GRIET offers consultancy services to Government agencies, PSUs, and private industries through
                 its various departments and the NABL-accredited GRMTL material testing laboratory. The consultancy
                 activities span structural testing, material characterization, software solutions, and training programs.
               </p>
               <div className="overflow-x-auto">
-                <table className="w-full text-[13px] font-dm-sans border border-gray-200 rounded-lg overflow-hidden">
+                <table className="w-full text-[0.9375rem] font-dm-sans border border-gray-200 rounded-lg overflow-hidden">
                   <thead>
                     <tr style={{ backgroundColor: college.primaryColor }}>
                       {['Domain', 'Services Offered', 'Clients'].map((h) => (
-                        <th key={h} className="text-left px-5 py-3 text-white font-hind font-semibold text-[12px]">{h}</th>
+                        <th key={h} className="text-left px-5 py-3 text-white font-hind font-semibold text-[0.875rem]">{h}</th>
                       ))}
                     </tr>
                   </thead>
@@ -277,7 +277,7 @@ export default function ResearchPage() {
             {/* Patents */}
             <section id="patents">
               <SectionHeading>Patents &amp; Intellectual Property</SectionHeading>
-              <p className="font-dm-sans text-[14px] leading-relaxed text-gray-700 mb-5">
+              <p className="font-dm-sans text-base leading-relaxed text-gray-700 mb-5">
                 GRIET has filed 85+ patents across various engineering domains, reflecting the strong innovation
                 culture fostered at the institution. The patents span AI, IoT, materials science, biomedical
                 engineering, and sustainable technologies.
@@ -295,7 +295,7 @@ export default function ResearchPage() {
                     <div className="font-hind font-bold text-2xl mb-1" style={{ color: college.primaryColor }}>
                       {s.count}
                     </div>
-                    <div className="font-dm-sans text-[12px] text-gray-600">{s.label}</div>
+                    <div className="font-dm-sans text-[0.875rem] text-gray-600">{s.label}</div>
                   </div>
                 ))}
               </div>
@@ -304,7 +304,7 @@ export default function ResearchPage() {
             {/* Publications */}
             <section id="publications">
               <SectionHeading>Publications</SectionHeading>
-              <p className="font-dm-sans text-[14px] leading-relaxed text-gray-700 mb-4">
+              <p className="font-dm-sans text-base leading-relaxed text-gray-700 mb-4">
                 Faculty and research scholars at GRIET have published extensively in high-impact Scopus and
                 SCI-indexed journals. The publications cover wide-ranging topics across engineering, sciences,
                 and interdisciplinary domains.
@@ -320,7 +320,7 @@ export default function ResearchPage() {
                     <span className="font-hind font-bold text-3xl mb-2" style={{ color: college.primaryColor }}>
                       {p.count}
                     </span>
-                    <span className="font-dm-sans text-[13px] text-gray-600">{p.title}</span>
+                    <span className="font-dm-sans text-[0.9375rem] text-gray-600">{p.title}</span>
                   </div>
                 ))}
               </div>
@@ -329,14 +329,14 @@ export default function ResearchPage() {
             {/* MOUs */}
             <section id="mous">
               <SectionHeading>MOUs &amp; Collaborations</SectionHeading>
-              <p className="font-dm-sans text-[14px] leading-relaxed text-gray-700 mb-4">
+              <p className="font-dm-sans text-base leading-relaxed text-gray-700 mb-4">
                 GRIET holds active Memoranda of Understanding with leading academic institutions and industries,
                 enabling collaborative research, student exchanges, and joint projects.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 {['IIT Hyderabad', 'NIT Warangal', 'Curtin University (Malaysia)', 'Infosys SpringBoard', 'TCS iON', 'Intel Corporation', 'IBM', 'Amazon Web Services', 'Microsoft Azure'].map((org) => (
                   <div key={org}
-                    className="flex items-center gap-2.5 px-4 py-3 rounded-lg border border-gray-200 bg-white font-dm-sans text-[13px] text-gray-700 hover:border-gray-300 transition-colors">
+                    className="flex items-center gap-2.5 px-4 py-3 rounded-lg border border-gray-200 bg-white font-dm-sans text-[0.9375rem] text-gray-700 hover:border-gray-300 transition-colors">
                     <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: college.accentColor }} />
                     {org}
                   </div>
@@ -347,7 +347,7 @@ export default function ResearchPage() {
             {/* Innovation */}
             <section id="innovation">
               <SectionHeading>Innovation Awards</SectionHeading>
-              <p className="font-dm-sans text-[14px] leading-relaxed text-gray-700 mb-4">
+              <p className="font-dm-sans text-base leading-relaxed text-gray-700 mb-4">
                 GRIET has been honoured with several national and international innovation awards. The AICTE IDEA Lab
                 and Incubation Centre nurture entrepreneurial endeavours, and GRIET has received recognition for its
                 commitment to fostering innovation among students and faculty.
@@ -363,7 +363,7 @@ export default function ResearchPage() {
                   <div key={i} className="flex items-start gap-3 p-4 rounded-lg border border-gray-100 bg-white">
                     <span className="mt-1 w-2 h-2 rounded-full flex-shrink-0"
                       style={{ backgroundColor: college.accentColor }} />
-                    <span className="font-dm-sans text-[13px] leading-relaxed text-gray-700">{item}</span>
+                    <span className="font-dm-sans text-[0.9375rem] leading-relaxed text-gray-700">{item}</span>
                   </div>
                 ))}
               </div>
@@ -372,7 +372,7 @@ export default function ResearchPage() {
             {/* PhD */}
             <section id="phd">
               <SectionHeading>PhD Programmes</SectionHeading>
-              <p className="font-dm-sans text-[14px] leading-relaxed text-gray-700">
+              <p className="font-dm-sans text-base leading-relaxed text-gray-700">
                 GRIET supports doctoral research through its Research &amp; Development centre recognised by
                 JNTU Hyderabad. Faculty and external research scholars work on funded and self-financed PhD
                 programmes spanning all engineering and science disciplines. GRES is also recognised as a
@@ -384,7 +384,7 @@ export default function ResearchPage() {
             {/* Conferences */}
             <section id="conferences">
               <SectionHeading>National &amp; International Conferences</SectionHeading>
-              <p className="font-dm-sans text-[14px] leading-relaxed text-gray-700 mb-4">
+              <p className="font-dm-sans text-base leading-relaxed text-gray-700 mb-4">
                 GRIET regularly hosts and participates in high-impact national and international conferences.
                 The International Conference on Material Processing and Characterization (ICMPC) hosted by
                 GRIET is a renowned global conference in its domain.
@@ -397,10 +397,10 @@ export default function ResearchPage() {
                   { title: 'Student Conferences', desc: 'Annual student-level conferences encouraging undergraduate research publication.' },
                 ].map((c) => (
                   <div key={c.title} className="p-5 rounded-lg border border-gray-200 bg-white hover:shadow-md transition-shadow">
-                    <h3 className="font-hind font-semibold text-[14px] mb-2" style={{ color: college.primaryColor }}>
+                    <h3 className="font-hind font-semibold text-base mb-2" style={{ color: college.primaryColor }}>
                       {c.title}
                     </h3>
-                    <p className="font-dm-sans text-[12px] text-gray-600 leading-relaxed">{c.desc}</p>
+                    <p className="font-dm-sans text-[0.875rem] text-gray-600 leading-relaxed">{c.desc}</p>
                   </div>
                 ))}
               </div>

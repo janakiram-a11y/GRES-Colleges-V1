@@ -23,7 +23,7 @@ const tdStyle = {
 
 function SectionTitle({ children }) {
   return (
-    <h2 className="font-hind font-bold text-[20px] mb-5 pb-2" style={{ color: college.primaryColor, borderBottom: `2px solid ${college.primaryColor}22` }}>
+    <h2 className="font-display font-bold text-xl mb-4 pb-2" style={{ color: college.primaryColor, borderBottom: `2px solid ${college.primaryColor}22` }}>
       {children}
     </h2>
   );
@@ -38,7 +38,7 @@ function SubHeading({ children }) {
 }
 
 function Body({ children }) {
-  return <p className="font-dm-sans text-[13px] leading-relaxed text-gray-700 mb-2">{children}</p>;
+  return <p className="font-dm-sans text-[0.9375rem] leading-relaxed text-gray-700 mb-2">{children}</p>;
 }
 
 const rankTiers = [
@@ -63,7 +63,7 @@ export default function ScholarshipsPage() {
       {/* ── B.Tech Rank-Based Scholarship Cards ── */}
       <section className="mb-12">
         <SectionTitle>B.Tech — Rank-Based Scholarships</SectionTitle>
-        <p className="font-dm-sans text-[13px] text-gray-600 mb-5">
+        <p className="font-dm-sans text-[0.9375rem] text-gray-600 mb-5">
           Scholarships are provided based on EAMCET ranks for the B.Tech programme.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
@@ -84,7 +84,7 @@ export default function ScholarshipsPage() {
                 {amount}
               </div>
               <div
-                className="font-dm-sans text-[12px] font-semibold mt-1"
+                className="font-dm-sans text-[0.875rem] font-semibold mt-1"
                 style={{ color: highlight ? 'rgba(255,255,255,0.85)' : '#6b7280' }}
               >
                 {rank}
@@ -98,7 +98,7 @@ export default function ScholarshipsPage() {
           <svg className="w-5 h-5 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" style={{ color: college.accentColor }}>
             <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
           </svg>
-          <p className="font-dm-sans text-[13px] text-gray-700">
+          <p className="font-dm-sans text-[0.9375rem] text-gray-700">
             <span className="font-semibold">M.Tech:</span> Teaching assistanceship available for eligible non-GATE M.Tech students.
           </p>
         </div>
@@ -209,7 +209,7 @@ export default function ScholarshipsPage() {
           </table>
         </div>
 
-        <a href="#" className="font-dm-sans text-[13px] font-semibold underline hover:opacity-75" style={{ color: college.primaryColor }}>
+        <a href="#" className="font-dm-sans text-[0.9375rem] font-semibold underline hover:opacity-75" style={{ color: college.primaryColor }}>
           Fee Reimbursement Link →
         </a>
 
@@ -235,13 +235,13 @@ export default function ScholarshipsPage() {
             >
               <a
                 href="#"
-                className="font-hind font-semibold text-[14px] underline hover:opacity-75 block mb-2"
+                className="font-hind font-semibold text-base underline hover:opacity-75 block mb-2"
                 style={{ color: college.primaryColor }}
               >
                 {i + 1}. {award.title}
               </a>
               {award.eligibility && (
-                <p className="font-dm-sans text-[12px] text-gray-500 leading-relaxed">
+                <p className="font-dm-sans text-[0.875rem] text-gray-500 leading-relaxed">
                   <span className="font-semibold text-gray-600">Eligibility: </span>
                   {award.eligibility}
                 </p>

@@ -21,23 +21,23 @@ function Step({ n, children }) {
   return (
     <div className="flex items-start gap-3 mb-3">
       <div
-        className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center font-hind font-bold text-[12px] text-white mt-0.5"
+        className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center font-hind font-bold text-[0.875rem] text-white mt-0.5"
         style={{ backgroundColor: college.accentColor }}
       >
         {n}
       </div>
-      <p className="font-dm-sans text-[13px] leading-relaxed text-gray-700">{children}</p>
+      <p className="font-dm-sans text-[0.9375rem] leading-relaxed text-gray-700">{children}</p>
     </div>
   );
 }
 
 function Body({ children }) {
-  return <p className="font-dm-sans text-[13px] leading-relaxed text-gray-700 mb-3">{children}</p>;
+  return <p className="font-dm-sans text-[0.9375rem] leading-relaxed text-gray-700 mb-3">{children}</p>;
 }
 
 function SubLabel({ children }) {
   return (
-    <p className="font-dm-sans font-bold text-[12px] uppercase tracking-wide text-gray-400 mb-2 mt-4">{children}</p>
+    <p className="font-dm-sans font-bold text-[0.875rem] uppercase tracking-wide text-gray-400 mb-2 mt-4">{children}</p>
   );
 }
 
@@ -46,7 +46,7 @@ export default function AdmissionProcedurePage() {
     <AdmissionsLayout title="Admission Procedure">
 
       {/* Eligibility note */}
-      <p className="font-dm-sans text-[13px] text-gray-500 italic mb-8">
+      <p className="font-dm-sans text-[0.9375rem] text-gray-500 italic mb-8">
         Review the eligibility criteria and admission steps for B.Tech and M.Tech programmes at GRIET.
       </p>
 
@@ -99,10 +99,10 @@ export default function AdmissionProcedurePage() {
           <Step n={3}>Sponsored candidates are admitted on merit; preference given to GATE-qualified.</Step>
 
           <div className="mt-5 pt-4 border-t border-gray-100 space-y-2">
-            <a href="#" style={{ color: college.primaryColor }} className="font-dm-sans font-semibold text-[13px] underline hover:opacity-80 block">
+            <a href="#" style={{ color: college.primaryColor }} className="font-dm-sans font-semibold text-[0.9375rem] underline hover:opacity-80 block">
               M.Tech Notification →
             </a>
-            <a href="#" style={{ color: college.primaryColor }} className="font-dm-sans font-semibold text-[13px] underline hover:opacity-80 block">
+            <a href="#" style={{ color: college.primaryColor }} className="font-dm-sans font-semibold text-[0.9375rem] underline hover:opacity-80 block">
               M.Tech Application Form (2024–25) →
             </a>
           </div>
@@ -112,10 +112,10 @@ export default function AdmissionProcedurePage() {
 
       {/* AICTE scholarship note */}
       <div className="rounded-lg p-5" style={{ backgroundColor: '#fdf8ee', border: `1px solid ${college.accentColor}55` }}>
-        <p className="font-hind font-semibold text-[14px] mb-1" style={{ color: college.primaryColor }}>
+        <p className="font-hind font-semibold text-base mb-1" style={{ color: college.primaryColor }}>
           AICTE Scholarship Note
         </p>
-        <p className="font-dm-sans text-[13px] text-gray-700">
+        <p className="font-dm-sans text-[0.9375rem] text-gray-700">
           AICTE Scholarships are available to eligible GATE-qualified M.Tech candidates.
           Sponsored candidates are <strong>not eligible</strong> to receive stipend or scholarship,
           even if admitted on GATE score.

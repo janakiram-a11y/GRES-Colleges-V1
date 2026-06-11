@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 const ACTIVITIES = [
@@ -59,10 +59,10 @@ export default function EDCPage() {
 
       <section className="mb-8">
         <div className="p-5 rounded-xl bg-gray-50 border border-gray-200">
-          <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed mb-3">
+          <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed mb-3">
             The <strong>Entrepreneurship Development Cell (EDC)</strong> at GRIET nurtures the entrepreneurial spirit of students and faculty by providing structured support, resources, and mentorship for idea validation, prototyping, and startup creation. The EDC works in close coordination with the Institution's Innovation Council (IIC), GRIET Technology Business Incubator (TBI), and the AICTE IDEA Lab.
           </p>
-          <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed">
+          <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed">
             GRIET has been recognised as a hub of innovation — with <strong>85+ patents filed</strong>, active student startups, and a consistent track record at national-level innovation competitions including Smart India Hackathon, BAJA SAE, and JNTUH Hackathon.
           </p>
         </div>
@@ -73,8 +73,8 @@ export default function EDCPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {ACTIVITIES.map(({ title, desc }) => (
             <div key={title} className="p-4 rounded-xl border border-gray-200 bg-white">
-              <p className="font-hind font-bold text-[13px] mb-1" style={{ color: college.primaryColor }}>{title}</p>
-              <p className="font-dm-sans text-[12px] text-gray-600 leading-relaxed">{desc}</p>
+              <p className="font-hind font-bold text-[0.9375rem] mb-1" style={{ color: college.primaryColor }}>{title}</p>
+              <p className="font-dm-sans text-[0.875rem] text-gray-600 leading-relaxed">{desc}</p>
             </div>
           ))}
         </div>
@@ -85,15 +85,15 @@ export default function EDCPage() {
         <div className="flex flex-col gap-4">
           {INITIATIVES.map(({ name, desc, href, internal: isInternal }) => (
             <div key={name} className="p-4 rounded-xl border border-gray-200 bg-white flex flex-col gap-2">
-              <p className="font-hind font-bold text-[13px]" style={{ color: college.primaryColor }}>{name}</p>
-              <p className="font-dm-sans text-[12px] text-gray-600 leading-relaxed">{desc}</p>
+              <p className="font-hind font-bold text-[0.9375rem]" style={{ color: college.primaryColor }}>{name}</p>
+              <p className="font-dm-sans text-[0.875rem] text-gray-600 leading-relaxed">{desc}</p>
               {href && (
                 isInternal ? (
-                  <a href={href} className="font-dm-sans text-[12px] font-semibold hover:underline self-start" style={{ color: college.accentColor }}>
+                  <a href={href} className="font-dm-sans text-[0.875rem] font-semibold hover:underline self-start" style={{ color: college.accentColor }}>
                     View page →
                   </a>
                 ) : (
-                  <a href={href} target="_blank" rel="noopener noreferrer" className="font-dm-sans text-[12px] font-semibold hover:underline self-start" style={{ color: college.accentColor }}>
+                  <a href={href} target="_blank" rel="noopener noreferrer" className="font-dm-sans text-[0.875rem] font-semibold hover:underline self-start" style={{ color: college.accentColor }}>
                     Visit website →
                   </a>
                 )
@@ -118,7 +118,7 @@ export default function EDCPage() {
       <section className="mb-6">
         <SectionLabel>Contact EDC</SectionLabel>
         <div className="p-5 rounded-xl bg-gray-50 border border-gray-200">
-          <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed">
+          <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed">
             For EDC activities, startup mentoring, or incubation support, contact the <strong>Dean of Research & Innovation</strong> or write to{' '}
             <a href="mailto:edc@griet.ac.in" className="font-semibold hover:underline" style={{ color: college.accentColor }}>edc@griet.ac.in</a>.
             <br />

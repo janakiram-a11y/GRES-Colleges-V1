@@ -4,7 +4,7 @@ import college from '../theme';
 function SectionHeading({ children }) {
   return (
     <h2
-      className="font-hind font-bold text-2xl mb-6 pb-2 inline-block"
+      className="font-display font-bold text-xl mb-5 pb-2 inline-block"
       style={{ color: college.primaryColor, borderBottom: `2px solid ${college.accentColor}` }}
     >
       {children}
@@ -59,10 +59,10 @@ export default function AdminPrincipalPage() {
                 <h3 className="font-hind font-bold text-[22px] leading-snug" style={{ color: college.primaryColor }}>
                   Dr. J Praveen
                 </h3>
-                <p className="font-dm-sans text-[14px] font-semibold mt-1" style={{ color: college.accentColor }}>
+                <p className="font-dm-sans text-base font-semibold mt-1" style={{ color: college.accentColor }}>
                   Principal, GRIET
                 </p>
-                <p className="font-dm-sans text-[13px] text-gray-500 mt-0.5">
+                <p className="font-dm-sans text-[0.9375rem] text-gray-500 mt-0.5">
                   Ph.D. (Osmania University) &nbsp;|&nbsp; Senior Member IEEE &nbsp;|&nbsp; FIE &nbsp;|&nbsp; Life Member ISTE
                 </p>
               </div>
@@ -70,7 +70,7 @@ export default function AdminPrincipalPage() {
 
             {/* Principal's message */}
             <blockquote
-              className="mt-6 border-l-4 pl-5 py-2 italic font-dm-sans text-[14px] leading-relaxed text-gray-700"
+              className="mt-6 border-l-4 pl-5 py-2 italic font-dm-sans text-base leading-relaxed text-gray-700"
               style={{ borderColor: college.primaryColor }}
             >
               "At GRIET, we believe that education is not just about acquiring knowledge, but about developing the
@@ -86,11 +86,11 @@ export default function AdminPrincipalPage() {
             Academic Credentials &amp; Memberships
           </h3>
           <div className="overflow-x-auto rounded-lg border border-gray-200">
-            <table className="w-full text-[13px] font-dm-sans">
+            <table className="w-full text-[0.9375rem] font-dm-sans">
               <thead>
                 <tr style={{ backgroundColor: college.primaryColor }}>
-                  <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[12px] w-36">Category</th>
-                  <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[12px]">Details</th>
+                  <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[0.875rem] w-36">Category</th>
+                  <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[0.875rem]">Details</th>
                 </tr>
               </thead>
               <tbody>
@@ -119,10 +119,10 @@ export default function AdminPrincipalPage() {
                 >
                   {amount}
                 </p>
-                <p className="font-hind font-semibold text-[12px] mb-1.5" style={{ color: college.accentColor }}>
+                <p className="font-hind font-semibold text-[0.875rem] mb-1.5" style={{ color: college.accentColor }}>
                   {agency}
                 </p>
-                <p className="font-dm-sans text-[12px] text-gray-600">{purpose}</p>
+                <p className="font-dm-sans text-[0.875rem] text-gray-600">{purpose}</p>
               </div>
             ))}
           </div>
@@ -135,7 +135,7 @@ export default function AdminPrincipalPage() {
           </h3>
           <ul className="space-y-2.5">
             {awards.map((item) => (
-              <li key={item} className="flex items-start gap-3 font-dm-sans text-[14px] text-gray-700">
+              <li key={item} className="flex items-start gap-3 font-dm-sans text-base text-gray-700">
                 <span className="mt-1.5 w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: college.accentColor }} />
                 {item}
               </li>

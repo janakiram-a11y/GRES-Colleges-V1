@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 const BENEFITS = [
@@ -49,7 +49,7 @@ export default function InternshipsPage() {
 
       <section className="mb-10">
         <div className="p-5 rounded-xl bg-gray-50 border border-gray-200 mb-6">
-          <p className="font-hind font-bold text-[14px] mb-1" style={{ color: college.primaryColor }}>Dean of Student Affairs — Internship Coordination</p>
+          <p className="font-hind font-bold text-base mb-1" style={{ color: college.primaryColor }}>Dean of Student Affairs — Internship Coordination</p>
           <p className="font-dm-sans text-[12.5px] text-gray-600 leading-relaxed">
             The Dean of Student Affairs oversees the internship programme at GRIET. All department-level internship coordinators work under the Dean's office to ensure that students receive meaningful industrial training, complete mandatory internship credits, and document their experiences appropriately as per university norms.
           </p>
@@ -61,14 +61,14 @@ export default function InternshipsPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {PLATFORMS.map(({ name, desc, href }) => (
             <div key={name} className="p-4 rounded-xl border border-gray-200 bg-white flex flex-col gap-2">
-              <p className="font-hind font-bold text-[13px]" style={{ color: college.primaryColor }}>{name}</p>
-              <p className="font-dm-sans text-[12px] text-gray-600 leading-relaxed flex-1">{desc}</p>
+              <p className="font-hind font-bold text-[0.9375rem]" style={{ color: college.primaryColor }}>{name}</p>
+              <p className="font-dm-sans text-[0.875rem] text-gray-600 leading-relaxed flex-1">{desc}</p>
               {href && (
                 <a
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-dm-sans text-[12px] font-semibold hover:underline self-start"
+                  className="font-dm-sans text-[0.875rem] font-semibold hover:underline self-start"
                   style={{ color: college.accentColor }}
                 >
                   Visit Portal →

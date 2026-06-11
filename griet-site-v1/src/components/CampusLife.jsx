@@ -16,9 +16,9 @@ function GalleryCard({ title, desc, img, fallbackImg, link, gridClass }) {
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/90 transition-opacity" />
       <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 lg:p-6">
-        <h4 className="font-hind font-bold text-white leading-tight mb-1">{title}</h4>
-        <p className="font-dm-sans font-normal text-[14px] leading-[17px] text-white/80">{desc}</p>
-        <span className="mt-2 inline-block font-hind font-semibold text-[12px] text-white/0 group-hover:text-white/80 transition-colors uppercase tracking-wide">
+        <h4 className="font-display font-bold text-white text-[1.125rem] leading-snug mb-1">{title}</h4>
+        <p className="font-body font-normal text-[0.9375rem] leading-snug text-white/80">{desc}</p>
+        <span className="mt-2 inline-block font-display font-semibold text-[0.75rem] text-white/0 group-hover:text-white/80 transition-colors uppercase tracking-wide">
           View Photos →
         </span>
       </div>
@@ -40,16 +40,16 @@ export default function CampusLife({ college }) {
       <div className="flex flex-col gap-6">
         <div className="flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-end">
           <div className="flex flex-col gap-4">
-            <p className="font-hind font-bold text-[14px] leading-5 uppercase tracking-[1.4px] text-[#5B1027]">
+            <p className="font-display font-bold text-[0.75rem] leading-4 uppercase tracking-[0.12em] text-[#5B1027]">
               {college.campusLifeLabel}
             </p>
-            <h2 className="font-hind font-bold text-2xl sm:text-3xl lg:text-4xl leading-tight text-[#2E2E2E]">
+            <h2 className="font-display font-bold text-[1.75rem] md:text-[2.125rem] lg:text-[2.5rem] leading-[1.2] text-[#2E2E2E]">
               {college.campusLifeHeading}
             </h2>
           </div>
           <Link
             to="/events-gallery"
-            className="self-start sm:self-auto border-2 border-[#5B1027] text-[#5B1027] font-dm-sans font-medium text-[16px] leading-6 px-6 py-2 rounded-lg hover:bg-[#5B1027] hover:text-white transition-colors shrink-0"
+            className="self-start sm:self-auto border-2 border-[#5B1027] text-[#5B1027] font-display font-medium text-base leading-6 px-6 py-2 rounded-lg hover:bg-[#5B1027] hover:text-white transition-colors shrink-0"
           >
             Explore Gallery
           </Link>

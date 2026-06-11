@@ -4,7 +4,7 @@ import college from '../theme';
 function SectionHeading({ children }) {
   return (
     <h2
-      className="font-hind font-bold text-2xl mb-6 pb-2 inline-block"
+      className="font-display font-bold text-xl mb-5 pb-2 inline-block"
       style={{ color: college.primaryColor, borderBottom: `2px solid ${college.accentColor}` }}
     >
       {children}
@@ -15,10 +15,10 @@ function SectionHeading({ children }) {
 function InfoRow({ label, value }) {
   return (
     <div className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4 py-2.5 border-b border-gray-100">
-      <span className="font-hind font-semibold text-[12px] uppercase tracking-wide w-40 flex-shrink-0" style={{ color: college.accentColor }}>
+      <span className="font-hind font-semibold text-[0.875rem] uppercase tracking-wide w-40 flex-shrink-0" style={{ color: college.accentColor }}>
         {label}
       </span>
-      <span className="font-dm-sans text-[14px] text-gray-700">{value}</span>
+      <span className="font-dm-sans text-base text-gray-700">{value}</span>
     </div>
   );
 }
@@ -55,10 +55,10 @@ export default function AdminDirectorPage() {
                 <h3 className="font-hind font-bold text-[22px] leading-snug" style={{ color: college.primaryColor }}>
                   Dr. Jandhyala N Murthy
                 </h3>
-                <p className="font-dm-sans text-[14px] font-semibold mt-1" style={{ color: college.accentColor }}>
+                <p className="font-dm-sans text-base font-semibold mt-1" style={{ color: college.accentColor }}>
                   Director, GRIET
                 </p>
-                <p className="font-dm-sans text-[13px] text-gray-500 mt-0.5">
+                <p className="font-dm-sans text-[0.9375rem] text-gray-500 mt-0.5">
                   B.Tech (IIT Madras) &nbsp;|&nbsp; Ph.D. (Cranfield, UK) &nbsp;|&nbsp; Wing Commander (Retd.), IAF
                 </p>
               </div>
@@ -82,7 +82,7 @@ export default function AdminDirectorPage() {
           </h3>
           <ul className="space-y-2.5">
             {achievements.map((item) => (
-              <li key={item} className="flex items-start gap-3 font-dm-sans text-[14px] text-gray-700">
+              <li key={item} className="flex items-start gap-3 font-dm-sans text-base text-gray-700">
                 <span className="mt-1.5 w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: college.primaryColor }} />
                 {item}
               </li>

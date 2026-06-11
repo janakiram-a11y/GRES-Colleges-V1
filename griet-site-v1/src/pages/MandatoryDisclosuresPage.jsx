@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 /* ── Shared sub-components ───────────────────────────────────────────── */
@@ -155,7 +155,7 @@ export default function MandatoryDisclosuresPage() {
       {/* Intro */}
       <section className="mb-8">
         <div className="p-4 sm:p-5 rounded-xl bg-gray-50 border border-gray-200">
-          <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed">
+          <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed">
             In compliance with <strong>AICTE Regulations</strong> and UGC guidelines, GRIET publishes all mandatory institutional disclosures here. Documents are grouped by category. Click <strong>View</strong> on any document to open it in a new tab.
           </p>
         </div>
@@ -179,16 +179,16 @@ export default function MandatoryDisclosuresPage() {
           <table className="w-full text-left min-w-[400px]">
             <thead>
               <tr style={{ backgroundColor: college.primaryColor }}>
-                <th className="font-hind font-semibold text-[11.5px] sm:text-[12px] text-white/90 px-3 sm:px-4 py-3 uppercase tracking-wide">Programme</th>
-                <th className="font-hind font-semibold text-[11.5px] sm:text-[12px] text-white/90 px-3 sm:px-4 py-3 uppercase tracking-wide">Accreditation Period</th>
-                <th className="font-hind font-semibold text-[11.5px] sm:text-[12px] text-white/90 px-3 sm:px-4 py-3 uppercase tracking-wide">Status</th>
+                <th className="font-hind font-semibold text-[11.5px] sm:text-[0.875rem] text-white/90 px-3 sm:px-4 py-3 uppercase tracking-wide">Programme</th>
+                <th className="font-hind font-semibold text-[11.5px] sm:text-[0.875rem] text-white/90 px-3 sm:px-4 py-3 uppercase tracking-wide">Accreditation Period</th>
+                <th className="font-hind font-semibold text-[11.5px] sm:text-[0.875rem] text-white/90 px-3 sm:px-4 py-3 uppercase tracking-wide">Status</th>
               </tr>
             </thead>
             <tbody>
               {NBA_STATUS.map(({ programme, period }, i) => (
                 <tr key={programme} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                  <td className="font-dm-sans text-[12px] sm:text-[12.5px] text-gray-800 px-3 sm:px-4 py-2.5">{programme}</td>
-                  <td className="font-dm-sans text-[12px] sm:text-[12.5px] text-gray-700 px-3 sm:px-4 py-2.5">{period}</td>
+                  <td className="font-dm-sans text-[0.875rem] sm:text-[12.5px] text-gray-800 px-3 sm:px-4 py-2.5">{programme}</td>
+                  <td className="font-dm-sans text-[0.875rem] sm:text-[12.5px] text-gray-700 px-3 sm:px-4 py-2.5">{period}</td>
                   <td className="px-3 sm:px-4 py-2.5">
                     <span className="font-dm-sans text-[11px] font-semibold px-2 py-0.5 rounded-full bg-green-50 text-green-700 whitespace-nowrap">
                       Accredited
@@ -216,10 +216,10 @@ export default function MandatoryDisclosuresPage() {
 
       {/* Contact */}
       <div className="p-4 sm:p-5 rounded-xl bg-gray-50 border border-gray-200 mt-4">
-        <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed">
+        <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed">
           For regulatory compliance queries, contact the <strong>Office of the Principal</strong> or the <strong>IQAC Coordinator</strong>.
         </p>
-        <div className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 font-dm-sans text-[13px] text-gray-700">
+        <div className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 font-dm-sans text-[0.9375rem] text-gray-700">
           <span>Email:</span>
           <a href="mailto:principal@griet.ac.in" className="font-semibold hover:underline break-all" style={{ color: college.accentColor }}>principal@griet.ac.in</a>
           <span className="hidden sm:inline text-gray-400">|</span>

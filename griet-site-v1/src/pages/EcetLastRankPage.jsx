@@ -76,18 +76,18 @@ export default function EcetLastRankPage() {
 
       {/* Intro */}
       <div className="mb-8 rounded-lg p-5 border border-gray-200 bg-white">
-        <p className="font-dm-sans text-[13px] leading-relaxed text-gray-700 mb-2">
+        <p className="font-dm-sans text-[0.9375rem] leading-relaxed text-gray-700 mb-2">
           <strong>ECET</strong> (Engineering Common Entrance Test) is the lateral entry test for
           Diploma holders seeking admission to second-year B.Tech programmes.
         </p>
         <div className="flex items-center gap-4 mt-3">
-          <span className="font-dm-sans text-[13px] text-gray-500 bg-gray-100 rounded-full px-4 py-1.5">
+          <span className="font-dm-sans text-[0.9375rem] text-gray-500 bg-gray-100 rounded-full px-4 py-1.5">
             <strong>B</strong> — Boys
           </span>
-          <span className="font-dm-sans text-[13px] text-gray-500 bg-gray-100 rounded-full px-4 py-1.5">
+          <span className="font-dm-sans text-[0.9375rem] text-gray-500 bg-gray-100 rounded-full px-4 py-1.5">
             <strong>G</strong> — Girls
           </span>
-          <span className="font-dm-sans text-[12px] text-gray-400 italic">
+          <span className="font-dm-sans text-[0.875rem] text-gray-400 italic">
             All rank data is indicative. Actual data may vary.
           </span>
         </div>
@@ -99,7 +99,7 @@ export default function EcetLastRankPage() {
             className="flex items-center gap-3 mb-4 px-4 py-3 rounded"
             style={{ backgroundColor: idx === 0 ? college.primaryColor + '12' : '#f9fafb', borderLeft: `4px solid ${idx === 0 ? college.primaryColor : '#d1d5db'}` }}
           >
-            <h2 className="font-hind font-bold text-[14px]" style={{ color: idx === 0 ? college.primaryColor : '#6b7280' }}>
+            <h2 className="font-hind font-bold text-base" style={{ color: idx === 0 ? college.primaryColor : '#6b7280' }}>
               {label}
             </h2>
             {idx === 0 && (
@@ -111,7 +111,7 @@ export default function EcetLastRankPage() {
           {data ? (
             <RankTable data={data} />
           ) : (
-            <p className="font-dm-sans text-[13px] text-gray-400 italic border border-dashed border-gray-300 rounded p-4">
+            <p className="font-dm-sans text-[0.9375rem] text-gray-400 italic border border-dashed border-gray-300 rounded p-4">
               Rank data for this year will be updated shortly.
             </p>
           )}

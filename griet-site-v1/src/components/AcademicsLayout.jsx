@@ -31,7 +31,7 @@ export function AcademicsBanner({ title }) {
           <span className="block h-px w-6 sm:w-8 md:w-10" style={{ backgroundColor: 'rgba(91,16,39,0.25)' }} />
         </div>
         <h1
-          className="font-hind font-bold text-xl sm:text-2xl md:text-3xl tracking-wider sm:tracking-widest uppercase"
+          className="font-display font-bold text-[1.5rem] sm:text-[1.75rem] md:text-[2rem] tracking-wide sm:tracking-wider uppercase"
           style={{ color: college.primaryColor }}
         >
           {title}
@@ -44,7 +44,7 @@ export function AcademicsBanner({ title }) {
 
 export function SectionHeading({ children }) {
   return (
-    <h2 className="font-hind font-bold text-xl md:text-2xl mb-4" style={{ color: college.primaryColor }}>
+    <h2 className="font-display font-bold text-[1.375rem] md:text-[1.75rem] lg:text-[2.125rem] leading-[1.2] mb-4" style={{ color: college.primaryColor }}>
       {children}
     </h2>
   );
@@ -54,7 +54,7 @@ export default function AcademicsLayout({ title, children }) {
   return (
     <CollegeLayout college={college}>
       <AcademicsBanner title={title} />
-      <div className="px-5 md:px-16 lg:px-[120px] py-8 md:py-14 lg:py-20">
+      <div className="page-content px-5 md:px-16 lg:px-[120px] py-8 md:py-14 lg:py-20">
         {children}
       </div>
     </CollegeLayout>

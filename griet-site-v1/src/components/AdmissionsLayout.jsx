@@ -25,7 +25,7 @@ export function AdmissionsBanner({ title }) {
           </span>
           <span className="block h-px w-8 sm:w-10 opacity-40" style={{ backgroundColor: college.accentColor }} />
         </div>
-        <h1 className="text-white font-hind font-bold text-xl sm:text-2xl md:text-3xl tracking-widest uppercase">
+        <h1 className="text-white font-display font-bold text-[1.5rem] sm:text-[1.75rem] md:text-[2rem] tracking-wide sm:tracking-wider uppercase">
           {title}
         </h1>
         <div className="mx-auto mt-3 h-0.5 w-14 sm:w-16 rounded-full" style={{ backgroundColor: college.accentColor }} />
@@ -36,7 +36,7 @@ export function AdmissionsBanner({ title }) {
 
 export function SectionHeading({ children }) {
   return (
-    <h2 className="font-hind font-bold text-xl md:text-2xl mb-4" style={{ color: college.primaryColor }}>
+    <h2 className="font-display font-bold text-[1.375rem] md:text-[1.75rem] lg:text-[2.125rem] leading-[1.2] mb-4" style={{ color: college.primaryColor }}>
       {children}
     </h2>
   );
@@ -46,7 +46,7 @@ export default function AdmissionsLayout({ title, children, sidebar }) {
   return (
     <CollegeLayout college={college}>
       <AdmissionsBanner title={title} />
-      <div className="px-5 md:px-16 lg:px-[120px] py-8 md:py-14 lg:py-20">
+      <div className="page-content px-5 md:px-16 lg:px-[120px] py-8 md:py-14 lg:py-20">
         {sidebar ? (
           <div className="flex gap-8">
             <div className="flex-1 min-w-0">{children}</div>

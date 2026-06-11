@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 /* ── Document data (PDFs from GRIET Exam Branch) ────────────────────── */
@@ -43,12 +43,6 @@ const DOCUMENTS = [
     title: 'Examination Branch Committee',
     desc: 'List of members constituting the GRIET Examination Branch Committee.',
     url: 'https://www.griet.ac.in/images2/Exam%20Branch%20Committee.pdf',
-    category: 'Committee',
-  },
-  {
-    title: 'Committee Meeting Minutes — June 2021',
-    desc: 'Minutes of the Examination Branch Committee meeting held on 15 June 2021.',
-    url: 'https://www.griet.ac.in/images2/15%20June%202021%20Minutes%20of%20the%20meeting.pdf',
     category: 'Committee',
   },
 ];
@@ -98,7 +92,7 @@ function DocCard({ title, desc, url, category }) {
           <PdfIcon />
         </span>
         <div className="flex-1 min-w-0">
-          <p className="font-hind font-bold text-[13px] leading-snug mb-1" style={{ color: college.primaryColor }}>
+          <p className="font-hind font-bold text-[0.9375rem] leading-snug mb-1" style={{ color: college.primaryColor }}>
             {title}
           </p>
           <span
@@ -111,14 +105,14 @@ function DocCard({ title, desc, url, category }) {
       </div>
 
       {/* Description */}
-      <p className="font-dm-sans text-[12px] text-gray-500 leading-relaxed">{desc}</p>
+      <p className="font-dm-sans text-[0.875rem] text-gray-500 leading-relaxed">{desc}</p>
 
       {/* Download button */}
       <a
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-4 py-2 rounded-lg font-hind font-semibold text-[12px] border transition-colors"
+        className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-4 py-2 rounded-lg font-hind font-semibold text-[0.875rem] border transition-colors"
         style={{ color: college.primaryColor, borderColor: college.primaryColor }}
         onMouseEnter={(e) => {
           e.currentTarget.style.backgroundColor = college.primaryColor;
@@ -145,7 +139,7 @@ export default function ExamBranchDownloadsPage() {
 
       {/* Intro */}
       <div className="p-4 rounded-xl bg-gray-50 border border-gray-200 mb-8">
-        <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed">
+        <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed">
           Download official forms and documents from the GRIET Examination Branch. All documents open in a new tab.
           For queries, contact{' '}
           <a href="mailto:doe@griet.ac.in" className="font-semibold hover:underline" style={{ color: college.accentColor }}>
@@ -176,14 +170,14 @@ export default function ExamBranchDownloadsPage() {
       {/* Portal link */}
       <div className="mt-4 p-4 rounded-xl border border-gray-200 bg-white flex flex-col sm:flex-row sm:items-center gap-4">
         <div className="flex-1">
-          <p className="font-hind font-bold text-[13px] mb-0.5" style={{ color: college.primaryColor }}>Exam Branch Portal</p>
-          <p className="font-dm-sans text-[12px] text-gray-600">For exam notifications, hall tickets and live announcements, visit the portal.</p>
+          <p className="font-hind font-bold text-[0.9375rem] mb-0.5" style={{ color: college.primaryColor }}>Exam Branch Portal</p>
+          <p className="font-dm-sans text-[0.875rem] text-gray-600">For exam notifications, hall tickets and live announcements, visit the portal.</p>
         </div>
         <a
           href="http://www.exambranch.griet.ac.in/"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-hind font-bold text-[12px] text-white flex-shrink-0 transition-opacity hover:opacity-85"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-hind font-bold text-[0.875rem] text-white flex-shrink-0 transition-opacity hover:opacity-85"
           style={{ backgroundColor: college.accentColor }}
         >
           <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">

@@ -1,4 +1,4 @@
-import { AcademicsBanner } from '../components/AcademicsLayout';
+﻿import { AcademicsBanner } from '../components/AcademicsLayout';
 import CollegeLayout from '../CollegeLayout';
 import college from '../theme';
 
@@ -10,7 +10,7 @@ function SidebarBlock({ title, children }) {
         className="px-4 py-3"
         style={{ backgroundColor: college.primaryColor }}
       >
-        <p className="font-hind font-bold text-[13px] text-white">{title}</p>
+        <p className="font-hind font-bold text-[0.9375rem] text-white">{title}</p>
       </div>
       <div className="bg-white">{children}</div>
     </div>
@@ -30,7 +30,7 @@ function SidebarLink({ label, url, isExternal = false }) {
         style={{ backgroundColor: college.accentColor }}
       />
       <span
-        className="font-dm-sans text-[12px] text-gray-700 group-hover:font-medium leading-snug flex-1"
+        className="font-dm-sans text-[0.875rem] text-gray-700 group-hover:font-medium leading-snug flex-1"
       >
         {label}
       </span>
@@ -57,7 +57,7 @@ function SidebarDocLink({ label, url }) {
         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
         <polyline points="14 2 14 8 20 8" />
       </svg>
-      <span className="font-dm-sans text-[12px] text-gray-700 group-hover:font-medium leading-snug">{label}</span>
+      <span className="font-dm-sans text-[0.875rem] text-gray-700 group-hover:font-medium leading-snug">{label}</span>
     </a>
   );
 }
@@ -166,7 +166,7 @@ export default function NSSPage() {
           href="https://nss.gov.in/"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 font-hind font-bold text-[12px] hover:underline"
+          className="inline-flex items-center gap-1.5 font-hind font-bold text-[0.875rem] hover:underline"
           style={{ color: college.accentColor }}
         >
           Visit nss.gov.in ↗
@@ -188,10 +188,10 @@ export default function NSSPage() {
             {/* About */}
             <section className="mb-8">
               <div className="p-5 rounded-xl bg-gray-50 border border-gray-200">
-                <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed mb-3">
+                <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed mb-3">
                   The <strong>National Service Scheme (NSS)</strong> unit at GRIET operates under the Ministry of Youth Affairs &amp; Sports, Government of India, with the motto <em>"Not Me But You."</em> GRIET runs <strong>two active NSS units</strong> with over <strong>200 enrolled volunteers</strong> each academic year.
                 </p>
-                <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed">
+                <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed">
                   GRIET NSS focuses on community development, social awareness, and nation-building — from village adoption and health camps to digital literacy drives and disaster relief. The programme instils leadership, empathy, and civic responsibility in student volunteers.
                 </p>
               </div>
@@ -220,8 +220,8 @@ export default function NSSPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {ACTIVITIES.map(({ title, desc }) => (
                   <div key={title} className="p-4 rounded-xl border border-gray-200 bg-white">
-                    <p className="font-hind font-bold text-[13px] mb-1" style={{ color: college.primaryColor }}>{title}</p>
-                    <p className="font-dm-sans text-[12px] text-gray-600 leading-relaxed">{desc}</p>
+                    <p className="font-hind font-bold text-[0.9375rem] mb-1" style={{ color: college.primaryColor }}>{title}</p>
+                    <p className="font-dm-sans text-[0.875rem] text-gray-600 leading-relaxed">{desc}</p>
                   </div>
                 ))}
               </div>
@@ -247,10 +247,10 @@ export default function NSSPage() {
                 {OFFICERS.map(({ name, role, dept, email }) => (
                   <div key={name} className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 p-4 rounded-xl border border-gray-200 bg-white">
                     <div className="flex-1">
-                      <p className="font-hind font-bold text-[13px]" style={{ color: college.primaryColor }}>{name}</p>
-                      <p className="font-dm-sans text-[12px] text-gray-600">{role} — {dept}</p>
+                      <p className="font-hind font-bold text-[0.9375rem]" style={{ color: college.primaryColor }}>{name}</p>
+                      <p className="font-dm-sans text-[0.875rem] text-gray-600">{role} — {dept}</p>
                     </div>
-                    <a href={`mailto:${email}`} className="font-dm-sans text-[12px] font-semibold hover:underline self-start sm:self-center" style={{ color: college.accentColor }}>
+                    <a href={`mailto:${email}`} className="font-dm-sans text-[0.875rem] font-semibold hover:underline self-start sm:self-center" style={{ color: college.accentColor }}>
                       {email}
                     </a>
                   </div>

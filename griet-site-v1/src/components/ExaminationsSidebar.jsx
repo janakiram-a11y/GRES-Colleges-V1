@@ -7,7 +7,6 @@ const SIDEBAR_LINKS = [
   { label: 'Results', href: '/examinations/results' },
   { label: 'Exam Branch Downloads', href: '/examinations/exam-branch-downloads' },
   { label: 'Examination Committee', href: '#' },
-  { label: 'Committee Meeting Minutes', href: '#' },
 ];
 
 export default function ExaminationsSidebar() {
@@ -29,7 +28,7 @@ export default function ExaminationsSidebar() {
             <li key={label}>
               <Link
                 to={href}
-                className="flex items-center gap-2.5 px-4 py-2.5 font-dm-sans text-[12px] transition-colors hover:bg-gray-50"
+                className="flex items-center gap-2.5 px-4 py-2.5 font-dm-sans text-[0.875rem] transition-colors hover:bg-gray-50"
                 style={{ color: isActive ? college.primaryColor : '#374151', fontWeight: isActive ? 700 : 500 }}
               >
                 <span

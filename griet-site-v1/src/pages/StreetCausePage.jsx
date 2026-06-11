@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 function SectionLabel({ children }) {
@@ -58,7 +58,7 @@ export default function StreetCausePage() {
               >
                 {item.title}
               </h3>
-              <p className="font-hind text-gray-600 text-[14px] leading-relaxed">{item.desc}</p>
+              <p className="font-hind text-gray-600 text-base leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -80,7 +80,7 @@ export default function StreetCausePage() {
               >
                 {s.value}
               </p>
-              <p className="font-hind text-gray-600 text-[14px] mt-1">{s.label}</p>
+              <p className="font-hind text-gray-600 text-base mt-1">{s.label}</p>
             </div>
           ))}
         </div>
@@ -97,7 +97,7 @@ export default function StreetCausePage() {
           href="https://www.griet.ac.in/scawards.php"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block font-hind font-semibold text-[14px] px-4 py-2 rounded border transition-colors"
+          className="inline-block font-hind font-semibold text-base px-4 py-2 rounded border transition-colors"
           style={{ color: college.primaryColor, borderColor: college.primaryColor }}
         >
           View Awards Page &rarr;
@@ -115,7 +115,7 @@ export default function StreetCausePage() {
           href="https://www.griet.ac.in/images2/NSS%20Full%20book%20on%2011%20Nov%202020.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block font-hind font-semibold text-[14px] px-4 py-2 rounded transition-colors text-white"
+          className="inline-block font-hind font-semibold text-base px-4 py-2 rounded transition-colors text-white"
           style={{ backgroundColor: college.primaryColor }}
         >
           Download Activity Book (PDF)
@@ -131,7 +131,7 @@ export default function StreetCausePage() {
         </p>
         <a
           href="/nss"
-          className="inline-block font-hind font-semibold text-[14px] px-4 py-2 rounded border transition-colors"
+          className="inline-block font-hind font-semibold text-base px-4 py-2 rounded border transition-colors"
           style={{ color: college.primaryColor, borderColor: college.primaryColor }}
         >
           Visit NSS Page &rarr;

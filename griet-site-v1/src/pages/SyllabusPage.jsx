@@ -61,7 +61,7 @@ function RegulationGroup({ code, branches, isOpen, onToggle }) {
     <div className="mb-2">
       <button
         onClick={onToggle}
-        className="w-full flex items-center justify-between px-5 py-2.5 rounded-full text-left font-dm-sans font-semibold text-[13px] text-white transition-opacity hover:opacity-90"
+        className="w-full flex items-center justify-between px-5 py-2.5 rounded-full text-left font-dm-sans font-semibold text-[0.9375rem] text-white transition-opacity hover:opacity-90"
         style={{ backgroundColor: college.primaryColor }}
       >
         <span>{code}</span>
@@ -78,7 +78,7 @@ function RegulationGroup({ code, branches, isOpen, onToggle }) {
               <a
                 key={branch}
                 href="#"
-                className="flex items-center gap-2 font-dm-sans text-[13px] hover:underline"
+                className="flex items-center gap-2 font-dm-sans text-[0.9375rem] hover:underline"
                 style={{ color: college.primaryColor }}
               >
                 <PdfIcon />
@@ -155,7 +155,7 @@ export default function SyllabusPage() {
           <a
             key={label}
             href="#"
-            className="flex items-center gap-2 px-5 py-2.5 rounded font-dm-sans font-semibold text-[13px] text-white hover:opacity-90 transition-opacity"
+            className="flex items-center gap-2 px-5 py-2.5 rounded font-dm-sans font-semibold text-[0.9375rem] text-white hover:opacity-90 transition-opacity"
             style={{ backgroundColor: '#5B1027' }}
           >
             <PdfIcon />

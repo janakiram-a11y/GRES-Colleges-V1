@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 /* ── Helpers ─────────────────────────────────────────────────────────── */
@@ -23,10 +23,10 @@ function ClubCard({ name, desc, url, isExternal }) {
 
   return (
     <div className="p-4 rounded-xl border border-gray-200 bg-white flex flex-col gap-2">
-      <p className="font-hind font-bold text-[13px]" style={{ color: college.primaryColor }}>
+      <p className="font-hind font-bold text-[0.9375rem]" style={{ color: college.primaryColor }}>
         {name}
       </p>
-      <p className="font-dm-sans text-[12px] text-gray-600 leading-relaxed flex-1">{desc}</p>
+      <p className="font-dm-sans text-[0.875rem] text-gray-600 leading-relaxed flex-1">{desc}</p>
       {url && (
         <a
           {...linkProps}
@@ -66,7 +66,7 @@ function SidebarDocLink({ label, url }) {
         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
         <polyline points="14 2 14 8 20 8" />
       </svg>
-      <span className="font-dm-sans text-[12px] text-gray-700 group-hover:font-medium leading-snug">
+      <span className="font-dm-sans text-[0.875rem] text-gray-700 group-hover:font-medium leading-snug">
         {label}
       </span>
     </a>
@@ -197,8 +197,6 @@ const ANNUAL_EVENTS = [
 ];
 
 const ECC_DOCS = [
-  { label: 'ECC Meeting Minutes — August 2024', url: 'https://www.griet.ac.in/Extra_Curricular_Activities_Commiitte.php' },
-  { label: 'DSA Minutes — May 2021', url: 'https://www.griet.ac.in/Extra_Curricular_Activities_Commiitte.php' },
 ];
 
 /* ── Page ────────────────────────────────────────────────────────────── */
@@ -208,7 +206,7 @@ export default function ExtraCurricularPage() {
       {/* Downloads */}
       <div className="rounded-xl border border-gray-200 overflow-hidden mb-4">
         <div className="px-4 py-3" style={{ backgroundColor: college.primaryColor }}>
-          <p className="font-hind font-bold text-[13px] text-white">ECC Downloads</p>
+          <p className="font-hind font-bold text-[0.9375rem] text-white">ECC Downloads</p>
         </div>
         <div className="bg-white">
           {ECC_DOCS.map(({ label, url }) => (
@@ -238,7 +236,7 @@ export default function ExtraCurricularPage() {
       {/* Quick links to external club sites */}
       <div className="rounded-xl border border-gray-200 overflow-hidden">
         <div className="px-4 py-3" style={{ backgroundColor: college.primaryColor }}>
-          <p className="font-hind font-bold text-[13px] text-white">Club Websites</p>
+          <p className="font-hind font-bold text-[0.9375rem] text-white">Club Websites</p>
         </div>
         <div className="bg-white divide-y divide-gray-100">
           {[
@@ -260,7 +258,7 @@ export default function ExtraCurricularPage() {
                 className="w-1.5 h-1.5 rounded-full flex-shrink-0"
                 style={{ backgroundColor: college.accentColor }}
               />
-              <span className="font-dm-sans text-[12px] text-gray-700 group-hover:font-medium leading-snug flex-1">
+              <span className="font-dm-sans text-[0.875rem] text-gray-700 group-hover:font-medium leading-snug flex-1">
                 {label}
               </span>
               <svg className="w-3 h-3 text-gray-400 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -286,7 +284,7 @@ export default function ExtraCurricularPage() {
             {/* About */}
             <section className="mb-8">
               <div className="p-5 rounded-xl bg-gray-50 border border-gray-200">
-                <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed">
+                <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed">
                   GRIET's vibrant extra-curricular ecosystem includes <strong>20+ student clubs</strong>, annual fests, sports meets, cultural events, and social service wings — all coordinated by the <strong>Extra Curricular Activities Committee (ECC)</strong>. The ECC ensures that every student finds a community, develops leadership skills, and experiences life beyond the classroom.
                 </p>
               </div>
@@ -376,7 +374,7 @@ export default function ExtraCurricularPage() {
                 {ANNUAL_EVENTS.map(({ title, timing, desc }) => (
                   <div key={title} className="p-4 rounded-xl border border-gray-200 bg-white flex flex-col sm:flex-row sm:items-start gap-3">
                     <div className="flex-shrink-0 sm:w-36">
-                      <p className="font-hind font-bold text-[13px]" style={{ color: college.primaryColor }}>{title}</p>
+                      <p className="font-hind font-bold text-[0.9375rem]" style={{ color: college.primaryColor }}>{title}</p>
                       <p
                         className="font-dm-sans text-[11px] font-semibold uppercase tracking-wide mt-0.5"
                         style={{ color: college.accentColor }}
@@ -394,10 +392,10 @@ export default function ExtraCurricularPage() {
             <section className="mb-4">
               <div className="p-5 rounded-xl border border-gray-200 bg-gray-50 flex flex-col sm:flex-row sm:items-center gap-3">
                 <div className="flex-1">
-                  <p className="font-hind font-bold text-[13px] mb-0.5" style={{ color: college.primaryColor }}>
+                  <p className="font-hind font-bold text-[0.9375rem] mb-0.5" style={{ color: college.primaryColor }}>
                     Extra Curricular Activities Committee
                   </p>
-                  <p className="font-dm-sans text-[12px] text-gray-600">
+                  <p className="font-dm-sans text-[0.875rem] text-gray-600">
                     Dean of Student Affairs, GRIET, Bachupally, Hyderabad – 500 090
                   </p>
                 </div>

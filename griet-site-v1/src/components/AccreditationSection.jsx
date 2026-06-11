@@ -46,7 +46,7 @@ export default function AccreditationSection({ college }) {
       <div className="flex flex-col gap-16">
         <div className="flex flex-col items-center gap-4">
           <SectionLabel className="text-center">{college.whyChooseLabel}</SectionLabel>
-          <h2 className="font-hind font-semibold text-[28px] leading-9 lg:text-[40px] lg:leading-[48px] text-[#111827] text-center">
+          <h2 className="font-display font-bold text-[1.75rem] md:text-[2.125rem] lg:text-[2.5rem] leading-[1.2] text-[#111827] text-center">
             {college.whyChooseHeading}
           </h2>
         </div>
@@ -64,10 +64,10 @@ export default function AccreditationSection({ college }) {
                   <div className="absolute left-[33px] top-[33px] w-14 h-14 bg-[rgba(91,16,39,0.07)] rounded-lg flex items-center justify-center">
                     <Icon />
                   </div>
-                  <h3 className="font-hind font-semibold text-[20px] leading-[26px] tracking-[-0.2px] text-[#111827] mb-3">
+                  <h3 className="font-display font-semibold text-[1.375rem] leading-[1.3] text-[#111827] mb-3">
                     {card.title}
                   </h3>
-                  <p className="font-hind font-normal text-[14px] leading-[22px] text-[#666666]">
+                  <p className="font-body font-normal text-base leading-[1.6] text-[#666666]">
                     {card.desc}
                   </p>
                 </div>

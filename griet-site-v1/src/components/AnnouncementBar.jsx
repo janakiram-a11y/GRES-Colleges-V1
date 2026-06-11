@@ -34,24 +34,24 @@ function LOIModal({ college, onClose }) {
         </button>
         <div className="flex items-center gap-2 mb-6">
           <img src={college.smallLogo} alt={college.shortName} className="h-10 w-10 object-contain" />
-          <span className="text-white font-dm-sans font-bold text-[11px] px-2 py-0.5 rounded" style={{ backgroundColor: college.accentColor }}>
+          <span className="text-white font-display font-bold text-[0.6875rem] px-2 py-0.5 rounded" style={{ backgroundColor: college.accentColor }}>
             NEW
           </span>
         </div>
-        <p id="loi-modal-title" className="font-dm-sans text-[15px] leading-[26px] text-[#1a1a1a] mb-5">
+        <p id="loi-modal-title" className="font-body text-[1rem] leading-[1.7] text-[#1a1a1a] mb-5">
           We are pleased to inform you that the{' '}
           <strong style={{ color: college.primaryColor }}>Ministry of Education</strong>, upon the recommendation of the University Grants Commission (UGC), has issued a{' '}
           <strong style={{ color: college.primaryColor }}>Letter of Intent (LoI)</strong> to{' '}
           <strong style={{ color: college.primaryColor }}>{college.shortName}</strong>.
         </p>
-        <p className="font-dm-sans text-[15px] leading-[26px] text-[#1a1a1a]">
+        <p className="font-body text-[1rem] leading-[1.7] text-[#1a1a1a]">
           This signifies that {college.shortName} has been invited to fulfil the necessary requirements toward being granted{' '}
           <strong style={{ color: college.primaryColor }}>Deemed-to-be University</strong> status.
         </p>
         <div className="mt-8">
           <button
             onClick={onClose}
-            className="text-white font-dm-sans font-semibold text-[13px] px-6 py-2.5 rounded transition-colors"
+            className="text-white font-display font-semibold text-base px-6 py-2.5 rounded transition-colors"
             style={{ backgroundColor: college.primaryColor }}
           >
             Close
@@ -64,7 +64,7 @@ function LOIModal({ college, onClose }) {
 
 function TickerContent({ announcements, college, onLOIClick }) {
   return (
-    <div className="flex items-center gap-8 text-[13px] font-dm-sans font-medium shrink-0">
+    <div className="flex items-center gap-8 text-[0.8125rem] font-display font-medium shrink-0">
       {announcements.map((ann, idx) => (
         <span key={idx} className="flex items-center gap-8">
           {idx > 0 && (
@@ -137,7 +137,7 @@ export default function AnnouncementBar({ college }) {
             <svg className="w-3.5 h-3.5 text-white shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
               <path d="M13.92 3.845a19.361 19.361 0 01-6.3 1.98C6.765 5.942 5.89 6 5 6a4 4 0 00-.504 7.969l.504.031c.627 0 1.25-.048 1.867-.142l.759 1.518A3.375 3.375 0 0010.125 17.5h.375a3.375 3.375 0 003.375-3.375v-.628a19.289 19.289 0 013.04-2.07.75.75 0 00.085-1.297A18.995 18.995 0 0113.92 3.845z" />
             </svg>
-            <span className="hidden sm:inline font-dm-sans font-bold text-[11px] uppercase tracking-wider text-white">
+            <span className="hidden sm:inline font-display font-bold text-[0.6875rem] uppercase tracking-wider text-white">
               Announcements
             </span>
           </div>

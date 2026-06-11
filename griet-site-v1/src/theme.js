@@ -103,7 +103,12 @@ const college = {
   heroCTAHref: 'https://greit-website-brand.vercel.app/',
   heroBgImage: '/imgi_5_aboutusbanner.jpg',
 
-  statsBarItems: ['NAAC A++ Accredited', 'NBA Accredited Programs', '900+ Recruiters', '44 LPA Highest Package'],
+  statsBarItems: [
+    { number: 'NAAC A++', label: 'Accredited' },
+    { number: 'NBA',       label: 'Accredited Programs' },
+    { number: '900+',      label: 'Recruiters' },
+    { number: '44 LPA',    label: 'Highest Package' },
+  ],
 
   campusIntroLabel: 'Campus Experience',
   campusIntroHeading: 'Be a Part of the GRIET Experience',
@@ -121,7 +126,6 @@ const college = {
   aboutP1: 'Established in 1997, GRIET is a premier institute dedicated to excellence in technical education. We strive to provide a conducive environment for learning, research, and innovation, ensuring our students are well-equipped to face global challenges.',
   aboutP2: 'With state-of-the-art infrastructure, experienced faculty, and strong industry connections, we focus on the holistic development of our students, nurturing them into competent professionals and responsible citizens.',
   aboutFeatures: [
-    { title: 'NBA Accredited', sub: 'Top-tier programs' },
     { title: 'Autonomous', sub: 'UGC recognized' },
     { title: 'Expert Faculty', sub: 'Ph.D. qualified professors' },
     { title: 'Infrastructure', sub: 'Modern labs & campus' },

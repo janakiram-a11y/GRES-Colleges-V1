@@ -11,17 +11,17 @@
         <div className="flex items-center gap-6">
           <a
             href={`mailto:${college.email}`}
-            className="font-dm-sans font-medium text-[13px] leading-4 transition-colors"
+            className="font-display font-medium text-[0.8125rem] leading-4 transition-colors"
             style={{ color: college.primaryColor }}
             onMouseEnter={(e) => (e.currentTarget.style.color = college.accentColor)}
             onMouseLeave={(e) => (e.currentTarget.style.color = college.primaryColor)}
           >
             {college.email}
           </a>
-          <span className="font-dm-sans font-medium text-[13px] leading-4" style={{ color: college.primaryColor }}>
+          <span className="font-display font-medium text-[0.8125rem] leading-4" style={{ color: college.primaryColor }}>
             {college.admissionsPhone}
           </span>
-          <span className="font-dm-sans font-medium text-[13px] leading-4" style={{ color: 'rgba(91,16,39,0.65)' }}>
+          <span className="font-display font-medium text-[0.8125rem] leading-4" style={{ color: 'rgba(91,16,39,0.65)' }}>
             {college.admissionsLabel}
           </span>
         </div>
@@ -35,7 +35,7 @@
             <a
               key={label}
               href={href}
-              className="font-dm-sans font-medium text-[13px] leading-4 transition-colors"
+              className="font-display font-medium text-[0.8125rem] leading-4 transition-colors"
               style={{ color: college.primaryColor }}
               onMouseEnter={(e) => (e.currentTarget.style.color = college.accentColor)}
               onMouseLeave={(e) => (e.currentTarget.style.color = college.primaryColor)}

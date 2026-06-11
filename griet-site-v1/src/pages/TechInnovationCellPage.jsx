@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 function SectionLabel({ children }) {
@@ -82,7 +82,7 @@ export default function TechInnovationCellPage() {
                 >
                   {fn.title}
                 </h3>
-                <p className="text-gray-600 text-[14px] leading-relaxed">{fn.description}</p>
+                <p className="text-gray-600 text-base leading-relaxed">{fn.description}</p>
               </div>
             ))}
           </div>
@@ -104,7 +104,7 @@ export default function TechInnovationCellPage() {
                 >
                   {stat.value}
                 </p>
-                <p className="text-gray-600 text-[13px] mt-1">{stat.label}</p>
+                <p className="text-gray-600 text-[0.9375rem] mt-1">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -127,7 +127,7 @@ export default function TechInnovationCellPage() {
                   >
                     {rec.title}
                   </span>
-                  <span className="text-gray-600 text-[14px]"> — {rec.description}</span>
+                  <span className="text-gray-600 text-base"> — {rec.description}</span>
                 </div>
               </div>
             ))}
@@ -137,7 +137,7 @@ export default function TechInnovationCellPage() {
         {/* Contact */}
         <section>
           <SectionLabel>Contact</SectionLabel>
-          <div className="bg-gray-50 border border-gray-200 rounded-lg p-5 space-y-2 text-[14px] text-gray-700">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-5 space-y-2 text-base text-gray-700">
             <p>
               <span className="font-semibold">Email:</span>{' '}
               <a

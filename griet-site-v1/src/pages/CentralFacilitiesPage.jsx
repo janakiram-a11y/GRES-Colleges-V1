@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 const FACILITIES = [
@@ -59,7 +59,7 @@ export default function CentralFacilitiesPage() {
   return (
     <AcademicsLayout title="Central Facilities">
 
-      <p className="font-dm-sans text-[13px] text-gray-600 leading-relaxed mb-8">
+      <p className="font-dm-sans text-[0.9375rem] text-gray-600 leading-relaxed mb-8">
         GRIET maintains a range of centrally accessible facilities that support research, innovation, and creative work across all departments. These shared resources are available to faculty, PhD scholars, and students with appropriate authorization.
       </p>
 
@@ -69,7 +69,7 @@ export default function CentralFacilitiesPage() {
         {FACILITIES.map(({ name, category, desc, features }) => (
           <div key={name} className="p-5 rounded-xl border border-gray-200 bg-white">
             <div className="flex flex-wrap items-center gap-2 mb-2">
-              <p className="font-hind font-bold text-[14px]" style={{ color: college.primaryColor }}>{name}</p>
+              <p className="font-hind font-bold text-base" style={{ color: college.primaryColor }}>{name}</p>
               <span className="font-dm-sans text-[11px] font-semibold px-2 py-0.5 rounded-full text-white" style={{ backgroundColor: college.accentColor }}>{category}</span>
             </div>
             <p className="font-dm-sans text-[12.5px] text-gray-600 leading-relaxed mb-3">{desc}</p>
@@ -91,7 +91,7 @@ export default function CentralFacilitiesPage() {
       <section className="mt-8">
         <SectionLabel>Access & Booking</SectionLabel>
         <div className="p-5 rounded-xl bg-gray-50 border border-gray-200">
-          <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed">
+          <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed">
             Central facilities are available to GRIET faculty and students on a booking basis. Research scholars requiring access to specialized equipment (SEM, HPC, etc.) should contact the respective facility in-charge or submit a request through the Dean of Research office.
             For enquiries: <a href="mailto:research@griet.ac.in" className="hover:underline" style={{ color: college.accentColor }}>research@griet.ac.in</a>
           </p>

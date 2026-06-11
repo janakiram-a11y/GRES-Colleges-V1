@@ -6,10 +6,10 @@ export default function CampusIntro({ college }) {
       <div className="flex flex-col gap-12">
         <div className="flex flex-col items-center gap-2">
           <SectionLabel className="text-center">{college.campusIntroLabel}</SectionLabel>
-          <h2 className="font-hind font-semibold text-[28px] leading-9 lg:text-[40px] lg:leading-[48px] text-[#111827] text-center">
+          <h2 className="font-display font-bold text-[1.75rem] md:text-[2.125rem] lg:text-[2.5rem] leading-[1.2] text-[#111827] text-center">
             {college.campusIntroHeading}
           </h2>
-          <p className="font-hind font-normal text-[16px] leading-6 text-[#666666] text-center">
+          <p className="font-body font-normal text-lg leading-[1.7] text-[#666666] text-center">
             {college.campusIntroDesc}
           </p>
         </div>

@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 const NBA_UG = [
@@ -45,7 +45,7 @@ function SectionLabel({ children }) {
 function Table({ headers, rows }) {
   return (
     <div className="overflow-x-auto rounded-xl border border-gray-200 mb-8 w-full">
-      <table className="min-w-full text-[12px] sm:text-[12.5px] font-dm-sans border-collapse">
+      <table className="min-w-full text-[0.875rem] sm:text-[12.5px] font-dm-sans border-collapse">
         <thead>
           <tr style={{ backgroundColor: `${college.primaryColor}15` }}>
             {headers.map((h) => (
@@ -95,12 +95,12 @@ export default function AccreditationsPage() {
               className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4 p-4 rounded-xl bg-gray-50 border border-gray-200 w-full"
             >
               <span
-                className="font-hind font-bold text-[13px] sm:w-52 sm:flex-shrink-0 leading-snug"
+                className="font-hind font-bold text-[0.9375rem] sm:w-52 sm:flex-shrink-0 leading-snug"
                 style={{ color: college.primaryColor }}
               >
                 {body}
               </span>
-              <span className="font-dm-sans text-[12px] sm:text-[12.5px] text-gray-600 leading-relaxed">{detail}</span>
+              <span className="font-dm-sans text-[0.875rem] sm:text-[12.5px] text-gray-600 leading-relaxed">{detail}</span>
             </div>
           ))}
         </div>

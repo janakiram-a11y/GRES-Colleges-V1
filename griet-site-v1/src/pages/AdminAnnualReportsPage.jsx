@@ -4,7 +4,7 @@ import college from '../theme';
 function SectionHeading({ children }) {
   return (
     <h2
-      className="font-hind font-bold text-2xl mb-6 pb-2 inline-block"
+      className="font-display font-bold text-xl mb-5 pb-2 inline-block"
       style={{ color: college.primaryColor, borderBottom: `2px solid ${college.accentColor}` }}
     >
       {children}
@@ -33,7 +33,7 @@ export default function AdminAnnualReportsPage() {
 
         <div>
           <SectionHeading>Annual Reports</SectionHeading>
-          <p className="font-dm-sans text-[14px] leading-relaxed text-gray-600 mb-2 max-w-2xl">
+          <p className="font-dm-sans text-base leading-relaxed text-gray-600 mb-2 max-w-2xl">
             GRIET's Annual Reports document the institution's performance, achievements, financial summaries,
             academic highlights, research output, and strategic milestones for each academic year.
           </p>
@@ -41,21 +41,22 @@ export default function AdminAnnualReportsPage() {
 
         {/* Latest Report highlight */}
         <div
-          className="rounded-lg p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-white"
-          style={{ backgroundColor: college.primaryColor }}
+          className="rounded-xl p-6 bg-white border-l-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+          style={{ borderColor: college.primaryColor, boxShadow: '0 1px 4px rgba(91,16,39,0.06), 0 4px 16px -4px rgba(91,16,39,0.10)' }}
         >
           <div>
-            <p className="font-hind font-bold text-[13px] uppercase tracking-widest mb-1" style={{ color: college.accentColor }}>
+            <span className="inline-block font-display font-bold text-[0.75rem] uppercase tracking-[0.12em] mb-3 px-3 py-1 rounded-full text-white" style={{ backgroundColor: college.primaryColor }}>
               Latest Report
-            </p>
-            <p className="font-hind font-bold text-[20px]">Annual Report 2024–25</p>
-            <p className="font-dm-sans text-[13px] mt-1 opacity-80">
+            </span>
+            <p className="font-display font-bold text-[1.125rem] text-gray-900">Annual Report 2024–25</p>
+            <p className="font-body text-[0.9375rem] text-gray-600 mt-1">
               Covers academic year 2024–25 including accreditation updates, research highlights, and placement statistics.
             </p>
           </div>
           <a
             href="#"
-            className="flex-shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded font-hind font-semibold text-[13px] transition-opacity hover:opacity-90 text-white border-2 border-white/60"
+            className="flex-shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded font-display font-semibold text-[0.9375rem] transition-opacity hover:opacity-90 text-white"
+            style={{ backgroundColor: college.primaryColor }}
           >
             <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
               <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -86,10 +87,10 @@ export default function AdminAnnualReportsPage() {
                   </svg>
                 </div>
                 <div>
-                  <p className="font-hind font-semibold text-[14px] group-hover:underline" style={{ color: college.primaryColor }}>
+                  <p className="font-hind font-semibold text-base group-hover:underline" style={{ color: college.primaryColor }}>
                     Annual Report
                   </p>
-                  <p className="font-dm-sans text-[13px] text-gray-500">{year}</p>
+                  <p className="font-dm-sans text-[0.9375rem] text-gray-500">{year}</p>
                 </div>
                 <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 ml-auto flex-shrink-0 text-gray-400">
                   <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />

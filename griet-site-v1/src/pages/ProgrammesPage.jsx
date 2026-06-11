@@ -81,17 +81,17 @@ export default function ProgrammesPage() {
         ].map(({ label, value }) => (
           <div key={label} className="rounded-lg p-5 text-center" style={{ backgroundColor: '#f9f5f6', border: `1px solid ${college.primaryColor}22` }}>
             <div className="font-hind font-bold text-[28px] leading-none mb-1" style={{ color: college.primaryColor }}>{value}</div>
-            <div className="font-dm-sans text-[12px] text-gray-500 font-medium">{label}</div>
+            <div className="font-dm-sans text-[0.875rem] text-gray-500 font-medium">{label}</div>
           </div>
         ))}
       </div>
 
       {/* Seat distribution note */}
       <div className="mb-8 p-5 rounded-lg bg-white border border-gray-200">
-        <p className="font-hind font-semibold text-[14px] mb-3" style={{ color: college.primaryColor }}>
+        <p className="font-hind font-semibold text-base mb-3" style={{ color: college.primaryColor }}>
           Seat Distribution — A.Y 2025–26
         </p>
-        <ul className="font-dm-sans text-[13px] text-gray-700 space-y-1.5">
+        <ul className="font-dm-sans text-[0.9375rem] text-gray-700 space-y-1.5">
           <li className="flex items-start gap-2">
             <span style={{ color: college.accentColor }} className="mt-0.5 font-bold">▸</span>
             70% of seats allotted based on merit in the entrance exam.
@@ -113,7 +113,7 @@ export default function ProgrammesPage() {
       <SectionHeading>PG Programmes</SectionHeading>
       <ProgramTable data={pgPrograms} headers={['S.No', 'PG Programme', 'Intake']} />
 
-      <p className="font-dm-sans text-[12px] text-gray-500 mt-2">
+      <p className="font-dm-sans text-[0.875rem] text-gray-500 mt-2">
         <sup style={{ color: college.accentColor, fontWeight: 700 }}>★</sup> NBA Accredited
       </p>
 

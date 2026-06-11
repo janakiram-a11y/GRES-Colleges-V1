@@ -4,7 +4,7 @@ import college from '../theme';
 function SectionHeading({ children }) {
   return (
     <h2
-      className="font-hind font-bold text-2xl mb-6 pb-2 inline-block"
+      className="font-display font-bold text-xl mb-5 pb-2 inline-block"
       style={{ color: college.primaryColor, borderBottom: `2px solid ${college.accentColor}` }}
     >
       {children}
@@ -59,7 +59,7 @@ export default function AdminSkillSeriesPage() {
 
         <div>
           <SectionHeading>GRIET Skill Series</SectionHeading>
-          <p className="font-dm-sans text-[14px] leading-relaxed text-gray-600 mb-2 max-w-2xl">
+          <p className="font-dm-sans text-base leading-relaxed text-gray-600 mb-2 max-w-2xl">
             The GRIET Skill Series is a structured initiative to bridge the skill gap between academic learning
             and industry expectations — equipping students with technical, analytical, and interpersonal skills
             through expert-led workshops, certification programmes, and hands-on sessions.
@@ -67,14 +67,12 @@ export default function AdminSkillSeriesPage() {
         </div>
 
         {/* Stats Strip */}
-        <div
-          className="grid grid-cols-2 sm:grid-cols-4 gap-4 rounded-lg p-5"
-          style={{ backgroundColor: college.primaryColor }}
-        >
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           {seriesHighlights.map(({ stat, label }) => (
-            <div key={label} className="text-center">
-              <p className="font-hind font-bold text-[28px] leading-none" style={{ color: college.accentColor }}>{stat}</p>
-              <p className="font-dm-sans text-[12px] text-white/80 mt-1">{label}</p>
+            <div key={label} className="rounded-xl p-5 bg-white border-l-4 text-center"
+              style={{ borderColor: college.primaryColor, boxShadow: '0 1px 4px rgba(91,16,39,0.06), 0 4px 16px -4px rgba(91,16,39,0.10)' }}>
+              <p className="font-display font-bold text-[1.75rem] leading-none" style={{ color: college.primaryColor }}>{stat}</p>
+              <p className="font-body text-[0.875rem] text-gray-500 mt-1">{label}</p>
             </div>
           ))}
         </div>
@@ -88,7 +86,7 @@ export default function AdminSkillSeriesPage() {
             {skillAreas.map(({ icon, title, skills }) => (
               <div key={title} className="bg-white rounded-lg border border-gray-200 p-5 hover:shadow-sm transition-shadow">
                 <div className="text-2xl mb-2">{icon}</div>
-                <h4 className="font-hind font-semibold text-[14px] mb-3" style={{ color: college.primaryColor }}>{title}</h4>
+                <h4 className="font-hind font-semibold text-base mb-3" style={{ color: college.primaryColor }}>{title}</h4>
                 <div className="flex flex-wrap gap-1.5">
                   {skills.map((skill) => (
                     <span
@@ -123,11 +121,11 @@ export default function AdminSkillSeriesPage() {
                 >
                   {step}
                 </p>
-                <p className="font-hind font-bold text-[12px] uppercase tracking-wide mb-2" style={{ color: college.accentColor }}>
+                <p className="font-hind font-bold text-[0.875rem] uppercase tracking-wide mb-2" style={{ color: college.accentColor }}>
                   Step {step}
                 </p>
                 <h4 className="font-hind font-semibold text-[16px] mb-2" style={{ color: college.primaryColor }}>{title}</h4>
-                <p className="font-dm-sans text-[13px] leading-relaxed text-gray-600">{desc}</p>
+                <p className="font-dm-sans text-[0.9375rem] leading-relaxed text-gray-600">{desc}</p>
               </div>
             ))}
           </div>

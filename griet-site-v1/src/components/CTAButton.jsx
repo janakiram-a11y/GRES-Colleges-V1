@@ -31,15 +31,15 @@ export default function CTAButton({
 }) {
   const sizeCls =
     size === 'lg'
-      ? 'px-10 py-[18px] text-[18px] leading-7'
-      : 'px-8 py-[14px] text-[16px] leading-6';
+      ? 'px-10 py-[18px] text-base leading-6'
+      : 'px-8 py-[14px] text-base leading-6';
 
   const variantCls =
     variant === 'outline'
       ? 'border-2 border-white text-white hover:bg-white/10'
       : 'bg-[#C32033] text-white hover:bg-[#a81b2a]';
 
-  const base = `font-dm-sans font-semibold rounded transition-colors inline-block ${sizeCls} ${variantCls} ${className}`;
+  const base = `font-display font-semibold rounded transition-colors inline-block ${sizeCls} ${variantCls} ${className}`;
 
   const shadow = variant === 'primary' ? { boxShadow: SHADOW } : {};
 

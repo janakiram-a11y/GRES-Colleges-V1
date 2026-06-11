@@ -13,13 +13,13 @@ export default function WhyChooseUs({ college }) {
     <section className="w-full bg-white page-pad py-8 md:py-14 lg:py-20">
       <div className="flex flex-col gap-[30px] items-start lg:flex-row">
         <div className="flex-1 flex flex-col gap-3 lg:pr-8">
-          <h2 className="font-hind font-semibold text-[28px] leading-9 lg:text-[40px] lg:leading-[48px] text-[#111827]">
+          <h2 className="font-display font-bold text-[1.75rem] md:text-[2.125rem] lg:text-[2.5rem] leading-[1.2] text-[#111827]">
             {college.aboutHeading}
           </h2>
-          <p className="font-hind font-normal text-[16px] leading-6 text-[#666666]">
+          <p className="font-body font-normal text-lg leading-[1.7] text-[#555555]">
             {college.aboutP1}
           </p>
-          <p className="font-hind font-normal text-[16px] leading-6 text-[#666666]">
+          <p className="font-body font-normal text-lg leading-[1.7] text-[#555555]">
             {college.aboutP2}
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-5 mt-3">
@@ -31,8 +31,8 @@ export default function WhyChooseUs({ college }) {
                     <Icon />
                   </div>
                   <div className="flex flex-col gap-1">
-                    <span className="font-hind font-bold text-[14px] leading-5 text-[#333333]">{title}</span>
-                    <span className="font-hind font-normal text-[12px] leading-4 text-[#666666]">{sub}</span>
+                    <span className="font-display font-semibold text-base text-[#333333]">{title}</span>
+                    <span className="font-body font-normal text-[15px] leading-[1.5] text-[#666666]">{sub}</span>
                   </div>
                 </div>
               )
@@ -62,13 +62,12 @@ export default function WhyChooseUs({ college }) {
               <div className="px-6 py-5">
                 {/* Stat number */}
                 <span
-                  className="font-hind font-bold text-[52px] leading-[1] block"
+                  className="font-display font-bold text-[3rem] leading-none block"
                   style={{ color: college.primaryColor }}
                 >
                   {college.aboutYears}
                 </span>
-                {/* Label */}
-                <span className="font-dm-sans font-medium text-[13px] leading-[18px] text-[#555555] mt-1.5 block">
+                <span className="font-display font-medium text-sm leading-snug text-[#555555] mt-1.5 block">
                   {college.aboutYearsLabel}
                 </span>
               </div>

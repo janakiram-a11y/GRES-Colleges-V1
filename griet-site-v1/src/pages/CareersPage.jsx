@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 const OPENINGS_TYPES = [
@@ -45,7 +45,7 @@ export default function CareersPage() {
   return (
     <AcademicsLayout title="Careers at GRIET">
 
-      <p className="font-dm-sans text-[13px] text-gray-600 leading-relaxed mb-8">
+      <p className="font-dm-sans text-[0.9375rem] text-gray-600 leading-relaxed mb-8">
         Join a team of passionate educators, researchers, and professionals at one of Telangana's premier engineering institutions.
         GRIET offers a stimulating work environment, opportunities for professional growth, and the chance to make a meaningful impact on the future engineers of India.
       </p>
@@ -72,7 +72,7 @@ export default function CareersPage() {
             href="https://www.griet.ac.in/images2/APPLICATION%20FORM%20FOR%20FACULTY%20POSITIONS.docx"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 px-5 py-3 rounded-lg font-hind font-bold text-[13px] text-white border-2 border-white/60 hover:bg-white/10 transition-colors flex-shrink-0"
+            className="inline-flex items-center gap-2.5 px-5 py-3 rounded-lg font-hind font-bold text-[0.9375rem] text-white border-2 border-white/60 hover:bg-white/10 transition-colors flex-shrink-0"
           >
             <DownloadIcon />
             Download Application Form
@@ -82,7 +82,7 @@ export default function CareersPage() {
 
       {/* ── No current openings notice ───────────────────────────── */}
       <div className="p-4 rounded-xl border border-amber-200 bg-amber-50 mb-8">
-        <p className="font-dm-sans text-[13px] text-amber-800">
+        <p className="font-dm-sans text-[0.9375rem] text-amber-800">
           <strong>No specific openings advertised currently.</strong> Please check back regularly or send your CV to{' '}
           <a href="mailto:hr@griet.ac.in" className="font-semibold hover:underline" style={{ color: college.accentColor }}>hr@griet.ac.in</a>{' '}
           for consideration in future vacancies.
@@ -95,12 +95,12 @@ export default function CareersPage() {
         <div className="flex flex-col gap-5">
           {OPENINGS_TYPES.map(({ category, desc, requirements }) => (
             <div key={category} className="p-5 rounded-xl border border-gray-200 bg-white">
-              <p className="font-hind font-bold text-[14px] mb-1" style={{ color: college.primaryColor }}>{category}</p>
+              <p className="font-hind font-bold text-base mb-1" style={{ color: college.primaryColor }}>{category}</p>
               <p className="font-dm-sans text-[12.5px] text-gray-600 leading-relaxed mb-3">{desc}</p>
-              <p className="font-dm-sans text-[12px] font-semibold text-gray-700 mb-2">General Requirements:</p>
+              <p className="font-dm-sans text-[0.875rem] font-semibold text-gray-700 mb-2">General Requirements:</p>
               <div className="flex flex-col gap-1.5">
                 {requirements.map((r, i) => (
-                  <div key={i} className="flex items-start gap-2 font-dm-sans text-[12px] text-gray-600">
+                  <div key={i} className="flex items-start gap-2 font-dm-sans text-[0.875rem] text-gray-600">
                     <span className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: college.accentColor }} />
                     {r}
                   </div>
@@ -141,7 +141,7 @@ export default function CareersPage() {
             href="https://www.griet.ac.in/images2/APPLICATION%20FORM%20FOR%20FACULTY%20POSITIONS.docx"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-hind font-bold text-[12px] text-white flex-shrink-0 transition-opacity hover:opacity-85"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-hind font-bold text-[0.875rem] text-white flex-shrink-0 transition-opacity hover:opacity-85"
             style={{ backgroundColor: college.primaryColor }}
           >
             <DownloadIcon />
@@ -154,7 +154,7 @@ export default function CareersPage() {
       <section className="mb-6">
         <SectionLabel>Contact HR</SectionLabel>
         <div className="p-5 rounded-xl bg-gray-50 border border-gray-200">
-          <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed">
+          <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed">
             For career-related enquiries, contact the <strong>Human Resources Department</strong>:
           </p>
           <div className="mt-3 flex flex-col gap-1.5">

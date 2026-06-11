@@ -4,7 +4,7 @@ import college from '../theme';
 function SectionHeading({ children }) {
   return (
     <h2
-      className="font-hind font-bold text-2xl mb-6 pb-2 inline-block"
+      className="font-display font-bold text-xl mb-5 pb-2 inline-block"
       style={{ color: college.primaryColor, borderBottom: `2px solid ${college.accentColor}` }}
     >
       {children}
@@ -42,7 +42,7 @@ export default function AdminBOSPage() {
 
         <div>
           <SectionHeading>Board of Studies (BOS)</SectionHeading>
-          <p className="font-dm-sans text-[14px] leading-relaxed text-gray-600 mb-2 max-w-2xl">
+          <p className="font-dm-sans text-base leading-relaxed text-gray-600 mb-2 max-w-2xl">
             The Board of Studies (BOS) is constituted for each department and is responsible for the design,
             review, and periodic update of curricula and syllabi for all programmes offered at GRIET.
           </p>
@@ -54,7 +54,7 @@ export default function AdminBOSPage() {
             Composition
           </h3>
           <div className="bg-[#F6F1F2] rounded-lg border border-gray-200 p-5">
-            <p className="font-dm-sans text-[14px] leading-relaxed text-gray-700 mb-4">
+            <p className="font-dm-sans text-base leading-relaxed text-gray-700 mb-4">
               Each departmental BOS typically comprises:
             </p>
             <ul className="space-y-2">
@@ -66,7 +66,7 @@ export default function AdminBOSPage() {
                 'One alumni representative',
                 'One student representative (final-year)',
               ].map((item) => (
-                <li key={item} className="flex items-start gap-2.5 font-dm-sans text-[13px] text-gray-700">
+                <li key={item} className="flex items-start gap-2.5 font-dm-sans text-[0.9375rem] text-gray-700">
                   <span className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: college.primaryColor }} />
                   {item}
                 </li>
@@ -92,7 +92,7 @@ export default function AdminBOSPage() {
                 >
                   {i + 1}
                 </span>
-                <span className="font-dm-sans text-[13px] text-gray-700">{dept}</span>
+                <span className="font-dm-sans text-[0.9375rem] text-gray-700">{dept}</span>
               </div>
             ))}
           </div>
@@ -105,7 +105,7 @@ export default function AdminBOSPage() {
           </h3>
           <ul className="space-y-2.5">
             {functions_.map((item) => (
-              <li key={item} className="flex items-start gap-3 font-dm-sans text-[14px] text-gray-700">
+              <li key={item} className="flex items-start gap-3 font-dm-sans text-base text-gray-700">
                 <span className="mt-1.5 w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: college.accentColor }} />
                 {item}
               </li>

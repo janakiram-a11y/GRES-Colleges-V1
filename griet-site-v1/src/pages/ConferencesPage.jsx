@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
@@ -53,7 +53,7 @@ export default function ConferencesPage() {
       <div className="flex items-center gap-3 mb-8 p-4 rounded-xl bg-gray-50 border border-gray-200">
         <span className="font-hind font-bold text-[32px]" style={{ color: college.primaryColor }}>29+</span>
         <div>
-          <p className="font-hind font-bold text-[14px] text-gray-800">Conferences Organized / Co-organized</p>
+          <p className="font-hind font-bold text-base text-gray-800">Conferences Organized / Co-organized</p>
           <p className="font-dm-sans text-[12.5px] text-gray-500">National and International conferences hosted at GRIET and partner institutions (2018–2024)</p>
         </div>
       </div>
@@ -66,7 +66,7 @@ export default function ConferencesPage() {
           <button
             key={y}
             onClick={() => setFilter(String(y))}
-            className="px-3 py-1 rounded-full font-dm-sans text-[12px] font-semibold border transition-all"
+            className="px-3 py-1 rounded-full font-dm-sans text-[0.875rem] font-semibold border transition-all"
             style={
               String(filter) === String(y)
                 ? { backgroundColor: college.primaryColor, color: 'white', borderColor: college.primaryColor }

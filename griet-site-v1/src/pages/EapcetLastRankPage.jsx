@@ -80,13 +80,13 @@ export default function EapcetLastRankPage() {
   return (
     <AdmissionsLayout title="EAPCET First and Last Ranks">
       <div className="mb-6 flex items-center gap-4 flex-wrap">
-        <span className="font-dm-sans text-[13px] text-gray-500 bg-gray-100 rounded-full px-4 py-1.5">
+        <span className="font-dm-sans text-[0.9375rem] text-gray-500 bg-gray-100 rounded-full px-4 py-1.5">
           <strong>B</strong> — Boys
         </span>
-        <span className="font-dm-sans text-[13px] text-gray-500 bg-gray-100 rounded-full px-4 py-1.5">
+        <span className="font-dm-sans text-[0.9375rem] text-gray-500 bg-gray-100 rounded-full px-4 py-1.5">
           <strong>G</strong> — Girls
         </span>
-        <span className="font-dm-sans text-[12px] text-gray-400 italic">
+        <span className="font-dm-sans text-[0.875rem] text-gray-400 italic">
           All rank data is indicative. Actual data may vary.
         </span>
       </div>
@@ -97,7 +97,7 @@ export default function EapcetLastRankPage() {
             className="flex items-center gap-3 mb-4 px-4 py-3 rounded"
             style={{ backgroundColor: idx === 0 ? college.primaryColor + '12' : '#f9fafb', borderLeft: `4px solid ${idx === 0 ? college.primaryColor : '#d1d5db'}` }}
           >
-            <h2 className="font-hind font-bold text-[14px]" style={{ color: idx === 0 ? college.primaryColor : '#6b7280' }}>
+            <h2 className="font-hind font-bold text-base" style={{ color: idx === 0 ? college.primaryColor : '#6b7280' }}>
               {label}
             </h2>
             {idx === 0 && (
@@ -109,7 +109,7 @@ export default function EapcetLastRankPage() {
           {data ? (
             <RankTable data={data} />
           ) : (
-            <p className="font-dm-sans text-[13px] text-gray-400 italic border border-dashed border-gray-300 rounded p-4">
+            <p className="font-dm-sans text-[0.9375rem] text-gray-400 italic border border-dashed border-gray-300 rounded p-4">
               Rank data for this year will be updated shortly.
             </p>
           )}

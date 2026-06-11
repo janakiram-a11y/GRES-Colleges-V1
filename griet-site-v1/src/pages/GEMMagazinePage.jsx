@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 const ISSUES = [
@@ -51,13 +51,13 @@ export default function GEMMagazinePage() {
       {/* About */}
       <section className="mb-8">
         <div className="p-5 rounded-xl bg-gray-50 border border-gray-200">
-          <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed mb-3">
+          <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed mb-3">
             <strong>GEM</strong> — the <strong>GRIET Engineering Magazine</strong> — is GRIET's official student
             publication, first published in <strong>2018–19</strong>. With <strong>19 issues</strong> published
             through February 2026, GEM serves as the voice of the GRIET community, covering student achievements,
             technical articles, campus life, alumni stories, and faculty contributions.
           </p>
-          <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed">
+          <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed">
             GEM is a <strong>bi-annual publication</strong> produced by a student editorial board with faculty
             guidance. Each issue brings together perspectives from across departments — academics, research,
             placements, campus life, alumni stories, and technical deep-dives — celebrating the spirit and
@@ -100,12 +100,12 @@ export default function GEMMagazinePage() {
                   Issue #{issue}
                 </span>
               </div>
-              <p className="font-dm-sans text-[12px] text-gray-600">{label}</p>
+              <p className="font-dm-sans text-[0.875rem] text-gray-600">{label}</p>
               <a
                 href="https://www.griet.ac.in/gem.php"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-auto inline-flex items-center gap-1 font-dm-sans text-[12px] font-semibold"
+                className="mt-auto inline-flex items-center gap-1 font-dm-sans text-[0.875rem] font-semibold"
                 style={{ color: college.accentColor }}
               >
                 Read Issue
@@ -122,7 +122,7 @@ export default function GEMMagazinePage() {
             href="https://www.griet.ac.in/gem.php"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 font-dm-sans text-[13px] font-semibold px-5 py-2.5 rounded-lg text-white transition-opacity hover:opacity-90"
+            className="inline-flex items-center gap-2 font-dm-sans text-[0.9375rem] font-semibold px-5 py-2.5 rounded-lg text-white transition-opacity hover:opacity-90"
             style={{ backgroundColor: college.primaryColor }}
           >
             View All Issues Archive
@@ -145,8 +145,8 @@ export default function GEMMagazinePage() {
                 style={{ backgroundColor: college.accentColor, marginTop: '5px' }}
               />
               <div>
-                <p className="font-hind font-bold text-[13px] mb-0.5" style={{ color: college.primaryColor }}>{title}</p>
-                <p className="font-dm-sans text-[12px] text-gray-600 leading-relaxed">{desc}</p>
+                <p className="font-hind font-bold text-[0.9375rem] mb-0.5" style={{ color: college.primaryColor }}>{title}</p>
+                <p className="font-dm-sans text-[0.875rem] text-gray-600 leading-relaxed">{desc}</p>
               </div>
             </div>
           ))}
@@ -158,15 +158,15 @@ export default function GEMMagazinePage() {
         <SectionLabel>Editorial Team</SectionLabel>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="p-4 rounded-xl border border-gray-200 bg-white flex flex-col gap-1">
-            <p className="font-hind font-bold text-[13px]" style={{ color: college.primaryColor }}>Student Editor-in-Chief</p>
-            <p className="font-dm-sans text-[12px] text-gray-700 leading-relaxed">
+            <p className="font-hind font-bold text-[0.9375rem]" style={{ color: college.primaryColor }}>Student Editor-in-Chief</p>
+            <p className="font-dm-sans text-[0.875rem] text-gray-700 leading-relaxed">
               Elected annually from among student applicants. Leads the editorial board, coordinates content
               across departments, and manages the publication cycle for both issues each year.
             </p>
           </div>
           <div className="p-4 rounded-xl border border-gray-200 bg-white flex flex-col gap-1">
-            <p className="font-hind font-bold text-[13px]" style={{ color: college.primaryColor }}>Faculty Advisor</p>
-            <p className="font-dm-sans text-[12px] text-gray-700 leading-relaxed">
+            <p className="font-hind font-bold text-[0.9375rem]" style={{ color: college.primaryColor }}>Faculty Advisor</p>
+            <p className="font-dm-sans text-[0.875rem] text-gray-700 leading-relaxed">
               A faculty member provides editorial oversight, mentors the student team, and ensures quality
               and consistency across all issues.
             </p>
@@ -178,20 +178,20 @@ export default function GEMMagazinePage() {
       <section className="mb-10">
         <SectionLabel>Submit to GEM</SectionLabel>
         <div className="p-5 rounded-xl border border-gray-200 bg-gray-50">
-          <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed mb-3">
+          <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed mb-3">
             Students and faculty are welcome to contribute articles, research summaries, opinion pieces,
             photographs, and creative writing to GEM. Submissions are reviewed by the editorial board
             before every issue.
           </p>
-          <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed mb-4">
+          <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed mb-4">
             Accepted content types include technical articles, event reports, alumni interviews, research
             abstracts, campus photography, and faculty columns.
           </p>
           <div className="flex items-center gap-3">
-            <span className="font-dm-sans text-[12px] text-gray-500 uppercase tracking-wide font-semibold">Submit via email:</span>
+            <span className="font-dm-sans text-[0.875rem] text-gray-500 uppercase tracking-wide font-semibold">Submit via email:</span>
             <a
               href="mailto:gem@griet.ac.in"
-              className="font-dm-sans text-[13px] font-semibold"
+              className="font-dm-sans text-[0.9375rem] font-semibold"
               style={{ color: college.accentColor }}
             >
               gem@griet.ac.in

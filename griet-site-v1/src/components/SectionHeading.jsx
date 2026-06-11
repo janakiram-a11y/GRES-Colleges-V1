@@ -10,13 +10,11 @@ import college from '../theme';
  *   color    – override for heading color; defaults to college.primaryColor
  *   className – additional classes
  */
-const SIZE_CLASS = { xl: 'text-xl', '2xl': 'text-2xl' };
-
 export default function SectionHeading({ children, size = '2xl', color, className = '' }) {
-  const sizeClass = SIZE_CLASS[size] ?? 'text-2xl';
+  /* size prop retained for API compat but all sizes now use the unified scale */
   return (
     <h2
-      className={`font-hind font-bold ${sizeClass} mb-4 pb-2 inline-block ${className}`}
+      className={`font-display font-bold text-[1.375rem] md:text-[1.75rem] lg:text-[2.125rem] leading-[1.2] mb-4 pb-2 inline-block ${className}`}
       style={{
         color: color || college.primaryColor,
         borderBottom: `2px solid ${college.accentColor}`,

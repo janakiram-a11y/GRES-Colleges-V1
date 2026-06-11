@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 function SectionLabel({ children }) {
@@ -74,7 +74,7 @@ export default function InfrastructurePage() {
   return (
     <AcademicsLayout title="Infrastructure">
 
-      <p className="font-dm-sans text-[13px] text-gray-600 leading-relaxed mb-8">
+      <p className="font-dm-sans text-[0.9375rem] text-gray-600 leading-relaxed mb-8">
         GRIET's 24-acre sprawling lush green campus at Bachupally, Hyderabad, is designed to support world-class technical education. From state-of-the-art laboratories and a NABL-accredited material testing lab to a 500-seat auditorium and a 1 MW solar power plant, the campus infrastructure enables holistic learning and sustainable growth.
       </p>
 
@@ -94,8 +94,8 @@ export default function InfrastructurePage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {CATEGORIES.map(({ title, desc }) => (
             <div key={title} className="p-5 rounded-xl border border-gray-200 bg-white">
-              <p className="font-hind font-bold text-[13px] mb-1.5" style={{ color: college.primaryColor }}>{title}</p>
-              <p className="font-dm-sans text-[12px] text-gray-600 leading-relaxed">{desc}</p>
+              <p className="font-hind font-bold text-[0.9375rem] mb-1.5" style={{ color: college.primaryColor }}>{title}</p>
+              <p className="font-dm-sans text-[0.875rem] text-gray-600 leading-relaxed">{desc}</p>
             </div>
           ))}
         </div>
@@ -104,7 +104,7 @@ export default function InfrastructurePage() {
       {/* NABL Accreditation Note */}
       <div className="p-4 rounded-xl border border-gray-200 bg-gray-50 flex gap-3 items-start">
         <span className="mt-0.5 shrink-0 w-2 h-2 rounded-full mt-1.5" style={{ background: college.primaryColor }} />
-        <p className="font-dm-sans text-[12px] text-gray-600 leading-relaxed">
+        <p className="font-dm-sans text-[0.875rem] text-gray-600 leading-relaxed">
           <span className="font-semibold text-gray-800">NABL Accreditation:</span> GRMTL (Gokaraju Rangaraju Material Testing Laboratory) at GRIET is accredited by the National Accreditation Board for Testing and Calibration Laboratories (NABL), ensuring internationally recognized standards for material testing and characterization services.
         </p>
       </div>

@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 const NOTABLE_ALUMNI = [
@@ -55,10 +55,10 @@ export default function AlumniPage() {
       {/* Overview */}
       <section className="mb-8">
         <div className="p-5 rounded-xl bg-gray-50 border border-gray-200">
-          <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed mb-3">
+          <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed mb-3">
             The <strong>GRIET Alumni Association (GAA)</strong> connects over <strong>30,000 alumni</strong> spread across India and 40+ countries. Founded alongside the institution in 1997, GAA fosters lifelong bonds between graduates and their alma mater through networking, mentorship, philanthropy, and industry collaboration.
           </p>
-          <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed">
+          <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed">
             Alumni are GRIET's most powerful ambassadors — contributing to student development through mentoring, internship facilitation, guest lectures, and scholarship funding. The association is registered under the Societies Registration Act and operates active regional chapters.
           </p>
         </div>
@@ -87,8 +87,8 @@ export default function AlumniPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {NOTABLE_ALUMNI.map(({ name, batch, role, domain }) => (
             <div key={name} className="p-4 rounded-xl border border-gray-200 bg-white flex flex-col gap-1">
-              <p className="font-hind font-bold text-[13px]" style={{ color: college.primaryColor }}>{name}</p>
-              <p className="font-dm-sans text-[12px] text-gray-700 leading-relaxed">{role}</p>
+              <p className="font-hind font-bold text-[0.9375rem]" style={{ color: college.primaryColor }}>{name}</p>
+              <p className="font-dm-sans text-[0.875rem] text-gray-700 leading-relaxed">{role}</p>
               <div className="flex items-center gap-2 mt-1">
                 <span className="font-dm-sans text-[11px] text-gray-500">{batch}</span>
                 <span className="w-1 h-1 rounded-full bg-gray-300" />
@@ -111,9 +111,9 @@ export default function AlumniPage() {
           <table className="w-full text-left">
             <thead>
               <tr style={{ backgroundColor: college.primaryColor }}>
-                <th className="font-hind font-semibold text-[12px] text-white/90 px-4 py-3 uppercase tracking-wide">Chapter</th>
-                <th className="font-hind font-semibold text-[12px] text-white/90 px-4 py-3 uppercase tracking-wide">Members</th>
-                <th className="font-hind font-semibold text-[12px] text-white/90 px-4 py-3 uppercase tracking-wide">Chapter Coordinator Email</th>
+                <th className="font-hind font-semibold text-[0.875rem] text-white/90 px-4 py-3 uppercase tracking-wide">Chapter</th>
+                <th className="font-hind font-semibold text-[0.875rem] text-white/90 px-4 py-3 uppercase tracking-wide">Members</th>
+                <th className="font-hind font-semibold text-[0.875rem] text-white/90 px-4 py-3 uppercase tracking-wide">Chapter Coordinator Email</th>
               </tr>
             </thead>
             <tbody>
@@ -137,8 +137,8 @@ export default function AlumniPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {EVENTS.map(({ name, desc }) => (
             <div key={name} className="p-4 rounded-xl border border-gray-200 bg-white">
-              <p className="font-hind font-bold text-[13px] mb-1" style={{ color: college.primaryColor }}>{name}</p>
-              <p className="font-dm-sans text-[12px] text-gray-600 leading-relaxed">{desc}</p>
+              <p className="font-hind font-bold text-[0.9375rem] mb-1" style={{ color: college.primaryColor }}>{name}</p>
+              <p className="font-dm-sans text-[0.875rem] text-gray-600 leading-relaxed">{desc}</p>
             </div>
           ))}
         </div>
@@ -161,13 +161,13 @@ export default function AlumniPage() {
       <section className="mb-6">
         <SectionLabel>Register / Stay Connected</SectionLabel>
         <div className="p-5 rounded-xl bg-gray-50 border border-gray-200">
-          <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed mb-4">
+          <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed mb-4">
             If you are a GRIET graduate and have not yet registered with the Alumni Association, please fill out the registration form or reach out directly. Membership is free for all GRIET graduates.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <a
               href="mailto:alumni@griet.ac.in"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-hind font-bold text-[13px] text-white transition-opacity hover:opacity-90"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-hind font-bold text-[0.9375rem] text-white transition-opacity hover:opacity-90"
               style={{ backgroundColor: college.primaryColor }}
             >
               Email Alumni Office
@@ -176,13 +176,13 @@ export default function AlumniPage() {
               href="https://www.linkedin.com/school/gokaraju-rangaraju-institute-of-engineering-and-technology/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-hind font-bold text-[13px] border transition-colors hover:bg-gray-100"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-hind font-bold text-[0.9375rem] border transition-colors hover:bg-gray-100"
               style={{ color: college.primaryColor, borderColor: college.primaryColor }}
             >
               Connect on LinkedIn ↗
             </a>
           </div>
-          <p className="font-dm-sans text-[12px] text-gray-500 mt-4">
+          <p className="font-dm-sans text-[0.875rem] text-gray-500 mt-4">
             Alumni Relations Office &nbsp;|&nbsp; <strong>{college.phone}</strong> &nbsp;|&nbsp; {college.address}
           </p>
         </div>

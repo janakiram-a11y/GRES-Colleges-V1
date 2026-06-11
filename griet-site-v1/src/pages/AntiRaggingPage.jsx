@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 const POLICIES = [
@@ -38,7 +38,7 @@ export default function AntiRaggingPage() {
       <section className="mb-10">
         <SectionLabel>Committee Composition</SectionLabel>
         <div className="p-5 rounded-xl bg-gray-50 border border-gray-200">
-          <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed">
+          <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed">
             The Anti-Ragging Committee comprises the <strong>Principal</strong>, Dean Discipline, Inspector of Police (Bachupally Circle),
             Dean Student Affairs, Dean Academic Affairs, Physical Director, Senior Administrative Officer,
             and senior student representatives from all programs.
@@ -67,15 +67,15 @@ export default function AntiRaggingPage() {
         <SectionLabel>Emergency Contacts</SectionLabel>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="p-5 rounded-xl border border-gray-200 bg-white">
-            <p className="font-hind font-bold text-[13px] mb-2" style={{ color: college.primaryColor }}>Balanagar Zone She Team</p>
+            <p className="font-hind font-bold text-[0.9375rem] mb-2" style={{ color: college.primaryColor }}>Balanagar Zone She Team</p>
             <p className="font-dm-sans text-[12.5px] text-gray-600">Emergency: <strong>Dial 100</strong></p>
             <p className="font-dm-sans text-[12.5px] text-gray-600">WhatsApp: <strong>9490617444</strong></p>
           </div>
           <div className="p-5 rounded-xl border border-gray-200 bg-white">
-            <p className="font-hind font-bold text-[13px] mb-2" style={{ color: college.primaryColor }}>Inspector of Police, Bachupally Circle</p>
+            <p className="font-hind font-bold text-[0.9375rem] mb-2" style={{ color: college.primaryColor }}>Inspector of Police, Bachupally Circle</p>
             <p className="font-dm-sans text-[12.5px] text-gray-600">J Upender Rao</p>
             <p className="font-dm-sans text-[12.5px] text-gray-600">Cell: <strong>9491060942</strong> · Landline: <strong>8333993552</strong></p>
-            <a href="mailto:sho-bcpy-cyb@tspolice.gov.in" className="font-dm-sans text-[12px] hover:underline" style={{ color: college.accentColor }}>
+            <a href="mailto:sho-bcpy-cyb@tspolice.gov.in" className="font-dm-sans text-[0.875rem] hover:underline" style={{ color: college.accentColor }}>
               sho-bcpy-cyb@tspolice.gov.in
             </a>
           </div>

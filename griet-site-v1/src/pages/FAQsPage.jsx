@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
@@ -43,7 +43,7 @@ export default function FAQsPage() {
       <div className="space-y-6">
 
         {/* Intro */}
-        <p className="font-dm-sans text-[14px] leading-relaxed text-gray-600 max-w-2xl">
+        <p className="font-dm-sans text-base leading-relaxed text-gray-600 max-w-2xl">
           Find answers to commonly asked questions about GRIET's programmes, academic structure,
           accreditations, and industry-focused curriculum.
         </p>
@@ -62,7 +62,7 @@ export default function FAQsPage() {
                     color: isOpen ? '#ffffff' : primaryColor,
                   }}
                 >
-                  <span className="font-hind font-semibold text-[14px] pr-4">{faq.q}</span>
+                  <span className="font-hind font-semibold text-base pr-4">{faq.q}</span>
                   <svg
                     className="w-4 h-4 flex-shrink-0 transition-transform"
                     style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
@@ -78,7 +78,7 @@ export default function FAQsPage() {
                 </button>
                 {isOpen && (
                   <div className="px-5 py-4 bg-white border-t border-gray-100">
-                    <p className="font-dm-sans text-[14px] leading-relaxed text-gray-700">{faq.a}</p>
+                    <p className="font-dm-sans text-base leading-relaxed text-gray-700">{faq.a}</p>
                   </div>
                 )}
               </div>
@@ -97,12 +97,12 @@ export default function FAQsPage() {
           <p className="font-hind font-bold text-[15px] mb-1" style={{ color: primaryColor }}>
             Still have questions?
           </p>
-          <p className="font-dm-sans text-[13px] text-gray-600 mb-3">
+          <p className="font-dm-sans text-[0.9375rem] text-gray-600 mb-3">
             Our team is happy to help with any queries not covered above.
           </p>
           <a
             href="/contact"
-            className="inline-block font-hind font-semibold text-[13px] px-4 py-2 rounded text-white transition-opacity hover:opacity-90"
+            className="inline-block font-hind font-semibold text-[0.9375rem] px-4 py-2 rounded text-white transition-opacity hover:opacity-90"
             style={{ backgroundColor: primaryColor }}
           >
             Contact Us

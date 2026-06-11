@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 const EVENTS = [
@@ -37,7 +37,7 @@ export default function SportsPage() {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
           {FACILITIES.map((f) => (
             <div key={f} className="p-3 rounded-xl border border-gray-200 bg-gray-50 text-center">
-              <p className="font-dm-sans font-semibold text-[12px] text-gray-700">{f}</p>
+              <p className="font-dm-sans font-semibold text-[0.875rem] text-gray-700">{f}</p>
             </div>
           ))}
         </div>
@@ -49,7 +49,7 @@ export default function SportsPage() {
           {EVENTS.map(({ name, date, desc }) => (
             <div key={name} className="p-5 rounded-xl border border-gray-200 bg-white">
               <div className="flex flex-wrap items-center gap-2 mb-1">
-                <p className="font-hind font-bold text-[14px]" style={{ color: college.primaryColor }}>{name}</p>
+                <p className="font-hind font-bold text-base" style={{ color: college.primaryColor }}>{name}</p>
                 <span className="font-dm-sans text-[11px] font-semibold px-2 py-0.5 rounded-full text-white" style={{ backgroundColor: college.accentColor }}>{date}</span>
               </div>
               <p className="font-dm-sans text-[12.5px] text-gray-600">{desc}</p>

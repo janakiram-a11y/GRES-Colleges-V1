@@ -72,7 +72,7 @@ function SectionLabel({ children }) {
 
 function OrderedList({ items }) {
   return (
-    <ol className="font-dm-sans text-[13px] text-gray-700 leading-relaxed space-y-1.5 list-decimal list-inside">
+    <ol className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed space-y-1.5 list-decimal list-inside">
       {items.map((item, i) => (
         <li key={i}>{item}</li>
       ))}
@@ -82,7 +82,7 @@ function OrderedList({ items }) {
 
 function BulletList({ items }) {
   return (
-    <ul className="font-dm-sans text-[13px] text-gray-700 leading-relaxed space-y-1.5 list-disc list-inside">
+    <ul className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed space-y-1.5 list-disc list-inside">
       {items.map((item, i) => (
         <li key={i}>{item}</li>
       ))}
@@ -160,12 +160,12 @@ export default function FinishingSchoolPage() {
       {/* Dean */}
       <div className="mb-5 p-4 bg-gray-50 border border-gray-200 rounded-lg">
         <p
-          className="font-dm-sans font-bold text-[13px] mb-2 pb-2 border-b border-gray-200"
+          className="font-dm-sans font-bold text-[0.9375rem] mb-2 pb-2 border-b border-gray-200"
           style={{ color: college.primaryColor }}
         >
           Dean–Finishing School
         </p>
-        <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed">
+        <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed">
           Dr. J. Sridevi<br />
           Professor, Department of EEE<br />
           GRIET Hyderabad.<br />
@@ -274,7 +274,7 @@ export default function FinishingSchoolPage() {
                   {DEPTS.map((dept) => (
                     <td key={dept} style={{ padding: '7px 10px', border: '1px solid #e5e7eb' }}>
                       {dept === 'AIML' && !hasAiml
-                        ? <span className="font-dm-sans text-[12px] text-gray-400">NA</span>
+                        ? <span className="font-dm-sans text-[0.875rem] text-gray-400">NA</span>
                         : <ReportLink label={`${dept} Report`} />
                       }
                     </td>

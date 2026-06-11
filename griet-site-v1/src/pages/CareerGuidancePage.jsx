@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 function SectionLabel({ children }) {
@@ -76,7 +76,7 @@ export default function CareerGuidancePage() {
                 >
                   {service.title}
                 </h3>
-                <p className="font-hind text-gray-600 text-[14px] leading-relaxed">
+                <p className="font-hind text-gray-600 text-base leading-relaxed">
                   {service.description}
                 </p>
               </div>

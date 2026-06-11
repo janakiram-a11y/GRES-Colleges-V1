@@ -239,7 +239,7 @@ const CATEGORY_COLORS = {
 
 function CategoryBadge({ label }) {
   return (
-    <span className={`text-[10px] font-hind font-semibold px-1.5 py-0.5 rounded flex-shrink-0 ${CATEGORY_COLORS[label] || 'bg-gray-50 text-gray-500'}`}>
+    <span className={`text-[0.6875rem] font-display font-semibold px-1.5 py-0.5 rounded flex-shrink-0 ${CATEGORY_COLORS[label] || 'bg-gray-50 text-gray-500'}`}>
       {label}
     </span>
   );
@@ -315,7 +315,7 @@ function SearchBar({ college }) {
           onKeyDown={handleKeyDown}
           placeholder="Search pages, faculty, programs…"
           autoComplete="off"
-          className="font-dm-sans text-[13px] text-gray-700 placeholder-gray-400 border border-gray-300 rounded-l px-3 h-[30px] w-[220px] focus:outline-none focus:border-[#5B1027] transition-colors bg-white"
+          className="font-display text-[0.875rem] text-gray-700 placeholder-gray-400 border border-gray-300 rounded-l px-3 h-[30px] w-[220px] focus:outline-none focus:border-[#5B1027] transition-colors bg-white"
         />
         <button
           type="submit"
@@ -335,10 +335,10 @@ function SearchBar({ college }) {
           {results.length > 0 ? (
             <>
               <div className="px-3 py-2 bg-gray-50 border-b border-gray-100 flex items-center justify-between">
-                <span className="font-dm-sans text-[11px] text-gray-400 uppercase tracking-wide">
+                <span className="font-display text-[0.6875rem] text-gray-400 uppercase tracking-wide">
                   {results.length} result{results.length !== 1 ? 's' : ''} for "{query}"
                 </span>
-                <span className="font-dm-sans text-[10px] text-gray-400 hidden sm:block">↑↓ navigate · Enter select · Esc close</span>
+                <span className="font-display text-[0.75rem] text-gray-400 hidden sm:block">↑↓ navigate · Enter select · Esc close</span>
               </div>
               <ul className="max-h-[380px] overflow-y-auto">
                 {results.map((entry, i) => (
@@ -350,7 +350,7 @@ function SearchBar({ college }) {
                     >
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 flex-wrap">
-                          <span className="font-hind font-semibold text-[13px] text-gray-800 leading-tight">
+                          <span className="font-display font-semibold text-[0.875rem] text-gray-800 leading-tight">
                             <Highlight text={entry.title} query={query.trim()} />
                           </span>
                           {(entry.external || entry.href.startsWith('http')) && (
@@ -358,7 +358,7 @@ function SearchBar({ college }) {
                           )}
                         </div>
                         {entry.desc && (
-                          <p className="font-dm-sans text-[11.5px] text-gray-500 mt-0.5 leading-snug truncate">
+                          <p className="font-body text-[0.8125rem] text-gray-500 mt-0.5 leading-snug truncate">
                             {entry.desc}
                           </p>
                         )}
@@ -374,8 +374,8 @@ function SearchBar({ college }) {
               <svg className="w-8 h-8 mx-auto mb-3 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
                 <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
               </svg>
-              <p className="font-hind font-semibold text-[13px] text-gray-500 mb-1">No results for "{query}"</p>
-              <p className="font-dm-sans text-[12px] text-gray-400">
+              <p className="font-display font-semibold text-[0.875rem] text-gray-500 mb-1">No results for "{query}"</p>
+              <p className="font-body text-[0.8125rem] text-gray-400">
                 Try searching for a department, faculty name, programme, or page.
               </p>
             </div>
@@ -404,14 +404,14 @@ export default function Navbar({ college, scrolled = false }) {
             {QUICK_NAV_LINKS.map(({ label, href, external }) =>
               external ? (
                 <a key={label} href={href} target="_blank" rel="noopener noreferrer"
-                  className="font-dm-sans font-medium text-[13px] leading-4 transition-colors"
+                  className="font-display font-medium text-[0.875rem] leading-4 transition-colors"
                   style={{ color: college.primaryColor }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = college.accentColor)}
                   onMouseLeave={(e) => (e.currentTarget.style.color = college.primaryColor)}
                 >{label}</a>
               ) : (
                 <Link key={label} to={href}
-                  className="font-dm-sans font-medium text-[13px] leading-4 transition-colors"
+                  className="font-display font-medium text-[0.875rem] leading-4 transition-colors"
                   style={{ color: college.primaryColor }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = college.accentColor)}
                   onMouseLeave={(e) => (e.currentTarget.style.color = college.primaryColor)}

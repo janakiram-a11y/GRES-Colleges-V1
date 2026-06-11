@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 const JOURNALS = [
@@ -47,7 +47,7 @@ export default function JournalsPage() {
   return (
     <AcademicsLayout title="Journals Published by GRIET">
 
-      <p className="font-dm-sans text-[13px] text-gray-600 leading-relaxed mb-8">
+      <p className="font-dm-sans text-[0.9375rem] text-gray-600 leading-relaxed mb-8">
         GRIET publishes three peer-reviewed research journals covering engineering, computing, management, and mathematics. These provide a platform for academicians, researchers, and industry professionals to disseminate original research and innovations.
       </p>
 
@@ -66,13 +66,13 @@ export default function JournalsPage() {
                 {frequency}
               </span>
             </div>
-            <p className="font-dm-sans text-[12px] text-gray-500 mb-2">{name}</p>
+            <p className="font-dm-sans text-[0.875rem] text-gray-500 mb-2">{name}</p>
             <p className="font-dm-sans text-[12.5px] text-gray-600 leading-relaxed mb-3">{desc}</p>
             <div className="flex flex-col gap-1 mb-3">
-              <p className="font-dm-sans text-[12px] text-gray-500">
+              <p className="font-dm-sans text-[0.875rem] text-gray-500">
                 <span className="font-semibold text-gray-700">Scope: </span>{scope}
               </p>
-              <p className="font-dm-sans text-[12px] text-gray-500">
+              <p className="font-dm-sans text-[0.875rem] text-gray-500">
                 <span className="font-semibold text-gray-700">Managed by: </span>{editor}
               </p>
             </div>
@@ -80,7 +80,7 @@ export default function JournalsPage() {
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-dm-sans text-[12px] font-semibold hover:underline"
+              className="font-dm-sans text-[0.875rem] font-semibold hover:underline"
               style={{ color: college.accentColor }}
             >
               Visit Journal Page →

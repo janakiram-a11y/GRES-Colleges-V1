@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 function SectionLabel({ children }) {
@@ -86,7 +86,7 @@ export default function ICTPage() {
               </h3>
               <ul className="space-y-1">
                 {card.details.map((detail) => (
-                  <li key={detail} className="flex items-start gap-2 text-gray-600 text-[14px]">
+                  <li key={detail} className="flex items-start gap-2 text-gray-600 text-base">
                     <span className="mt-1.5 h-1.5 w-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: college.primaryColor }} />
                     {detail}
                   </li>
@@ -122,7 +122,7 @@ export default function ICTPage() {
               <p className="text-[22px] font-bold font-hind" style={{ color: college.primaryColor }}>
                 {spec.value}
               </p>
-              <p className="text-gray-500 text-[13px] mt-1">{spec.label}</p>
+              <p className="text-gray-500 text-[0.9375rem] mt-1">{spec.label}</p>
             </div>
           ))}
         </div>

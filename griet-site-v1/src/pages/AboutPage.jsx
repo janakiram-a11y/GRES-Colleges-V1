@@ -13,7 +13,7 @@ function PageBanner({ image, title }) {
       }}
     >
       <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.52)' }} />
-      <h1 className="relative z-10 text-white font-hind font-bold text-2xl md:text-3xl tracking-widest uppercase text-center px-4 drop-shadow-lg">
+      <h1 className="relative z-10 text-white font-display font-bold text-[1.5rem] md:text-[2rem] lg:text-[2.125rem] tracking-widest uppercase text-center px-4 drop-shadow-lg">
         {title}
       </h1>
     </div>
@@ -45,13 +45,13 @@ function VisionCard({ item }) {
       }}
     >
       <span
-        className="font-dm-sans font-semibold text-[11px] uppercase tracking-[2px] mb-2 block"
+        className="font-display font-semibold text-[0.75rem] uppercase tracking-[0.12em] mb-2 block"
         style={{ color: college.accentColor }}
       >
         {vmLabelMap[item.title] || item.title}
       </span>
       <h3
-        className="font-hind font-medium text-[20px] mb-3"
+        className="font-display font-semibold text-[1.375rem] leading-snug mb-3"
         style={{ color: college.primaryColor }}
       >
         {item.title}
@@ -63,7 +63,7 @@ function VisionCard({ item }) {
       {isStrategies ? (
         <>
           {intro && (
-            <p className="font-hind font-normal text-[14px] leading-[22px] text-[#474747] mb-3">{intro}</p>
+            <p className="font-hind font-normal text-base leading-[1.6] text-[#474747] mb-3">{intro}</p>
           )}
           <ul className="space-y-2">
             {bullets.map((line, i) => (
@@ -72,13 +72,13 @@ function VisionCard({ item }) {
                   className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-[9px]"
                   style={{ backgroundColor: college.accentColor }}
                 />
-                <span className="font-hind font-normal text-[14px] leading-[22px] text-[#474747]">{line}</span>
+                <span className="font-body font-normal text-base leading-[1.6] text-[#474747]">{line}</span>
               </li>
             ))}
           </ul>
         </>
       ) : (
-        <p className="font-hind font-normal text-[14px] leading-[22px] text-[#474747]">{item.text}</p>
+        <p className="font-body font-normal text-base leading-[1.6] text-[#474747]">{item.text}</p>
       )}
     </div>
   );
@@ -99,12 +99,12 @@ function CoreValuesBlock({ item }) {
     <div className="rounded-xl p-8" style={{ backgroundColor: '#F6F1F2' }}>
       <div className="mb-7 text-center">
         <span
-          className="font-dm-sans font-semibold text-[11px] uppercase tracking-[2px] mb-2 block"
+          className="font-display font-semibold text-[0.75rem] uppercase tracking-[0.12em] mb-2 block"
           style={{ color: college.accentColor }}
         >
           Our Foundation
         </span>
-        <h3 className="font-hind font-medium text-[22px]" style={{ color: college.primaryColor }}>Core Values</h3>
+        <h3 className="font-display font-semibold text-[1.375rem] leading-snug" style={{ color: college.primaryColor }}>Core Values</h3>
         <div
           className="w-10 h-[3px] rounded-full mx-auto mt-3"
           style={{ backgroundColor: college.accentColor }}
@@ -122,9 +122,9 @@ function CoreValuesBlock({ item }) {
               boxShadow: '0 1px 4px rgba(91,16,39,0.05)',
             }}
           >
-            <h4 className="font-hind font-medium text-[15px] mb-1.5" style={{ color: college.primaryColor }}>{value.name}</h4>
+            <h4 className="font-display font-semibold text-base mb-1.5" style={{ color: college.primaryColor }}>{value.name}</h4>
             {value.desc && (
-              <p className="font-hind font-normal text-[13px] leading-[22px] text-[#474747]">{value.desc}</p>
+              <p className="font-body font-normal text-base leading-[1.6] text-[#474747]">{value.desc}</p>
             )}
           </div>
         ))}
@@ -145,7 +145,7 @@ export default function AboutPage() {
         {/* About Inspirer and Promoters */}
         <section>
           <SectionHeading>{aboutInspirer.heading}</SectionHeading>
-          <div className="mt-4 space-y-6 font-hind font-normal text-[15px] leading-relaxed text-gray-800">
+          <div className="mt-4 space-y-6 font-body font-normal text-[1.125rem] leading-[1.7] text-gray-800">
             <div>
               <span className="font-semibold" style={{ color: college.primaryColor }}>
                 {aboutInspirer.inspirer.label}
@@ -170,7 +170,7 @@ export default function AboutPage() {
         <section>
           <SectionHeading>{sponsoringSociety.heading}</SectionHeading>
           <p
-            className="mt-4 font-hind font-normal text-[15px] leading-relaxed text-gray-800"
+            className="mt-4 font-body font-normal text-[1.125rem] leading-[1.7] text-gray-800"
             dangerouslySetInnerHTML={{
               __html: sponsoringSociety.text.replace(
                 /Gokaraju Rangaraju Educational Society \(GRES\)/,
@@ -183,7 +183,7 @@ export default function AboutPage() {
         {/* About GRIET */}
         <section>
           <SectionHeading>{aboutGriet.heading}</SectionHeading>
-          <div className="mt-4 space-y-4 font-hind font-normal text-[15px] leading-relaxed text-gray-800">
+          <div className="mt-4 space-y-4 font-body font-normal text-[1.125rem] leading-[1.7] text-gray-800">
             {aboutGriet.paragraphs.map((para, i) => (
               <p key={i} dangerouslySetInnerHTML={{
                 __html: para

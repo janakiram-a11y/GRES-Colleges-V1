@@ -4,7 +4,7 @@ import college from '../theme';
 function SectionHeading({ children }) {
   return (
     <h2
-      className="font-hind font-bold text-2xl mb-6 pb-2 inline-block"
+      className="font-display font-bold text-xl mb-5 pb-2 inline-block"
       style={{ color: college.primaryColor, borderBottom: `2px solid ${college.accentColor}` }}
     >
       {children}
@@ -69,7 +69,7 @@ export default function AdminAcademicCouncilPage() {
 
         <div>
           <SectionHeading>Academic Council 2025–26</SectionHeading>
-          <p className="font-dm-sans text-[14px] leading-relaxed text-gray-600 mb-8 max-w-2xl">
+          <p className="font-dm-sans text-base leading-relaxed text-gray-600 mb-8 max-w-2xl">
             The Academic Council supervises the academic work of the institution and provides guidance on
             curricula, syllabi, evaluation methods, and new programme proposals. It is the apex academic body
             of GRIET.
@@ -79,18 +79,18 @@ export default function AdminAcademicCouncilPage() {
         {categories.map(({ label, members }) => (
           <div key={label}>
             <h3
-              className="font-hind font-semibold text-[14px] uppercase tracking-wide mb-3 pb-1.5 border-b"
+              className="font-hind font-semibold text-base uppercase tracking-wide mb-3 pb-1.5 border-b"
               style={{ color: college.primaryColor, borderColor: college.accentColor }}
             >
               {label}
             </h3>
             <div className="overflow-x-auto rounded-lg border border-gray-200">
-              <table className="min-w-[600px] w-full text-[13px] font-dm-sans">
+              <table className="min-w-[600px] w-full text-[0.9375rem] font-dm-sans">
                 <thead>
                   <tr style={{ backgroundColor: college.primaryColor }}>
-                    <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[12px] w-10 whitespace-nowrap">S.No</th>
-                    <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[12px]">Name</th>
-                    <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[12px]">Designation / Organisation</th>
+                    <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[0.875rem] w-10 whitespace-nowrap">S.No</th>
+                    <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[0.875rem]">Name</th>
+                    <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[0.875rem]">Designation / Organisation</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -131,7 +131,7 @@ export default function AdminAcademicCouncilPage() {
               'Oversee evaluation methods, examinations, and results',
               'Recommend conferral of honorary degrees and distinctions',
             ].map((item) => (
-              <li key={item} className="flex items-start gap-2.5 font-dm-sans text-[13px] text-gray-700">
+              <li key={item} className="flex items-start gap-2.5 font-dm-sans text-[0.9375rem] text-gray-700">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: college.accentColor }} />
                 {item}
               </li>

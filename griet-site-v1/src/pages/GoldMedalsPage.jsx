@@ -123,7 +123,7 @@ function GradYearSection({ title, rows }) {
   return (
     <div className="mb-10">
       <div
-        className="px-4 py-2.5 rounded-t font-hind font-bold text-[13px] text-white"
+        className="px-4 py-2.5 rounded-t font-hind font-bold text-[0.9375rem] text-white"
         style={{ backgroundColor: college.primaryColor }}
       >
         {title}
@@ -173,7 +173,7 @@ export default function GoldMedalsPage() {
       {/* APJG section */}
       <div className="mb-4">
         <div
-          className="px-4 py-2.5 rounded-t font-hind font-bold text-[13px] text-white"
+          className="px-4 py-2.5 rounded-t font-hind font-bold text-[0.9375rem] text-white"
           style={{ backgroundColor: '#5B1027' }}
         >
           APJG Awarded Gold Medals for Subjects

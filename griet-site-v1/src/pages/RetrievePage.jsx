@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 function SectionLabel({ children }) {
@@ -54,7 +54,7 @@ export default function RetrievePage() {
               <h3 className="font-hind font-bold text-[15px] mb-1" style={{ color: college.primaryColor }}>
                 {event.name}
               </h3>
-              <p className="font-hind text-gray-600 text-[14px]">{event.description}</p>
+              <p className="font-hind text-gray-600 text-base">{event.description}</p>
             </div>
           ))}
         </div>

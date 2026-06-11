@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 const RARE_EBOOKS = [
@@ -131,7 +131,7 @@ export default function LibraryRareBooksPage() {
               className="flex items-start gap-2 p-3 rounded-lg border border-gray-200 bg-white hover:shadow-md hover:border-transparent transition-all group"
             >
               <span className="font-dm-sans text-[11px] text-gray-400 mt-0.5 flex-shrink-0 w-5">{i + 1}.</span>
-              <span className="font-dm-sans text-[12px] font-medium text-gray-700 group-hover:underline leading-snug">
+              <span className="font-dm-sans text-[0.875rem] font-medium text-gray-700 group-hover:underline leading-snug">
                 {title}
               </span>
             </a>

@@ -1,4 +1,4 @@
-import { AcademicsBanner } from '../components/AcademicsLayout';
+﻿import { AcademicsBanner } from '../components/AcademicsLayout';
 import CollegeLayout from '../CollegeLayout';
 import college from '../theme';
 
@@ -41,7 +41,7 @@ export default function VirtualTourPage() {
           {/* About */}
           <section className="mb-8">
             <div className="p-5 rounded-xl bg-gray-50 border border-gray-200">
-              <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed">
+              <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed">
                 Explore <strong>GRIET's stunning 24-acre campus</strong> from anywhere in the world
                 with our immersive 360° virtual tour. Whether you are a prospective student, a
                 parent, or an alumnus, our interactive virtual walkthrough lets you experience every
@@ -72,7 +72,7 @@ export default function VirtualTourPage() {
                 >
                   Immersive 360° Campus Experience
                 </p>
-                <p className="font-dm-sans text-[13px] text-gray-600 leading-relaxed max-w-lg mx-auto">
+                <p className="font-dm-sans text-[0.9375rem] text-gray-600 leading-relaxed max-w-lg mx-auto">
                   Take a fully interactive virtual reality tour of GRIET's campus. Navigate through
                   buildings, explore facilities, and get a true feel of life at GRIET — right from
                   your browser.
@@ -83,7 +83,7 @@ export default function VirtualTourPage() {
                 href="https://www.griet.ac.in/VR TOUR/vrtour.html"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-hind font-bold text-[14px] text-white transition-opacity hover:opacity-90"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-hind font-bold text-base text-white transition-opacity hover:opacity-90"
                 style={{ backgroundColor: college.primaryColor }}
               >
                 Launch Virtual Tour
@@ -113,7 +113,7 @@ export default function VirtualTourPage() {
                     className="w-2 h-2 rounded-full flex-shrink-0"
                     style={{ backgroundColor: college.accentColor }}
                   />
-                  <p className="font-dm-sans text-[12px] text-gray-700 leading-snug">{spot}</p>
+                  <p className="font-dm-sans text-[0.875rem] text-gray-700 leading-snug">{spot}</p>
                 </div>
               ))}
             </div>
@@ -127,12 +127,12 @@ export default function VirtualTourPage() {
               {/* Google Street View */}
               <div className="p-4 rounded-xl border border-gray-200 bg-white">
                 <p
-                  className="font-hind font-bold text-[13px] mb-1"
+                  className="font-hind font-bold text-[0.9375rem] mb-1"
                   style={{ color: college.primaryColor }}
                 >
                   Google Street View
                 </p>
-                <p className="font-dm-sans text-[12px] text-gray-600 leading-relaxed">
+                <p className="font-dm-sans text-[0.875rem] text-gray-600 leading-relaxed">
                   GRIET's campus is also available on Google Street View. Search for
                   "Gokaraju Rangaraju Institute of Engineering and Technology" on Google Maps
                   and click the Street View icon to explore the campus entrance and surroundings.
@@ -142,12 +142,12 @@ export default function VirtualTourPage() {
               {/* Campus Photos Gallery */}
               <div className="p-4 rounded-xl border border-gray-200 bg-white">
                 <p
-                  className="font-hind font-bold text-[13px] mb-1"
+                  className="font-hind font-bold text-[0.9375rem] mb-1"
                   style={{ color: college.primaryColor }}
                 >
                   Campus Photos Gallery
                 </p>
-                <p className="font-dm-sans text-[12px] text-gray-600 leading-relaxed">
+                <p className="font-dm-sans text-[0.875rem] text-gray-600 leading-relaxed">
                   Browse our curated photo gallery featuring high-resolution images of classrooms,
                   labs, sports facilities, events, and everyday campus life at GRIET.
                 </p>
@@ -155,7 +155,7 @@ export default function VirtualTourPage() {
                   href="https://www.griet.ac.in"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block mt-2 font-dm-sans text-[12px] font-semibold hover:underline"
+                  className="inline-block mt-2 font-dm-sans text-[0.875rem] font-semibold hover:underline"
                   style={{ color: college.accentColor }}
                 >
                   View Gallery ↗
@@ -169,7 +169,7 @@ export default function VirtualTourPage() {
           <section className="mb-4">
             <SectionLabel>Plan an In-Person Visit</SectionLabel>
             <div className="p-5 rounded-xl bg-gray-50 border border-gray-200">
-              <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed mb-4">
+              <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed mb-4">
                 Nothing beats seeing GRIET in person. We welcome prospective students and families
                 to visit our campus. Contact our Admissions Office to schedule a guided tour.
               </p>
@@ -180,10 +180,10 @@ export default function VirtualTourPage() {
                     <polyline points="22,6 12,13 2,6" />
                   </svg>
                   <div>
-                    <p className="font-hind font-bold text-[12px] text-gray-700">Email</p>
+                    <p className="font-hind font-bold text-[0.875rem] text-gray-700">Email</p>
                     <a
                       href="mailto:admissions@griet.ac.in"
-                      className="font-dm-sans text-[12px] font-semibold hover:underline"
+                      className="font-dm-sans text-[0.875rem] font-semibold hover:underline"
                       style={{ color: college.accentColor }}
                     >
                       admissions@griet.ac.in
@@ -195,10 +195,10 @@ export default function VirtualTourPage() {
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.59a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
                   </svg>
                   <div>
-                    <p className="font-hind font-bold text-[12px] text-gray-700">Phone</p>
+                    <p className="font-hind font-bold text-[0.875rem] text-gray-700">Phone</p>
                     <a
                       href="tel:+914029708243"
-                      className="font-dm-sans text-[12px] font-semibold hover:underline"
+                      className="font-dm-sans text-[0.875rem] font-semibold hover:underline"
                       style={{ color: college.accentColor }}
                     >
                       +91-40-2970 8243

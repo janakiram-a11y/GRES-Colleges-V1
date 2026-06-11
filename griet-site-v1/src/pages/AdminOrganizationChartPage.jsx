@@ -4,7 +4,7 @@ import college from '../theme';
 function SectionHeading({ children }) {
   return (
     <h2
-      className="font-hind font-bold text-2xl mb-6 pb-2 inline-block"
+      className="font-display font-bold text-xl mb-5 pb-2 inline-block"
       style={{ color: college.primaryColor, borderBottom: `2px solid ${college.accentColor}` }}
     >
       {children}
@@ -22,7 +22,7 @@ function OrgNode({ label, sublabel, highlight, children }) {
         }`}
         style={highlight ? { backgroundColor: college.primaryColor, borderColor: college.primaryColor } : {}}
       >
-        <p className={`font-hind font-semibold text-[12px] leading-snug ${highlight ? 'text-white' : ''}`}
+        <p className={`font-hind font-semibold text-[0.875rem] leading-snug ${highlight ? 'text-white' : ''}`}
           style={!highlight ? { color: college.primaryColor } : {}}>
           {label}
         </p>
@@ -70,7 +70,7 @@ export default function AdminOrganizationChartPage() {
 
         <div>
           <SectionHeading>Organization Chart</SectionHeading>
-          <p className="font-dm-sans text-[14px] leading-relaxed text-gray-600 mb-6 max-w-2xl">
+          <p className="font-dm-sans text-base leading-relaxed text-gray-600 mb-6 max-w-2xl">
             The organizational hierarchy of Gokaraju Rangaraju Institute of Engineering &amp; Technology
             reflects its commitment to structured governance, academic leadership, and student-centric administration.
           </p>
@@ -133,13 +133,13 @@ export default function AdminOrganizationChartPage() {
             <p className="font-hind font-semibold text-[15px] mb-1" style={{ color: college.primaryColor }}>
               Download Full Organization Chart
             </p>
-            <p className="font-dm-sans text-[13px] text-gray-500">
+            <p className="font-dm-sans text-[0.9375rem] text-gray-500">
               Official organizational structure chart with all committees and cells (PDF).
             </p>
           </div>
           <a
             href="#"
-            className="flex-shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded font-hind font-semibold text-[13px] text-white transition-opacity hover:opacity-90"
+            className="flex-shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded font-hind font-semibold text-[0.9375rem] text-white transition-opacity hover:opacity-90"
             style={{ backgroundColor: college.primaryColor }}
           >
             <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">

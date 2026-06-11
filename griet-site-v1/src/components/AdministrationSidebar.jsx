@@ -35,7 +35,7 @@ export default function AdministrationSidebar({ mobileChips = false }) {
             <Link
               key={label}
               to={href}
-              className="flex-shrink-0 px-3 py-1.5 rounded-full text-[12px] font-dm-sans font-medium border transition-colors whitespace-nowrap"
+              className="flex-shrink-0 px-3 py-1.5 rounded-full text-[0.8125rem] font-display font-medium border transition-colors whitespace-nowrap"
               style={{
                 backgroundColor: isActive ? college.primaryColor : '#fff',
                 color: isActive ? '#fff' : '#374151',
@@ -56,7 +56,7 @@ export default function AdministrationSidebar({ mobileChips = false }) {
         className="rounded-t-lg px-5 py-3"
         style={{ background: `linear-gradient(135deg, ${college.primaryColor} 0%, #3a0b1a 100%)` }}
       >
-        <span className="font-hind font-bold text-[13px] text-white tracking-wide">
+        <span className="font-display font-bold text-[0.8125rem] text-white tracking-wide">
           Administration
         </span>
       </div>
@@ -76,7 +76,7 @@ export default function AdministrationSidebar({ mobileChips = false }) {
                   style={{ backgroundColor: isActive ? college.primaryColor : college.accentColor }}
                 />
                 <span
-                  className="font-dm-sans text-[13px] leading-snug"
+                  className="font-display text-[0.9375rem] leading-snug"
                   style={{
                     color: isActive ? college.primaryColor : '#374151',
                     fontWeight: isActive ? 700 : 500,

@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 const industryPartners = [
@@ -133,7 +133,7 @@ export default function TASKPage() {
         <section>
           <SectionLabel>About TASK</SectionLabel>
           <div className="p-5 rounded-xl bg-gray-50 border border-gray-200">
-            <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed mb-3">
+            <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed mb-3">
               <strong className="font-hind font-bold" style={{ color: college.primaryColor }}>
                 Telangana Academy for Skill and Knowledge (TASK)
               </strong>{' '}
@@ -143,13 +143,13 @@ export default function TASKPage() {
               technology companies and premier academic institutions to offer industry-relevant
               certification programs.
             </p>
-            <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed mb-3">
+            <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed mb-3">
               <strong>GRIET is an authorized TASK partner institution</strong>, enabling students
               to access world-class skill development programs directly on campus. These programs
               are carefully curated to bridge the gap between academic knowledge and industry
               requirements, ensuring that graduates are job-ready from day one.
             </p>
-            <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed">
+            <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed">
               Through TASK, GRIET students benefit from hands-on training, industry-recognized
               certifications, and mentorship from experienced professionals — all designed to
               complement their core B.Tech curriculum and strengthen their career prospects in a
@@ -168,15 +168,15 @@ export default function TASKPage() {
                 className="p-4 rounded-xl border border-gray-200 bg-white"
               >
                 <h3
-                  className="font-hind font-bold text-[13px] mb-1"
+                  className="font-hind font-bold text-[0.9375rem] mb-1"
                   style={{ color: college.primaryColor }}
                 >
                   {partner.name}
                 </h3>
-                <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed mb-1">
+                <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed mb-1">
                   {partner.program}
                 </p>
-                <p className="font-dm-sans text-[12px] text-gray-500 leading-relaxed">
+                <p className="font-dm-sans text-[0.875rem] text-gray-500 leading-relaxed">
                   Certification: {partner.certification}
                 </p>
               </div>
@@ -194,15 +194,15 @@ export default function TASKPage() {
                 className="p-4 rounded-xl border border-gray-200 bg-white"
               >
                 <h3
-                  className="font-hind font-bold text-[13px] mb-1"
+                  className="font-hind font-bold text-[0.9375rem] mb-1"
                   style={{ color: college.primaryColor }}
                 >
                   {partner.name}
                 </h3>
-                <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed mb-1 font-semibold">
+                <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed mb-1 font-semibold">
                   {partner.program}
                 </p>
-                <p className="font-dm-sans text-[12px] text-gray-500 leading-relaxed">
+                <p className="font-dm-sans text-[0.875rem] text-gray-500 leading-relaxed">
                   {partner.details}
                 </p>
               </div>
@@ -217,13 +217,13 @@ export default function TASKPage() {
             <table className="w-full text-left">
               <thead>
                 <tr style={{ backgroundColor: college.primaryColor }}>
-                  <th className="font-hind font-bold text-[13px] text-white px-4 py-3">
+                  <th className="font-hind font-bold text-[0.9375rem] text-white px-4 py-3">
                     Program Name
                   </th>
-                  <th className="font-hind font-bold text-[13px] text-white px-4 py-3">
+                  <th className="font-hind font-bold text-[0.9375rem] text-white px-4 py-3">
                     Duration
                   </th>
-                  <th className="font-hind font-bold text-[13px] text-white px-4 py-3">
+                  <th className="font-hind font-bold text-[0.9375rem] text-white px-4 py-3">
                     Certification Awarded
                   </th>
                 </tr>
@@ -234,13 +234,13 @@ export default function TASKPage() {
                     key={prog.name}
                     className={idx % 2 === 0 ? 'bg-white' : 'bg-gray-50'}
                   >
-                    <td className="font-dm-sans text-[13px] text-gray-700 px-4 py-3 border-t border-gray-100">
+                    <td className="font-dm-sans text-[0.9375rem] text-gray-700 px-4 py-3 border-t border-gray-100">
                       {prog.name}
                     </td>
-                    <td className="font-dm-sans text-[13px] text-gray-700 px-4 py-3 border-t border-gray-100 whitespace-nowrap">
+                    <td className="font-dm-sans text-[0.9375rem] text-gray-700 px-4 py-3 border-t border-gray-100 whitespace-nowrap">
                       {prog.duration}
                     </td>
-                    <td className="font-dm-sans text-[13px] text-gray-700 px-4 py-3 border-t border-gray-100">
+                    <td className="font-dm-sans text-[0.9375rem] text-gray-700 px-4 py-3 border-t border-gray-100">
                       {prog.certification}
                     </td>
                   </tr>
@@ -254,22 +254,22 @@ export default function TASKPage() {
         <section>
           <SectionLabel>Eligibility</SectionLabel>
           <div className="p-5 rounded-xl bg-gray-50 border border-gray-200">
-            <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed mb-2">
+            <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed mb-2">
               TASK programs at GRIET are open to all registered B.Tech students from{' '}
               <strong>2nd year onwards</strong> across all branches of engineering.
             </p>
             <ul className="list-disc list-inside space-y-1">
-              <li className="font-dm-sans text-[13px] text-gray-700 leading-relaxed">
+              <li className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed">
                 Students must be currently enrolled in a B.Tech program at GRIET.
               </li>
-              <li className="font-dm-sans text-[13px] text-gray-700 leading-relaxed">
+              <li className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed">
                 No prior certification is required to enroll in foundation-level programs.
               </li>
-              <li className="font-dm-sans text-[13px] text-gray-700 leading-relaxed">
+              <li className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed">
                 Advanced programs may have specific prerequisites detailed at the time of
                 registration.
               </li>
-              <li className="font-dm-sans text-[13px] text-gray-700 leading-relaxed">
+              <li className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed">
                 Students are encouraged to pursue programs aligned with their branch and
                 career interests.
               </li>
@@ -281,26 +281,26 @@ export default function TASKPage() {
         <section>
           <SectionLabel>Registration</SectionLabel>
           <div className="p-5 rounded-xl bg-gray-50 border border-gray-200">
-            <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed mb-3">
+            <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed mb-3">
               Students can register for TASK programs through the following channels:
             </p>
             <ul className="list-disc list-inside space-y-2 mb-4">
-              <li className="font-dm-sans text-[13px] text-gray-700 leading-relaxed">
+              <li className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed">
                 <strong>Student Portal:</strong> Log in to the GRIET student portal and navigate
                 to the TASK section to view available programs and complete your registration
                 online.
               </li>
-              <li className="font-dm-sans text-[13px] text-gray-700 leading-relaxed">
+              <li className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed">
                 <strong>TASK Coordinator:</strong> Visit or contact the TASK Coordinator at
                 GRIET directly for guidance, program recommendations, and offline registration
                 assistance.
               </li>
-              <li className="font-dm-sans text-[13px] text-gray-700 leading-relaxed">
+              <li className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed">
                 <strong>Notice Board:</strong> Keep an eye on the departmental notice boards and
                 official GRIET communications for registration deadlines and batch schedules.
               </li>
             </ul>
-            <p className="font-dm-sans text-[13px] text-gray-500 leading-relaxed">
+            <p className="font-dm-sans text-[0.9375rem] text-gray-500 leading-relaxed">
               Seats in each program are limited. Early registration is strongly advised to secure
               your place in the preferred batch.
             </p>
@@ -312,21 +312,21 @@ export default function TASKPage() {
           <SectionLabel>TASK Coordinator at GRIET</SectionLabel>
           <div className="p-4 rounded-xl border border-gray-200 bg-white max-w-sm">
             <h3
-              className="font-hind font-bold text-[13px] mb-1"
+              className="font-hind font-bold text-[0.9375rem] mb-1"
               style={{ color: college.primaryColor }}
             >
               Dr. P Sri Vidya Devi
             </h3>
-            <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed mb-1">
+            <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed mb-1">
               TASK Program Coordinator
             </p>
-            <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed">
+            <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed">
               Gokaraju Rangaraju Institute of Engineering and Technology
             </p>
-            <p className="font-dm-sans text-[13px] leading-relaxed mt-2">
+            <p className="font-dm-sans text-[0.9375rem] leading-relaxed mt-2">
               <a
                 href="mailto:task@griet.ac.in"
-                className="font-dm-sans text-[13px] leading-relaxed"
+                className="font-dm-sans text-[0.9375rem] leading-relaxed"
                 style={{ color: college.primaryColor }}
               >
                 task@griet.ac.in

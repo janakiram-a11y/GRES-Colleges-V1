@@ -113,7 +113,7 @@ export default function ExaminationsPage() {
   return (
     <AcademicsLayout title="Examinations">
       {/* Contact */}
-      <p className="font-dm-sans text-[13px] text-center mb-8" style={{ color: college.primaryColor }}>
+      <p className="font-dm-sans text-[0.9375rem] text-center mb-8" style={{ color: college.primaryColor }}>
         For any queries contact :{' '}
         <a href="mailto:doe@griet.ac.in" className="font-semibold hover:underline">
           doe@griet.ac.in

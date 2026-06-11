@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 const STAFF = [
@@ -78,14 +78,14 @@ export default function LibraryStaffCommitteePage() {
         <SectionLabel>Library Committee</SectionLabel>
         <div className="flex flex-col sm:flex-row gap-4 mb-6">
           <div className="flex-1 p-5 rounded-xl border border-gray-200 bg-white">
-            <p className="font-hind font-bold text-[12px] uppercase tracking-widest text-gray-400 mb-1">Chairperson</p>
+            <p className="font-hind font-bold text-[0.875rem] uppercase tracking-widest text-gray-400 mb-1">Chairperson</p>
             <p className="font-dm-sans font-semibold text-[13.5px] text-gray-800">Dr. J Praveen</p>
-            <p className="font-dm-sans text-[12px] text-gray-500">Principal, GRIET</p>
+            <p className="font-dm-sans text-[0.875rem] text-gray-500">Principal, GRIET</p>
           </div>
           <div className="flex-1 p-5 rounded-xl border border-gray-200 bg-white">
-            <p className="font-hind font-bold text-[12px] uppercase tracking-widest text-gray-400 mb-1">Coordinator</p>
+            <p className="font-hind font-bold text-[0.875rem] uppercase tracking-widest text-gray-400 mb-1">Coordinator</p>
             <p className="font-dm-sans font-semibold text-[13.5px] text-gray-800">Dr. G R Sakthidharan</p>
-            <p className="font-dm-sans text-[12px] text-gray-500">Professor, CSE</p>
+            <p className="font-dm-sans text-[0.875rem] text-gray-500">Professor, CSE</p>
           </div>
         </div>
         <Table

@@ -139,7 +139,7 @@ function DropdownItem({ label }) {
   const href = ROUTE_MAP[label];
   // min-h-[44px] ensures touch targets meet the 44px minimum on mobile
   const className =
-    'flex items-center px-4 min-h-[44px] text-[13px] font-dm-sans font-medium whitespace-nowrap transition-colors border-b border-black/10 last:border-b-0 [color:var(--primary)] hover:[color:var(--accent)]';
+    'flex items-center px-4 min-h-[44px] text-[0.9375rem] font-display font-normal whitespace-nowrap transition-colors border-b border-black/10 last:border-b-0 [color:var(--primary)] hover:[color:var(--accent)]';
   if (href) {
     if (href.startsWith('http')) {
       return <a href={href} target="_blank" rel="noopener noreferrer" className={className}>{label}</a>;
@@ -198,7 +198,7 @@ function NavItem({ name, active, dropdown, href, isLast }) {
   }, [dropdown]);
 
   // min-h-[44px] on all interactive nav items for touch target compliance
-  const baseText = 'font-dm-sans font-semibold text-[14px] leading-[17px] transition-colors hover:[color:#F3DAB2]';
+  const baseText = 'font-display font-medium text-base leading-snug transition-colors hover:[color:#F3DAB2]';
   const colorClass = active || open ? '[color:#F3DAB2]' : 'text-white';
   const hoverHandlers = {
     onMouseEnter: () => { if (timeoutRef.current) clearTimeout(timeoutRef.current); setOpen(true); },
@@ -249,7 +249,7 @@ function MobileNavItem({ name, href, dropdown }) {
 
   if (!dropdown) {
     // min-h-[44px] for touch target compliance
-    const cls = 'flex items-center px-5 min-h-[44px] font-dm-sans font-semibold text-[14px] text-white border-b border-white/10';
+    const cls = 'flex items-center px-5 min-h-[44px] font-display font-medium text-base text-white border-b border-white/10';
     return href
       ? <Link to={href} className={cls}>{name}</Link>
       : <a href="#" className={cls}>{name}</a>;
@@ -260,7 +260,7 @@ function MobileNavItem({ name, href, dropdown }) {
       {/* min-h-[44px] for touch target compliance */}
       <button
         onClick={() => setExpanded((v) => !v)}
-        className="w-full flex justify-between items-center px-5 min-h-[44px] font-dm-sans font-semibold text-[14px] text-white"
+        className="w-full flex justify-between items-center px-5 min-h-[44px] font-display font-medium text-base text-white"
       >
         {name}
         <svg
@@ -276,7 +276,7 @@ function MobileNavItem({ name, href, dropdown }) {
           {dropdown.map((label) => {
             const dHref = ROUTE_MAP[label];
             // min-h-[44px] for touch target compliance on sub-items
-            const mobileCls = 'flex items-center px-8 min-h-[44px] font-dm-sans text-[13px] text-white/80 hover:text-white transition-colors';
+            const mobileCls = 'flex items-center px-8 min-h-[44px] font-display font-normal text-[0.9375rem] text-white/80 hover:text-white transition-colors';
             if (dHref) {
               if (dHref.startsWith('http')) {
                 return <a key={label} href={dHref} target="_blank" rel="noopener noreferrer" className={mobileCls}>{label}</a>;
@@ -474,7 +474,7 @@ export default function NavStrip({ college, scrolled = false }) {
 
       {/* Mobile/tablet hamburger bar — visible on xs through md (below lg:) */}
       <div className="lg:hidden flex justify-between items-center px-5 md:px-8 h-12">
-        <span className="font-dm-sans font-bold text-white text-[13px] uppercase tracking-wider">
+        <span className="font-display font-semibold text-white text-sm uppercase tracking-wider">
           {pageTitle}
         </span>
         {/* w-10 h-10 ensures the button meets the 44px touch-target minimum */}

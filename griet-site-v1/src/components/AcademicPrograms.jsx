@@ -25,13 +25,13 @@ export default function AcademicPrograms({ college }) {
     <section className="w-full bg-[#5B1027] page-pad py-8 md:py-14 lg:py-20">
       <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-0">
         <div className="flex flex-col gap-6 w-full lg:w-[600px]">
-          <p className="font-hind font-bold text-[14px] leading-5 uppercase tracking-[1.4px] text-[#F3DAB2]">
+          <p className="font-display font-bold text-[0.75rem] leading-4 uppercase tracking-[0.12em] text-[#F3DAB2]">
             {college.academicProgramsLabel}
           </p>
-          <h2 className="font-hind font-semibold text-[28px] leading-9 lg:text-[40px] lg:leading-[48px] text-white">
+          <h2 className="font-display font-bold text-[1.75rem] md:text-[2.125rem] lg:text-[2.5rem] leading-[1.2] text-white">
             {college.academicProgramsHeading}
           </h2>
-          <p className="font-hind font-normal text-[18px] leading-7 text-[#E1D3D9]">
+          <p className="font-body font-normal text-lg leading-[1.7] text-[#E1D3D9]">
             {college.academicProgramsDesc}
           </p>
           <div className="flex flex-wrap items-center gap-4 mt-2">
@@ -49,12 +49,12 @@ export default function AcademicPrograms({ college }) {
               >
                 <Icon />
                 <div>
-                  <span className="font-hind font-bold text-[32px] leading-[38px] text-[#F3DAB2] block">{count}</span>
-                  <span className="font-hind font-bold text-[20px] leading-7 text-white block">{title}</span>
+                  <span className="font-display font-bold text-[2rem] leading-none text-[#F3DAB2] block">{count}</span>
+                  <span className="font-display font-semibold text-[1.375rem] leading-snug text-white block">{title}</span>
                 </div>
-                <p className="font-hind font-normal text-[14px] leading-[22px] text-[#E1D3D9]">{desc}</p>
+                <p className="font-body font-normal text-base leading-[1.6] text-[#E1D3D9]">{desc}</p>
                 <a href={href || '/admissions/programmes'} className="flex items-center justify-end gap-1">
-                  <span className="font-dm-sans font-semibold text-[14px] leading-5 text-white">Learn More</span>
+                  <span className="font-display font-semibold text-base text-white">Learn More</span>
                   <ChevronRight />
                 </a>
               </div>

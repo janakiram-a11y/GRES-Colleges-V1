@@ -4,7 +4,7 @@ import college from '../theme';
 function SectionHeading({ children }) {
   return (
     <h2
-      className="font-hind font-bold text-2xl mb-6 pb-2 inline-block"
+      className="font-display font-bold text-xl mb-5 pb-2 inline-block"
       style={{ color: college.primaryColor, borderBottom: `2px solid ${college.accentColor}` }}
     >
       {children}
@@ -70,7 +70,7 @@ export default function AdminCoordinatorsPage() {
 
         <div>
           <SectionHeading>Coordinators &amp; Committees</SectionHeading>
-          <p className="font-dm-sans text-[14px] leading-relaxed text-gray-600 mb-2 max-w-2xl">
+          <p className="font-dm-sans text-base leading-relaxed text-gray-600 mb-2 max-w-2xl">
             GRIET operates through a network of specialised committees and coordinators responsible for diverse
             academic, administrative, welfare, and co-curricular functions across the institution.
           </p>
@@ -88,10 +88,10 @@ export default function AdminCoordinatorsPage() {
                   style={{ backgroundColor: college.primaryColor }}
                 />
                 <div>
-                  <h3 className="font-hind font-semibold text-[14px] leading-snug mb-1.5" style={{ color: college.primaryColor }}>
+                  <h3 className="font-hind font-semibold text-base leading-snug mb-1.5" style={{ color: college.primaryColor }}>
                     {name}
                   </h3>
-                  <p className="font-dm-sans text-[12px] leading-relaxed text-gray-600">{desc}</p>
+                  <p className="font-dm-sans text-[0.875rem] leading-relaxed text-gray-600">{desc}</p>
                 </div>
               </div>
             </div>
@@ -99,7 +99,7 @@ export default function AdminCoordinatorsPage() {
         </div>
 
         <section className="bg-[#F6F1F2] rounded-lg border border-gray-200 p-5">
-          <p className="font-dm-sans text-[13px] text-gray-600">
+          <p className="font-dm-sans text-[0.9375rem] text-gray-600">
             Each committee is constituted at the beginning of every academic year and is chaired by a senior
             faculty member. Committee rosters and minutes are maintained by the Dean of Academic Affairs and
             are available for inspection by NAAC/NBA/statutory bodies.

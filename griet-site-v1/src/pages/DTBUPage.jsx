@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 const MILESTONES = [
@@ -50,7 +50,7 @@ export default function DTBUPage() {
           <p className="font-hind font-bold text-[16px] mb-1" style={{ color: college.primaryColor }}>
             Letter of Intent (LOI) Received
           </p>
-          <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed">
+          <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed">
             GRIET has received a <strong>Letter of Intent (LOI) from the Ministry of Education, Government of India</strong> for the grant of Deemed-to-be University status. This milestone is a recognition of GRIET's sustained academic excellence, research output, and institutional quality over more than two decades.
           </p>
         </div>
@@ -65,7 +65,7 @@ export default function DTBUPage() {
                 className="absolute -left-[23px] top-0.5 w-4 h-4 rounded-full border-2 bg-white flex-shrink-0"
                 style={{ borderColor: college.primaryColor }}
               />
-              <p className="font-hind font-bold text-[13px] mb-0.5" style={{ color: college.primaryColor }}>{year}</p>
+              <p className="font-hind font-bold text-[0.9375rem] mb-0.5" style={{ color: college.primaryColor }}>{year}</p>
               <p className="font-dm-sans text-[12.5px] text-gray-600 leading-relaxed">{event}</p>
             </div>
           ))}

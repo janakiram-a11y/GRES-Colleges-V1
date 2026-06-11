@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 const ASSOCIATIONS = [
@@ -101,7 +101,7 @@ export default function ProfessionalAssociationsPage() {
   return (
     <AcademicsLayout title="Professional Associations">
 
-      <p className="font-dm-sans text-[13px] text-gray-600 leading-relaxed mb-8">
+      <p className="font-dm-sans text-[0.9375rem] text-gray-600 leading-relaxed mb-8">
         GRIET houses active student and faculty chapters of 12 national and international professional bodies.
         These associations provide platforms for technical growth, research exposure, networking, and industry interaction.
       </p>
@@ -112,7 +112,7 @@ export default function ProfessionalAssociationsPage() {
         {ASSOCIATIONS.map(({ short, full, dept, desc, website }) => (
           <div key={short} className="p-5 rounded-xl border border-gray-200 bg-white">
             <div className="flex flex-wrap items-center gap-2 mb-1">
-              <p className="font-hind font-bold text-[14px]" style={{ color: college.primaryColor }}>{short}</p>
+              <p className="font-hind font-bold text-base" style={{ color: college.primaryColor }}>{short}</p>
               <span className="font-dm-sans text-[11px] font-semibold px-2 py-0.5 rounded-full text-white" style={{ backgroundColor: college.accentColor }}>{dept}</span>
             </div>
             <p className="font-dm-sans text-[11.5px] text-gray-500 mb-1.5">{full}</p>
@@ -122,7 +122,7 @@ export default function ProfessionalAssociationsPage() {
                 href={website}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-dm-sans text-[12px] font-semibold hover:underline"
+                className="font-dm-sans text-[0.875rem] font-semibold hover:underline"
                 style={{ color: college.accentColor }}
               >
                 Visit {short} website →

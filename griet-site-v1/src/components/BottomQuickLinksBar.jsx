@@ -110,11 +110,11 @@ export default function BottomQuickLinksBar({ college }) {
         borderBottom: '1px solid rgba(91,16,39,0.15)',
       }}
     >
-      <div className="max-w-[1320px] mx-auto px-5 md:px-16 lg:px-[120px]">
-        <div className="grid grid-cols-3 sm:grid-cols-6 divide-x divide-[rgba(91,16,39,0.15)]">
+      <div className="max-w-[1320px] mx-auto">
+        <div className="grid grid-cols-3 sm:grid-cols-6 divide-x divide-[rgba(91,16,39,0.15)] px-5 md:px-16 lg:px-[120px]">
           {LINKS.map(({ label, Icon, href, external }) => {
             const inner = (
-              <div className="flex flex-col items-center justify-center gap-2 py-5 px-2 transition-colors group">
+              <div className="flex flex-col items-center justify-center gap-2.5 py-5 px-5 md:px-6 transition-colors group w-full">
                 <span
                   className="transition-colors"
                   style={{ color: primary }}
@@ -122,7 +122,7 @@ export default function BottomQuickLinksBar({ college }) {
                   <Icon />
                 </span>
                 <span
-                  className="font-hind font-bold text-[11.5px] text-center tracking-wide leading-tight uppercase transition-colors"
+                  className="font-display font-bold text-[0.8125rem] text-center tracking-[0.03em] leading-snug uppercase transition-colors"
                   style={{ color: primary }}
                 >
                   {label}

@@ -4,7 +4,7 @@ import college from '../theme';
 function SectionHeading({ children }) {
   return (
     <h2
-      className="font-hind font-bold text-2xl mb-6 pb-2 inline-block"
+      className="font-display font-bold text-xl mb-5 pb-2 inline-block"
       style={{ color: college.primaryColor, borderBottom: `2px solid ${college.accentColor}` }}
     >
       {children}
@@ -38,7 +38,7 @@ export default function AdminWomensDevelopmentCellPage() {
 
         <div>
           <SectionHeading>Women's Development Cell</SectionHeading>
-          <p className="font-dm-sans text-[14px] leading-relaxed text-gray-600 mb-2 max-w-2xl">
+          <p className="font-dm-sans text-base leading-relaxed text-gray-600 mb-2 max-w-2xl">
             The Women's Development Cell (WDC) at GRIET is dedicated to the holistic empowerment of women
             students and staff through education, awareness, support, and leadership opportunities, ensuring a
             safe, inclusive, and inspiring campus environment.
@@ -47,13 +47,13 @@ export default function AdminWomensDevelopmentCellPage() {
 
         {/* Vision */}
         <div
-          className="rounded-lg p-5 text-white"
-          style={{ backgroundColor: college.primaryColor }}
+          className="rounded-xl p-6 bg-white border-l-4"
+          style={{ borderColor: college.primaryColor, boxShadow: '0 1px 4px rgba(91,16,39,0.06), 0 4px 16px -4px rgba(91,16,39,0.10)' }}
         >
-          <p className="font-hind font-bold text-[12px] uppercase tracking-widest mb-2" style={{ color: college.accentColor }}>
+          <span className="inline-block font-display font-bold text-[0.75rem] uppercase tracking-[0.12em] mb-3 px-3 py-1 rounded-full text-white" style={{ backgroundColor: college.primaryColor }}>
             Cell Vision
-          </p>
-          <p className="font-dm-sans text-[14px] leading-relaxed italic opacity-90">
+          </span>
+          <p className="font-body text-[1.0625rem] leading-[1.75] text-gray-700 italic">
             "To create a campus where every woman thrives — academically, professionally, and personally —
             through equal opportunity, mutual respect, and unwavering support."
           </p>
@@ -66,7 +66,7 @@ export default function AdminWomensDevelopmentCellPage() {
           </h3>
           <ul className="space-y-2.5">
             {objectives.map((item) => (
-              <li key={item} className="flex items-start gap-3 font-dm-sans text-[14px] text-gray-700">
+              <li key={item} className="flex items-start gap-3 font-dm-sans text-base text-gray-700">
                 <span className="mt-1.5 w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: college.accentColor }} />
                 {item}
               </li>
@@ -83,8 +83,8 @@ export default function AdminWomensDevelopmentCellPage() {
             {activities.map(({ icon, title, desc }) => (
               <div key={title} className="bg-[#F6F1F2] rounded-lg border border-gray-200 p-4">
                 <div className="text-2xl mb-2">{icon}</div>
-                <h4 className="font-hind font-semibold text-[13px] mb-1.5" style={{ color: college.primaryColor }}>{title}</h4>
-                <p className="font-dm-sans text-[12px] leading-relaxed text-gray-600">{desc}</p>
+                <h4 className="font-hind font-semibold text-[0.9375rem] mb-1.5" style={{ color: college.primaryColor }}>{title}</h4>
+                <p className="font-dm-sans text-[0.875rem] leading-relaxed text-gray-600">{desc}</p>
               </div>
             ))}
           </div>
@@ -106,7 +106,7 @@ export default function AdminWomensDevelopmentCellPage() {
             ))}
           </div>
           <div className="mt-3 text-right">
-            <a href="/events-gallery#womens" className="font-hind font-bold text-[12px] hover:underline" style={{ color: college.accentColor }}>
+            <a href="/events-gallery#womens" className="font-hind font-bold text-[0.875rem] hover:underline" style={{ color: college.accentColor }}>
               View all Women's Day photos →
             </a>
           </div>
@@ -117,7 +117,7 @@ export default function AdminWomensDevelopmentCellPage() {
           <h3 className="font-hind font-bold text-[15px] mb-2" style={{ color: college.primaryColor }}>
             How to Reach the WDC
           </h3>
-          <p className="font-dm-sans text-[13px] text-gray-600">
+          <p className="font-dm-sans text-[0.9375rem] text-gray-600">
             Women students and staff can approach the WDC coordinator directly, through their department
             faculty mentor, or via a written request dropped at the WDC office (Administrative Block).
             All communications are treated with complete confidentiality.

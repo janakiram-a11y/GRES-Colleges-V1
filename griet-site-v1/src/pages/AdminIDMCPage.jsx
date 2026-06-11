@@ -4,7 +4,7 @@ import college from '../theme';
 function SectionHeading({ children }) {
   return (
     <h2
-      className="font-hind font-bold text-2xl mb-6 pb-2 inline-block"
+      className="font-display font-bold text-xl mb-5 pb-2 inline-block"
       style={{ color: college.primaryColor, borderBottom: `2px solid ${college.accentColor}` }}
     >
       {children}
@@ -38,7 +38,7 @@ export default function AdminIDMCPage() {
 
         <div>
           <SectionHeading>Industry Development and Management Cell (IDMC)</SectionHeading>
-          <p className="font-dm-sans text-[14px] leading-relaxed text-gray-600 mb-2 max-w-2xl">
+          <p className="font-dm-sans text-base leading-relaxed text-gray-600 mb-2 max-w-2xl">
             The Industry Development and Management Cell (IDMC) at GRIET serves as the primary interface between
             the institution and the industry ecosystem, fostering mutually beneficial collaborations that enhance
             student employability and research impact.
@@ -52,7 +52,7 @@ export default function AdminIDMCPage() {
           </h3>
           <ul className="space-y-2.5">
             {objectives.map((item) => (
-              <li key={item} className="flex items-start gap-3 font-dm-sans text-[14px] text-gray-700">
+              <li key={item} className="flex items-start gap-3 font-dm-sans text-base text-gray-700">
                 <span className="mt-1.5 w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: college.accentColor }} />
                 {item}
               </li>
@@ -68,10 +68,10 @@ export default function AdminIDMCPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {activities.map(({ title, desc }) => (
               <div key={title} className="bg-white rounded-lg border border-gray-200 p-5 hover:shadow-sm transition-shadow">
-                <h4 className="font-hind font-semibold text-[14px] mb-2" style={{ color: college.primaryColor }}>
+                <h4 className="font-hind font-semibold text-base mb-2" style={{ color: college.primaryColor }}>
                   {title}
                 </h4>
-                <p className="font-dm-sans text-[13px] leading-relaxed text-gray-600">{desc}</p>
+                <p className="font-dm-sans text-[0.9375rem] leading-relaxed text-gray-600">{desc}</p>
               </div>
             ))}
           </div>
@@ -82,13 +82,13 @@ export default function AdminIDMCPage() {
           <h3 className="font-hind font-bold text-[15px] mb-2" style={{ color: college.primaryColor }}>
             Industry Collaborations
           </h3>
-          <p className="font-dm-sans text-[13px] text-gray-600 mb-3">
+          <p className="font-dm-sans text-[0.9375rem] text-gray-600 mb-3">
             GRIET currently holds active MoUs with <strong>107+ organisations</strong> including IIT Hyderabad,
             NIT Warangal, Wipro, TCS, Oracle, Red Hat, Dell EMC, NASSCOM, NRSC-ISRO, and many more.
           </p>
           <a
             href="/research#mous"
-            className="inline-flex items-center gap-2 font-dm-sans font-semibold text-[13px] hover:underline"
+            className="inline-flex items-center gap-2 font-dm-sans font-semibold text-[0.9375rem] hover:underline"
             style={{ color: college.primaryColor }}
           >
             View full MoU list →

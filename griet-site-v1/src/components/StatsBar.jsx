@@ -1,4 +1,4 @@
-/**
+﻿/**
  * StatsBar
  *
  * variant="light" (default) — original beige hero strip  (used previously after Hero)
@@ -31,16 +31,13 @@ export default function StatsBar({ college, variant = 'light' }) {
         style={{ backgroundColor: college.primaryColor }}
       >
         <div className="max-w-[1320px] mx-auto px-5 md:px-16 lg:px-[120px]">
-          {/* Mobile: 2-col grid with gap-px separators; lg: single row */}
-          <div
-            className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/10"
-          >
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/10">
             {items.map((item) => {
               const { number, label } = parseItem(item);
               return (
                 <div
                   key={typeof item === 'string' ? item : item.label}
-                  className="flex items-center justify-center px-4 md:px-10 lg:px-14 py-3 md:py-4"
+                  className="flex items-center justify-center px-4 md:px-10 lg:px-14 py-4 md:py-5"
                   style={{ backgroundColor: college.primaryColor }}
                 >
                   <div className="flex items-center gap-2 md:gap-3">
@@ -51,14 +48,14 @@ export default function StatsBar({ college, variant = 'light' }) {
                     <div className="flex flex-col">
                       {number && (
                         <span
-                          className="font-hind font-bold text-2xl md:text-3xl lg:text-4xl leading-tight"
+                          className="font-display font-bold text-xl md:text-2xl lg:text-[1.75rem] leading-none tracking-tight"
                           style={{ color: college.softAccent }}
                         >
                           {number}
                         </span>
                       )}
                       <span
-                        className={`font-hind font-semibold tracking-wider uppercase leading-snug text-[13px] md:text-[14px] lg:text-[15px] ${label.length <= 15 ? 'whitespace-nowrap' : 'break-words'}`}
+                        className="font-display font-semibold text-[0.6875rem] md:text-[0.75rem] tracking-[0.05em] uppercase leading-snug mt-0.5 whitespace-nowrap"
                         style={{ color: college.softAccent }}
                       >
                         {label}
@@ -83,14 +80,13 @@ export default function StatsBar({ college, variant = 'light' }) {
         borderBottom: '1px solid rgba(91,16,39,0.15)',
       }}
     >
-      {/* Mobile: 2-col grid with gap-px bg-gray-200 separators; lg: 4-col */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-gray-200">
         {items.map((item) => {
           const { number, label } = parseItem(item);
           return (
             <div
               key={typeof item === 'string' ? item : item.label}
-              className="flex items-center justify-center px-4 md:px-8 lg:px-12 py-3 md:py-4 bg-[#F3DAB2]"
+              className="flex items-center justify-center px-4 md:px-8 lg:px-12 py-4 md:py-5 bg-[#F3DAB2]"
             >
               <div className="flex items-center gap-2.5 md:gap-3.5 min-w-0">
                 <span
@@ -100,14 +96,14 @@ export default function StatsBar({ college, variant = 'light' }) {
                 <div className="flex flex-col min-w-0">
                   {number && (
                     <span
-                      className="font-hind font-bold text-2xl md:text-3xl lg:text-4xl leading-tight"
+                      className="font-display font-bold text-2xl md:text-3xl lg:text-[2.5rem] leading-none tracking-tight"
                       style={{ color: college.primaryColor }}
                     >
                       {number}
                     </span>
                   )}
                   <span
-                    className={`font-hind font-bold tracking-wider leading-snug text-[13px] md:text-[14px] lg:text-[15px] ${label.length <= 15 ? 'whitespace-nowrap' : 'break-words'}`}
+                    className="font-display font-bold text-[11px] md:text-[0.875rem] tracking-[0.1em] uppercase leading-snug mt-0.5"
                     style={{ color: college.primaryColor }}
                   >
                     {label}

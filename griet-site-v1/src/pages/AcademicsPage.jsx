@@ -6,7 +6,7 @@ export default function AcademicsPage() {
     <AcademicsLayout title="Academics">
 
       {/* Overview paragraphs */}
-      <div className="max-w-3xl mb-10 space-y-4 font-dm-sans text-[14px] leading-relaxed text-gray-700">
+      <div className="max-w-3xl mb-10 space-y-4 font-body text-[1.125rem] leading-[1.7] text-gray-700">
         <p>
           The departments of GRIET are responsible for academic activities which include Teaching,
           Research and Industrial Consultancy. Courses of study are organized on semester basis and

@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 /* ── Sidebar helpers ─────────────────────────────────────────────────── */
@@ -6,7 +6,7 @@ function SidebarBlock({ title, children }) {
   return (
     <div className="rounded-xl border border-gray-200 overflow-hidden mb-4">
       <div className="px-4 py-3" style={{ backgroundColor: college.primaryColor }}>
-        <p className="font-hind font-bold text-[13px] text-white">{title}</p>
+        <p className="font-hind font-bold text-[0.9375rem] text-white">{title}</p>
       </div>
       <div className="bg-white">{children}</div>
     </div>
@@ -25,7 +25,7 @@ function SidebarLink({ label, url, isExternal = false }) {
         className="w-1.5 h-1.5 rounded-full flex-shrink-0 transition-colors"
         style={{ backgroundColor: college.accentColor }}
       />
-      <span className="font-dm-sans text-[12px] text-gray-700 group-hover:font-medium leading-snug flex-1">
+      <span className="font-dm-sans text-[0.875rem] text-gray-700 group-hover:font-medium leading-snug flex-1">
         {label}
       </span>
       {isExternal && (
@@ -51,7 +51,7 @@ function SidebarDocLink({ label, url }) {
         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
         <polyline points="14 2 14 8 20 8" />
       </svg>
-      <span className="font-dm-sans text-[12px] text-gray-700 group-hover:font-medium leading-snug">{label}</span>
+      <span className="font-dm-sans text-[0.875rem] text-gray-700 group-hover:font-medium leading-snug">{label}</span>
     </a>
   );
 }
@@ -156,7 +156,7 @@ export default function FSFPage() {
         </p>
         <a
           href="mailto:freeswing@griet.ac.in"
-          className="inline-flex items-center gap-1.5 font-hind font-bold text-[12px] hover:underline"
+          className="inline-flex items-center gap-1.5 font-hind font-bold text-[0.875rem] hover:underline"
           style={{ color: college.accentColor }}
         >
           freeswing@griet.ac.in
@@ -177,16 +177,16 @@ export default function FSFPage() {
             <section className="mb-8">
               <SectionLabel>About the Free Software Wing</SectionLabel>
               <div className="p-5 rounded-xl bg-gray-50 border border-gray-200">
-                <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed mb-3">
+                <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed mb-3">
                   The <strong>Free Software Wing (FSF / FOSS Club)</strong> at GRIET promotes the philosophy and practice of
                   Free and Open Source Software (FOSS), GNU/Linux, and open technologies among students and faculty.
                   The wing is part of the global FOSS movement inspired by <strong>Richard Stallman's Free Software Foundation</strong>.
                 </p>
-                <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed mb-3">
+                <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed mb-3">
                   The club encourages students to use, study, share, and improve free software — fostering a culture of
                   openness, collaboration, and digital freedom on campus.
                 </p>
-                <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed">
+                <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed">
                   <strong>Coordinator:</strong> Dr. Ravikiran K, Department of Information Technology, GRIET.
                 </p>
               </div>
@@ -208,11 +208,11 @@ export default function FSFPage() {
                       >
                         {number}
                       </span>
-                      <p className="font-hind font-bold text-[13px]" style={{ color: college.primaryColor }}>
+                      <p className="font-hind font-bold text-[0.9375rem]" style={{ color: college.primaryColor }}>
                         {title}
                       </p>
                     </div>
-                    <p className="font-dm-sans text-[12px] text-gray-600 leading-relaxed">{desc}</p>
+                    <p className="font-dm-sans text-[0.875rem] text-gray-600 leading-relaxed">{desc}</p>
                   </div>
                 ))}
               </div>
@@ -224,10 +224,10 @@ export default function FSFPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {ACTIVITIES.map(({ title, desc }) => (
                   <div key={title} className="p-4 rounded-xl border border-gray-200 bg-white">
-                    <p className="font-hind font-bold text-[13px] mb-1" style={{ color: college.primaryColor }}>
+                    <p className="font-hind font-bold text-[0.9375rem] mb-1" style={{ color: college.primaryColor }}>
                       {title}
                     </p>
-                    <p className="font-dm-sans text-[12px] text-gray-600 leading-relaxed">{desc}</p>
+                    <p className="font-dm-sans text-[0.875rem] text-gray-600 leading-relaxed">{desc}</p>
                   </div>
                 ))}
               </div>
@@ -237,12 +237,12 @@ export default function FSFPage() {
             <section className="mb-8">
               <SectionLabel>Spoken Tutorial Partnership — IIT Bombay</SectionLabel>
               <div className="p-5 rounded-xl bg-gray-50 border border-gray-200">
-                <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed mb-3">
+                <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed mb-3">
                   GRIET's Free Software Wing is an active participant in the <strong>IIT Bombay Spoken Tutorial Project</strong>,
                   a national initiative under the National Mission on Education through ICT (NMEICT), funded by the Ministry of
                   Education, Government of India.
                 </p>
-                <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed mb-4">
+                <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed mb-4">
                   Students complete self-paced audio-video courses on FOSS tools and appear for online tests to earn
                   <strong> certificates co-issued by IIT Bombay</strong>. These certificates are recognized nationally and
                   add value to student portfolios.

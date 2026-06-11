@@ -1,4 +1,4 @@
-import college from '../theme';
+﻿import college from '../theme';
 import CollegeLayout from '../CollegeLayout';
 import { AcademicsBanner } from '../components/AcademicsLayout';
 
@@ -7,7 +7,7 @@ const { primaryColor, accentColor } = college;
 function SectionHeading({ children }) {
   return (
     <h2
-      className="font-hind font-bold text-2xl mb-5 pb-2 inline-block"
+      className="font-display font-bold text-xl mb-4 pb-2 inline-block"
       style={{ color: primaryColor, borderBottom: `2px solid ${accentColor}` }}
     >
       {children}
@@ -103,11 +103,11 @@ export default function ContactPage() {
                     >
                       {icon}
                     </div>
-                    <span className="font-hind font-semibold text-[13px] uppercase tracking-wide self-center" style={{ color: primaryColor }}>{label}</span>
+                    <span className="font-hind font-semibold text-[0.9375rem] uppercase tracking-wide self-center" style={{ color: primaryColor }}>{label}</span>
                   </div>
                   <div className="space-y-0.5 pl-1">
                     {lines.map((line, i) => (
-                      <p key={i} className="font-dm-sans text-[13px] text-gray-700 leading-relaxed break-words">{line}</p>
+                      <p key={i} className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed break-words">{line}</p>
                     ))}
                   </div>
                 </div>
@@ -123,18 +123,18 @@ export default function ContactPage() {
             <div className="flex flex-col gap-4 md:hidden">
               {deptContacts.map(({ dept, person, phone, email }, i) => (
                 <div key={i} className="rounded-lg border border-gray-200 bg-white p-4 space-y-2">
-                  <p className="font-hind font-bold text-[14px]" style={{ color: accentColor }}>{dept}</p>
+                  <p className="font-hind font-bold text-base" style={{ color: accentColor }}>{dept}</p>
                   <div className="flex items-start gap-3">
-                    <span className="font-dm-sans text-[12px] text-gray-500 w-16 flex-shrink-0">Person</span>
-                    <span className="font-dm-sans text-[13px] text-gray-700 break-words">{person}</span>
+                    <span className="font-dm-sans text-[0.875rem] text-gray-500 w-16 flex-shrink-0">Person</span>
+                    <span className="font-dm-sans text-[0.9375rem] text-gray-700 break-words">{person}</span>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="font-dm-sans text-[12px] text-gray-500 w-16 flex-shrink-0">Phone</span>
-                    <span className="font-dm-sans text-[13px] text-gray-700">{phone}</span>
+                    <span className="font-dm-sans text-[0.875rem] text-gray-500 w-16 flex-shrink-0">Phone</span>
+                    <span className="font-dm-sans text-[0.9375rem] text-gray-700">{phone}</span>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="font-dm-sans text-[12px] text-gray-500 w-16 flex-shrink-0">Email</span>
-                    <span className="font-dm-sans text-[13px] text-gray-700 break-all">{email}</span>
+                    <span className="font-dm-sans text-[0.875rem] text-gray-500 w-16 flex-shrink-0">Email</span>
+                    <span className="font-dm-sans text-[0.9375rem] text-gray-700 break-all">{email}</span>
                   </div>
                 </div>
               ))}
@@ -142,13 +142,13 @@ export default function ContactPage() {
 
             {/* Desktop: table (hidden below md) */}
             <div className="overflow-x-auto rounded-lg border border-gray-200 hidden md:block">
-              <table className="w-full text-[13px] font-dm-sans">
+              <table className="w-full text-[0.9375rem] font-dm-sans">
                 <thead>
                   <tr style={{ backgroundColor: primaryColor }}>
-                    <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[12px]">Department</th>
-                    <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[12px]">Contact Person</th>
-                    <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[12px]">Phone</th>
-                    <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[12px]">Email</th>
+                    <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[0.875rem]">Department</th>
+                    <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[0.875rem]">Contact Person</th>
+                    <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[0.875rem]">Phone</th>
+                    <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[0.875rem]">Email</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -179,7 +179,7 @@ export default function ContactPage() {
                 >
                   <span className="font-hind font-bold text-[11px] uppercase tracking-widest" style={{ color: accentColor }}>{label}</span>
                   <span className="font-hind font-bold text-[15px]" style={{ color: primaryColor }}>{title}</span>
-                  <span className="font-dm-sans text-[12px] text-gray-500 mt-1 group-hover:underline">Click to access →</span>
+                  <span className="font-dm-sans text-[0.875rem] text-gray-500 mt-1 group-hover:underline">Click to access →</span>
                 </a>
               ))}
             </div>

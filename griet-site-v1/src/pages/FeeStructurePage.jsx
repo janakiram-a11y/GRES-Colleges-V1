@@ -85,7 +85,7 @@ function AccordionSection({ entry, isOpen, onToggle, isCurrent }) {
     <div className="mb-2 rounded overflow-hidden">
       <button
         onClick={onToggle}
-        className="w-full flex items-center justify-between px-5 py-3 text-left font-dm-sans font-semibold text-[13px] transition-opacity hover:opacity-90"
+        className="w-full flex items-center justify-between px-5 py-3 text-left font-dm-sans font-semibold text-[0.9375rem] transition-opacity hover:opacity-90"
         style={{
           backgroundColor: isCurrent ? college.accentColor : '#f3f4f6',
           color: isCurrent ? '#fff' : '#374151',
@@ -98,7 +98,7 @@ function AccordionSection({ entry, isOpen, onToggle, isCurrent }) {
       </button>
       {isOpen && entry.rows && <FeeTable headers={entry.headers} rows={entry.rows} />}
       {isOpen && !entry.rows && (
-        <p className="font-dm-sans text-[13px] text-gray-400 italic border border-dashed border-gray-300 rounded mx-0 p-4 mt-1">
+        <p className="font-dm-sans text-[0.9375rem] text-gray-400 italic border border-dashed border-gray-300 rounded mx-0 p-4 mt-1">
           Fee data for this year will be updated shortly.
         </p>
       )}
@@ -118,7 +118,7 @@ export default function FeeStructurePage() {
         <svg className="w-5 h-5 flex-shrink-0 mt-0.5 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
           <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
         </svg>
-        <p className="font-dm-sans text-[13px] text-blue-800">
+        <p className="font-dm-sans text-[0.9375rem] text-blue-800">
           Existing students can pay fees as per the fee structure through online (Digitally).
         </p>
       </div>
@@ -127,7 +127,7 @@ export default function FeeStructurePage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
         <div className="rounded-lg overflow-hidden border border-gray-200">
           <div className="px-5 py-3" style={{ backgroundColor: college.primaryColor }}>
-            <p className="font-hind font-bold text-white text-[15px]">B.Tech — 2025-26 Fee Summary</p>
+            <p className="font-hind font-bold text-[15px]" style={{ color: '#fff' }}>B.Tech — 2025-26 Fee Summary</p>
           </div>
           <div className="p-5 bg-white">
             {[
@@ -136,8 +136,8 @@ export default function FeeStructurePage() {
               { label: 'NBA Fee', amount: '₹ 3,000' },
             ].map(({ label, amount }) => (
               <div key={label} className="flex items-center justify-between py-2 border-b border-gray-100 last:border-0">
-                <span className="font-dm-sans text-[13px] text-gray-700">{label}</span>
-                <span className="font-hind font-bold text-[14px]" style={{ color: college.primaryColor }}>{amount}</span>
+                <span className="font-dm-sans text-[0.9375rem] text-gray-700">{label}</span>
+                <span className="font-hind font-bold text-base" style={{ color: college.primaryColor }}>{amount}</span>
               </div>
             ))}
           </div>
@@ -145,7 +145,7 @@ export default function FeeStructurePage() {
 
         <div className="rounded-lg overflow-hidden border border-gray-200">
           <div className="px-5 py-3" style={{ backgroundColor: college.primaryColor }}>
-            <p className="font-hind font-bold text-white text-[15px]">M.Tech — 2025-26 Fee Summary</p>
+            <p className="font-hind font-bold text-[15px]" style={{ color: '#fff' }}>M.Tech — 2025-26 Fee Summary</p>
           </div>
           <div className="p-5 bg-white">
             {[
@@ -154,8 +154,8 @@ export default function FeeStructurePage() {
               { label: 'Special Fee (II Year)', amount: '₹ 4,500' },
             ].map(({ label, amount }) => (
               <div key={label} className="flex items-center justify-between py-2 border-b border-gray-100 last:border-0">
-                <span className="font-dm-sans text-[13px] text-gray-700">{label}</span>
-                <span className="font-hind font-bold text-[14px]" style={{ color: college.primaryColor }}>{amount}</span>
+                <span className="font-dm-sans text-[0.9375rem] text-gray-700">{label}</span>
+                <span className="font-hind font-bold text-base" style={{ color: college.primaryColor }}>{amount}</span>
               </div>
             ))}
           </div>

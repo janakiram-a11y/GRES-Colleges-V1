@@ -1,10 +1,10 @@
-import AdministrationLayout from '../components/AdministrationLayout';
+﻿import AdministrationLayout from '../components/AdministrationLayout';
 import college from '../theme';
 
 function SectionHeading({ children }) {
   return (
     <h2
-      className="font-hind font-bold text-2xl mb-6 pb-2 inline-block"
+      className="font-display font-bold text-xl mb-5 pb-2 inline-block"
       style={{ color: college.primaryColor, borderBottom: `2px solid ${college.accentColor}` }}
     >
       {children}
@@ -43,64 +43,49 @@ export default function AdminDeansPage() {
 
         <div>
           <SectionHeading>Deans</SectionHeading>
-          <p className="font-dm-sans text-[14px] leading-relaxed text-gray-600 mb-8 max-w-2xl">
+          <p className="font-dm-sans text-base leading-relaxed text-gray-600 mb-8 max-w-2xl">
             GRIET's administrative and academic operations are led by experienced deans overseeing 21 distinct
             portfolios spanning academics, research, placements, student welfare, and quality assurance.
           </p>
         </div>
 
         {/* Photo card grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
           {deans.map(({ sno, name, portfolio, photo }) => (
-            <div key={sno} className="flex flex-col items-center text-center bg-white rounded-xl border border-gray-200 p-4 hover:shadow-md transition-shadow">
-              <img
-                src={photo}
-                alt={name}
-                className="w-20 h-20 rounded-full object-cover border-2 mb-3"
-                style={{ borderColor: college.primaryColor }}
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                  e.currentTarget.nextSibling.style.display = 'flex';
-                }}
-              />
-              <div
-                className="w-20 h-20 rounded-full items-center justify-center text-white font-hind font-bold text-xl mb-3 border-2 hidden"
-                style={{ backgroundColor: college.primaryColor, borderColor: college.primaryColor }}
-              >
-                {name.split(' ').pop()[0]}
+            <div key={sno} className="group flex flex-col bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300">
+              {/* Accent bar */}
+              <div className="h-1.5 w-full" style={{ backgroundColor: college.primaryColor }} />
+              {/* Content */}
+              <div className="flex flex-col items-center pt-7 pb-5 px-5">
+                <div className="relative mb-4">
+                  <div
+                    className="w-24 h-24 rounded-full flex-shrink-0"
+                    style={{ background: `linear-gradient(135deg, ${college.primaryColor}22 0%, ${college.accentColor}22 100%)`, padding: '3px' }}
+                  >
+                    <img
+                      src={photo}
+                      alt={name}
+                      className="w-full h-full rounded-full object-cover object-top"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                        e.currentTarget.nextSibling.style.display = 'flex';
+                      }}
+                    />
+                    <div
+                      className="w-full h-full rounded-full items-center justify-center text-white font-display font-bold text-xl hidden"
+                      style={{ backgroundColor: college.primaryColor }}
+                    >
+                      {name.charAt(name.lastIndexOf(' ') + 1)}
+                    </div>
+                  </div>
+                </div>
+                <p className="font-display font-bold text-[1rem] leading-snug text-center mb-1" style={{ color: college.primaryColor }}>{name}</p>
+                <p className="font-body text-[0.8125rem] text-gray-500 leading-snug text-center">{portfolio}</p>
               </div>
-              <p className="font-hind font-bold text-[12px] leading-snug mb-1" style={{ color: college.primaryColor }}>
-                {name}
-              </p>
-              <p className="font-dm-sans text-[11px] text-gray-500 leading-tight">{portfolio}</p>
             </div>
           ))}
         </div>
 
-        {/* Table reference */}
-        <section>
-          <h3 className="font-hind font-bold text-[16px] mb-4" style={{ color: college.primaryColor }}>Dean Portfolios</h3>
-          <div className="overflow-x-auto rounded-lg border border-gray-200">
-            <table className="min-w-[600px] w-full text-[13px] font-dm-sans">
-              <thead>
-                <tr style={{ backgroundColor: college.primaryColor }}>
-                  <th className="text-left px-4 py-3 text-white font-hind font-semibold text-[12px] w-14 whitespace-nowrap">S.No</th>
-                  <th className="text-left px-4 py-3 text-white font-hind font-semibold text-[12px]">Dean Name</th>
-                  <th className="text-left px-4 py-3 text-white font-hind font-semibold text-[12px]">Portfolio</th>
-                </tr>
-              </thead>
-              <tbody>
-                {deans.map(({ sno, name, portfolio }, i) => (
-                  <tr key={sno} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                    <td className="px-4 py-3 border-b border-gray-100 text-gray-400 font-medium whitespace-nowrap">{sno}</td>
-                    <td className="px-4 py-3 border-b border-gray-100 font-semibold text-gray-800 whitespace-nowrap">{name}</td>
-                    <td className="px-4 py-3 border-b border-gray-100 text-gray-600">{portfolio}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </section>
 
       </div>
     </AdministrationLayout>

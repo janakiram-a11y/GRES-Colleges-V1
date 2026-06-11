@@ -64,7 +64,7 @@ const SERVICES = [
 export default function TranscriptsCertificatesPage() {
   return (
     <AcademicsLayout title="Transcripts & Certificates">
-      <p className="font-dm-sans text-[13px] text-gray-600 mb-8 leading-relaxed">
+      <p className="font-dm-sans text-[0.9375rem] text-gray-600 mb-8 leading-relaxed">
         The GRIET Examination Branch issues official transcripts, provisional certificates,
         and facilitates degree and migration certificates. For assistance, contact the
         Examination Branch at{' '}
@@ -84,7 +84,7 @@ export default function TranscriptsCertificatesPage() {
               style={{ background: `linear-gradient(135deg, ${college.primaryColor} 0%, #3a0b1a 100%)` }}
             >
               <span className="text-white">{icon}</span>
-              <span className="font-hind font-bold text-[13px] text-white">{title}</span>
+              <span className="font-hind font-bold text-[0.9375rem] text-white">{title}</span>
             </div>
             <ul className="px-5 py-4 space-y-2">
               {points.map((pt, i) => (
@@ -107,7 +107,7 @@ export default function TranscriptsCertificatesPage() {
           <svg className="w-5 h-5 text-white flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
           </svg>
-          <span className="font-hind font-bold text-[13px] text-white">Transcript Application Form (Form No. 230)</span>
+          <span className="font-hind font-bold text-[0.9375rem] text-white">Transcript Application Form (Form No. 230)</span>
         </div>
 
         <div className="px-5 py-4">

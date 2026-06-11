@@ -4,7 +4,7 @@ import college from '../theme';
 function SectionHeading({ children }) {
   return (
     <h2
-      className="font-hind font-bold text-2xl mb-6 pb-2 inline-block"
+      className="font-display font-bold text-xl mb-5 pb-2 inline-block"
       style={{ color: college.primaryColor, borderBottom: `2px solid ${college.accentColor}` }}
     >
       {children}
@@ -41,7 +41,7 @@ export default function AdminAntiHarassmentCellPage() {
 
         <div>
           <SectionHeading>Anti Sexual Harassment Cell</SectionHeading>
-          <p className="font-dm-sans text-[14px] leading-relaxed text-gray-600 mb-2 max-w-2xl">
+          <p className="font-dm-sans text-base leading-relaxed text-gray-600 mb-2 max-w-2xl">
             The Anti Sexual Harassment Cell (Internal Complaints Committee) at GRIET is constituted as per
             the <strong>Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013</strong> to
             provide a safe and respectful environment for every individual on campus.
@@ -55,7 +55,7 @@ export default function AdminAntiHarassmentCellPage() {
           </h3>
           <ul className="space-y-2.5">
             {mandate.map((item) => (
-              <li key={item} className="flex items-start gap-3 font-dm-sans text-[14px] text-gray-700">
+              <li key={item} className="flex items-start gap-3 font-dm-sans text-base text-gray-700">
                 <span className="mt-1.5 w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: college.primaryColor }} />
                 {item}
               </li>
@@ -69,11 +69,11 @@ export default function AdminAntiHarassmentCellPage() {
             Committee Composition
           </h3>
           <div className="overflow-x-auto rounded-lg border border-gray-200">
-            <table className="w-full text-[13px] font-dm-sans">
+            <table className="w-full text-[0.9375rem] font-dm-sans">
               <thead>
                 <tr style={{ backgroundColor: college.primaryColor }}>
-                  <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[12px] w-44">Role</th>
-                  <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[12px]">Description</th>
+                  <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[0.875rem] w-44">Role</th>
+                  <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[0.875rem]">Description</th>
                 </tr>
               </thead>
               <tbody>
@@ -96,8 +96,8 @@ export default function AdminAntiHarassmentCellPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {helpInfo.map(({ label, desc }) => (
               <div key={label} className="bg-[#F6F1F2] rounded-lg border border-gray-200 p-5">
-                <h4 className="font-hind font-semibold text-[14px] mb-2" style={{ color: college.primaryColor }}>{label}</h4>
-                <p className="font-dm-sans text-[13px] leading-relaxed text-gray-600">{desc}</p>
+                <h4 className="font-hind font-semibold text-base mb-2" style={{ color: college.primaryColor }}>{label}</h4>
+                <p className="font-dm-sans text-[0.9375rem] leading-relaxed text-gray-600">{desc}</p>
               </div>
             ))}
           </div>
@@ -105,13 +105,13 @@ export default function AdminAntiHarassmentCellPage() {
 
         {/* Awareness */}
         <section
-          className="rounded-lg p-5 text-white"
-          style={{ backgroundColor: college.primaryColor }}
+          className="rounded-xl p-6 bg-white border-l-4"
+          style={{ borderColor: college.primaryColor, boxShadow: '0 1px 4px rgba(91,16,39,0.06), 0 4px 16px -4px rgba(91,16,39,0.10)' }}
         >
-          <h3 className="font-hind font-bold text-[15px] mb-2" style={{ color: college.accentColor }}>
+          <span className="inline-block font-display font-bold text-[0.75rem] uppercase tracking-[0.12em] mb-3 px-3 py-1 rounded-full text-white" style={{ backgroundColor: college.primaryColor }}>
             Awareness Programmes
-          </h3>
-          <p className="font-dm-sans text-[14px] leading-relaxed opacity-90">
+          </span>
+          <p className="font-body text-[1.0625rem] leading-[1.75] text-gray-700">
             GRIET regularly conducts orientation sessions for new students and staff, sensitisation workshops,
             and legal literacy programmes on the POSH Act. Posters, notices, and information on the complaint
             process are displayed prominently across campus.

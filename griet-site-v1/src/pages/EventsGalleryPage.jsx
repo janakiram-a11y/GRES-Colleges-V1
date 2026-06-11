@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react';
+﻿import { useEffect, useState, useCallback } from 'react';
 import { AcademicsBanner } from '../components/AcademicsLayout';
 import CollegeLayout from '../CollegeLayout';
 import college from '../theme';
@@ -52,7 +52,7 @@ function Lightbox({ files, folder, startIndex, onClose }) {
         className="flex items-center justify-between px-4 py-3 flex-shrink-0"
         onClick={e => e.stopPropagation()}
       >
-        <span className="font-hind text-white/70 text-[13px]">{idx + 1} / {files.length}</span>
+        <span className="font-hind text-white/70 text-[0.9375rem]">{idx + 1} / {files.length}</span>
         <button
           onClick={onClose}
           className="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white text-lg"
@@ -164,7 +164,7 @@ function EventGallery({ event, onClose }) {
       <div className="flex-1 overflow-y-auto p-4">
         {files.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-full text-gray-400">
-            <p className="font-hind text-[14px]">No media found for this event.</p>
+            <p className="font-hind text-base">No media found for this event.</p>
           </div>
         ) : (
           <>
@@ -196,7 +196,7 @@ function EventGallery({ event, onClose }) {
               <div className="flex justify-center mt-6">
                 <button
                   onClick={() => setPage(p => p + 1)}
-                  className="px-6 py-2 rounded-lg font-hind font-bold text-[13px] text-white transition-opacity hover:opacity-90"
+                  className="px-6 py-2 rounded-lg font-hind font-bold text-[0.9375rem] text-white transition-opacity hover:opacity-90"
                   style={{ backgroundColor: college.primaryColor }}
                 >
                   Load more ({files.length - visible.length} remaining)
@@ -255,7 +255,7 @@ function EventCard({ event, onOpen }) {
 
       {/* Label */}
       <div className="p-3 flex items-center justify-between gap-2">
-        <p className="font-hind font-bold text-[13px] text-gray-800 leading-snug">{event.name}</p>
+        <p className="font-hind font-bold text-[0.9375rem] text-gray-800 leading-snug">{event.name}</p>
         <span
           className="flex-shrink-0 text-[11px] font-hind font-bold px-2.5 py-1 rounded-lg text-white"
           style={{ backgroundColor: college.accentColor }}
@@ -278,9 +278,9 @@ function CategorySection({ category, onOpen }) {
           <h2 className="font-hind font-bold text-[18px]" style={{ color: college.primaryColor }}>
             {category.label}
           </h2>
-          <p className="font-dm-sans text-[12px] text-gray-500 mt-0.5">{category.desc}</p>
+          <p className="font-dm-sans text-[0.875rem] text-gray-500 mt-0.5">{category.desc}</p>
         </div>
-        <span className="font-dm-sans text-[12px] text-gray-400 flex-shrink-0 mt-1">
+        <span className="font-dm-sans text-[0.875rem] text-gray-400 flex-shrink-0 mt-1">
           {category.events.reduce((s, e) => s + e.files.length, 0)} photos / videos
         </span>
       </div>
@@ -304,7 +304,7 @@ export default function EventsGalleryPage() {
       <AcademicsBanner title="Events Gallery" />
 
       <div className="page-pad">
-        <p className="font-dm-sans text-[13px] text-gray-600 mb-6 max-w-2xl">
+        <p className="font-dm-sans text-[0.9375rem] text-gray-600 mb-6 max-w-2xl">
           Browse photos and videos from GRIET's events and activities. Click any event to view its full media collection.
         </p>
 
@@ -314,7 +314,7 @@ export default function EventsGalleryPage() {
             <a
               key={cat.id}
               href={`#${cat.id}`}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-gray-200 bg-white font-hind font-semibold text-[12px] text-gray-600 hover:text-[#5B1027] hover:border-[#5B1027] transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-gray-200 bg-white font-hind font-semibold text-[0.875rem] text-gray-600 hover:text-[#5B1027] hover:border-[#5B1027] transition-colors"
             >
               {cat.icon} {cat.label}
             </a>

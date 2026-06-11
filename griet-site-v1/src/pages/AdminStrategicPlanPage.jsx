@@ -4,7 +4,7 @@ import college from '../theme';
 function SectionHeading({ children }) {
   return (
     <h2
-      className="font-hind font-bold text-2xl mb-6 pb-2 inline-block"
+      className="font-display font-bold text-xl mb-5 pb-2 inline-block"
       style={{ color: college.primaryColor, borderBottom: `2px solid ${college.accentColor}` }}
     >
       {children}
@@ -19,7 +19,7 @@ function PillarCard({ icon, title, points }) {
       <h3 className="font-hind font-semibold text-[15px] mb-3" style={{ color: college.primaryColor }}>{title}</h3>
       <ul className="space-y-1.5">
         {points.map((p) => (
-          <li key={p} className="flex items-start gap-2 font-dm-sans text-[12px] text-gray-600">
+          <li key={p} className="flex items-start gap-2 font-dm-sans text-[0.875rem] text-gray-600">
             <span className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: college.accentColor }} />
             {p}
           </li>
@@ -99,31 +99,43 @@ export default function AdminStrategicPlanPage() {
 
         <div>
           <SectionHeading>GRIET Strategic Plan</SectionHeading>
-          <p className="font-dm-sans text-[14px] leading-relaxed text-gray-600 mb-2 max-w-2xl">
+          <p className="font-dm-sans text-base leading-relaxed text-gray-600 mb-2 max-w-2xl">
             GRIET's strategic plan outlines the institution's long-term vision, goals, and action frameworks to
             achieve and sustain excellence in engineering education, research, and societal impact.
           </p>
         </div>
 
-        {/* Vision & Mission reminder */}
+        {/* Vision & Mission */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <div className="rounded-lg p-5 text-white" style={{ backgroundColor: college.primaryColor }}>
-            <p className="font-hind font-bold text-[13px] uppercase tracking-widest mb-2" style={{ color: college.accentColor }}>
-              Vision
-            </p>
-            <p className="font-dm-sans text-[14px] leading-relaxed italic">
-              "To be among the best of the institutions for engineers and technologists with attitudes, skills and
-              knowledge and to become an epicentre of creative solutions."
-            </p>
-          </div>
-          <div className="rounded-lg p-5 text-white bg-[#5B1027]">
-            <p className="font-hind font-bold text-[13px] uppercase tracking-widest mb-2" style={{ color: '#F3DAB2' }}>
-              Mission
-            </p>
-            <p className="font-dm-sans text-[14px] leading-relaxed italic">
-              "To achieve and impart quality education with an emphasis on practical skills and social relevance."
-            </p>
-          </div>
+          {[
+            {
+              label: 'Vision',
+              text: '"To be among the best of the institutions for engineers and technologists with attitudes, skills and knowledge and to become an epicentre of creative solutions."',
+            },
+            {
+              label: 'Mission',
+              text: '"To achieve and impart quality education with an emphasis on practical skills and social relevance."',
+            },
+          ].map(({ label, text }) => (
+            <div
+              key={label}
+              className="rounded-xl p-6 bg-white border-l-4"
+              style={{
+                borderColor: college.primaryColor,
+                boxShadow: '0 1px 4px rgba(91,16,39,0.06), 0 4px 16px -4px rgba(91,16,39,0.10)',
+              }}
+            >
+              <span
+                className="inline-block font-display font-bold text-[0.75rem] uppercase tracking-[0.12em] mb-3 px-3 py-1 rounded-full text-white"
+                style={{ backgroundColor: college.primaryColor }}
+              >
+                {label}
+              </span>
+              <p className="font-body text-[1.0625rem] leading-[1.75] text-gray-700 italic">
+                {text}
+              </p>
+            </div>
+          ))}
         </div>
 
         {/* Strategic Pillars */}
@@ -144,13 +156,13 @@ export default function AdminStrategicPlanPage() {
             <p className="font-hind font-semibold text-[15px] mb-1" style={{ color: college.primaryColor }}>
               GRIET Strategic Plan Document
             </p>
-            <p className="font-dm-sans text-[13px] text-gray-500">
+            <p className="font-dm-sans text-[0.9375rem] text-gray-500">
               Full strategic plan with timelines, KPIs, and action items.
             </p>
           </div>
           <a
             href="#"
-            className="flex-shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded font-hind font-semibold text-[13px] text-white transition-opacity hover:opacity-90"
+            className="flex-shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded font-hind font-semibold text-[0.9375rem] text-white transition-opacity hover:opacity-90"
             style={{ backgroundColor: college.primaryColor }}
           >
             <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">

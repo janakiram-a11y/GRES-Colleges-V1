@@ -83,7 +83,7 @@ export default function RegulationsPage() {
         ))}
       </div>
 
-      <p className="font-dm-sans text-[13px] text-gray-500 italic mb-5">
+      <p className="font-dm-sans text-[0.9375rem] text-gray-500 italic mb-5">
         Regulation codes applicable to B.Tech students based on their year of admission (1997-98 to present).
       </p>
 

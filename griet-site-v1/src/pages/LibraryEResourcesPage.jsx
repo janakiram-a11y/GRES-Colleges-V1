@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 const SUBSCRIBED = [
@@ -43,14 +43,14 @@ function ResourceRow({ name, detail, href }) {
   return (
     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 py-3 border-b border-gray-100 last:border-0">
       <div>
-        <p className="font-dm-sans font-semibold text-[13px] text-gray-800">{name}</p>
+        <p className="font-dm-sans font-semibold text-[0.9375rem] text-gray-800">{name}</p>
         <p className="font-dm-sans text-[11.5px] text-gray-400 mt-0.5">{detail}</p>
       </div>
       <a
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="font-dm-sans text-[12px] font-semibold whitespace-nowrap hover:underline flex-shrink-0"
+        className="font-dm-sans text-[0.875rem] font-semibold whitespace-nowrap hover:underline flex-shrink-0"
         style={{ color: college.accentColor }}
       >
         Access →
@@ -102,7 +102,7 @@ export default function LibraryEResourcesPage() {
       <section className="mb-6 pt-4 border-t border-gray-200">
         <SectionLabel>Contact Librarian</SectionLabel>
         <div className="p-5 rounded-xl bg-gray-50 border border-gray-200 inline-flex flex-col gap-1">
-          <p className="font-dm-sans font-semibold text-[13px] text-gray-800">P.V. Satya Narayana Raju</p>
+          <p className="font-dm-sans font-semibold text-[0.9375rem] text-gray-800">P.V. Satya Narayana Raju</p>
           <p className="font-dm-sans text-[12.5px] text-gray-500">Phone: 9494044666</p>
           <a
             href="mailto:library@griet.ac.in"

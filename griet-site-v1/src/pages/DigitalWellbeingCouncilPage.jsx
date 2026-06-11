@@ -73,7 +73,7 @@ export default function DigitalWellbeingCouncilPage() {
         <DWCShieldLogo />
 
         {/* Supported by */}
-        <p className="font-dm-sans text-[13px] text-gray-500 mt-6 mb-1">supported by</p>
+        <p className="font-dm-sans text-[0.9375rem] text-gray-500 mt-6 mb-1">supported by</p>
 
         {/* END NOW logo */}
         <EndNowLogo />
@@ -85,7 +85,7 @@ export default function DigitalWellbeingCouncilPage() {
 
         {/* Tagline */}
         <p
-          className="font-hind font-bold text-[13px] tracking-[0.12em] uppercase mt-4 mb-6"
+          className="font-hind font-bold text-[0.9375rem] tracking-[0.12em] uppercase mt-4 mb-6"
           style={{ color: '#1a1a1a' }}
         >
           Advocacy on Digital Safety
@@ -95,7 +95,7 @@ export default function DigitalWellbeingCouncilPage() {
         <div className="w-16 h-0.5 rounded-full mb-6" style={{ backgroundColor: college.accentColor }} />
 
         {/* Description */}
-        <p className="font-dm-sans text-[14px] leading-relaxed text-gray-700 text-justify">
+        <p className="font-dm-sans text-base leading-relaxed text-gray-700 text-justify">
           Advocating for better Internet Ethics and Digital Wellness to evoke responsible online behavioral
           patterns amongst Women, Children &amp; Adolescents.
         </p>

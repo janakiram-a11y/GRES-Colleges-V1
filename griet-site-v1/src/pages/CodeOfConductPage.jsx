@@ -13,7 +13,7 @@ export default function CodeOfConductPage() {
           <h2 className="font-hind font-bold text-lg md:text-xl" style={{ color: college.primaryColor }}>
             GRIET — Code of Conduct for Students
           </h2>
-          <p className="font-dm-sans text-[13px] text-gray-500 mt-1">
+          <p className="font-dm-sans text-[0.9375rem] text-gray-500 mt-1">
             Guidelines on academic integrity, discipline, and responsible conduct expected of every student.
           </p>
         </div>
@@ -21,7 +21,7 @@ export default function CodeOfConductPage() {
           href={PDF_PATH}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-dm-sans font-semibold text-[13px] text-white transition-opacity hover:opacity-85 whitespace-nowrap flex-shrink-0"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-dm-sans font-semibold text-[0.9375rem] text-white transition-opacity hover:opacity-85 whitespace-nowrap flex-shrink-0"
           style={{ backgroundColor: college.primaryColor }}
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
@@ -40,7 +40,7 @@ export default function CodeOfConductPage() {
           <svg className="w-4 h-4 text-white flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
           </svg>
-          <span className="font-hind font-semibold text-[13px] text-white">
+          <span className="font-hind font-semibold text-[0.9375rem] text-white">
             Code of Conduct for Students — GRIET
           </span>
         </div>
@@ -54,7 +54,7 @@ export default function CodeOfConductPage() {
       </div>
 
       {/* Fallback note */}
-      <p className="mt-4 font-dm-sans text-[12px] text-gray-400 text-center">
+      <p className="mt-4 font-dm-sans text-[0.875rem] text-gray-400 text-center">
         If the document does not load,{' '}
         <a
           href={PDF_PATH}

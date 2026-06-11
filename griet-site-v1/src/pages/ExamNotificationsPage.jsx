@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+﻿import { useEffect } from 'react';
 import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
@@ -30,7 +30,7 @@ export default function ExamNotificationsPage() {
           <p className="font-hind font-bold text-[18px] mb-2" style={{ color: college.primaryColor }}>
             Opening Exam Notifications Portal
           </p>
-          <p className="font-dm-sans text-[13px] text-gray-600 max-w-md leading-relaxed">
+          <p className="font-dm-sans text-[0.9375rem] text-gray-600 max-w-md leading-relaxed">
             Exam notifications are published on the GRIET Examination Branch portal.
             It should have opened in a new tab automatically.
           </p>
@@ -40,7 +40,7 @@ export default function ExamNotificationsPage() {
           href={PORTAL_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-hind font-bold text-[13px] text-white transition-opacity hover:opacity-85"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-hind font-bold text-[0.9375rem] text-white transition-opacity hover:opacity-85"
           style={{ backgroundColor: college.primaryColor }}
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
@@ -51,7 +51,7 @@ export default function ExamNotificationsPage() {
           Open Exam Branch Portal
         </a>
 
-        <p className="font-dm-sans text-[12px] text-gray-400">
+        <p className="font-dm-sans text-[0.875rem] text-gray-400">
           If the portal did not open, click the button above.
         </p>
       </div>

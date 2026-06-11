@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
@@ -56,7 +56,7 @@ export default function MOUsPage() {
       <div className="flex items-center gap-4 mb-8 p-4 rounded-xl bg-gray-50 border border-gray-200">
         <span className="font-hind font-bold text-[32px]" style={{ color: college.primaryColor }}>107+</span>
         <div>
-          <p className="font-hind font-bold text-[14px] text-gray-800">Active & Historical MoUs</p>
+          <p className="font-hind font-bold text-base text-gray-800">Active & Historical MoUs</p>
           <p className="font-dm-sans text-[12.5px] text-gray-500">With leading industries, universities, and research institutions (2016–2026)</p>
         </div>
       </div>
@@ -66,10 +66,10 @@ export default function MOUsPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {CATEGORIES.map(({ label, orgs }) => (
             <div key={label} className="p-4 rounded-xl border border-gray-200 bg-white">
-              <p className="font-hind font-bold text-[13px] mb-2" style={{ color: college.primaryColor }}>{label}</p>
+              <p className="font-hind font-bold text-[0.9375rem] mb-2" style={{ color: college.primaryColor }}>{label}</p>
               <ul className="flex flex-col gap-1">
                 {orgs.map((o) => (
-                  <li key={o} className="font-dm-sans text-[12px] text-gray-600 flex items-center gap-1.5">
+                  <li key={o} className="font-dm-sans text-[0.875rem] text-gray-600 flex items-center gap-1.5">
                     <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ backgroundColor: college.accentColor }} />
                     {o}
                   </li>
@@ -113,7 +113,7 @@ export default function MOUsPage() {
         {!showAll && MOUS.length > 10 && (
           <button
             onClick={() => setShowAll(true)}
-            className="mt-4 font-dm-sans text-[13px] font-semibold hover:underline"
+            className="mt-4 font-dm-sans text-[0.9375rem] font-semibold hover:underline"
             style={{ color: college.primaryColor }}
           >
             Show all {MOUS.length} MoUs ↓

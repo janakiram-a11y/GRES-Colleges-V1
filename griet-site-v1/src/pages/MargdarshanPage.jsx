@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 const ACTIVITIES = [
@@ -54,11 +54,11 @@ export default function MargdarshanPage() {
 
       <section className="mb-8">
         <div className="p-5 rounded-xl bg-gray-50 border border-gray-200">
-          <p className="font-hind font-bold text-[14px] mb-2" style={{ color: college.primaryColor }}>About the Margdarshan Scheme</p>
-          <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed mb-3">
+          <p className="font-hind font-bold text-base mb-2" style={{ color: college.primaryColor }}>About the Margdarshan Scheme</p>
+          <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed mb-3">
             <strong>Margdarshan</strong> is an AICTE initiative under which high-performing institutions (mentors) guide and support lesser-ranked institutions (mentees) in improving their academic quality, infrastructure, research output, and accreditation status.
           </p>
-          <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed">
+          <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed">
             GRIET was selected by AICTE as a <strong>Mentor Institution</strong> under the Margdarshan scheme, recognising its institutional excellence, NAAC A++ accreditation, and track record of academic leadership. GRIET mentors several engineering colleges in the Telangana and Andhra Pradesh region.
           </p>
         </div>
@@ -69,7 +69,7 @@ export default function MargdarshanPage() {
         <div className="flex flex-col gap-4">
           {ACTIVITIES.map(({ title, desc }) => (
             <div key={title} className="p-5 rounded-xl border border-gray-200 bg-white">
-              <p className="font-hind font-bold text-[13px] mb-1" style={{ color: college.primaryColor }}>{title}</p>
+              <p className="font-hind font-bold text-[0.9375rem] mb-1" style={{ color: college.primaryColor }}>{title}</p>
               <p className="font-dm-sans text-[12.5px] text-gray-600 leading-relaxed">{desc}</p>
             </div>
           ))}
@@ -91,7 +91,7 @@ export default function MargdarshanPage() {
       <section className="mb-6">
         <SectionLabel>Contact</SectionLabel>
         <div className="p-5 rounded-xl bg-gray-50 border border-gray-200">
-          <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed">
+          <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed">
             Institutions interested in being mentored by GRIET under the Margdarshan / AICTE scheme may contact the <strong>Dean of Academics</strong> or write to{' '}
             <a href="mailto:margdarshan@griet.ac.in" className="hover:underline" style={{ color: college.accentColor }}>margdarshan@griet.ac.in</a>.
             For official scheme details, visit{' '}

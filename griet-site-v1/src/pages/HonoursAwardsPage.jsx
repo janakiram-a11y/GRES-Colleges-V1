@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 const AWARDS = [
@@ -48,7 +48,7 @@ export default function HonoursAwardsPage() {
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex flex-wrap items-center gap-2 mb-1">
-                <p className="font-hind font-bold text-[13px] sm:text-[14px] leading-snug break-words" style={{ color: college.primaryColor }}>{title}</p>
+                <p className="font-hind font-bold text-[0.9375rem] sm:text-base leading-snug break-words" style={{ color: college.primaryColor }}>{title}</p>
                 <span
                   className="font-dm-sans text-[10px] sm:text-[11px] font-semibold px-2 py-0.5 rounded-full text-white whitespace-nowrap flex-shrink-0"
                   style={{ backgroundColor: college.accentColor }}
@@ -56,7 +56,7 @@ export default function HonoursAwardsPage() {
                   {year}
                 </span>
               </div>
-              <p className="font-dm-sans text-[12px] sm:text-[12.5px] text-gray-600 leading-relaxed break-words">{detail}</p>
+              <p className="font-dm-sans text-[0.875rem] sm:text-[12.5px] text-gray-600 leading-relaxed break-words">{detail}</p>
             </div>
           </div>
         ))}

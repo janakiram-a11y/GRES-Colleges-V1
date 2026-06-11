@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
@@ -118,7 +118,7 @@ function BookCard({ title, author }) {
       className="group flex flex-col justify-between p-4 rounded-lg border border-gray-200 bg-white hover:border-transparent hover:shadow-md transition-all"
       style={{ minHeight: 100 }}
     >
-      <p className="font-dm-sans font-semibold text-[12px] leading-snug text-gray-800 mb-2 group-hover:text-[color:var(--p)]"
+      <p className="font-dm-sans font-semibold text-[0.875rem] leading-snug text-gray-800 mb-2 group-hover:text-[color:var(--p)]"
         style={{ '--p': college.primaryColor }}>
         {title}
       </p>
@@ -135,7 +135,7 @@ function ResourceCard({ label, sub, icon, href, internal: isInternal }) {
     <>
       <span style={{ color: college.primaryColor }}>{icon}</span>
       <div>
-        <p className="font-hind font-bold text-[14px]" style={{ color: college.primaryColor }}>{label}</p>
+        <p className="font-hind font-bold text-base" style={{ color: college.primaryColor }}>{label}</p>
         <p className="font-dm-sans text-[11px] text-gray-400 mt-0.5">{sub}</p>
       </div>
     </>
@@ -208,7 +208,7 @@ export default function LibraryPage() {
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="w-6 h-6 flex-shrink-0" style={{ color: college.primaryColor }}>
                 <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
               </svg>
-              <span className="font-dm-sans font-semibold text-[13px] text-gray-700">Rashtriya e-Pustakalaya</span>
+              <span className="font-dm-sans font-semibold text-[0.9375rem] text-gray-700">Rashtriya e-Pustakalaya</span>
             </a>
           </div>
 
@@ -223,7 +223,7 @@ export default function LibraryPage() {
                 <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth={2} className="w-4 h-4">
                   <circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" />
                 </svg>
-                <span className="font-hind font-bold text-[13px] text-white">Open Hours</span>
+                <span className="font-hind font-bold text-[0.9375rem] text-white">Open Hours</span>
               </div>
               {[
                 { day: 'Working Days', time: '8:00 am – 8:00 pm' },
@@ -234,8 +234,8 @@ export default function LibraryPage() {
                   className="flex items-center justify-between px-5 py-4"
                   style={{ borderTop: i > 0 ? '1px solid #f3f4f6' : 'none' }}
                 >
-                  <span className="font-dm-sans text-[13px] font-semibold text-gray-700">{day}</span>
-                  <span className="font-hind font-bold text-[13px]" style={{ color: college.primaryColor }}>{time}</span>
+                  <span className="font-dm-sans text-[0.9375rem] font-semibold text-gray-700">{day}</span>
+                  <span className="font-hind font-bold text-[0.9375rem]" style={{ color: college.primaryColor }}>{time}</span>
                 </div>
               ))}
             </div>
@@ -274,7 +274,7 @@ export default function LibraryPage() {
           href="https://www.griet.ac.in/images2/AICTE_rec_books.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="font-dm-sans text-[13px] font-medium underline hover:opacity-75"
+          className="font-dm-sans text-[0.9375rem] font-medium underline hover:opacity-75"
           style={{ color: college.primaryColor }}
         >
           AICTE Recommended List of Suggested Books of Indian Authors &amp; Publishers

@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 const PROGRAMS = [
@@ -89,7 +89,7 @@ export default function ValueAddedProgramsPage() {
   return (
     <AcademicsLayout title="Value Added Programs">
 
-      <p className="font-dm-sans text-[13px] text-gray-600 leading-relaxed mb-8">
+      <p className="font-dm-sans text-[0.9375rem] text-gray-600 leading-relaxed mb-8">
         In addition to the regular curriculum, GRIET offers a wide range of industry-sponsored value-added programs and certification courses. These equip students with in-demand skills, globally recognised credentials, and enhanced employability.
       </p>
 
@@ -111,7 +111,7 @@ export default function ValueAddedProgramsPage() {
         {PROGRAMS.map(({ name, category, dept, desc, certifying }) => (
           <div key={name} className="p-5 rounded-xl border border-gray-200 bg-white">
             <div className="flex flex-wrap items-center gap-2 mb-1">
-              <p className="font-hind font-bold text-[14px]" style={{ color: college.primaryColor }}>{name}</p>
+              <p className="font-hind font-bold text-base" style={{ color: college.primaryColor }}>{name}</p>
               <span className="font-dm-sans text-[11px] font-semibold px-2 py-0.5 rounded-full text-white" style={{ backgroundColor: college.accentColor }}>{category}</span>
               <span
                 className="font-dm-sans text-[11px] font-semibold px-2 py-0.5 rounded-full border"

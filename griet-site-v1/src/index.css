@@ -49,22 +49,26 @@
   --text-accent:   #C32033;   /* highlight / accent (GRIET brand) */
   --text-brand:    #5B1027;   /* brand maroon links */
 
-  /* Typography size tokens (mirror tailwind.config.js) */
-  --type-h1:       3rem / 3.5rem;       /* 48 / 56 */
-  --type-h2:       2.5rem / 3rem;       /* 40 / 48 */
-  --type-h3:       2rem / 2.5rem;       /* 32 / 40 */
-  --type-h4:       1.5rem / 2rem;       /* 24 / 32 */
-  --type-h5:       1.25rem / 1.75rem;   /* 20 / 28 */
-  --type-h6:       1.125rem / 1.625rem; /* 18 / 26 */
-  --type-body-lg:  1.125rem / 1.75rem;  /* 18 / 28 */
-  --type-body:     1.0625rem / 1.75rem; /* 17 / 28 */
-  --type-body-sm:  1.0625rem / 1.75rem; /* 17 / 28 — body floor */
-  --type-body-xs:  0.875rem / 1.375rem; /* 14 / 22 — supporting */
-  --type-sub:      1.25rem / 1.75rem;   /* 20 / 28 */
-  --type-ui:       0.875rem / 1.375rem; /* 14 / 22 */
-  --type-ui-sm:    0.8125rem / 1.25rem; /* 13 / 20 */
-  --type-cap:      0.75rem / 1.125rem;  /* 12 / 18 */
-  --type-label:    0.6875rem / 1rem;    /* 11 / 16 */
+  /* Typography size tokens (mirror tailwind.config.js — desktop values) */
+  --type-h1:          3.5rem / 4rem;         /* 56 / 64 */
+  --type-h2:          2.5rem / 3rem;         /* 40 / 48 */
+  --type-h3:          2rem / 2.6rem;         /* 32 / 41.6 */
+  --type-h4:          1.5rem / 1.95rem;      /* 24 / 31.2 */
+  --type-h5:          1.25rem / 1.75rem;     /* 20 / 28 */
+  --type-h6:          1.125rem / 1.575rem;   /* 18 / 25.2 */
+  --type-body-lg:     1.25rem / 2.125rem;    /* 20 / 34 — lh 1.70 */
+  --type-body:        1.125rem / 1.9125rem;  /* 18 / 30.6 — lh 1.70 */
+  --type-body-sm:     1rem / 1.6rem;         /* 16 / 25.6 — lh 1.60 */
+  --type-body-xs:     0.875rem / 1.375rem;   /* 14 / 22 */
+  --type-card-title:  1.375rem / 1.8rem;     /* 22 / 28.8 */
+  --type-nav:         1rem / 1.5rem;         /* 16 / 24 */
+  --type-nav-dropdown:0.9375rem / 1.375rem;  /* 15 / 22 */
+  --type-btn:         1rem / 1.5rem;         /* 16 / 24 */
+  --type-footer-link: 0.9375rem / 1.375rem;  /* 15 / 22 */
+  --type-sub:         1.25rem / 1.75rem;     /* 20 / 28 */
+  --type-ui:          0.875rem / 1.375rem;   /* 14 / 22 */
+  --type-cap:         0.75rem / 1.125rem;    /* 12 / 18 */
+  --type-label:       0.6875rem / 1rem;      /* 11 / 16 */
 }
 
 /* ── Global box model & overflow guard ──────────────────────────────────── */
@@ -84,8 +88,8 @@ html {
 body {
   overflow-x: hidden;
   font-family: 'Hind', Tahoma, sans-serif;
-  font-size: 1.0625rem;
-  line-height: 1.75rem;
+  font-size: 1.125rem;    /* 18px */
+  line-height: 1.9125rem; /* lh 1.70 */
   color: var(--text-body);
 }
 
@@ -101,28 +105,57 @@ img {
     font-family: 'DM Sans', Tahoma, sans-serif;
     color: var(--text-heading);
   }
-  h1 { font-size: 2rem;     line-height: 2.5rem;   font-weight: 700; }
-  h2 { font-size: 1.75rem;  line-height: 2.25rem;  font-weight: 700; }
-  h3 { font-size: 1.5rem;   line-height: 2rem;     font-weight: 600; }
-  h4 { font-size: 1.25rem;  line-height: 1.75rem;  font-weight: 600; }
-  h5 { font-size: 1.125rem; line-height: 1.625rem; font-weight: 600; }
-  h6 { font-size: 1rem;     line-height: 1.5rem;   font-weight: 600; }
+  /* Mobile-first: base sizes */
+  h1 { font-size: 2.25rem;  line-height: 2.7rem;    font-weight: 700; }
+  h2 { font-size: 1.75rem;  line-height: 2.1rem;    font-weight: 700; }
+  h3 { font-size: 1.5rem;   line-height: 1.95rem;   font-weight: 600; }
+  h4 { font-size: 1.25rem;  line-height: 1.625rem;  font-weight: 600; }
+  h5 { font-size: 1.125rem; line-height: 1.575rem;  font-weight: 600; }
+  h6 { font-size: 1rem;     line-height: 1.4rem;    font-weight: 600; }
+  /* Tablet (768px) */
+  @media (min-width: 768px) {
+    h1 { font-size: 3rem;    line-height: 3.6rem;   }
+    h2 { font-size: 2.125rem;line-height: 2.55rem;  }
+    h3 { font-size: 1.75rem; line-height: 2.275rem; }
+    h4 { font-size: 1.375rem;line-height: 1.785rem; }
+    h5 { font-size: 1.2rem;  line-height: 1.68rem;  }
+    h6 { font-size: 1.0625rem;line-height: 1.49rem; }
+  }
+  /* Desktop (1024px) */
   @media (min-width: 1024px) {
-    h1 { font-size: 3rem;    line-height: 3.5rem;  }
-    h2 { font-size: 2.5rem;  line-height: 3rem;    }
-    h3 { font-size: 2rem;    line-height: 2.5rem;  }
-    h4 { font-size: 1.5rem;  line-height: 2rem;    }
-    h5 { font-size: 1.25rem; line-height: 1.75rem; }
+    h1 { font-size: 3.5rem;  line-height: 4rem;     }
+    h2 { font-size: 2.5rem;  line-height: 3rem;     }
+    h3 { font-size: 2rem;    line-height: 2.6rem;   }
+    h4 { font-size: 1.5rem;  line-height: 1.95rem;  }
+    h5 { font-size: 1.25rem; line-height: 1.75rem;  }
+    h6 { font-size: 1.125rem;line-height: 1.575rem; }
   }
   p {
     font-family: 'Hind', Tahoma, sans-serif;
-    font-size: 1.0625rem;
-    line-height: 1.75rem;
+    font-size: 1.125rem;    /* 18px */
+    line-height: 1.9125rem; /* lh 1.70 */
     font-weight: 400;
     color: var(--text-body);
   }
   a {
     transition: color 0.2s ease, opacity 0.2s ease;
+  }
+  /* Tables */
+  th {
+    font-family: 'DM Sans', Tahoma, sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 600;
+  }
+  td {
+    font-family: 'Hind', Tahoma, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  /* List items */
+  li {
+    font-family: 'Hind', Tahoma, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
   }
 }
 
@@ -212,91 +245,88 @@ img {
 
   /* ── Heading roles ──────────────────────────────────────────────────────── */
 
-  /* Page / hero title — 32px mob → 48px desk */
+  /* ── Heading roles ──────────────────────────────────────────────────────── */
+
+  /* Page / hero title — 36px mob → 48px tab → 56px desk */
   .t-hero {
     font-family: 'DM Sans', Tahoma, sans-serif;
-    font-size: 2rem;
-    line-height: 2.5rem;
+    font-size: 2.25rem;
+    line-height: 2.7rem;
     font-weight: 700;
     letter-spacing: -0.01em;
     color: var(--text-heading);
   }
-  @media (min-width: 1024px) {
-    .t-hero { font-size: 3rem; line-height: 3.5rem; }
-  }
+  @media (min-width: 768px)  { .t-hero { font-size: 3rem;   line-height: 3.6rem; } }
+  @media (min-width: 1024px) { .t-hero { font-size: 3.5rem; line-height: 4rem;   } }
 
-  /* Section heading — 28px mob → 40px desk */
+  /* Section heading — 28px mob → 34px tab → 40px desk */
   .t-section {
     font-family: 'DM Sans', Tahoma, sans-serif;
     font-size: 1.75rem;
-    line-height: 2.25rem;
+    line-height: 2.1rem;
     font-weight: 700;
     color: var(--text-heading);
   }
-  @media (min-width: 1024px) {
-    .t-section { font-size: 2.5rem; line-height: 3rem; }
-  }
+  @media (min-width: 768px)  { .t-section { font-size: 2.125rem; line-height: 2.55rem; } }
+  @media (min-width: 1024px) { .t-section { font-size: 2.5rem;   line-height: 3rem;    } }
 
-  /* Card / sub-section heading — 24px mob → 32px desk */
+  /* Card / sub-section heading — 22px (static) */
   .t-card-title {
     font-family: 'DM Sans', Tahoma, sans-serif;
-    font-size: 1.5rem;
-    line-height: 2rem;
+    font-size: 1.375rem;    /* 22px */
+    line-height: 1.8rem;
     font-weight: 600;
     color: var(--text-heading);
   }
-  @media (min-width: 1024px) {
-    .t-card-title { font-size: 2rem; line-height: 2.5rem; }
-  }
 
-  /* Item heading — static 20px */
+  /* Item heading — 20px (static) */
   .t-item-title {
     font-family: 'DM Sans', Tahoma, sans-serif;
-    font-size: 1.25rem;
+    font-size: 1.25rem;     /* 20px */
     line-height: 1.75rem;
     font-weight: 600;
     color: var(--text-heading);
   }
 
-  /* Small heading — static 18px */
+  /* Small heading — 18px (static) */
   .t-heading-sm {
     font-family: 'DM Sans', Tahoma, sans-serif;
-    font-size: 1.125rem;
-    line-height: 1.625rem;
+    font-size: 1.125rem;    /* 18px */
+    line-height: 1.575rem;
     font-weight: 600;
     color: var(--text-heading);
   }
 
   /* ── Body text roles ────────────────────────────────────────────────────── */
 
-  /* Lead body — 18px */
+  /* Body large — 20px / lh 1.7 — About, Chairman/Principal messages, key content */
   .t-body-lg {
     font-family: 'Hind', Tahoma, sans-serif;
-    font-size: 1.125rem;
-    line-height: 1.75rem;
+    font-size: 1.25rem;
+    line-height: 2.125rem;
     font-weight: 400;
     color: var(--text-body);
   }
 
-  /* Standard body — 17px */
+  /* Standard body — 18px / lh 1.7 */
   .t-body {
     font-family: 'Hind', Tahoma, sans-serif;
-    font-size: 1.0625rem;
-    line-height: 1.75rem;
+    font-size: 1.125rem;
+    line-height: 1.9125rem;
     font-weight: 400;
     color: var(--text-body);
   }
 
-  /* Small body — 17px (body floor) */
+  /* Small body — 16px / lh 1.6 — captions, metadata, secondary info */
   .t-body-sm {
     font-family: 'Hind', Tahoma, sans-serif;
-    font-size: 1.0625rem;
-    line-height: 1.75rem;
+    font-size: 1rem;
+    line-height: 1.6rem;
     font-weight: 400;
     color: var(--text-body);
   }
 
-  /* Supporting text — 14px */
+  /* Extra-small — 14px — tiny labels only */
   .t-body-xs {
     font-family: 'Hind', Tahoma, sans-serif;
     font-size: 0.875rem;
@@ -305,15 +335,54 @@ img {
     color: var(--text-muted);
   }
 
-  /* ── UI / chrome roles ──────────────────────────────────────────────────── */
+  /* ── Navigation roles ───────────────────────────────────────────────────── */
 
-  /* Nav link — 13px DM Sans medium */
+  /* Main nav — 16px DM Sans medium */
   .t-nav {
     font-family: 'DM Sans', Tahoma, sans-serif;
-    font-size: 0.8125rem;
-    line-height: 1.25rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
     font-weight: 500;
   }
+
+  /* Dropdown nav — 15px DM Sans regular */
+  .t-nav-dropdown {
+    font-family: 'DM Sans', Tahoma, sans-serif;
+    font-size: 0.9375rem;
+    line-height: 1.375rem;
+    font-weight: 400;
+  }
+
+  /* ── Button roles ───────────────────────────────────────────────────────── */
+
+  /* Primary button — 16px DM Sans semibold */
+  .t-btn {
+    font-family: 'DM Sans', Tahoma, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+
+  /* Secondary button — 16px DM Sans medium */
+  .t-btn-secondary {
+    font-family: 'DM Sans', Tahoma, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+
+  /* Legacy large-button alias */
+  .t-btn-lg {
+    font-family: 'DM Sans', Tahoma, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+
+  /* ── UI / chrome roles ──────────────────────────────────────────────────── */
 
   /* UI default — 14px DM Sans medium */
   .t-ui {
@@ -323,22 +392,21 @@ img {
     font-weight: 500;
   }
 
-  /* Button — 14px DM Sans semibold */
-  .t-btn {
+  /* Footer heading — 18px DM Sans semibold */
+  .t-footer-heading {
     font-family: 'DM Sans', Tahoma, sans-serif;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
+    font-size: 1.125rem;
+    line-height: 1.575rem;
     font-weight: 600;
-    letter-spacing: 0.02em;
+    color: var(--text-heading);
   }
 
-  /* Large button — 16px DM Sans semibold */
-  .t-btn-lg {
+  /* Footer link — 15px DM Sans regular */
+  .t-footer-link {
     font-family: 'DM Sans', Tahoma, sans-serif;
-    font-size: 1rem;
+    font-size: 0.9375rem;
     line-height: 1.375rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
+    font-weight: 400;
   }
 
   /* Caption — 12px DM Sans regular */
@@ -380,8 +448,25 @@ img {
     letter-spacing: -0.02em;
     color: var(--text-heading);
   }
+  @media (min-width: 1024px) { .t-stat { font-size: 3rem; } }
+
+  /* ── Page content utility ───────────────────────────────────────────────── */
+  /* Apply to the main content wrapper of inner pages for consistent defaults  */
+  .page-content p,
+  .page-content li {
+    font-family: 'Hind', Tahoma, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-body);
+  }
+  .page-content h2 { font-size: 1.75rem; line-height: 2.1rem; }
+  @media (min-width: 768px)  {
+    .page-content h2 { font-size: 2.125rem; line-height: 2.55rem; }
+    .page-content p, .page-content li { font-size: 1.0625rem; }
+  }
   @media (min-width: 1024px) {
-    .t-stat { font-size: 3rem; }
+    .page-content h2 { font-size: 2.5rem; line-height: 3rem; }
+    .page-content p, .page-content li { font-size: 1.125rem; line-height: 1.9125rem; }
   }
 
 }

@@ -113,11 +113,11 @@ const tdStyle = {
 function AwardTable({ award }) {
   return (
     <div className="mb-8">
-      <h3 className="font-hind font-bold text-[14px] text-center mb-0.5" style={{ color: college.primaryColor }}>
+      <h3 className="font-hind font-bold text-base text-center mb-0.5" style={{ color: college.primaryColor }}>
         {award.title}
       </h3>
       {award.subtitle && (
-        <p className="font-dm-sans text-[12px] text-center text-gray-500 mb-3">{award.subtitle}</p>
+        <p className="font-dm-sans text-[0.875rem] text-center text-gray-500 mb-3">{award.subtitle}</p>
       )}
       <div className="overflow-x-auto">
         <table className="w-full border-collapse" style={{ border: '1px solid #e5e7eb' }}>
@@ -176,7 +176,7 @@ export default function EndowmentAwardsPage() {
             <div key={key} className="rounded overflow-hidden border border-gray-200">
               <button
                 onClick={() => setOpenYear(isOpen ? null : key)}
-                className="w-full flex items-center justify-between px-5 py-3 font-dm-sans font-bold text-[13px] text-white transition-opacity hover:opacity-90"
+                className="w-full flex items-center justify-between px-5 py-3 font-dm-sans font-bold text-[0.9375rem] text-white transition-opacity hover:opacity-90"
                 style={{ backgroundColor: college.primaryColor }}
               >
                 <span>{label}</span>
@@ -192,7 +192,7 @@ export default function EndowmentAwardsPage() {
               )}
 
               {isOpen && awards.length === 0 && (
-                <div className="px-5 py-6 bg-white text-center font-dm-sans text-[13px] text-gray-400">
+                <div className="px-5 py-6 bg-white text-center font-dm-sans text-[0.9375rem] text-gray-400">
                   Details will be updated shortly.
                 </div>
               )}

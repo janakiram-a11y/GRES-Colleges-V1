@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
@@ -68,7 +68,7 @@ export default function PhDFacultyPage() {
       <div className="flex items-center gap-4 mb-8 p-4 rounded-xl bg-gray-50 border border-gray-200">
         <span className="font-hind font-bold text-[32px]" style={{ color: college.primaryColor }}>60+</span>
         <div>
-          <p className="font-hind font-bold text-[14px] text-gray-800">PhD-Qualified Faculty</p>
+          <p className="font-hind font-bold text-base text-gray-800">PhD-Qualified Faculty</p>
           <p className="font-dm-sans text-[12.5px] text-gray-500">Across all departments — driving research, publications, and academic excellence at GRIET</p>
         </div>
       </div>
@@ -80,7 +80,7 @@ export default function PhDFacultyPage() {
           <button
             key={d}
             onClick={() => setFilter(d)}
-            className="px-3 py-1 rounded-full font-dm-sans text-[12px] font-semibold border transition-all"
+            className="px-3 py-1 rounded-full font-dm-sans text-[0.875rem] font-semibold border transition-all"
             style={
               filter === d
                 ? { backgroundColor: college.primaryColor, color: 'white', borderColor: college.primaryColor }
@@ -96,7 +96,7 @@ export default function PhDFacultyPage() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {filtered.map(({ sno, name, dept, university, year, thesis }) => (
           <div key={sno} className="p-4 rounded-xl border border-gray-200 bg-white flex flex-col gap-1">
-            <p className="font-hind font-bold text-[13px]" style={{ color: college.primaryColor }}>{name}</p>
+            <p className="font-hind font-bold text-[0.9375rem]" style={{ color: college.primaryColor }}>{name}</p>
             <div className="flex flex-wrap gap-1.5">
               <span className="font-dm-sans text-[11px] font-semibold px-2 py-0.5 rounded-full text-white" style={{ backgroundColor: college.accentColor }}>{dept}</span>
               <span className="font-dm-sans text-[11px] px-2 py-0.5 rounded-full bg-gray-100 text-gray-600">{university}</span>

@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 const BASE = 'https://www.griet.ac.in/';
@@ -62,14 +62,14 @@ export default function LibraryUsageStatisticsPage() {
     <AcademicsLayout title="Library — Usage Statistics">
 
       <SectionLabel>E-Resources Usage Reports</SectionLabel>
-      <p className="font-dm-sans text-[13px] text-gray-500 mb-6">
+      <p className="font-dm-sans text-[0.9375rem] text-gray-500 mb-6">
         Download annual usage statistics reports for each subscribed e-resource platform.
       </p>
 
       <div className="flex flex-col gap-4">
         {STATS.map(({ name, reports }) => (
           <div key={name} className="p-5 rounded-xl border border-gray-200 bg-white">
-            <p className="font-hind font-bold text-[14px] mb-3" style={{ color: college.primaryColor }}>{name}</p>
+            <p className="font-hind font-bold text-base mb-3" style={{ color: college.primaryColor }}>{name}</p>
             <div className="flex flex-wrap gap-3">
               {reports.map(({ year, href }) => (
                 <a
@@ -77,7 +77,7 @@ export default function LibraryUsageStatisticsPage() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border font-dm-sans text-[12px] font-semibold hover:shadow-sm transition-all"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border font-dm-sans text-[0.875rem] font-semibold hover:shadow-sm transition-all"
                   style={{ color: college.primaryColor, borderColor: `${college.primaryColor}40` }}
                 >
                   <svg viewBox="0 0 16 16" fill="none" className="w-3.5 h-3.5">

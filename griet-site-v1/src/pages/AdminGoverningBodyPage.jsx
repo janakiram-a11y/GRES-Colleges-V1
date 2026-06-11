@@ -1,10 +1,10 @@
-import AdministrationLayout from '../components/AdministrationLayout';
+﻿import AdministrationLayout from '../components/AdministrationLayout';
 import college from '../theme';
 
 function SectionHeading({ children }) {
   return (
     <h2
-      className="font-hind font-bold text-2xl mb-6 pb-2 inline-block"
+      className="font-display font-bold text-xl mb-5 pb-2 inline-block"
       style={{ color: college.primaryColor, borderBottom: `2px solid ${college.accentColor}` }}
     >
       {children}
@@ -25,28 +25,33 @@ function CategoryBadge({ label }) {
 
 function MemberCard({ name, designation, photo, initials, large = false }) {
   return (
-    <div className={`flex ${large ? 'flex-col items-center text-center' : 'items-center'} gap-4 bg-white rounded-xl border border-gray-200 p-4 hover:shadow-md transition-shadow`}>
-      {photo ? (
-        <img
-          src={photo}
-          alt={name}
-          className={`${large ? 'w-28 h-28' : 'w-16 h-16'} rounded-full object-cover flex-shrink-0 border-2`}
-          style={{ borderColor: college.primaryColor }}
-          onError={(e) => {
-            e.currentTarget.style.display = 'none';
-            e.currentTarget.nextSibling.style.display = 'flex';
-          }}
-        />
-      ) : null}
-      <div
-        className={`${large ? 'w-28 h-28' : 'w-16 h-16'} rounded-full items-center justify-center text-white font-hind font-bold ${large ? 'text-2xl' : 'text-base'} flex-shrink-0 ${photo ? 'hidden' : 'flex'}`}
-        style={{ backgroundColor: college.primaryColor }}
-      >
-        {initials}
-      </div>
-      <div className={`min-w-0 ${large ? 'mt-1' : ''}`}>
-        <p className={`font-hind font-bold ${large ? 'text-[15px]' : 'text-[13px]'} leading-snug`} style={{ color: college.primaryColor }}>{name}</p>
-        <p className={`font-dm-sans ${large ? 'text-[12.5px]' : 'text-[11.5px]'} text-gray-500 mt-0.5 leading-tight`}>{designation}</p>
+    <div className="group flex flex-col bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300">
+      <div className="h-1.5 w-full" style={{ backgroundColor: college.primaryColor }} />
+      <div className="flex flex-col items-center pt-7 pb-5 px-5">
+        <div
+          className="w-24 h-24 rounded-full mb-4 flex-shrink-0"
+          style={{ background: `linear-gradient(135deg, ${college.primaryColor}22 0%, ${college.accentColor}22 100%)`, padding: '3px' }}
+        >
+          {photo ? (
+            <img
+              src={photo}
+              alt={name}
+              className="w-full h-full rounded-full object-cover object-top"
+              onError={(e) => {
+                e.currentTarget.style.display = 'none';
+                e.currentTarget.nextSibling.style.display = 'flex';
+              }}
+            />
+          ) : null}
+          <div
+            className={`w-full h-full rounded-full items-center justify-center text-white font-display font-bold text-xl ${photo ? 'hidden' : 'flex'}`}
+            style={{ backgroundColor: college.primaryColor }}
+          >
+            {initials}
+          </div>
+        </div>
+        <p className="font-display font-bold text-[1rem] leading-snug text-center mb-1" style={{ color: college.primaryColor }}>{name}</p>
+        <p className="font-body text-[0.8125rem] text-gray-500 leading-snug text-center">{designation}</p>
       </div>
     </div>
   );
@@ -114,7 +119,7 @@ export default function AdminGoverningBodyPage() {
 
         <div>
           <SectionHeading>Governing Body 2024–25</SectionHeading>
-          <p className="font-dm-sans text-[14px] leading-relaxed text-gray-600 mb-8 max-w-2xl">
+          <p className="font-dm-sans text-base leading-relaxed text-gray-600 mb-8 max-w-2xl">
             The Governing Body is the apex body of the institution, responsible for overall academic, financial,
             and administrative governance of Gokaraju Rangaraju Institute of Engineering &amp; Technology.
           </p>
@@ -139,7 +144,7 @@ export default function AdminGoverningBodyPage() {
         {/* All other members – photo grid */}
         <section>
           <h3 className="font-hind font-bold text-[16px] mb-4" style={{ color: college.primaryColor }}>Board Members</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
             {otherMembers.map((m) => (
               <MemberCard
                 key={m.sno}
@@ -161,14 +166,14 @@ export default function AdminGoverningBodyPage() {
                 <CategoryBadge label={label} />
               </div>
               <div className="overflow-x-auto rounded-lg border border-gray-200">
-                <table className="min-w-[600px] w-full text-[13px] font-dm-sans">
+                <table className="min-w-[600px] w-full text-[0.9375rem] font-dm-sans">
                   <thead>
                     <tr style={{ backgroundColor: college.primaryColor }}>
-                      <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[12px] w-10 whitespace-nowrap">S.No</th>
-                      <th className="px-4 py-2.5 text-white font-hind font-semibold text-[12px] min-w-[60px] w-16">Photo</th>
-                      <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[12px]">Name</th>
-                      <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[12px] whitespace-nowrap">Qualification</th>
-                      <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[12px]">Designation / Organisation</th>
+                      <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[0.875rem] w-10 whitespace-nowrap">S.No</th>
+                      <th className="px-4 py-2.5 text-white font-hind font-semibold text-[0.875rem] min-w-[60px] w-16">Photo</th>
+                      <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[0.875rem]">Name</th>
+                      <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[0.875rem] whitespace-nowrap">Qualification</th>
+                      <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[0.875rem]">Designation / Organisation</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -185,7 +190,7 @@ export default function AdminGoverningBodyPage() {
                             />
                           ) : (
                             <div
-                              className="w-10 h-10 rounded-full flex items-center justify-center text-white font-hind font-bold text-[12px]"
+                              className="w-10 h-10 rounded-full flex items-center justify-center text-white font-hind font-bold text-[0.875rem]"
                               style={{ backgroundColor: college.primaryColor }}
                             >
                               {m.initials}
@@ -204,29 +209,6 @@ export default function AdminGoverningBodyPage() {
           ))}
         </section>
 
-        {/* Meeting Minutes */}
-        <section>
-          <SectionHeading>Meeting Minutes</SectionHeading>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {[
-              { label: 'GB Meeting Minutes – 2023', href: '#' },
-              { label: 'GB Meeting Minutes – 2022', href: '#' },
-              { label: 'GB Meeting Minutes – 2021', href: '#' },
-            ].map(({ label, href }) => (
-              <a
-                key={label}
-                href={href}
-                className="flex items-center gap-3 px-5 py-3.5 rounded-lg border border-gray-200 bg-white hover:shadow-sm transition-shadow font-dm-sans text-[13px] font-semibold"
-                style={{ color: college.primaryColor }}
-              >
-                <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 flex-shrink-0" style={{ color: college.accentColor }}>
-                  <path fillRule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clipRule="evenodd" />
-                </svg>
-                {label}
-              </a>
-            ))}
-          </div>
-        </section>
 
       </div>
     </AdministrationLayout>

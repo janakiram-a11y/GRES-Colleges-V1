@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
@@ -10,7 +10,7 @@ function DocBtn({ label, url, variant = 'outline' }) {
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-hind font-semibold text-[12px] text-white transition-opacity hover:opacity-85"
+        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-hind font-semibold text-[0.875rem] text-white transition-opacity hover:opacity-85"
         style={{ backgroundColor: college.primaryColor }}
       >
         <PdfIcon />
@@ -23,7 +23,7 @@ function DocBtn({ label, url, variant = 'outline' }) {
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg font-hind font-semibold text-[12px] border transition-colors hover:text-white"
+      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg font-hind font-semibold text-[0.875rem] border transition-colors hover:text-white"
       style={{
         color: college.primaryColor,
         borderColor: college.primaryColor,
@@ -75,7 +75,7 @@ function YearSection({ year, docs, resultLink, defaultOpen = false }) {
         className="w-full flex items-center justify-between px-5 py-3.5 text-left transition-opacity hover:opacity-90"
         style={{ backgroundColor: college.primaryColor }}
       >
-        <span className="font-hind font-bold text-[14px] text-white tracking-wide">
+        <span className="font-hind font-bold text-base text-white tracking-wide">
           NIRF – {year}
         </span>
         <svg
@@ -97,7 +97,7 @@ function YearSection({ year, docs, resultLink, defaultOpen = false }) {
                 href={resultLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg font-hind font-semibold text-[12px] border transition-colors"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg font-hind font-semibold text-[0.875rem] border transition-colors"
                 style={{ color: college.accentColor, borderColor: college.accentColor }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.backgroundColor = college.accentColor;
@@ -219,10 +219,10 @@ export default function NIRFPage() {
       {/* Intro */}
       <section className="mb-8">
         <div className="p-5 rounded-xl bg-gray-50 border border-gray-200">
-          <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed mb-2">
+          <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed mb-2">
             The <strong>National Institutional Ranking Framework (NIRF)</strong> was approved by the Ministry of Education (formerly MHRD), Government of India, in September 2015. GRIET has participated consistently since its inception, submitting data across the <em>Overall</em>, <em>Engineering</em>, <em>Innovation</em>, and <em>SDG</em> categories.
           </p>
-          <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed">
+          <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed">
             Download the year-wise data submissions and certificates below. Each document opens in a new tab.
           </p>
         </div>
@@ -245,14 +245,14 @@ export default function NIRFPage() {
       <section className="mt-8">
         <div className="p-4 rounded-xl border border-gray-200 bg-white flex flex-col sm:flex-row sm:items-center gap-4">
           <div className="flex-1">
-            <p className="font-hind font-bold text-[13px] mb-0.5" style={{ color: college.primaryColor }}>NIRF India Portal</p>
-            <p className="font-dm-sans text-[12px] text-gray-600">View official NIRF rankings and all institutional data on the national portal.</p>
+            <p className="font-hind font-bold text-[0.9375rem] mb-0.5" style={{ color: college.primaryColor }}>NIRF India Portal</p>
+            <p className="font-dm-sans text-[0.875rem] text-gray-600">View official NIRF rankings and all institutional data on the national portal.</p>
           </div>
           <a
             href="https://www.nirfindia.org/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-hind font-bold text-[12px] text-white flex-shrink-0 transition-opacity hover:opacity-85"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-hind font-bold text-[0.875rem] text-white flex-shrink-0 transition-opacity hover:opacity-85"
             style={{ backgroundColor: college.accentColor }}
           >
             <ExternalIcon />

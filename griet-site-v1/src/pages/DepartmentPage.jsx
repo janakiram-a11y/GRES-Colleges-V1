@@ -92,7 +92,7 @@ function DeptStatsStrip({ dept }) {
         {stats.map((item, i) => (
           <div key={i} className="flex items-center gap-8">
             <span
-              className="font-hind font-semibold text-[14px] leading-5"
+              className="font-hind font-semibold text-base leading-5"
               style={{ color: college.primaryColor }}
             >
               {item}
@@ -182,13 +182,13 @@ function NewsEventsSection({ dept }) {
               className="w-full h-1 rounded-full mb-4"
               style={{ backgroundColor: dept.bannerFrom }}
             />
-            <p className="font-hind font-semibold text-[13px] leading-snug group-hover:underline"
+            <p className="font-hind font-semibold text-[0.9375rem] leading-snug group-hover:underline"
               style={{ color: college.primaryColor }}>
               {item.title}
               {item.isNew && <NewsBadge />}
             </p>
             {item.desc && (
-              <p className="mt-2 font-dm-sans text-[12px] text-gray-500 leading-relaxed">{item.desc}</p>
+              <p className="mt-2 font-dm-sans text-[0.875rem] text-gray-500 leading-relaxed">{item.desc}</p>
             )}
           </a>
         ))}
@@ -215,7 +215,7 @@ function AnnouncementsPanel({ dept }) {
           <a
             key={i}
             href="#"
-            className="block px-4 py-3 border-b last:border-b-0 border-gray-100 font-dm-sans text-[12px] leading-snug text-gray-700 hover:bg-gray-50 transition-colors"
+            className="block px-4 py-3 border-b last:border-b-0 border-gray-100 font-dm-sans text-[0.875rem] leading-snug text-gray-700 hover:bg-gray-50 transition-colors"
           >
             {item}
           </a>
@@ -260,7 +260,7 @@ function DeptHighlights({ dept }) {
                 {count}
               </span>
               <span className="font-hind font-semibold text-base text-white">{label}</span>
-              {desc && <span className="font-dm-sans text-[12px] text-white/70 leading-relaxed">{desc}</span>}
+              {desc && <span className="font-dm-sans text-[0.875rem] text-white/70 leading-relaxed">{desc}</span>}
             </div>
           ))}
         </div>
@@ -305,7 +305,7 @@ function DeptFeatureCards({ dept }) {
                   </div>
                   <h3 className="font-dm-sans font-bold text-base" style={{ color: college.primaryColor }}>{card.title}</h3>
                 </div>
-                <p className="font-dm-sans text-[13px] leading-relaxed" style={{ color: '#474747' }}>{card.desc}</p>
+                <p className="font-dm-sans text-[0.9375rem] leading-relaxed" style={{ color: '#474747' }}>{card.desc}</p>
               </div>
             );
           })}
@@ -322,12 +322,12 @@ function AlumniSection({ dept }) {
     <section className="py-12 border-t border-gray-100">
       <SectionHeading>Notable Placed Alumni</SectionHeading>
       <div className="overflow-x-auto mt-2">
-        <table className="w-full text-[13px] font-dm-sans border border-gray-200 rounded-lg overflow-hidden">
+        <table className="w-full text-[0.9375rem] font-dm-sans border border-gray-200 rounded-lg overflow-hidden">
           <thead>
             <tr style={{ backgroundColor: college.primaryColor }}>
-              <th className="text-left px-5 py-3 text-white font-hind font-semibold text-[12px]">Name</th>
-              <th className="text-left px-5 py-3 text-white font-hind font-semibold text-[12px]">Role</th>
-              <th className="text-left px-5 py-3 text-white font-hind font-semibold text-[12px]">Company</th>
+              <th className="text-left px-5 py-3 text-white font-hind font-semibold text-[0.875rem]">Name</th>
+              <th className="text-left px-5 py-3 text-white font-hind font-semibold text-[0.875rem]">Role</th>
+              <th className="text-left px-5 py-3 text-white font-hind font-semibold text-[0.875rem]">Company</th>
             </tr>
           </thead>
           <tbody>

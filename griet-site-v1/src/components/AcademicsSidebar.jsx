@@ -24,7 +24,7 @@ export default function AcademicsSidebar() {
         className="rounded-t-lg px-5 py-3"
         style={{ background: `linear-gradient(135deg, ${college.primaryColor} 0%, #3a0b1a 100%)` }}
       >
-        <span className="font-hind font-bold text-[13px] text-white tracking-wide">
+        <span className="font-display font-bold text-[0.8125rem] text-white tracking-wide">
           Important Links
         </span>
       </div>
@@ -45,7 +45,7 @@ export default function AcademicsSidebar() {
                   style={{ backgroundColor: isActive ? college.primaryColor : college.accentColor }}
                 />
                 <span
-                  className="font-dm-sans text-[13px] leading-snug"
+                  className="font-display text-[0.9375rem] leading-snug"
                   style={{
                     color: isActive ? college.primaryColor : '#374151',
                     fontWeight: isActive ? 700 : 500,

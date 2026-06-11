@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 const MODULES = [
@@ -80,13 +80,13 @@ export default function CLSPage() {
       {/* About CLS */}
       <section className="mb-8">
         <div className="p-5 rounded-xl bg-gray-50 border border-gray-200">
-          <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed mb-3">
+          <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed mb-3">
             The <strong>Centre for Leadership Studies (CLS)</strong> at GRIET was established with the mission of grooming well-rounded leaders who are equipped with strong ethical values, effective communication, and sound management skills. The centre recognises that technical excellence alone is insufficient — tomorrow's engineers and managers must also be capable, principled leaders.
           </p>
-          <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed mb-3">
+          <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed mb-3">
             The CLS resource compendium has been compiled by <strong>Dr. K V S Raju</strong> and <strong>Dr. Jagannadha Swamy</strong>, both Professors at GRIET, drawing on their extensive experience in academia and industry. The collection comprises <strong>36 resource modules</strong> spanning leadership, ethics, communication, and management — designed to complement the technical curriculum and develop holistic professionals.
           </p>
-          <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed">
+          <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed">
             These modules are made available to all students and faculty as self-study resources and are used in workshops, seminars, and co-curricular programmes organised by the centre.
           </p>
         </div>
@@ -101,8 +101,8 @@ export default function CLSPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {MODULES.map(({ title, desc }) => (
             <div key={title} className="p-4 rounded-xl border border-gray-200 bg-white">
-              <p className="font-hind font-bold text-[13px] mb-1" style={{ color: college.primaryColor }}>{title}</p>
-              <p className="font-dm-sans text-[12px] text-gray-600 leading-relaxed">{desc}</p>
+              <p className="font-hind font-bold text-[0.9375rem] mb-1" style={{ color: college.primaryColor }}>{title}</p>
+              <p className="font-dm-sans text-[0.875rem] text-gray-600 leading-relaxed">{desc}</p>
             </div>
           ))}
         </div>
@@ -113,7 +113,7 @@ export default function CLSPage() {
         <SectionLabel>Downloads</SectionLabel>
         <div className="p-5 rounded-xl bg-gray-50 border border-gray-200 flex flex-col sm:flex-row sm:items-center gap-4">
           <div className="flex-1">
-            <p className="font-hind font-bold text-[13px] mb-1" style={{ color: college.primaryColor }}>36 PDF Leadership Resources</p>
+            <p className="font-hind font-bold text-[0.9375rem] mb-1" style={{ color: college.primaryColor }}>36 PDF Leadership Resources</p>
             <p className="font-dm-sans text-[12.5px] text-gray-600 leading-relaxed">
               All 36 CLS resource modules are available as downloadable PDFs on the official GRIET CLS page. Topics cover leadership, ethics, communication, management, entrepreneurship, and more.
             </p>
@@ -143,8 +143,8 @@ export default function CLSPage() {
                 {name.split(' ').find(w => w.startsWith('Dr')) ? name.split(' ')[2]?.[0] ?? name[0] : name[0]}
               </div>
               <div>
-                <p className="font-hind font-bold text-[13px]" style={{ color: college.primaryColor }}>{name}</p>
-                <p className="font-dm-sans text-[12px] text-gray-500">{designation}, GRIET</p>
+                <p className="font-hind font-bold text-[0.9375rem]" style={{ color: college.primaryColor }}>{name}</p>
+                <p className="font-dm-sans text-[0.875rem] text-gray-500">{designation}, GRIET</p>
               </div>
             </div>
           ))}

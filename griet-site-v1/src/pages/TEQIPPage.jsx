@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 const GRANT_AREAS = [
@@ -121,7 +121,7 @@ export default function TEQIPPage() {
                 >
                   {title}
                 </h3>
-                <p className="text-gray-600 text-[13px] leading-relaxed">{desc}</p>
+                <p className="text-gray-600 text-[0.9375rem] leading-relaxed">{desc}</p>
               </div>
             ))}
           </div>
@@ -143,7 +143,7 @@ export default function TEQIPPage() {
               <p className="font-hind font-semibold text-gray-800 text-[15px]">
                 Sri V. Vijaya Rama Raju
               </p>
-              <p className="text-gray-500 text-[13px]">TEQIP Phase-II Coordinator, GRIET</p>
+              <p className="text-gray-500 text-[0.9375rem]">TEQIP Phase-II Coordinator, GRIET</p>
             </div>
           </div>
         </section>
@@ -185,7 +185,7 @@ export default function TEQIPPage() {
                   ↓
                 </span>
                 <span
-                  className="font-hind text-[14px] font-medium group-hover:underline"
+                  className="font-hind text-base font-medium group-hover:underline"
                   style={{ color: college.primaryColor }}
                 >
                   {label}

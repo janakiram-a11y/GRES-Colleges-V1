@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
@@ -82,7 +82,7 @@ export default function SupportServicesPage() {
   return (
     <AcademicsLayout title="Support Services">
 
-      <p className="font-dm-sans text-[13px] text-gray-600 leading-relaxed mb-8">
+      <p className="font-dm-sans text-[0.9375rem] text-gray-600 leading-relaxed mb-8">
         GRIET provides a comprehensive range of support services designed to enhance the quality of campus life,
         ensure student well-being, and enable a focused and comfortable learning environment.
       </p>
@@ -92,13 +92,13 @@ export default function SupportServicesPage() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {SERVICES.map(({ title, desc, link, internal: isInternal }) => (
           <div key={title} className="p-5 rounded-xl border border-gray-200 bg-white flex flex-col gap-2">
-            <p className="font-hind font-bold text-[13px]" style={{ color: college.primaryColor }}>{title}</p>
-            <p className="font-dm-sans text-[12px] text-gray-600 leading-relaxed flex-1">{desc}</p>
+            <p className="font-hind font-bold text-[0.9375rem]" style={{ color: college.primaryColor }}>{title}</p>
+            <p className="font-dm-sans text-[0.875rem] text-gray-600 leading-relaxed flex-1">{desc}</p>
             {link && (
               isInternal ? (
                 <Link
                   to={link}
-                  className="font-dm-sans text-[12px] font-semibold hover:underline self-start mt-1"
+                  className="font-dm-sans text-[0.875rem] font-semibold hover:underline self-start mt-1"
                   style={{ color: college.accentColor }}
                 >
                   Learn more →
@@ -108,7 +108,7 @@ export default function SupportServicesPage() {
                   href={link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-dm-sans text-[12px] font-semibold hover:underline self-start mt-1"
+                  className="font-dm-sans text-[0.875rem] font-semibold hover:underline self-start mt-1"
                   style={{ color: college.accentColor }}
                 >
                   Learn more →

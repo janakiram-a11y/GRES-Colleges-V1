@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import college from '../theme';
 import CollegeLayout from '../CollegeLayout';
 import { AcademicsBanner } from '../components/AcademicsLayout';
@@ -18,7 +18,7 @@ function YearPillRow({ activeYear, onYearSelect }) {
             <button
               key={year}
               onClick={() => onYearSelect(year)}
-              className="flex-shrink-0 px-4 py-1.5 rounded-full border font-dm-sans text-[13px] font-semibold transition-colors"
+              className="flex-shrink-0 px-4 py-1.5 rounded-full border font-dm-sans text-[0.9375rem] font-semibold transition-colors"
               style={{
                 backgroundColor: isActive ? college.primaryColor : '#fff',
                 borderColor: isActive ? college.primaryColor : '#d1d5db',
@@ -43,7 +43,7 @@ function PlacementSidebar({ activeYear, onYearSelect }) {
           className="rounded-t-lg px-5 py-3"
           style={{ background: `linear-gradient(135deg, ${college.primaryColor} 0%, #3a0b1a 100%)` }}
         >
-          <span className="font-hind font-bold text-[13px] text-white tracking-wide">
+          <span className="font-hind font-bold text-[0.9375rem] text-white tracking-wide">
             Yearwise Placement Details
           </span>
         </div>
@@ -64,7 +64,7 @@ function PlacementSidebar({ activeYear, onYearSelect }) {
                     style={{ backgroundColor: isActive ? college.primaryColor : college.accentColor }}
                   />
                   <span
-                    className="font-dm-sans text-[13px]"
+                    className="font-dm-sans text-[0.9375rem]"
                     style={{ color: isActive ? college.primaryColor : '#374151', fontWeight: isActive ? 700 : 500 }}
                   >
                     {year}
@@ -119,14 +119,14 @@ function YearStatsPanel({ year }) {
         ))}
       </div>
       <div>
-        <h4 className="font-hind font-semibold text-[13px] mb-3 uppercase tracking-wide" style={{ color: college.primaryColor }}>
+        <h4 className="font-hind font-semibold text-[0.9375rem] mb-3 uppercase tracking-wide" style={{ color: college.primaryColor }}>
           Top Recruiters – {year}
         </h4>
         {/* Fix 6: company logos/tags responsive gap */}
         <div className="flex flex-wrap gap-2 sm:gap-3">
           {stats.topRecruiters.map((r) => (
             <span key={r}
-              className="px-4 py-2 rounded-full border font-dm-sans text-[12px] font-semibold text-gray-700 bg-white hover:shadow-sm transition-shadow"
+              className="px-4 py-2 rounded-full border font-dm-sans text-[0.875rem] font-semibold text-gray-700 bg-white hover:shadow-sm transition-shadow"
               style={{ borderColor: college.accentColor }}>
               {r}
             </span>
@@ -192,7 +192,7 @@ export default function PlacementsPage() {
             {/* About the Cell */}
             <section>
               <SectionHeading size="xl">Training &amp; Placements Cell</SectionHeading>
-              <div className="space-y-3 font-hind font-normal text-[14px] leading-relaxed text-gray-700">
+              <div className="space-y-3 font-hind font-normal text-base leading-relaxed text-gray-700">
                 <p>
                   The Training &amp; Placements Cell of GRIET:
                 </p>
@@ -261,7 +261,7 @@ export default function PlacementsPage() {
               <SectionHeading size="xl">Contact Information</SectionHeading>
               {/* Fix 7: overflow-x-auto wrapper on table */}
               <div className="overflow-x-auto">
-                <table className="w-full font-dm-sans text-[13px] border border-gray-200 rounded-lg overflow-hidden">
+                <table className="w-full font-dm-sans text-[0.9375rem] border border-gray-200 rounded-lg overflow-hidden">
                   <tbody>
                     {[
                       { role: 'Dean Training & Placements', name: 'Dr. K. Butchi Raju', contact: '7702964747' },
@@ -315,10 +315,10 @@ export default function PlacementsPage() {
                       {s.step}
                     </span>
                     <div>
-                      <h3 className="font-hind font-semibold text-[14px] mb-1" style={{ color: college.primaryColor }}>
+                      <h3 className="font-hind font-semibold text-base mb-1" style={{ color: college.primaryColor }}>
                         {s.title}
                       </h3>
-                      <p className="font-hind font-normal text-[12px] text-gray-600 leading-relaxed">{s.desc}</p>
+                      <p className="font-hind font-normal text-[0.875rem] text-gray-600 leading-relaxed">{s.desc}</p>
                     </div>
                   </div>
                 ))}

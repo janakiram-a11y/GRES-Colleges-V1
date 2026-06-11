@@ -109,7 +109,7 @@ const PORTALS = [
 function ColHeading({ children, primaryColor, accentColor }) {
   return (
     <div className="mb-5">
-      <h4 className="font-hind font-bold text-[12px] uppercase tracking-[2px] mb-1" style={{ color: primaryColor }}>
+      <h4 className="font-display font-semibold text-[1.125rem] leading-snug mb-1" style={{ color: primaryColor }}>
         {children}
       </h4>
       <div className="w-6 h-[2px] rounded-full" style={{ backgroundColor: accentColor }} />
@@ -120,7 +120,7 @@ function ColHeading({ children, primaryColor, accentColor }) {
 function FooterLink({ item, college }) {
   const { label, href, external } = item;
   const isExt = external || (href && href.startsWith('http'));
-  const className = 'group flex items-start gap-2 font-dm-sans text-[12px] leading-[20px] text-gray-600 transition-colors hover:text-gray-900';
+  const className = 'group flex items-start gap-2 font-display font-normal text-[0.9375rem] leading-snug text-gray-600 transition-colors hover:text-gray-900';
   const dot = <span className="mt-[7px] w-1 h-1 rounded-full flex-shrink-0 opacity-50 group-hover:opacity-100 transition-opacity" style={{ backgroundColor: college.accentColor }} />;
   if (isExt) {
     return (
@@ -294,7 +294,7 @@ export default function Footer({ college }) {
           {/* Brand */}
           <div className="flex flex-col gap-4">
             <img src={college.logo} alt={college.shortName + ' Logo'} className="w-[180px] object-contain" />
-            <p className="font-dm-sans text-[12.5px] leading-relaxed text-gray-600 max-w-xs">
+            <p className="font-body text-base leading-[1.6] text-gray-600 max-w-xs">
               {college.tagline}
             </p>
             <div className="flex items-center gap-2 mt-1">
@@ -326,13 +326,13 @@ export default function Footer({ college }) {
           {/* Contact */}
           <div>
             <ColHeading primaryColor={college.primaryColor} accentColor={college.accentColor}>Contact Us</ColHeading>
-            <div className="flex flex-col gap-3 font-dm-sans text-[12.5px] text-gray-600 leading-relaxed">
+            <div className="flex flex-col gap-3 font-display text-[0.9375rem] text-gray-600 leading-snug">
               <span>{college.address}</span>
               <span>Tel: {college.phone}</span>
               <a href={'mailto:' + college.email} className="transition-colors hover:text-gray-900" style={{ color: college.accentColor }}>
                 {college.email}
               </a>
-              <a href="https://www.griet.ac.in/contactus.php" target="_blank" rel="noopener noreferrer" className="font-semibold text-[12px] transition-colors hover:underline" style={{ color: college.primaryColor }}>
+              <a href="https://www.griet.ac.in/contactus.php" target="_blank" rel="noopener noreferrer" className="font-semibold text-sm transition-colors hover:underline" style={{ color: college.primaryColor }}>
                 View Full Contact Page →
               </a>
             </div>
@@ -354,24 +354,24 @@ export default function Footer({ college }) {
           className="py-5 flex flex-col sm:flex-row justify-between items-center gap-3 flex-wrap"
           style={{ borderTop: '1px solid rgba(91,16,39,0.08)' }}
         >
-          <span className="font-dm-sans text-[12px] text-gray-400">
+          <span className="font-display text-sm text-gray-400">
             © 2025 {college.fullName}. All rights reserved.
           </span>
           <div className="flex items-center gap-5 flex-wrap">
-            <Link to="/mandatory-disclosures" className="font-dm-sans text-[12px] text-gray-400 hover:text-gray-700 transition-colors">
+            <Link to="/mandatory-disclosures" className="font-display text-sm text-gray-400 hover:text-gray-700 transition-colors">
               Mandatory Disclosures
             </Link>
-            <Link to="/nirf" className="font-dm-sans text-[12px] text-gray-400 hover:text-gray-700 transition-colors">
+            <Link to="/nirf" className="font-display text-sm text-gray-400 hover:text-gray-700 transition-colors">
               NIRF Rankings
             </Link>
-            <Link to="/accreditations" className="font-dm-sans text-[12px] text-gray-400 hover:text-gray-700 transition-colors">
+            <Link to="/accreditations" className="font-display text-sm text-gray-400 hover:text-gray-700 transition-colors">
               Accreditations
             </Link>
             <a
               href="https://www.griet.ac.in"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-dm-sans text-[12px] text-gray-400 hover:text-gray-700 transition-colors"
+              className="font-display text-sm text-gray-400 hover:text-gray-700 transition-colors"
             >
               Official Website ↗
             </a>

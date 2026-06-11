@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 const RULES = [
@@ -69,7 +69,7 @@ export default function LibraryRulesPage() {
       <div className="flex flex-col gap-6">
         {RULES.map(({ heading, items }) => (
           <div key={heading} className="p-5 rounded-xl bg-gray-50 border border-gray-200">
-            <p className="font-hind font-bold text-[14px] mb-3" style={{ color: college.primaryColor }}>
+            <p className="font-hind font-bold text-base mb-3" style={{ color: college.primaryColor }}>
               {heading}
             </p>
             <ul className="flex flex-col gap-2">

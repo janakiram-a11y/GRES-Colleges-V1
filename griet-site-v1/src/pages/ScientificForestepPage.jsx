@@ -1,4 +1,4 @@
-import { AcademicsBanner } from '../components/AcademicsLayout';
+﻿import { AcademicsBanner } from '../components/AcademicsLayout';
 import CollegeLayout from '../CollegeLayout';
 import college from '../theme';
 
@@ -64,7 +64,7 @@ export default function ScientificForestepPage() {
           <section className="mb-8">
             <SectionLabel>About</SectionLabel>
             <div className="p-5 rounded-xl bg-gray-50 border border-gray-200">
-              <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed">
+              <p className="font-dm-sans text-[0.9375rem] text-gray-700 leading-relaxed">
                 <strong>Scientific Forestep</strong> is GRIET's science and technology exploration
                 club. It fosters scientific temperament, curiosity, and evidence-based thinking among
                 engineering students. The club creates a vibrant community of science enthusiasts who
@@ -84,12 +84,12 @@ export default function ScientificForestepPage() {
                   className="p-4 rounded-xl border border-gray-200 bg-white"
                 >
                   <p
-                    className="font-hind font-bold text-[13px] mb-1"
+                    className="font-hind font-bold text-[0.9375rem] mb-1"
                     style={{ color: college.primaryColor }}
                   >
                     {title}
                   </p>
-                  <p className="font-dm-sans text-[12px] text-gray-600 leading-relaxed">
+                  <p className="font-dm-sans text-[0.875rem] text-gray-600 leading-relaxed">
                     {desc}
                   </p>
                 </div>
@@ -121,10 +121,10 @@ export default function ScientificForestepPage() {
             <SectionLabel>Contact</SectionLabel>
             <div className="p-5 rounded-xl border border-gray-200 bg-white flex flex-col sm:flex-row sm:items-center gap-3">
               <div className="flex-1">
-                <p className="font-hind font-bold text-[13px] mb-0.5" style={{ color: college.primaryColor }}>
+                <p className="font-hind font-bold text-[0.9375rem] mb-0.5" style={{ color: college.primaryColor }}>
                   Scientific Forestep Club
                 </p>
-                <p className="font-dm-sans text-[12px] text-gray-600">
+                <p className="font-dm-sans text-[0.875rem] text-gray-600">
                   Gokaraju Rangaraju Institute of Engineering and Technology, Hyderabad
                 </p>
               </div>

@@ -1,4 +1,4 @@
-import AcademicsLayout from '../components/AcademicsLayout';
+﻿import AcademicsLayout from '../components/AcademicsLayout';
 import college from '../theme';
 
 const REPROGRAPHY = [
@@ -30,7 +30,7 @@ export default function LibraryOtherFacilitiesPage() {
               key={name}
               className="flex flex-col gap-2 p-5 rounded-xl border border-gray-200 bg-white"
             >
-              <p className="font-hind font-bold text-[14px]" style={{ color: college.primaryColor }}>{name}</p>
+              <p className="font-hind font-bold text-base" style={{ color: college.primaryColor }}>{name}</p>
               <p className="font-dm-sans text-[12.5px] text-gray-500">{desc}</p>
             </div>
           ))}

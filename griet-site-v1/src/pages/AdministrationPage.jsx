@@ -4,7 +4,7 @@ import college from '../theme';
 function SectionHeading({ children }) {
   return (
     <h2
-      className="font-hind font-bold text-2xl mb-6 pb-2 inline-block"
+      className="font-display font-bold text-xl mb-5 pb-2 inline-block"
       style={{ color: college.primaryColor, borderBottom: `2px solid ${college.accentColor}` }}
     >
       {children}
@@ -22,12 +22,12 @@ function LeaderCard({ name, role, qualification, desc, badge, photo }) {
             <img
               src={photo}
               alt={name}
-              className="w-16 h-16 rounded-full object-cover flex-shrink-0 border-2"
+              className="w-24 h-24 rounded-full object-cover object-top flex-shrink-0 border-[3px]"
               style={{ borderColor: college.primaryColor }}
             />
           ) : (
             <div
-              className="w-16 h-16 rounded-full flex items-center justify-center text-white font-hind font-bold text-2xl flex-shrink-0"
+              className="w-24 h-24 rounded-full flex items-center justify-center text-white font-hind font-bold text-3xl flex-shrink-0"
               style={{ backgroundColor: college.primaryColor }}
             >
               {name.charAt(0)}
@@ -37,24 +37,16 @@ function LeaderCard({ name, role, qualification, desc, badge, photo }) {
             <h3 className="font-hind font-bold text-[18px] leading-snug" style={{ color: college.primaryColor }}>
               {name}
             </h3>
-            <p className="font-dm-sans text-[13px] font-semibold mt-0.5" style={{ color: college.accentColor }}>
+            <p className="font-dm-sans text-[0.9375rem] font-semibold mt-0.5" style={{ color: college.accentColor }}>
               {role}
             </p>
             {qualification && (
-              <p className="font-dm-sans text-[12px] text-gray-500 mt-0.5">{qualification}</p>
-            )}
-            {badge && (
-              <span
-                className="inline-block mt-2 px-2.5 py-0.5 rounded-full text-[11px] font-hind font-semibold text-white"
-                style={{ backgroundColor: college.accentColor }}
-              >
-                {badge}
-              </span>
+              <p className="font-dm-sans text-[0.875rem] text-gray-500 mt-0.5">{qualification}</p>
             )}
           </div>
         </div>
         {desc && (
-          <p className="mt-4 font-dm-sans text-[14px] leading-relaxed text-gray-600 border-t border-gray-100 pt-4">
+          <p className="mt-4 font-dm-sans text-base leading-relaxed text-gray-600 border-t border-gray-100 pt-4">
             {desc}
           </p>
         )}
@@ -90,7 +82,7 @@ export default function AdministrationPage() {
 
         <div>
           <SectionHeading>Management</SectionHeading>
-          <p className="font-dm-sans text-[14px] leading-relaxed text-gray-600 mb-8 max-w-2xl">
+          <p className="font-dm-sans text-base leading-relaxed text-gray-600 mb-8 max-w-2xl">
             Gokaraju Rangaraju Institute of Engineering &amp; Technology is governed by a visionary
             leadership committed to academic excellence, innovation, and the all-round development of students.
           </p>
@@ -106,10 +98,10 @@ export default function AdministrationPage() {
           <h3 className="font-hind font-bold text-[18px] mb-1" style={{ color: college.primaryColor }}>
             The Inspirer
           </h3>
-          <p className="font-dm-sans text-[13px] font-semibold mb-3" style={{ color: college.accentColor }}>
+          <p className="font-dm-sans text-[0.9375rem] font-semibold mb-3" style={{ color: college.accentColor }}>
             Late Shri Gokaraju Rangaraju Garu
           </p>
-          <p className="font-dm-sans text-[14px] leading-relaxed text-gray-700">
+          <p className="font-dm-sans text-base leading-relaxed text-gray-700">
             Late Shri Gokaraju Rangaraju Garu is the inspiration for the establishment of Gokaraju Rangaraju
             Educational Society. He served as a Member of Legislative Assembly from Undi Constituency in United
             Andhra Pradesh and as Chairman of the Board of Trustees of Tirumala Tirupathi Devasthanam twice. A
@@ -122,7 +114,7 @@ export default function AdministrationPage() {
         {/* Society */}
         <section>
           <SectionHeading>The Sponsoring Society</SectionHeading>
-          <p className="font-dm-sans text-[14px] leading-relaxed text-gray-700">
+          <p className="font-dm-sans text-base leading-relaxed text-gray-700">
             Dr. Gokaraju Rangaraju Garu started the <strong>Gokaraju Rangaraju Educational Society (GRES)</strong> in
             fond memory of his father, Late Shri Gokaraju Rangaraju Garu, with the motto to{' '}
             <em>"Promote modern and scientific education and to help develop the character of the younger generation

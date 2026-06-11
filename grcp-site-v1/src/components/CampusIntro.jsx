@@ -1,83 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
-
-const YOUTUBE_VIDEO_ID = 'AmszlV1een0';
-
-/* ── Load the YouTube IFrame API script once globally ─────────────────── */
-function loadYTApi() {
-  if (window.YT && window.YT.Player) return Promise.resolve();
-  if (window.__ytApiLoading) return window.__ytApiLoading;
-
-  window.__ytApiLoading = new Promise((resolve) => {
-    const tag = document.createElement('script');
-    tag.src = 'https://www.youtube.com/iframe_api';
-    document.head.appendChild(tag);
-    window.onYouTubeIframeAPIReady = () => {
-      resolve();
-      delete window.__ytApiLoading;
-    };
-  });
-  return window.__ytApiLoading;
-}
-
 export default function CampusIntro({ college }) {
-  const containerRef  = useRef(null); // IntersectionObserver target
-  const playerRef     = useRef(null); // YT.Player instance
-  const iframeId      = 'grcp-yt-player';
-  const [ready, setReady] = useState(false);
-
-  /* ── 1. Load YT API + create player ──────────────────────────────────── */
-  useEffect(() => {
-    let player;
-    loadYTApi().then(() => {
-      player = new window.YT.Player(iframeId, {
-        videoId: YOUTUBE_VIDEO_ID,
-        playerVars: {
-          autoplay:       0,     // controlled by IntersectionObserver
-          mute:           1,     // required for autoplay in browsers
-          loop:           1,
-          playlist:       YOUTUBE_VIDEO_ID, // needed for loop
-          controls:       1,
-          rel:            0,     // no related videos
-          modestbranding: 1,
-          playsinline:    1,
-          cc_load_policy: 0,
-          iv_load_policy: 3,     // hide video annotations
-        },
-        events: {
-          onReady: () => {
-            playerRef.current = player;
-            setReady(true);
-          },
-        },
-      });
-    });
-    return () => {
-      try { player?.destroy(); } catch (_) {}
-    };
-  }, []);
-
-  /* ── 2. IntersectionObserver — play/pause on scroll ──────────────────── */
-  useEffect(() => {
-    if (!ready) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        const p = playerRef.current;
-        if (!p) return;
-        try {
-          if (entry.isIntersecting) {
-            p.playVideo();
-          } else {
-            p.pauseVideo();
-          }
-        } catch (_) {}
-      },
-      { threshold: 0.3 } // trigger when 30% of section is visible
-    );
-
-    if (containerRef.current) observer.observe(containerRef.current);
-    return () => observer.disconnect();
-  }, [ready]);
+  const videoSrc = college.campusVideoSrc;
 
   return (
     <section className="w-full bg-white section-pad">
@@ -95,7 +17,6 @@ export default function CampusIntro({ college }) {
 
         {/* ── Video container ──────────────────────────────────────────── */}
         <div
-          ref={containerRef}
           className="w-full rounded-xl overflow-hidden"
           style={{
             position: 'relative',
@@ -104,11 +25,21 @@ export default function CampusIntro({ college }) {
             backgroundColor: '#000',
           }}
         >
-          {/* YouTube IFrame — player is attached to this div by the API */}
-          <div
-            id={iframeId}
-            style={{ width: '100%', height: '100%' }}
-          />
+          {videoSrc ? (
+            <iframe
+              src={videoSrc}
+              title="GRCP Campus Video"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+              style={{ width: '100%', height: '100%', border: 'none' }}
+            />
+          ) : (
+            <img
+              src={college.campusIntroImage}
+              alt="GRCP Campus"
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+          )}
         </div>
 
       </div>

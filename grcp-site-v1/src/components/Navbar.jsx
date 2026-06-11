@@ -42,7 +42,7 @@ export default function Navbar({ college }) {
         {/* Single row: college logo | divider | auto-scroll strip */}
         <div
           className="max-w-[1320px] mx-auto px-4 sm:px-8 lg:px-[60px] flex items-center"
-          style={{ minHeight: 130 }}
+          style={{ minHeight: 100 }}
         >
 
           {/* ── College logo ─────────────────────────────────────────────── */}
@@ -53,8 +53,8 @@ export default function Navbar({ college }) {
               style={{
                 height: 'auto',
                 width: 'auto',
-                maxHeight: 120,
-                maxWidth: 420,
+                maxHeight: 150,
+                maxWidth: 480,
                 objectFit: 'contain',
                 display: 'block',
               }}

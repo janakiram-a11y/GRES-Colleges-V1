@@ -57,12 +57,12 @@
   --type-h5:       1.25rem / 1.75rem;   /* 20 / 28 */
   --type-h6:       1.125rem / 1.625rem; /* 18 / 26 */
   --type-body-lg:  1.125rem / 1.75rem;  /* 18 / 28 */
-  --type-body:     1rem / 1.625rem;     /* 16 / 26 */
-  --type-body-sm:  1rem / 1.625rem;      /* 16 / 26 — body floor */
-  --type-body-xs:  0.875rem / 1.375rem;  /* 14 / 22 — supporting/secondary */
+  --type-body:     1.0625rem / 1.75rem;  /* 17 / 28 */
+  --type-body-sm:  1.0625rem / 1.75rem;  /* 17 / 28 — body floor */
+  --type-body-xs:  0.9375rem / 1.5rem;   /* 15 / 24 — supporting/secondary */
   --type-sub:      1.25rem / 1.75rem;   /* 20 / 28 */
-  --type-ui:       0.875rem / 1.375rem; /* 14 / 22 */
-  --type-ui-sm:    0.8125rem / 1.25rem; /* 13 / 20 */
+  --type-ui:       0.9375rem / 1.5rem;  /* 15 / 24 */
+  --type-ui-sm:    0.875rem / 1.375rem; /* 14 / 22 */
   --type-cap:      0.75rem / 1.125rem;  /* 12 / 18 */
   --type-label:    0.6875rem / 1rem;    /* 11 / 16 */
 }
@@ -76,8 +76,8 @@ html {
 
 body {
   font-family: 'Hind', Tahoma, sans-serif;
-  font-size: 1rem;
-  line-height: 1.625rem;
+  font-size: 1.0625rem;
+  line-height: 1.75rem;
   color: var(--text-body);
 }
 
@@ -103,8 +103,8 @@ body {
   }
   p {
     font-family: 'Hind', Tahoma, sans-serif;
-    font-size: 1rem;
-    line-height: 1.625rem;
+    font-size: 1.0625rem;
+    line-height: 1.75rem;
     font-weight: 400;
     color: var(--text-body);
   }
@@ -187,20 +187,20 @@ body {
     color: var(--text-body);
   }
 
-  /* Standard body — 16px */
+  /* Standard body — 17px */
   .t-body {
     font-family: 'Hind', Tahoma, sans-serif;
-    font-size: 1rem;         /* 16px */
-    line-height: 1.625rem;
+    font-size: 1.0625rem;    /* 17px */
+    line-height: 1.75rem;
     font-weight: 400;
     color: var(--text-body);
   }
 
-  /* Small body — 16px (body floor) */
+  /* Small body — 17px (body floor) */
   .t-body-sm {
     font-family: 'Hind', Tahoma, sans-serif;
-    font-size: 1rem;         /* 16px */
-    line-height: 1.625rem;
+    font-size: 1.0625rem;    /* 17px */
+    line-height: 1.75rem;
     font-weight: 400;
     color: var(--text-body);
   }

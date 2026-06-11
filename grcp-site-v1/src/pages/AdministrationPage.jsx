@@ -517,7 +517,9 @@ function CommitteeMemberTable({ members, cols }) {
               <td className="font-display font-semibold text-type-ui px-5 py-3.5 border-b" style={{ color: pc, borderColor: `${pc}10` }}>{m.name}</td>
               <td className="font-body text-type-ui text-[#474747] px-5 py-3.5 border-b" style={{ borderColor: `${pc}10` }}>{m.designation}</td>
               {m.position !== undefined && (
-                <td className="font-body text-type-ui text-[#474747] px-5 py-3.5 border-b" style={{ borderColor: `${pc}10` }}>{m.position}</td>
+                <td className="px-5 py-3.5 border-b" style={{ borderColor: `${pc}10` }}>
+                  <RoleBadge role={m.position} />
+                </td>
               )}
               {m.email !== undefined && (
                 <td className="px-5 py-3.5 border-b" style={{ borderColor: `${pc}10` }}>
@@ -531,6 +533,27 @@ function CommitteeMemberTable({ members, cols }) {
         </tbody>
       </table>
     </div>
+  );
+}
+
+function RoleBadge({ role }) {
+  if (!role) return <span className="text-[#9CA3AF]">—</span>;
+  const lower = role.toLowerCase();
+  let bg, color;
+  if (lower.includes('chairperson') || lower.includes('president') || lower.includes('chairman')) {
+    bg = '#FEF2F2'; color = '#B91C1C';
+  } else if (lower.includes('co-ordinator') || lower.includes('coordinator') || lower.includes('convener') || lower.includes('secretary')) {
+    bg = '#F0FDF4'; color = '#166534';
+  } else {
+    bg = '#F3F4F6'; color = '#374151';
+  }
+  return (
+    <span
+      className="inline-block font-display font-semibold text-type-ui-sm px-2.5 py-0.5 rounded-full whitespace-nowrap"
+      style={{ backgroundColor: bg, color }}
+    >
+      {role}
+    </span>
   );
 }
 
@@ -584,7 +607,7 @@ function YearTabs({ compositions, contactHeader }) {
                   <td className="font-body text-type-ui text-[#474747] px-5 py-3 border-b" style={{ borderColor: `${pc}10` }}>{m.sno || i + 1}</td>
                   <td className="font-display font-semibold text-type-ui px-5 py-3 border-b" style={{ color: pc, borderColor: `${pc}10` }}>{m.name}</td>
                   <td className="font-body text-type-ui text-[#474747] px-5 py-3 border-b" style={{ borderColor: `${pc}10` }}>{m.designation}</td>
-                  <td className="font-body text-type-ui text-[#474747] px-5 py-3 border-b" style={{ borderColor: `${pc}10` }}>{m.position || m.role}</td>
+                  <td className="px-5 py-3 border-b" style={{ borderColor: `${pc}10` }}><RoleBadge role={m.position || m.role} /></td>
                   <td className="px-5 py-3 border-b" style={{ borderColor: `${pc}10` }}>
                     {(m.email || m.contact || m.phone)
                       ? <span className="font-body text-type-ui-sm text-[#374151]">{m.email || m.contact || m.phone}</span>
@@ -757,11 +780,19 @@ function MentorMenteeSection() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="rounded-xl p-5" style={{ backgroundColor: `${pc}06`, border: `1px solid ${pc}14` }}>
           <p className="font-display font-semibold text-type-body mb-3" style={{ color: pc }}>Mentor Responsibilities</p>
-          <BulletList items={d.mentorResponsibilities} />
+          <ol className="space-y-2.5">
+            {d.mentorResponsibilities.map((item, i) => (
+              <li key={i} className="font-body text-type-body text-[#474747]">{item}</li>
+            ))}
+          </ol>
         </div>
         <div className="rounded-xl p-5" style={{ backgroundColor: `${ac}08`, border: `1px solid ${ac}20` }}>
           <p className="font-display font-semibold text-type-body mb-3" style={{ color: ac }}>Mentee Responsibilities</p>
-          <BulletList items={d.menteeResponsibilities} />
+          <ol className="space-y-2.5">
+            {d.menteeResponsibilities.map((item, i) => (
+              <li key={i} className="font-body text-type-body text-[#474747]">{item}</li>
+            ))}
+          </ol>
         </div>
       </div>
 

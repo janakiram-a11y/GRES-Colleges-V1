@@ -12,30 +12,29 @@ const gradients = [
 ]
 
 /*
-  Bento grid — 4 columns, 3 rows, all cells perfectly filled:
+  Bento grid — 4 columns, 3 rows, 7 cards:
 
   ┌─────────────────┬──────────┬──────────┐
-  │                 │  Card 2  │  Card 3  │  row 1 h:240
-  │    Card 1       ├──────────┼──────────┤
-  │   (2col×2row)   │  Card 4  │  Card 5  │  row 2 h:200
+  │                 │  Card 2  │          │  row 1 h:240
+  │    Card 1       ├──────────┤  Card 3  │
+  │   (2col×2row)   │  Card 4  │ (1col×2) │  row 2 h:200
   ├──────────┬──────┴──────────┴──┬───────┤
-  │  Card 6  │      Card 7        │Card 8 │  row 3 h:220
+  │  Card 5  │      Card 6        │Card 7 │  row 3 h:220
   └──────────┴────────────────────┴───────┘
 */
 
 const layout = [
-  { col: '1 / 3', row: '1 / 3', titleSize: 'text-type-h3-mob', descSize: 'text-type-ui', pad: 'p-7' },   // 0 – large
-  { col: '3 / 4', row: '1 / 2', titleSize: 'text-type-body', descSize: 'text-type-cap', pad: 'p-4' },   // 1
-  { col: '4 / 5', row: '1 / 2', titleSize: 'text-type-body', descSize: 'text-type-cap', pad: 'p-4' },   // 2
-  { col: '3 / 4', row: '2 / 3', titleSize: 'text-type-body', descSize: 'text-type-cap', pad: 'p-4' },   // 3
-  { col: '4 / 5', row: '2 / 3', titleSize: 'text-type-body', descSize: 'text-type-cap', pad: 'p-4' },   // 4
-  { col: '1 / 2', row: '3 / 4', titleSize: 'text-type-body', descSize: 'text-type-cap', pad: 'p-4' },   // 5
-  { col: '2 / 4', row: '3 / 4', titleSize: 'text-type-body-lg', descSize: 'text-type-ui-sm', pad: 'p-5' },   // 6 – medium
-  { col: '4 / 5', row: '3 / 4', titleSize: 'text-type-body', descSize: 'text-type-cap', pad: 'p-4' },   // 7
+  { col: '1 / 3', row: '1 / 3', titleSize: 'text-type-h3-mob', descSize: 'text-type-ui', pad: 'p-7' },     // 0 – large
+  { col: '3 / 4', row: '1 / 2', titleSize: 'text-type-body', descSize: 'text-type-cap', pad: 'p-4' },     // 1
+  { col: '4 / 5', row: '1 / 3', titleSize: 'text-type-body', descSize: 'text-type-cap', pad: 'p-4' },     // 2 – tall (fills Scholastic gap)
+  { col: '3 / 4', row: '2 / 3', titleSize: 'text-type-body', descSize: 'text-type-cap', pad: 'p-4' },     // 3
+  { col: '1 / 2', row: '3 / 4', titleSize: 'text-type-body', descSize: 'text-type-cap', pad: 'p-4' },     // 4
+  { col: '2 / 4', row: '3 / 4', titleSize: 'text-type-body-lg', descSize: 'text-type-ui-sm', pad: 'p-5' }, // 5 – medium
+  { col: '4 / 5', row: '3 / 4', titleSize: 'text-type-body', descSize: 'text-type-cap', pad: 'p-4' },     // 6
 ]
 
 export default function CampusLife({ college }) {
-  const cards = college.campusLifeCards.slice(0, 8)
+  const cards = college.campusLifeCards.slice(0, 7)
 
   return (
     <section className="w-full bg-white section-pad">
@@ -49,7 +48,7 @@ export default function CampusLife({ college }) {
             </h2>
           </div>
           <Link
-            to="/events"
+            to="/gallery/cultural-events"
             className="btn-red shrink-0"
           >
             Explore Gallery
@@ -68,22 +67,36 @@ export default function CampusLife({ college }) {
           {cards.map((card, i) => {
             const { col, row, titleSize, descSize, pad } = layout[i]
             return (
-              <div
+              <Link
                 key={card.title}
-                className="relative rounded-2xl overflow-hidden"
+                to={`/gallery/${card.slug}`}
+                className="relative rounded-2xl overflow-hidden block"
                 style={{
                   gridColumn: col,
                   gridRow: row,
                   background: gradients[i % gradients.length],
+                  textDecoration: 'none',
                 }}
               >
-                <img
-                  src={card.img}
-                  alt={card.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                  onError={(e) => { e.currentTarget.style.display = 'none'; }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                {card.video ? (
+                  <video
+                    src={card.video}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover"
+                    onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                  />
+                ) : (
+                  <img
+                    src={card.img}
+                    alt={card.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                  />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity hover:from-black/70" />
                 <div className={`absolute bottom-0 left-0 right-0 ${pad}`}>
                   <h4 className={`font-display font-bold text-white leading-tight mb-1 ${titleSize}`}>
                     {card.title}
@@ -92,7 +105,7 @@ export default function CampusLife({ college }) {
                     {card.desc}
                   </p>
                 </div>
-              </div>
+              </Link>
             )
           })}
         </div>

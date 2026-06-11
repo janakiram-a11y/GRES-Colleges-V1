@@ -17,6 +17,12 @@ import NbaPage from './pages/NbaPage';
 import EventsPage from './pages/EventsPage';
 import EBulletinPage from './pages/EBulletinPage';
 import DownloadsPage from './pages/DownloadsPage';
+import ApprovalsRecognitionsPage from './pages/ApprovalsRecognitionsPage';
+import TeachingLearningMethodsPage from './pages/TeachingLearningMethodsPage';
+import StudentSupportPage from './pages/StudentSupportPage';
+import RulesRegulationsPage from './pages/RulesRegulationsPage';
+import SkillSeriesPage from './pages/SkillSeriesPage';
+import GalleryPage from './pages/GalleryPage';
 
 export default function App() {
   return (
@@ -78,6 +84,15 @@ export default function App() {
         <Route path="/events" element={<EventsPage />} />
         <Route path="/e-bulletin" element={<EBulletinPage />} />
         <Route path="/downloads" element={<DownloadsPage />} />
+
+        {/* New standalone pages */}
+        <Route path="/approvals-recognitions" element={<ApprovalsRecognitionsPage />} />
+        <Route path="/teaching-learning-methods" element={<TeachingLearningMethodsPage />} />
+        <Route path="/student-support" element={<StudentSupportPage />} />
+        <Route path="/rules-regulations" element={<RulesRegulationsPage />} />
+        <Route path="/skill-series" element={<SkillSeriesPage />} />
+        <Route path="/gallery/:category" element={<GalleryPage />} />
+        <Route path="/gallery" element={<GalleryPage />} />
 
         {/* Fallback */}
         <Route path="*" element={<GrcpPage />} />

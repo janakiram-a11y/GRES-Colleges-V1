@@ -139,12 +139,12 @@ const college = {
 
   // Quick links shown in footer
   quickLinks: [
-    { label: 'GRCP: Approvals and Recognitions', href: '/mandatory-disclosures' },
-    { label: 'Rules and Regulations', href: '/mandatory-disclosures' },
+    { label: 'GRCP: Approvals and Recognitions', href: '/approvals-recognitions' },
+    { label: 'Rules and Regulations', href: '/rules-regulations' },
     { label: 'Infrastructure', href: '/about' },
-    { label: 'Teaching Learning Methods', href: '/academics' },
-    { label: 'Student Support and Progression', href: '/academics' },
-    { label: 'Skill Series', href: '/placements' },
+    { label: 'Teaching Learning Methods', href: '/teaching-learning-methods' },
+    { label: 'Student Support and Progression', href: '/student-support' },
+    { label: 'Skill Series', href: '/skill-series' },
     { label: 'E-Bulletin', href: '/e-bulletin' },
     { label: 'Downloads', href: '/downloads' },
     { label: 'Mandatory Disclosures', href: '/mandatory-disclosures' },
@@ -170,18 +170,18 @@ const college = {
   // ── Footer achievements column ────────────────────────────────────────────
   footerAchievements: [
     { label: 'Professional Associations / Societies', href: '/administration/professional-associations' },
-    { label: 'Faculty Achievements',                  href: '/academics/faculty' },
+    { label: 'Faculty Achievements',                  href: 'https://www.grcp.ac.in/faculty_achievements.php#gsc.tab=0' },
     { label: 'Student Achievements',                  href: '/administration/student-achievements' },
   ],
 
   // ── Footer quick links column ─────────────────────────────────────────────
   footerQuickLinks: [
-    { label: 'GRCP: Approvals and Recognitions', href: '/mandatory-disclosures' },
-    { label: 'Rules and Regulations',            href: '/mandatory-disclosures' },
+    { label: 'GRCP: Approvals and Recognitions', href: '/approvals-recognitions' },
+    { label: 'Rules and Regulations',            href: '/rules-regulations' },
     { label: 'Infrastructure',                   href: '/about' },
-    { label: 'Teaching Learning Methods',        href: '/academics' },
-    { label: 'Student Support and Progression',  href: '/academics' },
-    { label: 'Skill Series',                     href: '/placements' },
+    { label: 'Teaching Learning Methods',        href: '/teaching-learning-methods' },
+    { label: 'Student Support and Progression',  href: '/student-support' },
+    { label: 'Skill Series',                     href: '/skill-series' },
   ],
 
   // Legacy — kept for any code that still references these
@@ -206,7 +206,7 @@ const college = {
   campusIntroLabel: 'Campus Experience',
   campusIntroHeading: 'Be a Part of the GRCP Experience',
   campusIntroDesc: "Experience a dedicated pharmaceutical campus just 4 km from JNTU, Kukatpally — far from the city's hustle yet easily accessible. Modern laboratories, lecture halls, computer lab, auditorium, and library await you.",
-  campusVideoSrc: null,
+  campusVideoSrc: 'https://drive.google.com/file/d/1ALGIlgmIkPjsN3hxdL6F5AzCSJT87EPr/preview',
   campusIntroImage: '/imgi_4_Gokaraju-Rangaraju.jpg',
 
   highlightCards: [
@@ -269,14 +269,13 @@ const college = {
   campusLifeLabel: 'Student Experience',
   campusLifeHeading: 'Vibrant Campus Life',
   campusLifeCards: [
-    { title: 'Cultural Events & Fests', desc: 'Celebrating talent, creativity, and diversity.', img: '/cultural-events-fests.png', large: true },
-    { title: 'Eco & Social Impact Clubs', desc: 'Inspiring sustainability and community engagement.', img: '/innovation-clubs.png' },
-    { title: 'Sports Facilities', desc: 'Promoting fitness, teamwork, and sportsmanship.', img: '/sports-facilities.png' },
-    { title: 'Skill Development Programmes', desc: 'Building career-ready competencies.', img: '/skill-development.png' },
-    { title: 'Scholastic', desc: 'Encouraging academic participation and excellence.', img: '/central-library.png' },
-    { title: 'Hostel Life', desc: 'Creating a comfortable and inclusive living experience.', img: '/hostel-life.png' },
-    { title: 'Research & Innovation', desc: 'Fostering curiosity, discovery, and innovation.', img: '/research-innovation.png' },
-    { title: 'Industry Visits & Internships', desc: 'Bridging academics with real-world exposure.', img: '/industry-visits.png' },
+    { slug: 'cultural-events', title: 'Cultural Events & Fests', desc: 'Celebrating talent, creativity, and diversity.', img: '/campus-life/cultural-events.jpg', video: '/campus-life/cultural-events.mp4', large: true },
+    { slug: 'eco-clubs', title: 'Eco & Social Impact Clubs', desc: 'Inspiring sustainability and community engagement.', img: '/campus-life/eco-clubs.jpg' },
+    { slug: 'sports', title: 'Sports Facilities', desc: 'Promoting fitness, teamwork, and sportsmanship.', img: '/campus-life/sports.jpg' },
+    { slug: 'skill-dev', title: 'Skill Development Programmes', desc: 'Building career-ready competencies.', img: '/campus-life/skill-dev.jpg' },
+    { slug: 'hostel', title: 'Hostel Life', desc: 'Creating a comfortable and inclusive living experience.', img: '/campus-life/hostel.jpg' },
+    { slug: 'research', title: 'Research & Innovation', desc: 'Fostering curiosity, discovery, and innovation.', img: '/campus-life/research.jpg' },
+    { slug: 'industry-visits', title: 'Industry Visits & Internships', desc: 'Bridging academics with real-world exposure.', img: '/campus-life/industry-visits.jpg' },
   ],
 
   ctaHeading: 'Admissions Open for 2025–26',

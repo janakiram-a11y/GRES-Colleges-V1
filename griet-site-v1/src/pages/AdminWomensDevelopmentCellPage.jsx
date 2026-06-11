@@ -90,6 +90,28 @@ export default function AdminWomensDevelopmentCellPage() {
           </div>
         </section>
 
+        {/* Photo Gallery */}
+        <section>
+          <h3 className="font-hind font-bold text-[17px] mb-4" style={{ color: college.primaryColor }}>
+            Photo Gallery
+          </h3>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            {[
+              'IMG_0001.JPG','IMG_0002.JPG','IMG_0003.JPG',
+              'IMG_0004.JPG','IMG_0005.JPG','IMG_0006.JPG',
+            ].map(f => (
+              <div key={f} className="aspect-video rounded-xl overflow-hidden bg-gray-100">
+                <img src={`/gallery/womens/womens-day/${f}`} alt="Women's Day" className="w-full h-full object-cover" loading="lazy" />
+              </div>
+            ))}
+          </div>
+          <div className="mt-3 text-right">
+            <a href="/events-gallery#womens" className="font-hind font-bold text-[12px] hover:underline" style={{ color: college.accentColor }}>
+              View all Women's Day photos →
+            </a>
+          </div>
+        </section>
+
         {/* Contact */}
         <section className="bg-[#F6F1F2] rounded-lg border border-gray-200 p-5">
           <h3 className="font-hind font-bold text-[15px] mb-2" style={{ color: college.primaryColor }}>

@@ -112,6 +112,7 @@ import StreetCausePage from './pages/StreetCausePage';
 import CareerGuidancePage from './pages/CareerGuidancePage';
 import TechInnovationCellPage from './pages/TechInnovationCellPage';
 import RetrievePage from './pages/RetrievePage';
+import EventsGalleryPage from './pages/EventsGalleryPage';
 
 export default function App() {
   return (
@@ -235,6 +236,7 @@ export default function App() {
         <Route path="/career-guidance" element={<CareerGuidancePage />} />
         <Route path="/technology-innovation-cell" element={<TechInnovationCellPage />} />
         <Route path="/clubs/retrieve" element={<RetrievePage />} />
+        <Route path="/events-gallery" element={<EventsGalleryPage />} />
       </Routes>
     </BrowserRouter>
   );

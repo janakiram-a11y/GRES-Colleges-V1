@@ -124,6 +124,28 @@ export default function AdminIICPage() {
           </div>
         </section>
 
+        {/* Photo Gallery */}
+        <section>
+          <h3 className="font-hind font-bold text-[17px] mb-4" style={{ color: college.primaryColor }}>
+            Photo Gallery
+          </h3>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            {[
+              'IMG_7629.JPG','IMG_7630.JPG','IMG_7631.JPG',
+              'IMG_7632.JPG','IMG_7633.JPG','IMG_7634.JPG',
+            ].map(f => (
+              <div key={f} className="aspect-video rounded-xl overflow-hidden bg-gray-100">
+                <img src={`/gallery/technical/iic/${f}`} alt="IIC Conference" className="w-full h-full object-cover" loading="lazy" />
+              </div>
+            ))}
+          </div>
+          <div className="mt-3 text-right">
+            <a href="/events-gallery#technical" className="font-hind font-bold text-[12px] hover:underline" style={{ color: college.accentColor }}>
+              View all IIC Conference photos →
+            </a>
+          </div>
+        </section>
+
       </div>
     </AdministrationLayout>
   );

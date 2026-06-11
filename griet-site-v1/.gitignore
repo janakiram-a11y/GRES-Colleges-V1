@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Gallery media (13GB images/videos) — too large for GitHub.
+# Serve locally or via CDN. Re-run: node scripts/dedupeGallery.mjs after restoring media.
+public/gallery/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

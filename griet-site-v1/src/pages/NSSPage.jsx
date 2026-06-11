@@ -133,6 +133,17 @@ const OFFICERS = [
 export default function NSSPage() {
   const sidebar = (
     <>
+      {/* Recent Event Photos */}
+      <SidebarBlock title="Recent Event Photos">
+        {[
+          { label: 'NSS Events Gallery', url: '/events-gallery#nss' },
+          { label: 'NSS Eco Walk Photos', url: '/events-gallery#nss' },
+          { label: 'Entrepreneurship Program', url: '/events-gallery#nss' },
+        ].map(({ label, url }) => (
+          <SidebarLink key={label} label={label} url={url} />
+        ))}
+      </SidebarBlock>
+
       {/* NSS Activity Quick Links */}
       <SidebarBlock title="NSS Activity Gallery">
         {QUICK_ACTIVITY_LINKS.map(({ label, url }) => (

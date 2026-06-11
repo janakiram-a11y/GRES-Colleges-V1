@@ -4,30 +4,50 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        hind: ['Hind', 'Tahoma', 'sans-serif'],
-        'dm-sans': ['"DM Sans"', 'Tahoma', 'sans-serif'],
-        tahoma: ['Tahoma', 'sans-serif'],
+        // ── Semantic aliases (USE THESE going forward) ──────────────────────
+        // font-display → DM Sans  (headings, labels, nav, UI chrome)
+        // font-body    → Hind     (body copy, descriptions, paragraphs)
+        display: ['"DM Sans"', 'Tahoma', 'sans-serif'],
+        body:    ['Hind',      'Tahoma', 'sans-serif'],
+
+        // ── Legacy aliases (swapped names kept for backward compat) ─────────
+        // DO NOT use in new code. Migrate to font-display / font-body above.
+        hind:      ['"DM Sans"', 'Tahoma', 'sans-serif'], // misnamed — actually DM Sans
+        'dm-sans': ['Hind',      'Tahoma', 'sans-serif'], // misnamed — actually Hind
+        tahoma:    ['Tahoma', 'sans-serif'],
       },
       fontSize: {
         // ── Typography Design System Scale ─────────────────────────────────
-        // Headings — Hind, SemiBold (600); responsive via mobile tokens + lg: prefix
-        'type-h1':      ['3rem',     { lineHeight: '3.5rem'    }], // 48px / 56px
-        'type-h2':      ['2.5rem',   { lineHeight: '3rem'      }], // 40px / 48px
-        'type-h3':      ['2rem',     { lineHeight: '2.5rem'    }], // 32px / 40px
-        'type-h4':      ['1.5rem',   { lineHeight: '2rem'      }], // 24px / 32px
-        'type-h5':      ['1.25rem',  { lineHeight: '1.75rem'   }], // 20px / 28px
-        'type-h6':      ['1.125rem', { lineHeight: '1.625rem'  }], // 18px / 26px
-        // Body — Hind, Regular (400)
-        'type-body-lg': ['1.125rem', { lineHeight: '1.75rem'   }], // 18px / 28px
-        'type-body':    ['1rem',     { lineHeight: '1.5rem'    }], // 16px / 24px
-        'type-body-sm': ['0.875rem', { lineHeight: '1.375rem'  }], // 14px / 22px
-        // UI — DM Sans
-        'type-sub':     ['1.25rem',  { lineHeight: '1.75rem'   }], // 20px / 28px, Medium (500)
-        'type-cap':     ['0.75rem',  { lineHeight: '1.125rem'  }], // 12px / 18px, Regular (400)
-        // Mobile heading sizes — use as base, override at lg: with desktop token
-        'type-h1-mob':  ['2rem',     { lineHeight: '2.5rem'    }], // 32px / 40px
-        'type-h2-mob':  ['1.75rem',  { lineHeight: '2.25rem'   }], // 28px / 36px
-        'type-h3-mob':  ['1.5rem',   { lineHeight: '2rem'      }], // 24px / 32px
+        // Headings  → font-display (DM Sans), weight 700/600
+        // Body      → font-body    (Hind),    weight 400
+        // UI/Labels → font-display (DM Sans), weight 500–700
+        // ──────────────────────────────────────────────────────────────────
+
+        // Heading scale
+        'type-h1':      ['3rem',     { lineHeight: '3.5rem'   }], // 48 / 56
+        'type-h2':      ['2.5rem',   { lineHeight: '3rem'     }], // 40 / 48
+        'type-h3':      ['2rem',     { lineHeight: '2.5rem'   }], // 32 / 40
+        'type-h4':      ['1.5rem',   { lineHeight: '2rem'     }], // 24 / 32
+        'type-h5':      ['1.25rem',  { lineHeight: '1.75rem'  }], // 20 / 28
+        'type-h6':      ['1.125rem', { lineHeight: '1.625rem' }], // 18 / 26
+
+        // Mobile heading sizes (base; override at lg: with desktop token)
+        'type-h1-mob':  ['2rem',     { lineHeight: '2.5rem'   }], // 32 / 40
+        'type-h2-mob':  ['1.75rem',  { lineHeight: '2.25rem'  }], // 28 / 36
+        'type-h3-mob':  ['1.5rem',   { lineHeight: '2rem'     }], // 24 / 32
+
+        // Body scale
+        'type-body-lg': ['1.125rem', { lineHeight: '1.75rem'  }], // 18 / 28
+        'type-body':    ['1.0625rem',{ lineHeight: '1.75rem'  }], // 17 / 28
+        'type-body-sm': ['1.0625rem',{ lineHeight: '1.75rem'  }], // 17 / 28 — body floor
+        'type-body-xs': ['0.875rem', { lineHeight: '1.375rem' }], // 14 / 22 — supporting
+
+        // UI / Chrome scale (DM Sans)
+        'type-sub':     ['1.25rem',  { lineHeight: '1.75rem'  }], // 20 / 28 — subheading
+        'type-ui':      ['0.875rem', { lineHeight: '1.375rem' }], // 14 / 22 — UI default
+        'type-ui-sm':   ['0.8125rem',{ lineHeight: '1.25rem'  }], // 13 / 20 — small UI
+        'type-cap':     ['0.75rem',  { lineHeight: '1.125rem' }], // 12 / 18 — caption
+        'type-label':   ['0.6875rem',{ lineHeight: '1rem'     }], // 11 / 16 — badge/tag
       },
       colors: {
         brand: {

@@ -1,4 +1,4 @@
-﻿import { PhoneIcon, ShieldIcon, CapIcon, BuildingIcon } from './icons';
+import { PhoneIcon, ShieldIcon, CapIcon, BuildingIcon } from './icons';
 
 const PRIMARY = '#5B1027';
 const featureIcons = [
@@ -10,9 +10,9 @@ const featureIcons = [
 
 export default function WhyChooseUs({ college }) {
   return (
-    <section className="w-full bg-white page-pad">
+    <section className="w-full bg-white page-pad py-8 md:py-14 lg:py-20">
       <div className="flex flex-col gap-[30px] items-start lg:flex-row">
-        <div className="flex-1 flex flex-col gap-3 pr-8">
+        <div className="flex-1 flex flex-col gap-3 lg:pr-8">
           <h2 className="font-hind font-semibold text-[28px] leading-9 lg:text-[40px] lg:leading-[48px] text-[#111827]">
             {college.aboutHeading}
           </h2>
@@ -22,7 +22,7 @@ export default function WhyChooseUs({ college }) {
           <p className="font-hind font-normal text-[16px] leading-6 text-[#666666]">
             {college.aboutP2}
           </p>
-          <div className="grid grid-cols-2 gap-x-4 gap-y-5 mt-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-5 mt-3">
             {college.aboutFeatures.map(({ title, sub }, i) => {
               const Icon = featureIcons[i % featureIcons.length]
               return (
@@ -40,12 +40,12 @@ export default function WhyChooseUs({ college }) {
           </div>
         </div>
 
-        <div className="flex-1 flex justify-end relative" style={{ minHeight: '480px' }}>
+        <div className="flex-1 flex justify-end relative">
           <div className="relative w-full lg:w-[585px]">
             <img
               src={college.aboutImage}
               alt={`${college.shortName} Campus`}
-              className="w-full h-auto"
+              className="w-full h-auto aspect-video lg:aspect-auto"
             />
             <div
               className="hidden lg:block absolute -left-6 -bottom-6 w-[240px] bg-white rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1.5"

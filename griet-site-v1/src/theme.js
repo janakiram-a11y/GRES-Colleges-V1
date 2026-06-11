@@ -41,7 +41,7 @@ const college = {
     {
       name: 'Academics',
       href: '/academics',
-      dropdown: ['Regulations', 'Syllabus', 'Academic Calendar', 'Library', 'Scholarships', 'Endowment Awards', 'Moodle', 'Diary 24–25', 'Finishing School', 'Code of Conduct for Students', 'Digital Wellbeing Council', 'Internships', 'Value Added Programs', 'Professional Associations', 'Central Facilities'],
+      dropdown: ['Regulations', 'Syllabus', 'Academic Calendar', 'Library', 'Scholarships', 'Endowment Awards', 'Finishing School', 'Code of Conduct for Students', 'Digital Wellbeing Council', 'Internships', 'Value Added Programs', 'Professional Associations', 'Central Facilities'],
     },
     {
       name: 'Examinations',
@@ -196,7 +196,7 @@ const college = {
         },
         {
           name: 'Sri G.V.K. Ranga Raju',
-          role: 'Vice President',
+          role: 'Vice President, GRES',
           desc: 'Oversees day-to-day matters of GRIET. Advocates technology-driven education and student empowerment.',
         },
         {
@@ -243,7 +243,7 @@ const college = {
 
   sponsoringSociety: {
     heading: 'The Sponsoring Society:',
-    text: 'Dr. Gokaraju Rangaraju garu started Gokaraju Educational Society in fond memory of his father late Shri Gokaraju Rangaraju garu with a motto to "Promote modern and scientific education and to help develop the character of the younger generation of all castes, communities and religions".',
+    text: 'Dr. Gokaraju Rangaraju garu started Gokaraju Rangaraju Educational Society (GRES) in fond memory of his father late Shri Gokaraju Rangaraju garu with a motto to "Promote modern and scientific education and to help develop the character of the younger generation of all castes, communities and religions".',
   },
 
   aboutGriet: {

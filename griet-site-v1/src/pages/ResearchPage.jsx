@@ -1,4 +1,4 @@
-﻿import college from '../theme';
+import college from '../theme';
 import CollegeLayout from '../CollegeLayout';
 import { AcademicsBanner } from '../components/AcademicsLayout';
 import { Link, useLocation } from 'react-router-dom';
@@ -18,33 +18,89 @@ function SectionHeading({ children }) {
 // ── Left sidebar ─────────────────────────────────────────────────────────────
 const SIDEBAR_LINKS = [
   { label: 'Research Projects', href: '#research-projects' },
-  { label: 'Consultancy 2021-22', href: '#consultancy' },
   { label: 'Consultancy', href: '#consultancy' },
   { label: 'Patents', href: '#patents' },
-  { label: 'Scopus Indexed Papers 2014-20', href: '#publications' },
-  { label: 'Scopus Indexed Papers 2021-22', href: '#publications' },
-  { label: 'Journals @ GRIET Publications', href: '#publications' },
-  { label: 'Technology Cell', href: '#technology-cell' },
-  { label: 'Projects Developed @ GRIET', href: '#research-projects' },
-  { label: 'R & D Policy', href: '#rd-policy' },
-  { label: 'Consultancy Policy', href: '#consultancy' },
-  { label: 'Code of Ethics', href: '#rd-policy' },
-  { label: 'Innovation Awards', href: '#innovation' },
-  { label: 'Internal Revenue Generation Policy', href: '#rd-policy' },
-  { label: 'Functional MOUs', href: '#mous' },
-  { label: 'Functional MOUs 2021-22', href: '#mous' },
-  { label: 'MOU Activities Reports', href: '#mous' },
-  { label: 'Ph.D. Awarded', href: '#phd' },
-  { label: 'Extension Outreach Programs', href: '#outreach' },
-  { label: 'Books Chapters Conference Publications', href: '#publications' },
-  { label: 'Books Chapters Conference Publications 2021-22', href: '#publications' },
+  { label: 'Publications', href: '#publications' },
+  { label: 'Stats – Journals & Books', href: '#publications' },
+  { label: 'Book Chapters', href: '#publications' },
   { label: 'National and International Conferences', href: '#conferences' },
+  { label: 'MOUs', href: '#mous' },
+  { label: 'Innovation Awards', href: '#innovation' },
+  { label: 'Ph.D. Awarded', href: '#phd' },
 ];
+
+// ── Right ribbon links ────────────────────────────────────────────────────────
+const RIGHT_RIBBON_LINKS = [
+  { label: 'R & D Policy', href: '#rd-policy' },
+  { label: 'Code of Ethics', href: '#rd-policy' },
+];
+
+function ResearchRightRibbon() {
+  return (
+    <aside className="w-full lg:w-44 flex-shrink-0 lg:sticky lg:top-[176px]">
+      <div className="hidden lg:block rounded-lg border border-gray-200">
+        <div
+          className="rounded-t-lg px-5 py-3"
+          style={{ background: `linear-gradient(135deg, ${college.primaryColor} 0%, #3a0b1a 100%)` }}
+        >
+          <span className="font-hind font-bold text-[13px] text-white tracking-wide">
+            Policies
+          </span>
+        </div>
+        <ul className="rounded-b-lg divide-y divide-gray-100 bg-white">
+          {RIGHT_RIBBON_LINKS.map(({ label, href }) => (
+            <li key={label}>
+              <a
+                href={href}
+                className="flex items-center gap-3 px-5 py-2.5 font-dm-sans text-[13px] font-medium transition-colors hover:bg-gray-50"
+                style={{ color: '#374151' }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = '#C32033')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = '#374151')}
+              >
+                <span className="w-2 h-2 rounded-full flex-shrink-0"
+                  style={{ backgroundColor: college.accentColor }} />
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      {/* Mobile: horizontal scroll chips */}
+      <div className="lg:hidden flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+        {RIGHT_RIBBON_LINKS.map(({ label, href }) => (
+          <a
+            key={label}
+            href={href}
+            className="flex-shrink-0 px-3 py-1.5 rounded-full border font-dm-sans text-[12px] font-medium whitespace-nowrap transition-colors"
+            style={{ borderColor: college.primaryColor, color: college.primaryColor, background: '#fff' }}
+          >
+            {label}
+          </a>
+        ))}
+      </div>
+    </aside>
+  );
+}
 
 function ResearchSidebar() {
   return (
     <aside className="w-full lg:w-60 flex-shrink-0 lg:sticky lg:top-[176px]">
-      <div className="rounded-lg border border-gray-200">
+      {/* Mobile: horizontal scroll chip row */}
+      <div className="lg:hidden flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+        {SIDEBAR_LINKS.map(({ label, href }) => (
+          <a
+            key={label}
+            href={href}
+            className="flex-shrink-0 px-3 py-1.5 rounded-full border font-dm-sans text-[12px] font-medium whitespace-nowrap transition-colors"
+            style={{ borderColor: college.primaryColor, color: college.primaryColor, background: '#fff' }}
+          >
+            {label}
+          </a>
+        ))}
+      </div>
+
+      {/* Desktop: fixed sidebar list */}
+      <div className="hidden lg:block rounded-lg border border-gray-200">
         <div
           className="rounded-t-lg px-5 py-3"
           style={{ background: `linear-gradient(135deg, ${college.primaryColor} 0%, #3a0b1a 100%)` }}
@@ -53,7 +109,7 @@ function ResearchSidebar() {
             Research Links
           </span>
         </div>
-        <ul className="rounded-b-lg divide-y divide-gray-100 bg-white sidebar-scroll max-h-[calc(100vh-240px)]">
+        <ul className="rounded-b-lg divide-y divide-gray-100 bg-white sidebar-scroll max-h-[calc(100vh-240px)] overflow-y-auto">
           {SIDEBAR_LINKS.map(({ label, href }) => (
             <li key={label}>
               <a
@@ -99,7 +155,7 @@ export default function ResearchPage() {
           <ResearchSidebar />
 
           {/* ── Main Content ────────────────────────────────────────────── */}
-          <div className="flex-1 min-w-0 space-y-12">
+          <div className="flex-1 min-w-0 space-y-12 min-w-0">
 
             {/* GRES Overview */}
             <section>
@@ -144,7 +200,7 @@ export default function ResearchPage() {
                 style={{ color: '#F3DAB2' }}>
                 Research at a Glance
               </p>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+              <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                 {[
                   { count: '50+', label: 'Funded Projects', desc: 'Backed by DST, AICTE & industry partners' },
                   { count: '1200+', label: 'Publications', desc: 'Scopus & IEEE indexed journals' },
@@ -162,7 +218,7 @@ export default function ResearchPage() {
                 NRB, DRDO, and leading industry partners. The research projects cover domains including VLSI,
                 Embedded Systems, AI &amp; ML, Power Systems, Materials Science, and more.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {[
                   { title: 'DST-FIST Funded Projects', desc: 'High-impact projects in core engineering domains with Scanning Electron Microscope (SEM) facility worth ₹1.2 Cr.' },
                   { title: 'AICTE Sponsored Research', desc: 'Projects under AICTE Research Promotion Scheme and IDEA Lab initiatives.' },
@@ -226,7 +282,7 @@ export default function ResearchPage() {
                 culture fostered at the institution. The patents span AI, IoT, materials science, biomedical
                 engineering, and sustainable technologies.
               </p>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {[
                   { count: '85+', label: 'Patents Filed' },
                   { count: '30+', label: 'Patents Granted' },
@@ -253,7 +309,7 @@ export default function ResearchPage() {
                 SCI-indexed journals. The publications cover wide-ranging topics across engineering, sciences,
                 and interdisciplinary domains.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {[
                   { title: 'Scopus Indexed Papers (2014–20)', count: '800+' },
                   { title: 'Scopus Indexed Papers (2021–22)', count: '300+' },
@@ -277,7 +333,7 @@ export default function ResearchPage() {
                 GRIET holds active Memoranda of Understanding with leading academic institutions and industries,
                 enabling collaborative research, student exchanges, and joint projects.
               </p>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 {['IIT Hyderabad', 'NIT Warangal', 'Curtin University (Malaysia)', 'Infosys SpringBoard', 'TCS iON', 'Intel Corporation', 'IBM', 'Amazon Web Services', 'Microsoft Azure'].map((org) => (
                   <div key={org}
                     className="flex items-center gap-2.5 px-4 py-3 rounded-lg border border-gray-200 bg-white font-dm-sans text-[13px] text-gray-700 hover:border-gray-300 transition-colors">
@@ -351,6 +407,9 @@ export default function ResearchPage() {
             </section>
 
           </div>
+
+          {/* ── Right Ribbon ─────────────────────────────────────────────── */}
+          <ResearchRightRibbon />
 
         </div>
       </div>

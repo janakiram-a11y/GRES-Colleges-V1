@@ -7,7 +7,7 @@
         borderBottom: '1px solid rgba(91,16,39,0.15)',
       }}
     >
-      <div className="max-w-[1320px] mx-auto px-[60px] flex justify-between items-center">
+      <div className="max-w-[1320px] mx-auto px-5 md:px-16 lg:px-[120px] flex justify-between items-center">
         <div className="flex items-center gap-6">
           <a
             href={`mailto:${college.email}`}

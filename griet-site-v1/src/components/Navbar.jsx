@@ -399,7 +399,7 @@ export default function Navbar({ college, scrolled = false }) {
         className="hidden md:block w-full bg-white"
         style={{ borderBottom: `1px solid ${withAlpha(college.primaryColor, 0.08)}` }}
       >
-        <div className="max-w-[1320px] mx-auto px-4 md:px-8 lg:px-[60px] flex justify-between items-center h-[40px]">
+        <div className="max-w-[1320px] mx-auto px-5 md:px-8 lg:px-[60px] flex justify-between items-center h-[40px]">
           <div className="flex items-center gap-4 lg:gap-6">
             {QUICK_NAV_LINKS.map(({ label, href, external }) =>
               external ? (
@@ -426,7 +426,7 @@ export default function Navbar({ college, scrolled = false }) {
       <nav className="w-full bg-white/[0.95] backdrop-blur-md sticky top-0 z-50"
         style={{ padding: isDesktop ? (scrolled ? '8px 0' : '12px 0') : '0', borderBottom: `1px solid ${withAlpha(college.primaryColor, 0.08)}`, transition: 'padding 0.3s ease' }}
       >
-        <div className="max-w-[1320px] mx-auto px-4 md:px-8 lg:px-[60px] flex justify-between items-center"
+        <div className="max-w-[1320px] mx-auto px-5 md:px-8 lg:px-[60px] flex justify-between items-center"
           style={{ height: isDesktop ? (scrolled ? '60px' : '88px') : '56px', transition: 'height 0.3s ease' }}
         >
           <div className="flex items-center">

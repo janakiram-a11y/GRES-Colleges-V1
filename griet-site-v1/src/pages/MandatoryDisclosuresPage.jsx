@@ -5,7 +5,12 @@ import college from '../theme';
 function SectionLabel({ children }) {
   return (
     <div className="flex items-center gap-3 mb-4">
-      <h2 className="font-hind font-bold text-[16px] whitespace-nowrap" style={{ color: college.primaryColor }}>{children}</h2>
+      <h2
+        className="font-hind font-bold text-[15px] sm:text-[16px] shrink-0"
+        style={{ color: college.primaryColor }}
+      >
+        {children}
+      </h2>
       <span className="h-px flex-1 bg-gray-200" />
     </div>
   );
@@ -13,9 +18,9 @@ function SectionLabel({ children }) {
 
 function DocRow({ label, url }) {
   return (
-    <div className="flex items-center justify-between gap-4 px-4 py-3 border-b border-gray-100 last:border-b-0 hover:bg-gray-50 transition-colors">
-      <div className="flex items-center gap-3 min-w-0">
-        <PdfIcon className="text-red-500 flex-shrink-0" />
+    <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 px-3 sm:px-4 py-3 border-b border-gray-100 last:border-b-0 hover:bg-gray-50 transition-colors">
+      <div className="flex items-start gap-3 min-w-0 flex-1">
+        <PdfIcon className="text-red-500 flex-shrink-0 mt-0.5" />
         <span className="font-dm-sans text-[12.5px] text-gray-800 leading-snug">{label}</span>
       </div>
       <a
@@ -149,7 +154,7 @@ export default function MandatoryDisclosuresPage() {
 
       {/* Intro */}
       <section className="mb-8">
-        <div className="p-5 rounded-xl bg-gray-50 border border-gray-200">
+        <div className="p-4 sm:p-5 rounded-xl bg-gray-50 border border-gray-200">
           <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed">
             In compliance with <strong>AICTE Regulations</strong> and UGC guidelines, GRIET publishes all mandatory institutional disclosures here. Documents are grouped by category. Click <strong>View</strong> on any document to open it in a new tab.
           </p>
@@ -171,21 +176,21 @@ export default function MandatoryDisclosuresPage() {
 
         {/* Status table */}
         <div className="overflow-x-auto rounded-xl border border-gray-200 mb-4">
-          <table className="w-full text-left">
+          <table className="w-full text-left min-w-[400px]">
             <thead>
               <tr style={{ backgroundColor: college.primaryColor }}>
-                <th className="font-hind font-semibold text-[12px] text-white/90 px-4 py-3 uppercase tracking-wide">Programme</th>
-                <th className="font-hind font-semibold text-[12px] text-white/90 px-4 py-3 uppercase tracking-wide">Accreditation Period</th>
-                <th className="font-hind font-semibold text-[12px] text-white/90 px-4 py-3 uppercase tracking-wide">Status</th>
+                <th className="font-hind font-semibold text-[11.5px] sm:text-[12px] text-white/90 px-3 sm:px-4 py-3 uppercase tracking-wide">Programme</th>
+                <th className="font-hind font-semibold text-[11.5px] sm:text-[12px] text-white/90 px-3 sm:px-4 py-3 uppercase tracking-wide">Accreditation Period</th>
+                <th className="font-hind font-semibold text-[11.5px] sm:text-[12px] text-white/90 px-3 sm:px-4 py-3 uppercase tracking-wide">Status</th>
               </tr>
             </thead>
             <tbody>
               {NBA_STATUS.map(({ programme, period }, i) => (
                 <tr key={programme} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                  <td className="font-dm-sans text-[12.5px] text-gray-800 px-4 py-2.5">{programme}</td>
-                  <td className="font-dm-sans text-[12.5px] text-gray-700 px-4 py-2.5">{period}</td>
-                  <td className="px-4 py-2.5">
-                    <span className="font-dm-sans text-[11px] font-semibold px-2 py-0.5 rounded-full bg-green-50 text-green-700">
+                  <td className="font-dm-sans text-[12px] sm:text-[12.5px] text-gray-800 px-3 sm:px-4 py-2.5">{programme}</td>
+                  <td className="font-dm-sans text-[12px] sm:text-[12.5px] text-gray-700 px-3 sm:px-4 py-2.5">{period}</td>
+                  <td className="px-3 sm:px-4 py-2.5">
+                    <span className="font-dm-sans text-[11px] font-semibold px-2 py-0.5 rounded-full bg-green-50 text-green-700 whitespace-nowrap">
                       Accredited
                     </span>
                   </td>
@@ -210,15 +215,18 @@ export default function MandatoryDisclosuresPage() {
       <DocSection title="UGC — Deemed University Application Documents" rows={UGC_DOCS} />
 
       {/* Contact */}
-      <div className="p-5 rounded-xl bg-gray-50 border border-gray-200 mt-4">
+      <div className="p-4 sm:p-5 rounded-xl bg-gray-50 border border-gray-200 mt-4">
         <p className="font-dm-sans text-[13px] text-gray-700 leading-relaxed">
           For regulatory compliance queries, contact the <strong>Office of the Principal</strong> or the <strong>IQAC Coordinator</strong>.
-          &nbsp; Email:{' '}
-          <a href="mailto:principal@griet.ac.in" className="font-semibold hover:underline" style={{ color: college.accentColor }}>principal@griet.ac.in</a>
-          &nbsp;|&nbsp;
-          <a href="mailto:iqac@griet.ac.in" className="font-semibold hover:underline" style={{ color: college.accentColor }}>iqac@griet.ac.in</a>
-          &nbsp;|&nbsp; Phone: <strong>{college.phone}</strong>
         </p>
+        <div className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 font-dm-sans text-[13px] text-gray-700">
+          <span>Email:</span>
+          <a href="mailto:principal@griet.ac.in" className="font-semibold hover:underline break-all" style={{ color: college.accentColor }}>principal@griet.ac.in</a>
+          <span className="hidden sm:inline text-gray-400">|</span>
+          <a href="mailto:iqac@griet.ac.in" className="font-semibold hover:underline break-all" style={{ color: college.accentColor }}>iqac@griet.ac.in</a>
+          <span className="hidden sm:inline text-gray-400">|</span>
+          <span>Phone: <strong>{college.phone}</strong></span>
+        </div>
       </div>
 
     </AcademicsLayout>

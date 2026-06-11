@@ -92,28 +92,19 @@ export default function PhDFacultyPage() {
         ))}
       </div>
 
-      <div className="overflow-x-auto rounded-xl border border-gray-200">
-        <table className="w-full text-[12.5px] font-dm-sans border-collapse">
-          <thead>
-            <tr style={{ backgroundColor: `${college.primaryColor}15` }}>
-              {['S.No', 'Name', 'Department', 'University', 'Year', 'Thesis Title'].map((h) => (
-                <th key={h} className="text-left px-4 py-3 font-semibold text-gray-700 border-b border-gray-200">{h}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {filtered.map(({ sno, name, dept, university, year, thesis }, i) => (
-              <tr key={sno} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                <td className="px-4 py-2.5 text-gray-400 border-b border-gray-100 w-12">{sno}</td>
-                <td className="px-4 py-2.5 font-medium border-b border-gray-100" style={{ color: college.primaryColor }}>{name}</td>
-                <td className="px-4 py-2.5 text-gray-600 border-b border-gray-100">{dept}</td>
-                <td className="px-4 py-2.5 text-gray-600 border-b border-gray-100">{university}</td>
-                <td className="px-4 py-2.5 text-gray-600 border-b border-gray-100">{year}</td>
-                <td className="px-4 py-2.5 text-gray-600 border-b border-gray-100">{thesis}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      {/* Card grid: 1-col mobile → 2-col tablet → 3-col desktop */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {filtered.map(({ sno, name, dept, university, year, thesis }) => (
+          <div key={sno} className="p-4 rounded-xl border border-gray-200 bg-white flex flex-col gap-1">
+            <p className="font-hind font-bold text-[13px]" style={{ color: college.primaryColor }}>{name}</p>
+            <div className="flex flex-wrap gap-1.5">
+              <span className="font-dm-sans text-[11px] font-semibold px-2 py-0.5 rounded-full text-white" style={{ backgroundColor: college.accentColor }}>{dept}</span>
+              <span className="font-dm-sans text-[11px] px-2 py-0.5 rounded-full bg-gray-100 text-gray-600">{university}</span>
+              <span className="font-dm-sans text-[11px] px-2 py-0.5 rounded-full bg-gray-100 text-gray-600">{year}</span>
+            </div>
+            <p className="font-dm-sans text-[11.5px] text-gray-500 leading-snug mt-0.5">{thesis}</p>
+          </div>
+        ))}
       </div>
       <p className="mt-3 font-dm-sans text-[11.5px] text-gray-400">* Partial list shown. Full directory available at the office of the Dean – Research.</p>
 

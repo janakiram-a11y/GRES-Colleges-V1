@@ -6,7 +6,12 @@ const { primaryColor, accentColor } = college;
 function SectionLabel({ children }) {
   return (
     <div className="flex items-center gap-3 mb-6">
-      <h2 className="font-hind font-bold text-[17px] whitespace-nowrap" style={{ color: college.primaryColor }}>{children}</h2>
+      <h2
+        className="font-hind font-bold text-[15px] sm:text-[17px] shrink-0"
+        style={{ color: college.primaryColor }}
+      >
+        {children}
+      </h2>
       <span className="h-px flex-1 bg-gray-200" />
     </div>
   );
@@ -85,14 +90,17 @@ function NumberedList({ items }) {
   return (
     <ol className="space-y-3">
       {items.map((item, i) => (
-        <li key={i} className="flex items-start gap-3 font-dm-sans text-[13.5px] text-gray-700 leading-relaxed">
+        <li
+          key={i}
+          className="flex items-start gap-3 font-dm-sans text-[13px] sm:text-[13.5px] text-gray-700 leading-relaxed"
+        >
           <span
             className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center font-hind font-bold text-[11px] text-white mt-0.5"
             style={{ backgroundColor: primaryColor }}
           >
             {i + 1}
           </span>
-          {item}
+          <span>{item}</span>
         </li>
       ))}
     </ol>
@@ -107,19 +115,19 @@ export default function IQACPage() {
         {/* About IQAC */}
         <section>
           <SectionLabel>About IQAC</SectionLabel>
-          <p className="font-dm-sans text-[14px] leading-relaxed text-gray-700 mb-4">
+          <p className="font-dm-sans text-[13.5px] sm:text-[14px] leading-relaxed text-gray-700 mb-4">
             The Internal Quality Assurance Cell (IQAC) at GRIET was established in accordance with
             the guidelines of the National Assessment and Accreditation Council (NAAC). As a
             post-accreditation quality sustenance measure, the IQAC is a part of the institution's
             system and works towards realizing the goals of quality enhancement and sustenance.
           </p>
-          <p className="font-dm-sans text-[14px] leading-relaxed text-gray-700 mb-4">
+          <p className="font-dm-sans text-[13.5px] sm:text-[14px] leading-relaxed text-gray-700 mb-4">
             The prime task of the IQAC is to develop a system for conscious, consistent and
             catalytic improvement in the overall performance of institutions. For this, during the
             post-accreditation period, the IQAC will channelize all efforts and measures of the
             institution towards promoting its holistic academic excellence.
           </p>
-          <p className="font-dm-sans text-[14px] leading-relaxed text-gray-700">
+          <p className="font-dm-sans text-[13.5px] sm:text-[14px] leading-relaxed text-gray-700">
             The IQAC shall have a significant role in post-accreditation phase of the institution
             in terms of quality enhancement initiatives and maintenance. The institution shall have
             an Internal Quality Assurance mechanism incorporating the spirit of excellence in all
@@ -129,13 +137,13 @@ export default function IQACPage() {
 
         {/* NAAC Banner */}
         <div
-          className="rounded-lg p-5 text-white"
+          className="rounded-lg p-4 sm:p-5 text-white"
           style={{ backgroundColor: primaryColor }}
         >
           <p className="font-hind font-bold text-[12px] uppercase tracking-widest mb-1" style={{ color: accentColor }}>
             NAAC Accreditation
           </p>
-          <p className="font-dm-sans text-[14px] leading-relaxed">
+          <p className="font-dm-sans text-[13.5px] sm:text-[14px] leading-relaxed">
             GRIET is accredited by NAAC with <strong>A++ Grade (CGPA 3.55)</strong>. The IQAC plays
             a central role in sustaining and enhancing the quality standards that earned this
             recognition.
@@ -165,12 +173,15 @@ export default function IQACPage() {
           <SectionLabel>Benefits of IQAC</SectionLabel>
           <ul className="space-y-3">
             {benefits.map((item, i) => (
-              <li key={i} className="flex items-start gap-3 font-dm-sans text-[13.5px] text-gray-700 leading-relaxed">
+              <li
+                key={i}
+                className="flex items-start gap-3 font-dm-sans text-[13px] sm:text-[13.5px] text-gray-700 leading-relaxed"
+              >
                 <span
                   className="mt-1.5 w-2.5 h-2.5 rounded-full flex-shrink-0"
                   style={{ backgroundColor: accentColor }}
                 />
-                {item}
+                <span>{item}</span>
               </li>
             ))}
           </ul>
@@ -180,23 +191,23 @@ export default function IQACPage() {
         <section>
           <SectionLabel>Committee Composition</SectionLabel>
           <div className="overflow-x-auto rounded-lg border border-gray-200">
-            <table className="w-full text-[13px] font-dm-sans">
+            <table className="w-full text-[12.5px] sm:text-[13px] font-dm-sans">
               <thead>
                 <tr style={{ backgroundColor: primaryColor }}>
-                  <th className="text-left px-4 py-3 text-white font-hind font-semibold text-[12px] w-44">Role</th>
-                  <th className="text-left px-4 py-3 text-white font-hind font-semibold text-[12px]">Member / Constituency</th>
+                  <th className="text-left px-3 sm:px-4 py-3 text-white font-hind font-semibold text-[11.5px] sm:text-[12px] w-32 sm:w-44 whitespace-nowrap">Role</th>
+                  <th className="text-left px-3 sm:px-4 py-3 text-white font-hind font-semibold text-[11.5px] sm:text-[12px]">Member / Constituency</th>
                 </tr>
               </thead>
               <tbody>
                 {composition.map(({ role, member }, i) => (
                   <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                     <td
-                      className="px-4 py-3 border-b border-gray-100 font-semibold"
+                      className="px-3 sm:px-4 py-3 border-b border-gray-100 font-semibold whitespace-nowrap"
                       style={{ color: accentColor }}
                     >
                       {role}
                     </td>
-                    <td className="px-4 py-3 border-b border-gray-100 text-gray-700">{member}</td>
+                    <td className="px-3 sm:px-4 py-3 border-b border-gray-100 text-gray-700">{member}</td>
                   </tr>
                 ))}
               </tbody>
@@ -207,7 +218,7 @@ export default function IQACPage() {
         {/* AQAR Downloads */}
         <section>
           <SectionLabel>AQAR Downloads</SectionLabel>
-          <p className="font-dm-sans text-[13.5px] text-gray-600 mb-5">
+          <p className="font-dm-sans text-[13px] sm:text-[13.5px] text-gray-600 mb-5">
             Annual Quality Assurance Reports (AQAR) submitted to NAAC are available for download
             below. Click on a year to access the report on the IQAC page.
           </p>
@@ -260,7 +271,7 @@ export default function IQACPage() {
         <section>
           <SectionLabel>Contact IQAC</SectionLabel>
           <div
-            className="rounded-lg border p-5 flex items-start gap-4"
+            className="rounded-lg border p-4 sm:p-5 flex items-start gap-3 sm:gap-4"
             style={{ borderColor: 'rgba(91,16,39,0.15)', backgroundColor: '#FAF4EE' }}
           >
             <svg
@@ -277,18 +288,18 @@ export default function IQACPage() {
                 d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
               />
             </svg>
-            <div>
+            <div className="min-w-0">
               <p className="font-hind font-semibold text-[14px] mb-1" style={{ color: primaryColor }}>
                 IQAC Coordinator
               </p>
               <a
                 href="mailto:iqac@griet.ac.in"
-                className="font-dm-sans text-[14px] hover:underline"
+                className="font-dm-sans text-[13.5px] sm:text-[14px] hover:underline break-all"
                 style={{ color: accentColor }}
               >
                 iqac@griet.ac.in
               </a>
-              <p className="font-dm-sans text-[13px] text-gray-600 mt-1">
+              <p className="font-dm-sans text-[12.5px] sm:text-[13px] text-gray-600 mt-1 leading-relaxed">
                 Gokaraju Rangaraju Institute of Engineering &amp; Technology,
                 Nizampet Road, Bachupally, Hyderabad — 500 090
               </p>

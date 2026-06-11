@@ -108,7 +108,7 @@ export default function ProfessionalAssociationsPage() {
 
       <SectionLabel>Associations & Chapters</SectionLabel>
 
-      <div className="flex flex-col gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {ASSOCIATIONS.map(({ short, full, dept, desc, website }) => (
           <div key={short} className="p-5 rounded-xl border border-gray-200 bg-white">
             <div className="flex flex-wrap items-center gap-2 mb-1">

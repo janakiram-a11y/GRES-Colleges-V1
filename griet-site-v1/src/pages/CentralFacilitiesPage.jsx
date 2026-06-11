@@ -65,7 +65,7 @@ export default function CentralFacilitiesPage() {
 
       <SectionLabel>Facilities</SectionLabel>
 
-      <div className="flex flex-col gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {FACILITIES.map(({ name, category, desc, features }) => (
           <div key={name} className="p-5 rounded-xl border border-gray-200 bg-white">
             <div className="flex flex-wrap items-center gap-2 mb-2">

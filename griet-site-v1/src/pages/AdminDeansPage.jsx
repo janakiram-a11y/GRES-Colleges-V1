@@ -81,10 +81,10 @@ export default function AdminDeansPage() {
         <section>
           <h3 className="font-hind font-bold text-[16px] mb-4" style={{ color: college.primaryColor }}>Dean Portfolios</h3>
           <div className="overflow-x-auto rounded-lg border border-gray-200">
-            <table className="w-full text-[13px] font-dm-sans">
+            <table className="min-w-[600px] w-full text-[13px] font-dm-sans">
               <thead>
                 <tr style={{ backgroundColor: college.primaryColor }}>
-                  <th className="text-left px-4 py-3 text-white font-hind font-semibold text-[12px] w-14">S.No</th>
+                  <th className="text-left px-4 py-3 text-white font-hind font-semibold text-[12px] w-14 whitespace-nowrap">S.No</th>
                   <th className="text-left px-4 py-3 text-white font-hind font-semibold text-[12px]">Dean Name</th>
                   <th className="text-left px-4 py-3 text-white font-hind font-semibold text-[12px]">Portfolio</th>
                 </tr>
@@ -92,8 +92,8 @@ export default function AdminDeansPage() {
               <tbody>
                 {deans.map(({ sno, name, portfolio }, i) => (
                   <tr key={sno} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                    <td className="px-4 py-3 border-b border-gray-100 text-gray-400 font-medium">{sno}</td>
-                    <td className="px-4 py-3 border-b border-gray-100 font-semibold text-gray-800">{name}</td>
+                    <td className="px-4 py-3 border-b border-gray-100 text-gray-400 font-medium whitespace-nowrap">{sno}</td>
+                    <td className="px-4 py-3 border-b border-gray-100 font-semibold text-gray-800 whitespace-nowrap">{name}</td>
                     <td className="px-4 py-3 border-b border-gray-100 text-gray-600">{portfolio}</td>
                   </tr>
                 ))}

@@ -173,8 +173,8 @@ export default function AboutPage() {
             className="mt-4 font-hind font-normal text-[15px] leading-relaxed text-gray-800"
             dangerouslySetInnerHTML={{
               __html: sponsoringSociety.text.replace(
-                /Gokaraju Educational Society/,
-                '<strong>Gokaraju Educational Society</strong>'
+                /Gokaraju Rangaraju Educational Society \(GRES\)/,
+                '<strong>Gokaraju Rangaraju Educational Society (GRES)</strong>'
               ),
             }}
           />
@@ -185,40 +185,15 @@ export default function AboutPage() {
           <SectionHeading>{aboutGriet.heading}</SectionHeading>
           <div className="mt-4 space-y-4 font-hind font-normal text-[15px] leading-relaxed text-gray-800">
             {aboutGriet.paragraphs.map((para, i) => (
-              <p key={i}>{para}</p>
+              <p key={i} dangerouslySetInnerHTML={{
+                __html: para
+                  .replace(/(NAAC\s+with\s+)(A\+\+\s+grade(?:\s+\(CGPA:[^)]+\))?)/g, '$1<strong style="font-size:1.05em">$2</strong>')
+                  .replace(/(accredited by[^(]*)(\(NAAC\))(.*?)(A\+\+\s+grade(?:\s+\(CGPA:[^)]+\))?)/g, '$1$2$3<strong style="font-size:1.05em">$4</strong>')
+              }} />
             ))}
           </div>
         </section>
 
-        {/* Vision, Mission, Quality Policy, Strategies, Core Values */}
-        <section>
-          <div className="mb-6">
-            <span
-              className="font-dm-sans font-semibold text-[12px] uppercase tracking-[2px] mb-2 block"
-              style={{ color: college.accentColor }}
-            >
-              Values &amp; Direction
-            </span>
-            <h2
-              className="font-hind font-semibold text-[28px] leading-9 lg:text-[40px] lg:leading-[48px] pb-3"
-              style={{
-                color: college.primaryColor,
-                borderBottom: `3px solid ${college.accentColor}`,
-                display: 'inline-block',
-              }}
-            >
-              Vision &amp; Mission
-            </h2>
-          </div>
-          <div className="mt-8 space-y-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {aboutVisionMission.slice(0, 4).map((item) => (
-                <VisionCard key={item.title} item={item} />
-              ))}
-            </div>
-            {aboutVisionMission[4] && <CoreValuesBlock item={aboutVisionMission[4]} />}
-          </div>
-        </section>
 
       </div>
     </CollegeLayout>

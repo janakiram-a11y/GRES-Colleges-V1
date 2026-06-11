@@ -1,4 +1,5 @@
-﻿import college from '../theme';
+import { useState } from 'react';
+import college from '../theme';
 import CollegeLayout from '../CollegeLayout';
 import { AcademicsBanner } from '../components/AcademicsLayout';
 import SectionHeading from '../components/SectionHeading';
@@ -6,9 +7,37 @@ import SectionHeading from '../components/SectionHeading';
 // ── Yearwise left sidebar ────────────────────────────────────────────────────
 const PLACEMENT_YEARS = [2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011];
 
+// Mobile horizontal scrollable pill row of years
+function YearPillRow({ activeYear, onYearSelect }) {
+  return (
+    <div className="lg:hidden w-full overflow-x-auto pb-2 mb-6">
+      <div className="flex gap-2 min-w-max px-1">
+        {PLACEMENT_YEARS.map((year) => {
+          const isActive = activeYear === year;
+          return (
+            <button
+              key={year}
+              onClick={() => onYearSelect(year)}
+              className="flex-shrink-0 px-4 py-1.5 rounded-full border font-dm-sans text-[13px] font-semibold transition-colors"
+              style={{
+                backgroundColor: isActive ? college.primaryColor : '#fff',
+                borderColor: isActive ? college.primaryColor : '#d1d5db',
+                color: isActive ? '#fff' : '#374151',
+              }}
+            >
+              {year}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+// Desktop vertical sidebar — hidden on mobile
 function PlacementSidebar({ activeYear, onYearSelect }) {
   return (
-    <aside className="w-full lg:w-60 flex-shrink-0 lg:sticky lg:top-[176px]">
+    <aside className="hidden lg:block w-60 flex-shrink-0 lg:sticky lg:top-[176px]">
       <div className="rounded-lg border border-gray-200">
         <div
           className="rounded-t-lg px-5 py-3"
@@ -18,7 +47,7 @@ function PlacementSidebar({ activeYear, onYearSelect }) {
             Yearwise Placement Details
           </span>
         </div>
-        <ul className="rounded-b-lg divide-y divide-gray-100 bg-white sidebar-scroll max-h-[calc(100vh-240px)]">
+        <ul className="rounded-b-lg divide-y divide-gray-100 bg-white sidebar-scroll max-h-[calc(100vh-240px)] overflow-y-auto">
           {PLACEMENT_YEARS.map((year) => {
             const isActive = activeYear === year;
             return (
@@ -66,7 +95,8 @@ function YearStatsPanel({ year }) {
   const stats = YEAR_STATS[year] || YEAR_STATS[2025];
   return (
     <div className="space-y-6">
-      <div className="grid grid-cols-3 gap-4">
+      {/* Fix 1: stats grid responsive cols */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {[
           { label: 'Highest Package', value: stats.highest },
           { label: 'Total Offers', value: stats.offers },
@@ -75,7 +105,11 @@ function YearStatsPanel({ year }) {
           <div key={s.label}
             className="text-center p-5 rounded-lg border-l-4 border border-gray-100 bg-white"
             style={{ borderLeftColor: college.primaryColor }}>
-            <div className="font-hind font-bold text-2xl mb-1" style={{ color: college.primaryColor }}>
+            {/* Fix 5: responsive stat number text size */}
+            <div
+              className="font-hind font-bold text-2xl sm:text-3xl lg:text-4xl mb-1"
+              style={{ color: college.primaryColor }}
+            >
               {s.value}
             </div>
             <div className="font-dm-sans text-[11px] uppercase tracking-wide text-gray-500">
@@ -88,7 +122,8 @@ function YearStatsPanel({ year }) {
         <h4 className="font-hind font-semibold text-[13px] mb-3 uppercase tracking-wide" style={{ color: college.primaryColor }}>
           Top Recruiters – {year}
         </h4>
-        <div className="flex flex-wrap gap-2">
+        {/* Fix 6: company logos/tags responsive gap */}
+        <div className="flex flex-wrap gap-2 sm:gap-3">
           {stats.topRecruiters.map((r) => (
             <span key={r}
               className="px-4 py-2 rounded-full border font-dm-sans text-[12px] font-semibold text-gray-700 bg-white hover:shadow-sm transition-shadow"
@@ -122,7 +157,7 @@ function PlacementsBanner() {
       </div>
       <div
         className="text-white text-center py-3 px-6 font-hind font-bold text-[15px] uppercase tracking-wide"
-        style={{ backgroundColor: college.accentColor, color: college.primaryColor }}
+        style={{ backgroundColor: college.accentColor, color: '#ffffff' }}
       >
         JP Morgan Chase &amp; Co Selects with 19.75 Lakhs
       </div>
@@ -131,8 +166,6 @@ function PlacementsBanner() {
 }
 
 // ── Page ─────────────────────────────────────────────────────────────────────
-import { useState } from 'react';
-
 export default function PlacementsPage() {
   const [activeYear, setActiveYear] = useState(2025);
 
@@ -141,13 +174,17 @@ export default function PlacementsPage() {
       <AcademicsBanner title="Training &amp; Placements" />
 
       <div className="page-pad">
+        {/* Fix 3: main layout flex-col on mobile, flex-row on lg+ */}
         <div className="flex flex-col lg:flex-row gap-10 items-start">
 
-          {/* ── Left Sidebar ──────────────────────────────────────────── */}
+          {/* Fix 2 & 4: Sidebar hidden on mobile (desktop only); mobile uses pill row above content */}
           <PlacementSidebar activeYear={activeYear} onYearSelect={setActiveYear} />
 
           {/* ── Main Content ───────────────────────────────────────────── */}
           <div className="flex-1 min-w-0 space-y-10">
+
+            {/* Fix 4: Mobile year pill row — only visible on mobile */}
+            <YearPillRow activeYear={activeYear} onYearSelect={setActiveYear} />
 
             {/* Congratulations Banner */}
             <PlacementsBanner />
@@ -200,7 +237,8 @@ export default function PlacementsPage() {
                 style={{ color: '#F3DAB2' }}>
                 Placement Highlights
               </p>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+              {/* Fix 1: responsive grid cols */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
                 {[
                   { count: '44 LPA', label: 'Highest Package', desc: 'Consistently offered by top MNCs' },
                   { count: '900+', label: 'Offers Per Year', desc: 'From 100+ visiting companies' },
@@ -209,7 +247,8 @@ export default function PlacementsPage() {
                 ].map((s) => (
                   <div key={s.label}
                     className="bg-white/10 border border-white/20 rounded-xl px-5 py-7 flex flex-col items-center text-center gap-2">
-                    <span className="font-hind font-bold text-2xl" style={{ color: '#F3DAB2' }}>{s.count}</span>
+                    {/* Fix 5: responsive count text size */}
+                    <span className="font-hind font-bold text-2xl sm:text-3xl lg:text-4xl" style={{ color: '#F3DAB2' }}>{s.count}</span>
                     <span className="font-hind font-semibold text-sm text-white">{s.label}</span>
                     <span className="font-dm-sans text-[11px] text-white/70 leading-relaxed">{s.desc}</span>
                   </div>
@@ -220,6 +259,7 @@ export default function PlacementsPage() {
             {/* Contact Information */}
             <section>
               <SectionHeading size="xl">Contact Information</SectionHeading>
+              {/* Fix 7: overflow-x-auto wrapper on table */}
               <div className="overflow-x-auto">
                 <table className="w-full font-dm-sans text-[13px] border border-gray-200 rounded-lg overflow-hidden">
                   <tbody>

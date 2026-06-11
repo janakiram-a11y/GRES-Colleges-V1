@@ -1,4 +1,4 @@
-﻿import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import college from '../theme';
 
 const SIDEBAR_LINKS = [
@@ -22,8 +22,34 @@ const SIDEBAR_LINKS = [
   { label: 'GRIET Skill Series', href: '/administration/griet-skill-series' },
 ];
 
-export default function AdministrationSidebar() {
+export default function AdministrationSidebar({ mobileChips = false }) {
   const { pathname } = useLocation();
+
+  if (mobileChips) {
+    return (
+      <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
+        {SIDEBAR_LINKS.map(({ label, href }) => {
+          const isActive =
+            pathname === href || (href !== '/administration' && pathname.startsWith(href));
+          return (
+            <Link
+              key={label}
+              to={href}
+              className="flex-shrink-0 px-3 py-1.5 rounded-full text-[12px] font-dm-sans font-medium border transition-colors whitespace-nowrap"
+              style={{
+                backgroundColor: isActive ? college.primaryColor : '#fff',
+                color: isActive ? '#fff' : '#374151',
+                borderColor: isActive ? college.primaryColor : '#d1d5db',
+              }}
+            >
+              {label}
+            </Link>
+          );
+        })}
+      </div>
+    );
+  }
+
   return (
     <div className="rounded-lg border border-gray-200 lg:sticky lg:top-[176px]">
       <div
@@ -36,7 +62,8 @@ export default function AdministrationSidebar() {
       </div>
       <ul className="rounded-b-lg divide-y divide-gray-100 bg-white sidebar-scroll max-h-[calc(100vh-240px)]">
         {SIDEBAR_LINKS.map(({ label, href }) => {
-          const isActive = pathname === href || (href !== '/administration' && pathname.startsWith(href));
+          const isActive =
+            pathname === href || (href !== '/administration' && pathname.startsWith(href));
           return (
             <li key={label}>
               <Link

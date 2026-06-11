@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import college from '../theme';
 import CollegeLayout from '../CollegeLayout';
 import { AcademicsBanner } from '../components/AcademicsLayout';
@@ -7,11 +7,20 @@ import { AcademicsBanner } from '../components/AcademicsLayout';
 function SectionHeading({ children }) {
   return (
     <h2
-      className="font-hind font-bold text-2xl mb-5 pb-2 inline-block"
+      className="font-hind font-bold text-xl sm:text-2xl md:text-3xl mb-5 pb-2 inline-block"
       style={{ color: college.primaryColor, borderBottom: `2px solid ${college.accentColor}` }}
     >
       {children}
     </h2>
+  );
+}
+
+// ── Ranking highlight value (large responsive number/text) ─────────────────
+function RankingValue({ children }) {
+  return (
+    <strong className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight" style={{ color: college.primaryColor }}>
+      {children}
+    </strong>
   );
 }
 
@@ -20,8 +29,8 @@ function RankingEntry({ logo, alt, children, link, linkLabel }) {
   return (
     <div className="flex items-start gap-5 p-4 rounded-lg border border-gray-100 bg-white hover:shadow-sm transition-shadow">
       {logo && (
-        <div className="flex-shrink-0 w-20 flex items-center justify-center">
-          <img src={logo} alt={alt || 'Ranking logo'} className="max-h-14 max-w-full object-contain" />
+        <div className="flex-shrink-0 flex items-center justify-center w-full max-w-[80px] sm:max-w-[100px] aspect-square">
+          <img src={logo} alt={alt || 'Ranking logo'} className="max-h-full max-w-full object-contain" />
         </div>
       )}
       <div className={`flex-1 font-dm-sans text-[14px] leading-relaxed text-gray-700 ${!logo ? 'pl-2' : ''}`}>
@@ -65,8 +74,10 @@ function YearAccordion({ year, children, defaultOpen = false }) {
         </svg>
       </button>
       {open && (
-        <div className="p-5 bg-white space-y-3">
-          {children}
+        <div className="overflow-x-auto">
+          <div className="p-5 bg-white space-y-3 min-w-0">
+            {children}
+          </div>
         </div>
       )}
     </div>
@@ -176,6 +187,22 @@ const rankings2018 = [
   { highlight: 'SIRO Recognition', rest: ' – Recognised as Scientific Industrial Research Organisation by DSIR, Government of India.' },
 ];
 
+// ── Ranking body logos for the grid ─────────────────────────────────────────
+const rankingLogos = [
+  { src: '/rankings/nirf-engineering.png', alt: 'NIRF Engineering' },
+  { src: '/rankings/nirf-innovation.png', alt: 'NIRF Innovation' },
+  { src: '/rankings/careers360.png', alt: 'Careers360' },
+  { src: '/rankings/education-world.png', alt: 'Education World' },
+  { src: '/rankings/the-week.png', alt: 'The Week' },
+  { src: '/rankings/competition-success.png', alt: 'Competition Success Review' },
+  { src: '/rankings/times-of-india.png', alt: 'Times of India' },
+  { src: '/rankings/naac.png', alt: 'NAAC' },
+  { src: '/rankings/nba.png', alt: 'NBA' },
+  { src: '/rankings/iso.png', alt: 'ISO' },
+  { src: '/rankings/dsir.png', alt: 'DSIR / SIRO' },
+  { src: '/rankings/teqip.png', alt: 'TEQIP' },
+];
+
 // ── Page ────────────────────────────────────────────────────────────────────
 export default function RankingsPage() {
   return (
@@ -193,6 +220,46 @@ export default function RankingsPage() {
           </p>
         </div>
 
+        {/* Ranking body logos grid */}
+        <div className="mb-10">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            {rankingLogos.map((item, i) => (
+              <div
+                key={i}
+                className="flex items-center justify-center p-3 rounded-lg border border-gray-100 bg-white hover:shadow-sm transition-shadow"
+              >
+                <div className="w-full aspect-square max-w-[80px] sm:max-w-[100px] flex items-center justify-center mx-auto">
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    className="max-h-full max-w-full object-contain"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Key ranking highlights */}
+        <div className="mb-10">
+          <SectionHeading>Key Highlights</SectionHeading>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+            {[
+              { value: 'NAAC A++', label: 'Grade with CGPA 3.55' },
+              { value: '101–150', label: 'NIRF Engineering Rank Band 2023' },
+              { value: '2nd', label: 'Rank in Telangana – Education World 2023' },
+              { value: '1st', label: 'Rank in Telangana – CSR Rankings 2023' },
+              { value: 'NBA', label: 'Accreditation for multiple UG & PG programmes' },
+              { value: 'SIRO', label: 'Recognised by DSIR, Govt. of India' },
+            ].map((item, i) => (
+              <div key={i} className="p-5 rounded-lg border border-gray-100 bg-white text-center hover:shadow-sm transition-shadow">
+                <RankingValue>{item.value}</RankingValue>
+                <p className="mt-2 font-dm-sans text-[13px] text-gray-600 leading-snug">{item.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* 2023 — expanded by default */}
         <YearAccordion year={2023} defaultOpen>
           {rankings2023.withLogos.map((item, i) => (
@@ -208,7 +275,9 @@ export default function RankingsPage() {
             {rankings2023.textOnly.map((item, i) => (
               <div key={i} className="flex items-start gap-3 px-4 py-2 font-dm-sans text-[14px] leading-relaxed text-gray-700">
                 {item.logo ? (
-                  <img src={item.logo} alt={item.alt} className="w-16 flex-shrink-0 object-contain" />
+                  <div className="w-full max-w-[80px] sm:max-w-[100px] aspect-square flex-shrink-0 flex items-center justify-center">
+                    <img src={item.logo} alt={item.alt} className="max-h-full max-w-full object-contain" />
+                  </div>
                 ) : (
                   <span className="flex-shrink-0 mt-1.5 w-2 h-2 rounded-full"
                     style={{ backgroundColor: college.accentColor, minWidth: 8 }} />
@@ -258,6 +327,18 @@ export default function RankingsPage() {
               <strong>{item.highlight}</strong>{item.rest}
             </RankingEntry>
           ))}
+        </YearAccordion>
+
+        <YearAccordion year={2024}>
+          <p className="font-dm-sans text-[14px] text-gray-500 italic px-2 py-1">
+            Rankings &amp; recognitions for 2024 will be updated shortly.
+          </p>
+        </YearAccordion>
+
+        <YearAccordion year={2025}>
+          <p className="font-dm-sans text-[14px] text-gray-500 italic px-2 py-1">
+            Rankings &amp; recognitions for 2025 will be updated shortly.
+          </p>
         </YearAccordion>
 
       </div>

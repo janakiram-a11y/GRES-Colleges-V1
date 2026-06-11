@@ -31,15 +31,28 @@
   --type-cap:      0.75rem / 1.125rem; /* 12px / 18px — DM Sans */
 }
 
-/* ── Premium text rendering ──────────────────────────────────────────────── */
+/* ── Global box model & overflow guard ──────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html {
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
 body {
+  overflow-x: hidden;
   font-family: 'Hind', Tahoma, sans-serif;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 /* ── Base typography — semantic element defaults ─────────────────────────── */
@@ -71,31 +84,24 @@ body {
 }
 
 @layer utilities {
-  /* Consistent section/page padding — 120px horizontal, 80px vertical on desktop */
+  /* ── Section / page padding — 3-step responsive spacing system ─────────── */
+  /* MOBILE  (<768px)  : px-5  (20px)  | py-8  (32px)                        */
+  /* TABLET  (≥768px)  : px-16 (64px)  | py-14 (56px)                        */
+  /* DESKTOP (≥1024px) : px-[120px]    | py-20 (80px)                        */
   .section-pad,
   .page-pad {
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    @apply px-5 md:px-16 lg:px-[120px] py-8 md:py-14 lg:py-20;
   }
-  @media (min-width: 768px) {
-    .section-pad,
-    .page-pad {
-      padding-left: 60px;
-      padding-right: 60px;
-      padding-top: 60px;
-      padding-bottom: 60px;
-    }
+
+  /* ── Container-only horizontal padding (no vertical) ───────────────────── */
+  /* Use on max-w wrappers in Navbar, Footer, NavStrip, etc.                  */
+  .container-px {
+    @apply px-5 md:px-16 lg:px-[120px];
   }
-  @media (min-width: 1024px) {
-    .section-pad,
-    .page-pad {
-      padding-left: 120px;
-      padding-right: 120px;
-      padding-top: 80px;
-      padding-bottom: 80px;
-    }
+
+  /* ── Responsive table wrapper — prevents horizontal blowout ─────────────── */
+  .table-responsive {
+    @apply overflow-x-auto rounded-lg;
   }
 
   /* Sidebar: hide scrollbar at rest, reveal brand thumb on hover */

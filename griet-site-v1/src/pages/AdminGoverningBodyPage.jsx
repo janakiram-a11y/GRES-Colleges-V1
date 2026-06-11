@@ -63,7 +63,7 @@ const chairman = {
 };
 
 const otherMembers = [
-  { sno: 2,  name: 'Sri G.V.K. Ranga Raju',          qualification: 'B.Tech.',    designation: 'MD, Delta Paper Mills',                              category: 'Trust / Society Members',       photo: 'https://www.griet.ac.in/images/gbpics/Dr%20G%20V%20K%20Ranga%20Raju.jpg',          initials: 'RR' },
+  { sno: 2,  name: 'Sri G.V.K. Ranga Raju',          qualification: 'B.Tech.',    designation: 'Vice President, GRES',                               category: 'Trust / Society Members',       photo: 'https://www.griet.ac.in/images/gbpics/Dr%20G%20V%20K%20Ranga%20Raju.jpg',          initials: 'RR' },
   { sno: 3,  name: 'Sri G. Rama Raju',                qualification: 'B.Pharma.',  designation: 'Partner, Laila Impex',                               category: 'Trust / Society Members',       photo: 'https://www.griet.ac.in/images/gbpics/G%20Rama%20Raju.jpg',                        initials: 'RR' },
   { sno: 4,  name: 'Smt A. Vani',                     qualification: '–',          designation: 'Director, Ganges Valley School',                     category: 'Trust / Society Members',       photo: 'https://www.griet.ac.in/images/gbpics/Smt%20G%20Vani%20Raju.jpg',                  initials: 'AV' },
   { sno: 5,  name: 'Dr. Jandhyala N Murthy',          qualification: 'Ph.D.',      designation: 'Professor, Mechanical Engineering, GRIET',           category: 'Faculty Representatives',       photo: 'https://www.griet.ac.in/images/gbpics/Dr.%20Jandhyala%20N%20Murthy.jpg',           initials: 'JM' },
@@ -139,7 +139,7 @@ export default function AdminGoverningBodyPage() {
         {/* All other members – photo grid */}
         <section>
           <h3 className="font-hind font-bold text-[16px] mb-4" style={{ color: college.primaryColor }}>Board Members</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
             {otherMembers.map((m) => (
               <MemberCard
                 key={m.sno}
@@ -161,21 +161,21 @@ export default function AdminGoverningBodyPage() {
                 <CategoryBadge label={label} />
               </div>
               <div className="overflow-x-auto rounded-lg border border-gray-200">
-                <table className="w-full text-[13px] font-dm-sans">
+                <table className="min-w-[600px] w-full text-[13px] font-dm-sans">
                   <thead>
                     <tr style={{ backgroundColor: college.primaryColor }}>
-                      <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[12px] w-10">S.No</th>
-                      <th className="px-4 py-2.5 text-white font-hind font-semibold text-[12px] w-16">Photo</th>
+                      <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[12px] w-10 whitespace-nowrap">S.No</th>
+                      <th className="px-4 py-2.5 text-white font-hind font-semibold text-[12px] min-w-[60px] w-16">Photo</th>
                       <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[12px]">Name</th>
-                      <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[12px]">Qualification</th>
+                      <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[12px] whitespace-nowrap">Qualification</th>
                       <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[12px]">Designation / Organisation</th>
                     </tr>
                   </thead>
                   <tbody>
                     {members.map((m, i) => (
                       <tr key={m.sno} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                        <td className="px-4 py-2.5 border-b border-gray-100 text-gray-500">{m.sno}</td>
-                        <td className="px-4 py-2.5 border-b border-gray-100">
+                        <td className="px-4 py-2.5 border-b border-gray-100 text-gray-500 whitespace-nowrap">{m.sno}</td>
+                        <td className="px-4 py-2.5 border-b border-gray-100 min-w-[60px] w-16">
                           {m.photo ? (
                             <img
                               src={m.photo}
@@ -192,8 +192,8 @@ export default function AdminGoverningBodyPage() {
                             </div>
                           )}
                         </td>
-                        <td className="px-4 py-2.5 border-b border-gray-100 font-semibold text-gray-800">{m.name}</td>
-                        <td className="px-4 py-2.5 border-b border-gray-100 text-gray-600">{m.qualification}</td>
+                        <td className="px-4 py-2.5 border-b border-gray-100 font-semibold text-gray-800 whitespace-nowrap">{m.name}</td>
+                        <td className="px-4 py-2.5 border-b border-gray-100 text-gray-600 whitespace-nowrap">{m.qualification}</td>
                         <td className="px-4 py-2.5 border-b border-gray-100 text-gray-600">{m.designation}</td>
                       </tr>
                     ))}

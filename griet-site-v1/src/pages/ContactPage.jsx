@@ -93,16 +93,21 @@ export default function ContactPage() {
           {/* Reach Us */}
           <section>
             <SectionHeading>Reach Us</SectionHeading>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {reachUs.map(({ icon, label, lines }) => (
                 <div key={label} className="rounded-lg border border-gray-200 bg-white p-5">
-                  <div className="flex items-center gap-2 mb-3" style={{ color: primaryColor }}>
-                    {icon}
-                    <span className="font-hind font-semibold text-[13px] uppercase tracking-wide">{label}</span>
+                  <div className="flex items-start gap-3 mb-3">
+                    <div
+                      className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full flex-shrink-0"
+                      style={{ backgroundColor: `${primaryColor}15`, color: primaryColor }}
+                    >
+                      {icon}
+                    </div>
+                    <span className="font-hind font-semibold text-[13px] uppercase tracking-wide self-center" style={{ color: primaryColor }}>{label}</span>
                   </div>
-                  <div className="space-y-0.5">
+                  <div className="space-y-0.5 pl-1">
                     {lines.map((line, i) => (
-                      <p key={i} className="font-dm-sans text-[13px] text-gray-700 leading-relaxed">{line}</p>
+                      <p key={i} className="font-dm-sans text-[13px] text-gray-700 leading-relaxed break-words">{line}</p>
                     ))}
                   </div>
                 </div>
@@ -113,7 +118,30 @@ export default function ContactPage() {
           {/* Departmental Contacts */}
           <section>
             <SectionHeading>Departmental Contacts</SectionHeading>
-            <div className="overflow-x-auto rounded-lg border border-gray-200">
+
+            {/* Mobile: stacked cards (hidden on md+) */}
+            <div className="flex flex-col gap-4 md:hidden">
+              {deptContacts.map(({ dept, person, phone, email }, i) => (
+                <div key={i} className="rounded-lg border border-gray-200 bg-white p-4 space-y-2">
+                  <p className="font-hind font-bold text-[14px]" style={{ color: accentColor }}>{dept}</p>
+                  <div className="flex items-start gap-3">
+                    <span className="font-dm-sans text-[12px] text-gray-500 w-16 flex-shrink-0">Person</span>
+                    <span className="font-dm-sans text-[13px] text-gray-700 break-words">{person}</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="font-dm-sans text-[12px] text-gray-500 w-16 flex-shrink-0">Phone</span>
+                    <span className="font-dm-sans text-[13px] text-gray-700">{phone}</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="font-dm-sans text-[12px] text-gray-500 w-16 flex-shrink-0">Email</span>
+                    <span className="font-dm-sans text-[13px] text-gray-700 break-all">{email}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Desktop: table (hidden below md) */}
+            <div className="overflow-x-auto rounded-lg border border-gray-200 hidden md:block">
               <table className="w-full text-[13px] font-dm-sans">
                 <thead>
                   <tr style={{ backgroundColor: primaryColor }}>
@@ -140,14 +168,14 @@ export default function ContactPage() {
           {/* Feedback & Grievance Portals */}
           <section>
             <SectionHeading>Feedback &amp; Grievance Portals</SectionHeading>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {portals.map(({ label, title, href }) => (
                 <a
                   key={title}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-lg border border-gray-200 bg-white p-5 flex flex-col gap-1 hover:shadow-sm transition-shadow group"
+                  className="rounded-lg border border-gray-200 bg-white p-5 flex flex-col gap-1 hover:shadow-sm transition-shadow group min-h-[44px]"
                 >
                   <span className="font-hind font-bold text-[11px] uppercase tracking-widest" style={{ color: accentColor }}>{label}</span>
                   <span className="font-hind font-bold text-[15px]" style={{ color: primaryColor }}>{title}</span>
@@ -160,7 +188,7 @@ export default function ContactPage() {
           {/* Location */}
           <section>
             <SectionHeading>Location</SectionHeading>
-            <div className="rounded-lg overflow-hidden border border-gray-200" style={{ height: 400 }}>
+            <div className="rounded-lg overflow-hidden border border-gray-200 h-[250px] sm:h-[300px] md:h-[400px]">
               <iframe
                 title="GRIET Location"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.6569986895!2d78.38052831527305!3d17.49394188785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91b0f3f2a4c5%3A0x1a2b3c4d5e6f7a8b!2sGRIET!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"

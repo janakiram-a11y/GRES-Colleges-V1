@@ -72,12 +72,11 @@ const DIGITAL_RESOURCES = [
 // internal: false → <a target="_blank">
 const LIBRARY_LINKS = [
   [
-    { label: 'Library Committee 2025-26', href: 'https://www.griet.ac.in/2025/Lib%20Committee%202025-26.pdf',  internal: false },
     { label: 'Library MoM 2025-26',       href: 'https://www.griet.ac.in/2025/Lib%20Comm%20Meeting.pdf',       internal: false },
     { label: 'Library MoM 2023-24',       href: 'https://www.griet.ac.in/2023/Library%20MoM%20Library%20Committee%20Meeting%20Year%202023-24.pdf', internal: false },
     { label: 'Staff and Committee',        href: '/academics/library/staff-committee', internal: true },
     { label: 'Rules and Regulations',      href: '/academics/library/rules',           internal: true },
-    { label: 'Other Facilities',           href: '/academics/library/other-facilities', internal: true },
+    { label: 'Support Facilities',         href: '/academics/library/other-facilities', internal: true },
   ],
   [
     { label: 'Printed Journals',         href: 'https://www.griet.ac.in/2024/Printed%20Library%202023-24.pdf',            internal: false },

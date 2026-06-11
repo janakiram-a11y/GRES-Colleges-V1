@@ -85,10 +85,10 @@ export default function AdminAcademicCouncilPage() {
               {label}
             </h3>
             <div className="overflow-x-auto rounded-lg border border-gray-200">
-              <table className="w-full text-[13px] font-dm-sans">
+              <table className="min-w-[600px] w-full text-[13px] font-dm-sans">
                 <thead>
                   <tr style={{ backgroundColor: college.primaryColor }}>
-                    <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[12px] w-10">S.No</th>
+                    <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[12px] w-10 whitespace-nowrap">S.No</th>
                     <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[12px]">Name</th>
                     <th className="text-left px-4 py-2.5 text-white font-hind font-semibold text-[12px]">Designation / Organisation</th>
                   </tr>
@@ -96,8 +96,8 @@ export default function AdminAcademicCouncilPage() {
                 <tbody>
                   {members.map((m, i) => (
                     <tr key={m.sno} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                      <td className="px-4 py-2.5 border-b border-gray-100 text-gray-500">{m.sno}</td>
-                      <td className="px-4 py-2.5 border-b border-gray-100 font-semibold text-gray-800">
+                      <td className="px-4 py-2.5 border-b border-gray-100 text-gray-500 whitespace-nowrap">{m.sno}</td>
+                      <td className="px-4 py-2.5 border-b border-gray-100 font-semibold text-gray-800 whitespace-nowrap">
                         {m.name}
                         {m.role && (
                           <span

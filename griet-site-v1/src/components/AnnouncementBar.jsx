@@ -127,7 +127,7 @@ export default function AnnouncementBar({ college }) {
       `}</style>
 
       <div className="w-full bg-white" style={{ borderBottom: `1px solid ${withAlpha(college.primaryColor, 0.1)}` }}>
-        <div className="max-w-[1320px] mx-auto px-4 md:px-10 lg:px-[60px] flex items-center gap-2 md:gap-4 h-[44px]">
+        <div className="max-w-[1320px] mx-auto px-5 md:px-16 lg:px-[120px] flex items-center gap-2 md:gap-4 h-[44px]">
 
           {/* ANNOUNCEMENTS pill */}
           <div

@@ -110,7 +110,7 @@ export default function BottomQuickLinksBar({ college }) {
         borderBottom: '1px solid rgba(91,16,39,0.15)',
       }}
     >
-      <div className="max-w-[1320px] mx-auto px-4 md:px-8 lg:px-[60px]">
+      <div className="max-w-[1320px] mx-auto px-5 md:px-16 lg:px-[120px]">
         <div className="grid grid-cols-3 sm:grid-cols-6 divide-x divide-[rgba(91,16,39,0.15)]">
           {LINKS.map(({ label, Icon, href, external }) => {
             const inner = (

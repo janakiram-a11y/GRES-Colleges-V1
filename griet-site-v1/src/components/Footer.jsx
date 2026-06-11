@@ -47,6 +47,7 @@ const SOCIAL_ICONS = { Twitter: TwitterIcon, LinkedIn: LinkedInIcon, Instagram: 
 const QUICK_LINKS = [
   { label: 'GRIET Rules (RED Book)', href: 'https://www.griet.ac.in/images/red%20book.pdf', external: true },
   { label: 'Pragnya 90.4 FM Radio', href: 'http://www.pragnyafm.griet.ac.in/', external: true },
+  { label: 'GEM Magazine', href: '/clubs/gem-magazine' },
   { label: 'Support Services', href: '/support-services' },
   { label: 'Transport', href: '/transport' },
   { label: 'Infrastructure', href: '/infrastructure' },
@@ -70,7 +71,6 @@ const IMPORTANT_LINKS = [
 // PhDs Awarded, Conferences (all in Research ▸ dropdown)
 const RD_LINKS = [
   { label: 'Scopus SCI List', href: 'https://www.griet.ac.in/2022/Scopus%20Publications%20March%202023.pdf', external: true },
-  { label: 'TEQIP Phase-II Grant', href: '/research/teqip' },
   { label: 'IRINS.ORG', href: 'https://griet.irins.org/', external: true },
   { label: 'Innovation Awards', href: '/research/innovation-awards' },
 ];
@@ -78,7 +78,6 @@ const RD_LINKS = [
 // Student Events — AICTE SPICES removed (identical href as Flavours, pure duplicate)
 // All individual club pages are NOT in any dropdown, so all retained
 const STUDENT_EVENTS = [
-  { label: 'IEEE GRIET SB', href: 'http://ieeegrietsb.com', external: true },
   { label: 'Flavours', href: '/clubs/flavours' },
   { label: 'X-Kernel', href: 'https://xkernal-kappa.vercel.app/', external: true },
   { label: 'Quizzicals', href: '/clubs/quizzicals' },
@@ -88,13 +87,11 @@ const STUDENT_EVENTS = [
   { label: 'Free Software Wing', href: '/clubs/fsf' },
   { label: 'G-Talks', href: 'https://www.griet.ac.in/images2/Gtalks%20report.pdf', external: true },
   { label: 'TED-X', href: 'https://www.griet.ac.in/2025/TEDx%20GRIET%20Final%20Report%202024.pdf', external: true },
-  { label: 'GEM Magazine', href: '/clubs/gem-magazine' },
   { label: 'Scientific Forestep', href: '/clubs/scientific-forestep' },
 ];
 
 // Special Days — Annual Day & Graduation Day removed (both in Student Life ▸ dropdown)
 const SPECIAL_DAYS = [
-  { label: 'Reflections: Class of 2025', href: 'https://www.griet.ac.in/2025/Class%20of%202025.pdf', external: true },
   { label: 'RUEDO', href: 'http://www.ruedo.griet.ac.in/', external: true },
   { label: 'Alumni Day', href: '/alumni' },
 ];
@@ -209,7 +206,7 @@ function ThemePlayer({ primaryColor, accentColor }) {
           <path d="M9 18V5l12-2v13" /><circle cx="6" cy="18" r="3" /><circle cx="18" cy="16" r="3" />
         </svg>
         <span className="font-hind font-semibold text-[10.5px] uppercase tracking-widest text-gray-400">
-          GRIET Anthem
+          GRIET Theme Song
         </span>
       </div>
 
@@ -281,7 +278,7 @@ function ThemePlayer({ primaryColor, accentColor }) {
 export default function Footer({ college }) {
   return (
     <footer className="w-full bg-white" style={{ borderTop: '1px solid rgba(91,16,39,0.08)' }}>
-      <div className="max-w-[1320px] mx-auto px-4 md:px-8 lg:px-[60px]">
+      <div className="max-w-[1320px] mx-auto px-5 md:px-16 lg:px-[120px]">
 
         {/* ── Main links: 5 columns ── */}
         <div className="py-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-10" style={{ borderBottom: '1px solid rgba(91,16,39,0.08)' }}>

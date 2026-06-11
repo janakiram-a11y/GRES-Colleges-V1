@@ -129,7 +129,7 @@ function GradYearSection({ title, rows }) {
         {title}
       </div>
       <div className="overflow-x-auto">
-        <table className="w-full border-collapse" style={{ border: '1px solid #e5e7eb' }}>
+        <table className="w-full border-collapse" style={{ border: '1px solid #e5e7eb', minWidth: '500px' }}>
           <thead>
             <tr>
               <TH narrow>S.No</TH>
@@ -179,7 +179,7 @@ export default function GoldMedalsPage() {
           APJG Awarded Gold Medals for Subjects
         </div>
         <div className="overflow-x-auto">
-          <table className="w-full border-collapse" style={{ border: '1px solid #e5e7eb' }}>
+          <table className="w-full border-collapse" style={{ border: '1px solid #e5e7eb', minWidth: '600px' }}>
             <thead>
               <tr>
                 {['S.No', 'Dept', 'Roll No', 'Name', 'Subject', 'Max Marks', 'Marks Obtained'].map((h) => (

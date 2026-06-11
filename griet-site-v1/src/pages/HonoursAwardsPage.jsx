@@ -22,7 +22,7 @@ const AWARDS = [
 function SectionLabel({ children }) {
   return (
     <div className="flex items-center gap-3 mb-6">
-      <h2 className="font-hind font-bold text-[17px] whitespace-nowrap" style={{ color: college.primaryColor }}>{children}</h2>
+      <h2 className="font-hind font-bold text-[15px] sm:text-[17px] shrink-0" style={{ color: college.primaryColor }}>{children}</h2>
       <span className="h-px flex-1 bg-gray-200" />
     </div>
   );
@@ -34,26 +34,29 @@ export default function HonoursAwardsPage() {
       <SectionLabel>Awards & Recognitions</SectionLabel>
       <div className="flex flex-col gap-4">
         {AWARDS.map(({ title, year, detail }, i) => (
-          <div key={i} className="flex flex-col sm:flex-row gap-3 p-5 rounded-xl border border-gray-200 bg-white hover:shadow-sm transition-shadow">
-            <div className="sm:w-10 flex-shrink-0 flex sm:flex-col items-center sm:items-start gap-2">
+          <div
+            key={i}
+            className="flex flex-col sm:flex-row gap-3 p-4 sm:p-5 rounded-xl border border-gray-200 bg-white hover:shadow-sm transition-shadow w-full overflow-hidden"
+          >
+            <div className="flex sm:flex-col items-center sm:items-start gap-2 sm:w-10 flex-shrink-0">
               <span
-                className="font-hind font-bold text-[22px] leading-none"
+                className="font-hind font-bold text-[20px] sm:text-[22px] leading-none"
                 style={{ color: `${college.primaryColor}30` }}
               >
                 {String(i + 1).padStart(2, '0')}
               </span>
             </div>
-            <div className="flex-1">
+            <div className="flex-1 min-w-0">
               <div className="flex flex-wrap items-center gap-2 mb-1">
-                <p className="font-hind font-bold text-[14px]" style={{ color: college.primaryColor }}>{title}</p>
+                <p className="font-hind font-bold text-[13px] sm:text-[14px] leading-snug break-words" style={{ color: college.primaryColor }}>{title}</p>
                 <span
-                  className="font-dm-sans text-[11px] font-semibold px-2 py-0.5 rounded-full text-white"
+                  className="font-dm-sans text-[10px] sm:text-[11px] font-semibold px-2 py-0.5 rounded-full text-white whitespace-nowrap flex-shrink-0"
                   style={{ backgroundColor: college.accentColor }}
                 >
                   {year}
                 </span>
               </div>
-              <p className="font-dm-sans text-[12.5px] text-gray-600 leading-relaxed">{detail}</p>
+              <p className="font-dm-sans text-[12px] sm:text-[12.5px] text-gray-600 leading-relaxed break-words">{detail}</p>
             </div>
           </div>
         ))}

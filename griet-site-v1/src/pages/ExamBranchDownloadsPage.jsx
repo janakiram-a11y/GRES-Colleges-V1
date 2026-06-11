@@ -118,7 +118,7 @@ function DocCard({ title, desc, url, category }) {
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 self-start px-4 py-2 rounded-lg font-hind font-semibold text-[12px] border transition-colors"
+        className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-4 py-2 rounded-lg font-hind font-semibold text-[12px] border transition-colors"
         style={{ color: college.primaryColor, borderColor: college.primaryColor }}
         onMouseEnter={(e) => {
           e.currentTarget.style.backgroundColor = college.primaryColor;

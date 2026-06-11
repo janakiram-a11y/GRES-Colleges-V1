@@ -38,13 +38,13 @@ export default function AdminHODsPage() {
         </div>
 
         {/* HOD photo cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
           {hods.map(({ sno, name, dept, shortDept, photo }) => (
-            <div key={sno} className="flex items-center gap-4 bg-white rounded-xl border border-gray-200 p-4 hover:shadow-md transition-shadow">
+            <div key={sno} className="flex flex-col items-center text-center bg-white rounded-xl border border-gray-200 p-4 hover:shadow-md transition-shadow">
               <img
                 src={photo}
                 alt={name}
-                className="w-16 h-16 rounded-full object-cover flex-shrink-0 border-2"
+                className="w-16 h-16 rounded-full object-cover flex-shrink-0 border-2 mb-2"
                 style={{ borderColor: college.primaryColor }}
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
@@ -52,14 +52,14 @@ export default function AdminHODsPage() {
                 }}
               />
               <div
-                className="w-16 h-16 rounded-full items-center justify-center text-white font-hind font-bold text-lg flex-shrink-0 hidden"
+                className="w-16 h-16 rounded-full items-center justify-center text-white font-hind font-bold text-lg flex-shrink-0 mb-2 hidden"
                 style={{ backgroundColor: college.primaryColor }}
               >
                 {shortDept[0]}
               </div>
               <div className="min-w-0">
-                <p className="font-hind font-bold text-[13px] leading-snug" style={{ color: college.primaryColor }}>{name}</p>
-                <p className="font-dm-sans text-[11.5px] text-gray-500 mt-0.5 leading-tight">{dept}</p>
+                <p className="font-hind font-bold text-[12px] leading-snug" style={{ color: college.primaryColor }}>{name}</p>
+                <p className="font-dm-sans text-[11px] text-gray-500 mt-0.5 leading-tight">{dept}</p>
                 <span className="inline-block mt-1.5 text-[10px] px-1.5 py-0.5 rounded font-hind font-semibold text-white" style={{ backgroundColor: college.accentColor }}>
                   {shortDept}
                 </span>
@@ -72,10 +72,10 @@ export default function AdminHODsPage() {
         <section>
           <h3 className="font-hind font-bold text-[16px] mb-4" style={{ color: college.primaryColor }}>Department Reference</h3>
           <div className="overflow-x-auto rounded-lg border border-gray-200">
-            <table className="w-full text-[13px] font-dm-sans">
+            <table className="min-w-[600px] w-full text-[13px] font-dm-sans">
               <thead>
                 <tr style={{ backgroundColor: college.primaryColor }}>
-                  <th className="text-left px-4 py-3 text-white font-hind font-semibold text-[12px] w-14">S.No</th>
+                  <th className="text-left px-4 py-3 text-white font-hind font-semibold text-[12px] w-14 whitespace-nowrap">S.No</th>
                   <th className="text-left px-4 py-3 text-white font-hind font-semibold text-[12px]">Name</th>
                   <th className="text-left px-4 py-3 text-white font-hind font-semibold text-[12px]">Department</th>
                 </tr>
@@ -83,8 +83,8 @@ export default function AdminHODsPage() {
               <tbody>
                 {hods.map(({ sno, name, dept, shortDept }, i) => (
                   <tr key={sno} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                    <td className="px-4 py-3 border-b border-gray-100 text-gray-400 font-medium">{sno}</td>
-                    <td className="px-4 py-3 border-b border-gray-100 font-semibold text-gray-800">{name}</td>
+                    <td className="px-4 py-3 border-b border-gray-100 text-gray-400 font-medium whitespace-nowrap">{sno}</td>
+                    <td className="px-4 py-3 border-b border-gray-100 font-semibold text-gray-800 whitespace-nowrap">{name}</td>
                     <td className="px-4 py-3 border-b border-gray-100 text-gray-600">
                       {dept}
                       <span className="ml-2 inline-block text-[10px] px-1.5 py-0.5 rounded font-hind font-semibold text-white" style={{ backgroundColor: college.accentColor }}>{shortDept}</span>

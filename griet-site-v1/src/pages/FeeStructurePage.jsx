@@ -62,7 +62,7 @@ const tdStyle = {
 function FeeTable({ headers, rows }) {
   return (
     <div className="overflow-x-auto mt-2 mb-2">
-      <table className="w-full border-collapse" style={{ border: '1px solid #e5e7eb' }}>
+      <table className="w-full border-collapse" style={{ border: '1px solid #e5e7eb', minWidth: '500px' }}>
         <thead>
           <tr>{headers.map((h, i) => <th key={i} style={thStyle}>{h}</th>)}</tr>
         </thead>

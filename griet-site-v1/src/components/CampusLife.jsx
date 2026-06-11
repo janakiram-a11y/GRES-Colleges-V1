@@ -1,8 +1,8 @@
 const GalleryCard = ({ title, desc, img, className }) => (
-  <div className={`relative rounded-3xl overflow-hidden h-[240px] md:h-[300px] lg:h-auto ${className}`}>
+  <div className={`relative rounded-3xl overflow-hidden ${className}`}>
     <img src={img} alt={title} className="absolute inset-0 w-full h-full object-cover" />
     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-    <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
+    <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 lg:p-6">
       <h4 className="font-hind font-bold text-white leading-tight mb-1">{title}</h4>
       <p className="font-dm-sans font-normal text-[14px] leading-[17px] text-white/80">{desc}</p>
     </div>
@@ -20,7 +20,7 @@ export default function CampusLife({ college }) {
             <p className="font-hind font-bold text-[14px] leading-5 uppercase tracking-[1.4px] text-[#5B1027]">
               {college.campusLifeLabel}
             </p>
-            <h2 className="font-hind font-bold text-[28px] leading-[40px] lg:text-[36px] lg:leading-[54px] text-[#2E2E2E]">
+            <h2 className="font-hind font-bold text-2xl sm:text-3xl lg:text-4xl leading-tight text-[#2E2E2E]">
               {college.campusLifeHeading}
             </h2>
           </div>
@@ -29,20 +29,18 @@ export default function CampusLife({ college }) {
           </button>
         </div>
 
-        <div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 lg:[grid-template-rows:384px_288px]"
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 lg:[grid-template-rows:384px_288px]">
           <GalleryCard
             title={large.title}
             desc={large.desc}
             img={large.img}
-            className="md:col-span-2 lg:col-span-2 row-span-1 text-2xl"
+            className="h-[200px] sm:h-[240px] md:h-[280px] lg:h-auto sm:col-span-2 lg:col-span-2 row-span-1 text-2xl"
           />
           {rest.slice(0, 1).map(card => (
-            <GalleryCard key={card.title} {...card} className="col-span-1 row-span-1 text-xl" />
+            <GalleryCard key={card.title} {...card} className="h-[200px] sm:h-[240px] md:h-[280px] lg:h-auto col-span-1 row-span-1 text-xl" />
           ))}
           {rest.slice(1).map(card => (
-            <GalleryCard key={card.title} {...card} className="col-span-1 row-span-1 text-xl" />
+            <GalleryCard key={card.title} {...card} className="h-[200px] sm:h-[240px] md:h-[280px] lg:h-auto col-span-1 row-span-1 text-xl" />
           ))}
         </div>
       </div>

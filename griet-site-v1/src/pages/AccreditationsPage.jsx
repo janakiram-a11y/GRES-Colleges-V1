@@ -34,7 +34,7 @@ const OTHER = [
 function SectionLabel({ children }) {
   return (
     <div className="flex items-center gap-3 mb-6">
-      <h2 className="font-hind font-bold text-[17px] whitespace-nowrap" style={{ color: college.primaryColor }}>
+      <h2 className="font-hind font-bold text-[15px] sm:text-[17px] shrink-0" style={{ color: college.primaryColor }}>
         {children}
       </h2>
       <span className="h-px flex-1 bg-gray-200" />
@@ -44,12 +44,12 @@ function SectionLabel({ children }) {
 
 function Table({ headers, rows }) {
   return (
-    <div className="overflow-x-auto rounded-xl border border-gray-200 mb-8">
-      <table className="w-full text-[12.5px] font-dm-sans border-collapse">
+    <div className="overflow-x-auto rounded-xl border border-gray-200 mb-8 w-full">
+      <table className="min-w-full text-[12px] sm:text-[12.5px] font-dm-sans border-collapse">
         <thead>
           <tr style={{ backgroundColor: `${college.primaryColor}15` }}>
             {headers.map((h) => (
-              <th key={h} className="text-left px-4 py-3 font-semibold text-gray-700 border-b border-gray-200">{h}</th>
+              <th key={h} className="text-left px-3 sm:px-4 py-3 font-semibold text-gray-700 border-b border-gray-200 whitespace-nowrap">{h}</th>
             ))}
           </tr>
         </thead>
@@ -57,7 +57,7 @@ function Table({ headers, rows }) {
           {rows.map((row, i) => (
             <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
               {row.map((cell, j) => (
-                <td key={j} className="px-4 py-3 text-gray-700 border-b border-gray-100">{cell}</td>
+                <td key={j} className="px-3 sm:px-4 py-3 text-gray-700 border-b border-gray-100 leading-snug">{cell}</td>
               ))}
             </tr>
           ))}
@@ -88,11 +88,19 @@ export default function AccreditationsPage() {
 
       <section className="mb-6">
         <SectionLabel>Other Accreditations & Recognitions</SectionLabel>
-        <div className="flex flex-col gap-3">
+        <div className="grid grid-cols-1 gap-3">
           {OTHER.map(({ body, detail }) => (
-            <div key={body} className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4 p-4 rounded-xl bg-gray-50 border border-gray-200">
-              <span className="font-hind font-bold text-[13px] sm:w-52 flex-shrink-0" style={{ color: college.primaryColor }}>{body}</span>
-              <span className="font-dm-sans text-[12.5px] text-gray-600">{detail}</span>
+            <div
+              key={body}
+              className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4 p-4 rounded-xl bg-gray-50 border border-gray-200 w-full"
+            >
+              <span
+                className="font-hind font-bold text-[13px] sm:w-52 sm:flex-shrink-0 leading-snug"
+                style={{ color: college.primaryColor }}
+              >
+                {body}
+              </span>
+              <span className="font-dm-sans text-[12px] sm:text-[12.5px] text-gray-600 leading-relaxed">{detail}</span>
             </div>
           ))}
         </div>

@@ -79,14 +79,14 @@
 }
 
 html {
-  overflow-x: hidden;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
   font-family: 'Hind', Tahoma, sans-serif;
   font-size: 1.125rem;    /* 18px */
   line-height: 1.9125rem; /* lh 1.70 */

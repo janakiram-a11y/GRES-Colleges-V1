@@ -166,7 +166,7 @@ const Chevron = ({ open }) => (
 // isLast: when true the panel anchors to the right edge to prevent viewport overflow
 const DropdownPanel = ({ open, dropdown, isLast }) => (
   <div
-    className={`absolute top-full pt-2 z-50 min-w-[200px] max-w-[300px] transition-all duration-200 ease-out ${
+    className={`absolute top-full pt-2 z-50 min-w-[240px] w-max max-w-[420px] transition-all duration-200 ease-out ${
       isLast ? 'right-0' : 'left-0'
     } ${
       open ? 'opacity-100 translate-y-0 visible' : 'opacity-0 translate-y-1 invisible pointer-events-none'
@@ -445,9 +445,8 @@ export default function NavStrip({ college, scrolled = false }) {
 
   return (
     <div
-      className="w-full sticky z-40 border-b border-black/10"
+      className="w-full border-b border-black/10"
       style={{
-        top: `var(--navstrip-top, ${navTop})`,
         transition: 'top 0.3s ease',
         '--primary': college.primaryColor,
         '--accent': college.accentColor,
@@ -455,7 +454,7 @@ export default function NavStrip({ college, scrolled = false }) {
       }}
     >
       {/* Desktop nav — only shown at lg: and above; md and below use the mobile hamburger */}
-      <div className="hidden lg:flex justify-center items-center gap-[38px] overflow-visible py-3">
+      <div className={`hidden lg:flex justify-center items-center gap-[38px] overflow-visible transition-all duration-300 ${scrolled ? 'py-1.5' : 'py-3'}`}>
         {college.navLinks.map((link, index) => (
           <NavItem
             key={link.name}

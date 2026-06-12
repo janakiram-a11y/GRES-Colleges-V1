@@ -389,41 +389,43 @@ function SearchBar({ college }) {
 /* ─────────────────────────────────────────────────────────────────────────
    NAVBAR
 ───────────────────────────────────────────────────────────────────────── */
+export function QuickNavBar({ college }) {
+  return (
+    <div
+      className="hidden md:block w-full bg-white"
+      style={{ borderBottom: `1px solid ${withAlpha(college.primaryColor, 0.08)}` }}
+    >
+      <div className="max-w-[1320px] mx-auto px-5 md:px-8 lg:px-[60px] flex justify-between items-center h-[40px]">
+        <div className="flex items-center gap-4 lg:gap-6">
+          {QUICK_NAV_LINKS.map(({ label, href, external }) =>
+            external ? (
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer"
+                className="font-display font-medium text-[0.875rem] leading-4 transition-colors"
+                style={{ color: college.primaryColor }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = college.accentColor)}
+                onMouseLeave={(e) => (e.currentTarget.style.color = college.primaryColor)}
+              >{label}</a>
+            ) : (
+              <Link key={label} to={href}
+                className="font-display font-medium text-[0.875rem] leading-4 transition-colors"
+                style={{ color: college.primaryColor }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = college.accentColor)}
+                onMouseLeave={(e) => (e.currentTarget.style.color = college.primaryColor)}
+              >{label}</Link>
+            )
+          )}
+        </div>
+        <SearchBar college={college} />
+      </div>
+    </div>
+  );
+}
+
 export default function Navbar({ college, scrolled = false }) {
   const isDesktop = useIsDesktop();
 
   return (
-    <>
-      {/* Quick nav — hidden on mobile */}
-      <div
-        className="hidden md:block w-full bg-white"
-        style={{ borderBottom: `1px solid ${withAlpha(college.primaryColor, 0.08)}` }}
-      >
-        <div className="max-w-[1320px] mx-auto px-5 md:px-8 lg:px-[60px] flex justify-between items-center h-[40px]">
-          <div className="flex items-center gap-4 lg:gap-6">
-            {QUICK_NAV_LINKS.map(({ label, href, external }) =>
-              external ? (
-                <a key={label} href={href} target="_blank" rel="noopener noreferrer"
-                  className="font-display font-medium text-[0.875rem] leading-4 transition-colors"
-                  style={{ color: college.primaryColor }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = college.accentColor)}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = college.primaryColor)}
-                >{label}</a>
-              ) : (
-                <Link key={label} to={href}
-                  className="font-display font-medium text-[0.875rem] leading-4 transition-colors"
-                  style={{ color: college.primaryColor }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = college.accentColor)}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = college.primaryColor)}
-                >{label}</Link>
-              )
-            )}
-          </div>
-          <SearchBar college={college} />
-        </div>
-      </div>
-
-      <nav className="w-full bg-white/[0.95] backdrop-blur-md sticky top-0 z-50"
+      <nav className="w-full bg-white/[0.95] backdrop-blur-md"
         style={{ padding: isDesktop ? (scrolled ? '8px 0' : '12px 0') : '0', borderBottom: `1px solid ${withAlpha(college.primaryColor, 0.08)}`, transition: 'padding 0.3s ease' }}
       >
         <div className="max-w-[1320px] mx-auto px-5 md:px-8 lg:px-[60px] flex justify-between items-center"
@@ -443,6 +445,5 @@ export default function Navbar({ college, scrolled = false }) {
           </div>
         </div>
       </nav>
-    </>
   );
 }

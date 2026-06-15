@@ -1,4 +1,6 @@
-﻿const PhoneIcon = () => (
+﻿import { Link } from 'react-router-dom';
+
+const PhoneIcon = () => (
   <svg viewBox="0 0 20 20" fill="none" className="w-5 h-5">
     <path d="M2 3a1 1 0 011-1h2a1 1 0 011 .836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74A1 1 0 0118 15v2a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"
       stroke="#5B1027" strokeWidth="1.5" />
@@ -41,21 +43,22 @@ export default function WhyChooseUs({ college }) {
           <p className="font-hind font-normal text-[16px] leading-6 text-[#666666]">
             {college.aboutP2}
           </p>
-          <div className="grid grid-cols-2 gap-x-4 gap-y-5 mt-3">
-            {college.aboutFeatures.map(({ title, sub }, i) => {
-              const Icon = featureIcons[i % featureIcons.length]
-              return (
-                <div key={title} className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-[#F3DAB2]/30 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Icon />
-                  </div>
-                  <div className="flex flex-col gap-1">
-                    <span className="font-hind font-bold text-[14px] leading-5 text-[#333333]">{title}</span>
-                    <span className="font-hind font-normal text-[12px] leading-4 text-[#666666]">{sub}</span>
-                  </div>
-                </div>
-              )
-            })}
+          <p className="font-hind font-normal text-[16px] leading-6 text-[#666666]">
+            {college.aboutP3}
+          </p>
+          <div className="mt-4">
+            <Link
+              to="/about"
+              className="inline-flex items-center gap-2 font-dm-sans font-semibold text-[15px] transition-colors"
+              style={{ color: '#5B1027' }}
+              onMouseEnter={e => e.currentTarget.style.color = '#C32033'}
+              onMouseLeave={e => e.currentTarget.style.color = '#5B1027'}
+            >
+              Read More
+              <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
+                <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
+            </Link>
           </div>
         </div>
 

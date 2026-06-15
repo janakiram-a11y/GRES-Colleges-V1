@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { withAlpha } from '../theme';
+import NoticeBar from './NoticeBar';
 
 function useIsDesktop() {
   const [isDesktop, setIsDesktop] = useState(() => typeof window !== 'undefined' && window.innerWidth >= 1024);
@@ -223,6 +224,7 @@ export default function NavStrip({ college, scrolled = false }) {
   const navTop = isDesktop ? (scrolled ? '77px' : '113px') : '56px';
 
   return (
+    <>
     <div
       className="w-full sticky z-40 relative"
       style={{
@@ -274,5 +276,7 @@ export default function NavStrip({ college, scrolled = false }) {
         </div>
       )}
     </div>
+    <NoticeBar college={college} />
+    </>
   );
 }

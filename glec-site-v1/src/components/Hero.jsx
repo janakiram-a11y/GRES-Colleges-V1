@@ -1,6 +1,8 @@
 ﻿import { Link } from 'react-router-dom';
 
 export default function Hero({ college }) {
+  const isExternal = college.heroCTAHref?.startsWith('http');
+
   return (
     <section className="relative w-full h-[480px] md:h-[550px] lg:h-[600px] flex items-center overflow-hidden">
       {college.heroBgImage && (
@@ -28,15 +30,25 @@ export default function Hero({ college }) {
             {college.heroSubtext}
           </p>
           <div className="flex flex-wrap items-center gap-3 md:gap-4">
-            <a
-              href={college.heroCTAHref}
-              target={college.heroCTAHref.startsWith('http') ? '_blank' : undefined}
-              rel={college.heroCTAHref.startsWith('http') ? 'noopener noreferrer' : undefined}
-              className="bg-[#C32033] text-white font-dm-sans font-semibold text-[16px] leading-6 px-8 py-[14px] rounded hover:bg-[#a81b2a] transition-colors inline-block"
-              style={{ boxShadow: '0px 10px 15px -3px rgba(0,0,0,0.1), 0px 4px 6px -4px rgba(0,0,0,0.1)' }}
-            >
-              {college.heroCTALabel}
-            </a>
+            {isExternal ? (
+              <a
+                href={college.heroCTAHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#C32033] text-white font-dm-sans font-semibold text-[16px] leading-6 px-8 py-[14px] rounded hover:bg-[#a81b2a] transition-colors inline-block"
+                style={{ boxShadow: '0px 10px 15px -3px rgba(0,0,0,0.1), 0px 4px 6px -4px rgba(0,0,0,0.1)' }}
+              >
+                {college.heroCTALabel}
+              </a>
+            ) : (
+              <Link
+                to={college.heroCTAHref}
+                className="bg-[#C32033] text-white font-dm-sans font-semibold text-[16px] leading-6 px-8 py-[14px] rounded hover:bg-[#a81b2a] transition-colors inline-block"
+                style={{ boxShadow: '0px 10px 15px -3px rgba(0,0,0,0.1), 0px 4px 6px -4px rgba(0,0,0,0.1)' }}
+              >
+                {college.heroCTALabel}
+              </Link>
+            )}
             <Link
               to="/admissions/programs"
               className="bg-white text-[#5B1027] font-dm-sans font-semibold text-[16px] leading-6 px-8 py-[14px] rounded hover:bg-gray-50 transition-colors inline-block"

@@ -157,3 +157,17 @@ body {
     transition: color 0.2s ease, opacity 0.2s ease;
   }
 }
+
+/* ── Notice bar ticker ───────────────────────────────────────────────────── */
+@keyframes noticeScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.notice-ticker-track {
+  display: flex;
+  width: max-content;
+  animation: noticeScroll 40s linear infinite;
+}
+.notice-ticker-track:hover {
+  animation-play-state: paused;
+}

@@ -119,38 +119,69 @@ function ManagementContent() {
         comprising visionary industrialists, academic leaders, and experienced administrators committed to
         delivering world-class engineering education.
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="flex flex-col gap-6">
         {college.leadership.map((person) => (
           <div
             key={person.name}
-            className="flex flex-col gap-4 p-6 rounded-2xl border border-[#E5E7EB] bg-white hover:shadow-md transition-shadow"
+            className="rounded-2xl border border-[#E5E7EB] bg-white overflow-hidden"
           >
-            <div className="flex items-start gap-4">
-              <img
-                src={person.image}
-                alt={person.name}
-                className="w-16 h-16 rounded-xl object-cover object-top flex-shrink-0"
-                style={{ boxShadow: `0px 4px 12px -2px ${college.primaryColor}22` }}
-                onError={(e) => { e.currentTarget.style.display = 'none'; }}
+            {/* Role label bar */}
+            <div
+              className="px-6 py-3 flex items-center gap-3"
+              style={{ backgroundColor: `${college.primaryColor}08`, borderBottom: `1px solid ${college.primaryColor}18` }}
+            >
+              <span
+                className="w-[3px] h-5 rounded-full flex-shrink-0"
+                style={{ backgroundColor: college.primaryColor }}
               />
-              <div>
-                <h3
-                  className="font-hind font-bold text-[16px] leading-snug"
-                  style={{ color: college.primaryColor }}
-                >
-                  {person.name}
-                </h3>
+              <span
+                className="font-dm-sans font-bold text-[12px] uppercase tracking-[0.18em]"
+                style={{ color: college.primaryColor }}
+              >
+                {person.title}
+              </span>
+            </div>
+
+            {/* Profile body */}
+            <div className="flex flex-col sm:flex-row gap-8 p-8">
+              {/* Left — circular image + name/title */}
+              <div className="flex flex-col items-center gap-3 sm:w-[160px] flex-shrink-0">
+                <img
+                  src={person.image}
+                  alt={person.name}
+                  className="w-[130px] h-[130px] rounded-full object-cover object-top"
+                  style={{ boxShadow: `0 4px 16px -4px ${college.primaryColor}33` }}
+                  onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                />
+                <div className="text-center">
+                  <p className="font-hind font-bold text-[15px] leading-snug" style={{ color: college.primaryColor }}>
+                    {person.name}
+                  </p>
+                  <p className="font-dm-sans text-[12px] mt-0.5 text-[#9CA3AF]">{person.title}</p>
+                </div>
+              </div>
+
+              {/* Right — bio + link */}
+              <div className="flex flex-col gap-4 flex-1">
                 <p
-                  className="font-dm-sans font-semibold text-[12px] mt-0.5"
-                  style={{ color: college.accentColor }}
+                  className="font-dm-sans font-normal text-[14px] leading-[26px] text-[#374151] text-justify"
                 >
-                  {person.title}
+                  {person.bio}
                 </p>
+                <a
+                  href={`/about#${person.title.toLowerCase().replace(/\s+/g, '-')}`}
+                  className="inline-flex items-center gap-1.5 font-dm-sans font-semibold text-[14px] transition-colors w-fit"
+                  style={{ color: college.primaryColor }}
+                  onMouseEnter={e => e.currentTarget.style.color = college.accentColor}
+                  onMouseLeave={e => e.currentTarget.style.color = college.primaryColor}
+                >
+                  View Full Profile
+                  <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
+                    <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                </a>
               </div>
             </div>
-            <p className="font-dm-sans font-normal text-[13px] leading-[22px] text-[#6B7280]">
-              {person.bio}
-            </p>
           </div>
         ))}
       </div>

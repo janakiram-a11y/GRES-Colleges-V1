@@ -188,6 +188,44 @@ export default function DepartmentPage() {
         </div>
       </div>
 
+      {/* ── HOD Profile ─────────────────────────────────────────────────── */}
+      {dept.hod && (
+        <div className="w-full bg-[#F6F1F2] section-pad">
+          <div className="flex flex-col gap-2 mb-8">
+            <h2 className="font-hind font-bold text-[24px] leading-tight" style={{ color: primaryColor }}>
+              Head of the Department
+            </h2>
+            <div className="w-14 h-[3px] rounded-full" style={{ backgroundColor: accentColor }} />
+          </div>
+          <div className="flex flex-col md:flex-row gap-8 items-start p-8 rounded-2xl border border-[#E5E7EB] bg-white">
+            <div className="flex-shrink-0">
+              <img
+                src={dept.hod.image}
+                alt={dept.hod.name}
+                className="w-[140px] h-[160px] object-cover object-top rounded-xl"
+                style={{ boxShadow: '0px 8px 24px -4px rgba(91,17,39,0.12)' }}
+                onError={(e) => { e.currentTarget.style.display = 'none'; }}
+              />
+            </div>
+            <div className="flex flex-col gap-4 flex-1">
+              <div>
+                <h3 className="font-hind font-bold text-[20px] leading-tight" style={{ color: primaryColor }}>
+                  {dept.hod.name}
+                </h3>
+                <p className="font-dm-sans font-semibold text-[13px] mt-1" style={{ color: accentColor }}>
+                  {dept.hod.title}
+                </p>
+              </div>
+              {dept.hod.bio.map((para, i) => (
+                <p key={i} className="font-dm-sans font-normal text-[14px] leading-[26px] text-[#474747]">
+                  {para}
+                </p>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* ── Program Educational Objectives ──────────────────────────────── */}
       {dept.peos && dept.peos.length > 0 && (
         <div className="w-full bg-[#F6F1F2] section-pad">
@@ -269,6 +307,42 @@ export default function DepartmentPage() {
                     <td className="font-dm-sans font-normal text-[14px] text-[#374151] px-6 py-4">{person.name}</td>
                     <td className="font-dm-sans font-normal text-[14px] text-[#374151] px-6 py-4">{person.role}</td>
                     <td className="font-dm-sans font-semibold text-[14px] px-6 py-4" style={{ color: primaryColor }}>{person.company}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+
+      {/* ── Faculty ─────────────────────────────────────────────────────── */}
+      {dept.faculty && dept.faculty.length > 0 && (
+        <div className="w-full bg-white section-pad">
+          <div className="flex flex-col gap-2 mb-8">
+            <h2 className="font-hind font-bold text-[24px] leading-tight" style={{ color: primaryColor }}>
+              Faculty
+            </h2>
+            <div className="w-14 h-[3px] rounded-full" style={{ backgroundColor: accentColor }} />
+          </div>
+          <div className="overflow-x-auto rounded-xl border border-[#E5E7EB]">
+            <table className="w-full" style={{ minWidth: 700 }}>
+              <thead>
+                <tr style={{ backgroundColor: primaryColor }}>
+                  {['S.No.', 'Staff ID', 'Name', 'Designation', 'Qualification', 'Date of Joining', 'Email'].map(h => (
+                    <th key={h} className="text-left font-dm-sans font-semibold text-[12px] text-white px-4 py-3 whitespace-nowrap">{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {dept.faculty.map((f, i) => (
+                  <tr key={i} style={{ backgroundColor: i % 2 === 0 ? '#fff' : '#FAFAFA' }}>
+                    <td className="px-4 py-3 font-dm-sans text-[13px] text-[#374151]">{i + 1}</td>
+                    <td className="px-4 py-3 font-dm-sans text-[13px] text-[#374151] whitespace-nowrap">{f.id ?? '—'}</td>
+                    <td className="px-4 py-3 font-dm-sans font-semibold text-[13px] whitespace-nowrap" style={{ color: primaryColor }}>{f.name}</td>
+                    <td className="px-4 py-3 font-dm-sans text-[13px] text-[#374151]">{f.designation}</td>
+                    <td className="px-4 py-3 font-dm-sans text-[13px] text-[#374151]">{f.qualification ?? '—'}</td>
+                    <td className="px-4 py-3 font-dm-sans text-[13px] text-[#374151] whitespace-nowrap">{f.doj ?? '—'}</td>
+                    <td className="px-4 py-3 font-dm-sans text-[13px] text-[#374151]">{f.email ?? '—'}</td>
                   </tr>
                 ))}
               </tbody>

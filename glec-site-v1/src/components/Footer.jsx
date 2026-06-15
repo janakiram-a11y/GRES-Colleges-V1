@@ -1,10 +1,5 @@
-﻿import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const TwitterIcon = () => (
-  <svg viewBox="0 0 20 20" fill="none" className="w-4 h-4" stroke="currentColor" strokeWidth="1.5">
-    <path d="M17 3l-6.5 6L4 3H2l7.5 6.5L2 17h2l5.5-4.5 2 2L18 17h2L13 10 20 3h-3z" strokeLinejoin="round" />
-  </svg>
-);
 const LinkedInIcon = () => (
   <svg viewBox="0 0 20 20" fill="none" className="w-4 h-4" stroke="currentColor" strokeWidth="1.5">
     <rect x="2" y="2" width="16" height="16" rx="2" />
@@ -48,10 +43,9 @@ const EmailIcon = () => (
 );
 
 const socialIconMap = {
-  twitter: TwitterIcon,
-  linkedin: LinkedInIcon,
   instagram: InstagramIcon,
   facebook: FacebookIcon,
+  linkedin: LinkedInIcon,
   youtube: YouTubeIcon,
 };
 
@@ -69,7 +63,8 @@ function ColHeading({ college, children }) {
   );
 }
 
-function FooterLink({ href, isExternal, college, children }) {
+function FooterLink({ href, college, children }) {
+  const isExternal = href.startsWith('http');
   const base = 'font-dm-sans text-[13px] leading-[22px] transition-colors flex items-start gap-2';
   const color = '#222222';
   const handlers = {
@@ -96,18 +91,31 @@ function FooterLink({ href, isExternal, college, children }) {
   );
 }
 
+function LinkList({ items, college }) {
+  return (
+    <ul className="flex flex-col gap-2.5">
+      {items.map((item) => (
+        <li key={item.label}>
+          <FooterLink href={item.href} college={college}>{item.label}</FooterLink>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 export default function Footer({ college }) {
   return (
     <footer
       className="w-full bg-white"
       style={{ borderTop: `1px solid rgba(91,16,39,0.08)` }}
     >
-      {/* Main content */}
       <div className="max-w-[1320px] mx-auto px-4 md:px-8 lg:px-[60px] pt-[48px] md:pt-[72px] pb-[40px] md:pb-[56px]">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 mb-12">
 
-          {/* Brand */}
-          <div className="flex flex-col gap-5">
+        {/* 5-column grid: Brand | Quick Links | Administration | Student Life | Contact */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 mb-12">
+
+          {/* Col 1 — Brand */}
+          <div className="sm:col-span-2 lg:col-span-1 flex flex-col gap-5">
             <Link to="/">
               <img
                 src={college.logo}
@@ -151,7 +159,7 @@ export default function Footer({ college }) {
             )}
             {college.counsellingCode && (
               <div
-                className="inline-flex items-center gap-2 px-3 py-2 rounded-lg mt-1"
+                className="inline-flex items-center gap-2 px-3 py-2 rounded-lg mt-1 self-start"
                 style={{ backgroundColor: 'rgba(91,16,39,0.04)', border: '1px solid rgba(91,16,39,0.10)' }}
               >
                 <span className="font-dm-sans font-semibold text-[11px]" style={{ color: '#222222' }}>
@@ -164,47 +172,35 @@ export default function Footer({ college }) {
             )}
           </div>
 
-          {/* Quick Links */}
+          {/* Col 2 — Quick Links */}
           <div>
             <ColHeading college={college}>Quick Links</ColHeading>
-            <ul className="flex flex-col gap-2.5">
-              {college.quickLinks.map((item) => {
-                const label = typeof item === 'string' ? item : item.label;
-                const href = typeof item === 'string' ? '#' : item.href;
-                return (
-                  <li key={label}>
-                    <FooterLink href={href} isExternal={href.startsWith('http')} college={college}>{label}</FooterLink>
-                  </li>
-                );
-              })}
-            </ul>
+            <LinkList items={college.footerQuickLinks} college={college} />
           </div>
 
-          {/* Resources */}
+          {/* Col 3 — Administration */}
           <div>
-            <ColHeading college={college}>Resources</ColHeading>
-            <ul className="flex flex-col gap-2.5">
-              {college.resources.map((item) => {
-                const label = typeof item === 'string' ? item : item.label;
-                const href = typeof item === 'string' ? '#' : item.href;
-                return (
-                  <li key={label}>
-                    <FooterLink href={href} isExternal={href.startsWith('http')} college={college}>{label}</FooterLink>
-                  </li>
-                );
-              })}
-            </ul>
+            <ColHeading college={college}>Administration</ColHeading>
+            <LinkList items={college.footerAdminLinks} college={college} />
           </div>
 
-          {/* Contact */}
+          {/* Col 4 — Student Life */}
+          <div>
+            <ColHeading college={college}>Student Life</ColHeading>
+            <LinkList items={college.resources} college={college} />
+          </div>
+
+          {/* Col 5 — Contact Us */}
           <div>
             <ColHeading college={college}>Contact Us</ColHeading>
             <ul className="flex flex-col gap-4">
-              <li className="flex items-start gap-3" style={{ color: '#222222' }}>
+              <li className="flex items-start gap-3">
                 <MapPinIcon />
-                <span className="font-dm-sans text-[13px] leading-[22px]" style={{ color: '#222222' }}>{college.address}</span>
+                <span className="font-dm-sans text-[13px] leading-[22px]" style={{ color: '#222222' }}>
+                  {college.address}
+                </span>
               </li>
-              <li className="flex items-center gap-3" style={{ color: '#222222' }}>
+              <li className="flex items-center gap-3">
                 <PhoneIcon />
                 <a
                   href={`tel:${college.phone}`}
@@ -216,7 +212,7 @@ export default function Footer({ college }) {
                   {college.phone}
                 </a>
               </li>
-              <li className="flex items-center gap-3" style={{ color: '#222222' }}>
+              <li className="flex items-center gap-3">
                 <EmailIcon />
                 <a
                   href={`mailto:${college.email}`}
@@ -234,26 +230,12 @@ export default function Footer({ college }) {
 
         {/* Bottom bar */}
         <div
-          className="pt-6 flex justify-between items-center flex-wrap gap-4"
+          className="pt-6 flex justify-center items-center"
           style={{ borderTop: '1px solid rgba(91,16,39,0.08)' }}
         >
-          <span className="font-dm-sans text-[12px]" style={{ color: '#222222' }}>
+          <span className="font-dm-sans text-[12px] text-center" style={{ color: '#222222' }}>
             © 2025 {college.fullName}. All rights reserved.
           </span>
-          <div className="flex items-center gap-5">
-            {['Privacy Policy', 'Terms of Service'].map((text) => (
-              <a
-                key={text}
-                href="#"
-                className="font-dm-sans text-[12px] transition-colors"
-                style={{ color: '#222222' }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = college.accentColor)}
-                onMouseLeave={(e) => (e.currentTarget.style.color = '#222222')}
-              >
-                {text}
-              </a>
-            ))}
-          </div>
         </div>
       </div>
     </footer>

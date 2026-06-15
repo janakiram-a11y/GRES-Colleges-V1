@@ -109,6 +109,70 @@ export default function PlacementsPage() {
             </div>
           </section>
 
+          {/* About Placements */}
+          <section className="mb-14">
+            <div className="mb-6">
+              <h2
+                className="font-hind font-semibold text-[28px] leading-9 lg:text-[40px] lg:leading-[48px] pb-3"
+                style={{
+                  color: college.primaryColor,
+                  borderBottom: `3px solid ${college.accentColor}`,
+                  display: 'inline-block',
+                }}
+              >
+                Training &amp; Placements
+              </h2>
+            </div>
+            <div className="flex flex-col gap-4">
+              {college.placementsDescription.map((para, i) => (
+                <p key={i} className="font-hind font-normal text-[15px] leading-[27px] text-[#474747]">
+                  {para}
+                </p>
+              ))}
+            </div>
+          </section>
+
+          {/* Placement Cell Contacts */}
+          <section className="mb-14">
+            <div className="mb-6">
+              <h2
+                className="font-hind font-semibold text-[28px] leading-9 lg:text-[40px] lg:leading-[48px] pb-3"
+                style={{
+                  color: college.primaryColor,
+                  borderBottom: `3px solid ${college.accentColor}`,
+                  display: 'inline-block',
+                }}
+              >
+                Placement Cell
+              </h2>
+            </div>
+            <div className="overflow-x-auto rounded-2xl border" style={{ borderColor: `${college.primaryColor}18` }}>
+              <table className="w-full min-w-[520px]">
+                <thead>
+                  <tr style={{ backgroundColor: college.primaryColor }}>
+                    {['Role', 'Name', 'Phone', 'Email'].map(h => (
+                      <th key={h} className="text-left font-dm-sans font-semibold text-[13px] text-white px-5 py-3.5">{h}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {college.placementsContacts.map((c, i) => (
+                    <tr key={i} style={{ backgroundColor: i % 2 === 0 ? '#fff' : '#FAFAFA' }}>
+                      <td className="px-5 py-3.5 font-dm-sans font-semibold text-[14px]" style={{ color: college.primaryColor }}>{c.role}</td>
+                      <td className="px-5 py-3.5 font-dm-sans text-[14px] text-[#374151]">{c.name}</td>
+                      <td className="px-5 py-3.5 font-dm-sans text-[14px] text-[#374151]">
+                        <a href={`tel:${c.phone}`} className="hover:underline" style={{ color: college.primaryColor }}>{c.phone}</a>
+                      </td>
+                      <td className="px-5 py-3.5 font-dm-sans text-[14px] text-[#374151]">
+                        <a href={`mailto:${c.email}`} className="hover:underline" style={{ color: college.primaryColor }}>{c.email}</a>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+
           {/* Placement Initiatives */}
           <section className="mb-14">
             <div className="mb-6">

@@ -87,6 +87,56 @@ export default function AboutPage() {
 
           <div className="w-full h-px" style={{ backgroundColor: `${college.primaryColor}18` }} />
 
+          {/* Leadership */}
+          <section>
+            <SectionHeading primaryColor={college.primaryColor}>
+              Leadership
+            </SectionHeading>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {college.leadership.map((leader) => {
+                const idMap = {
+                  'Chairman': 'chairman',
+                  'Vice President': 'vice-president',
+                  'Principal': 'principal',
+                  'Registrar': 'registrar',
+                };
+                return (
+                  <div
+                    key={leader.name}
+                    id={idMap[leader.title] || leader.title.toLowerCase().replace(/\s+/g, '-')}
+                    className="rounded-xl overflow-hidden bg-white"
+                    style={{ border: '1.5px solid rgba(91,16,39,0.13)', boxShadow: '0 1px 4px rgba(91,16,39,0.05)' }}
+                  >
+                    <div className="w-full aspect-[4/3] overflow-hidden bg-[#F6F1F2]">
+                      <img
+                        src={leader.image}
+                        alt={leader.name}
+                        className="w-full h-full object-cover object-top"
+                        onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                      />
+                    </div>
+                    <div className="p-5">
+                      <span
+                        className="font-dm-sans font-semibold text-[11px] uppercase tracking-[2px] mb-1 block"
+                        style={{ color: college.accentColor }}
+                      >
+                        {leader.title}
+                      </span>
+                      <h3 className="font-hind font-semibold text-[16px] leading-[22px] mb-2" style={{ color: college.primaryColor }}>
+                        {leader.name}
+                      </h3>
+                      <p className="font-hind font-normal text-[13px] leading-[20px] text-[#606060]">
+                        {leader.bio}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+
+          <div className="w-full h-px" style={{ backgroundColor: `${college.primaryColor}18` }} />
+
           {/* Vision & Mission */}
           <section>
             <div className="mb-6">

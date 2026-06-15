@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { withAlpha } from '../theme';
 
+
 function useIsDesktop() {
   const [isDesktop, setIsDesktop] = useState(() => typeof window !== 'undefined' && window.innerWidth >= 1024);
   useEffect(() => {
@@ -16,7 +17,7 @@ export default function Navbar({ college, scrolled = false }) {
 
   return (
     <nav
-      className="w-full bg-white/[0.95] backdrop-blur-md sticky top-0 z-50"
+        className="w-full bg-white/[0.95] backdrop-blur-md sticky top-0 z-50"
       style={{
         padding: isDesktop ? (scrolled ? '8px 0' : '12px 0') : '0',
         borderBottom: `1px solid ${withAlpha(college.primaryColor, 0.08)}`,

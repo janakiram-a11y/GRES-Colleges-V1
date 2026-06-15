@@ -1,6 +1,5 @@
 ﻿import { Link } from 'react-router-dom';
-import Navbar from '../components/Navbar';
-import NavStrip from '../components/NavStrip';
+import SiteHeader from '../components/SiteHeader';
 import Footer from '../components/Footer';
 import AdmissionsCTA from '../components/AdmissionsCTA';
 import college from '../theme';
@@ -18,9 +17,8 @@ function SectionHeading({ children, primaryColor }) {
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-white overflow-x-hidden">
-      <Navbar college={college} />
-      <NavStrip college={college} />
+    <div className="min-h-screen flex flex-col bg-white">
+      <SiteHeader college={college} />
 
       {/* Hero */}
       <div
@@ -92,7 +90,7 @@ export default function AboutPage() {
             <SectionHeading primaryColor={college.primaryColor}>
               Leadership
             </SectionHeading>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {college.leadership.map((leader) => {
                 const idMap = {
                   'Chairman': 'chairman',
@@ -104,28 +102,61 @@ export default function AboutPage() {
                   <div
                     key={leader.name}
                     id={idMap[leader.title] || leader.title.toLowerCase().replace(/\s+/g, '-')}
-                    className="rounded-xl overflow-hidden bg-white"
-                    style={{ border: '1.5px solid rgba(91,16,39,0.13)', boxShadow: '0 1px 4px rgba(91,16,39,0.05)' }}
+                    className="rounded-xl bg-white flex flex-col overflow-hidden"
+                    style={{
+                      border: `1px solid rgba(91,16,39,0.12)`,
+                      borderTop: `4px solid ${college.primaryColor}`,
+                      boxShadow: '0 1px 6px rgba(91,16,39,0.06)',
+                    }}
                   >
-                    <div className="w-full aspect-[4/3] overflow-hidden bg-[#F6F1F2]">
-                      <img
-                        src={leader.image}
-                        alt={leader.name}
-                        className="w-full h-full object-cover object-top"
-                        onError={(e) => { e.currentTarget.style.display = 'none'; }}
-                      />
-                    </div>
-                    <div className="p-5">
-                      <span
-                        className="font-dm-sans font-semibold text-[11px] uppercase tracking-[2px] mb-1 block"
-                        style={{ color: college.accentColor }}
+                    {/* Header: photo left + info right */}
+                    <div className="flex items-start gap-5 p-6">
+                      {/* Circular photo with maroon ring */}
+                      <div
+                        className="rounded-full flex-shrink-0 overflow-hidden"
+                        style={{
+                          width: '82px',
+                          height: '82px',
+                          border: `2.5px solid ${college.primaryColor}`,
+                          boxShadow: `0 2px 10px rgba(91,16,39,0.15)`,
+                        }}
                       >
-                        {leader.title}
-                      </span>
-                      <h3 className="font-hind font-semibold text-[16px] leading-[22px] mb-2" style={{ color: college.primaryColor }}>
-                        {leader.name}
-                      </h3>
-                      <p className="font-hind font-normal text-[13px] leading-[20px] text-[#606060]">
+                        <img
+                          src={leader.image}
+                          alt={leader.name}
+                          className="w-full h-full object-cover object-top"
+                          onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                        />
+                      </div>
+
+                      {/* Name / role / credentials */}
+                      <div className="flex flex-col justify-center gap-0.5 pt-1">
+                        <h3
+                          className="font-hind font-bold text-[17px] leading-snug"
+                          style={{ color: college.primaryColor }}
+                        >
+                          {leader.name}
+                        </h3>
+                        <span
+                          className="font-dm-sans font-semibold text-[13px]"
+                          style={{ color: college.accentColor }}
+                        >
+                          {leader.institution || leader.title}
+                        </span>
+                        {leader.credentials && (
+                          <span className="font-dm-sans text-[12px] text-[#6B7280] mt-0.5 leading-snug">
+                            {leader.credentials}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Divider */}
+                    <div className="mx-6" style={{ height: '1px', backgroundColor: `rgba(91,16,39,0.09)` }} />
+
+                    {/* Bio */}
+                    <div className="flex-1 px-6 py-5">
+                      <p className="font-dm-sans font-normal text-[13.5px] leading-[26px] text-[#374151]">
                         {leader.bio}
                       </p>
                     </div>

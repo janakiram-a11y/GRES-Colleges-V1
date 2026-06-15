@@ -1,6 +1,5 @@
 import college from '../theme';
-import Navbar from '../components/Navbar';
-import NavStrip from '../components/NavStrip';
+import SiteHeader from '../components/SiteHeader';
 import PageHero from '../components/PageHero';
 import Footer from '../components/Footer';
 
@@ -68,9 +67,8 @@ function ExternalIcon() {
 
 export default function MandatoryDisclosuresPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-white overflow-x-hidden">
-      <Navbar college={college} />
-      <NavStrip college={college} />
+    <div className="min-h-screen flex flex-col bg-white">
+      <SiteHeader college={college} />
 
       <PageHero
         college={college}

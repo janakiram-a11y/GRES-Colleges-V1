@@ -1,7 +1,6 @@
 ﻿import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import Navbar from './Navbar';
-import NavStrip from './NavStrip';
+import SiteHeader from './SiteHeader';
 import PageHero from './PageHero';
 import AdmissionsCTA from './AdmissionsCTA';
 import Footer from './Footer';
@@ -45,9 +44,9 @@ export default function SidebarPageLayout({ college, pageTitle, pageSubtitle, pa
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-white overflow-x-hidden">
-      <Navbar college={college} />
-      <NavStrip college={college} />
+    <div className="min-h-screen flex flex-col bg-white">
+      <SiteHeader college={college} />
+    <div className="flex flex-col flex-1 overflow-x-hidden">
 
       <PageHero
         college={college}
@@ -152,6 +151,7 @@ export default function SidebarPageLayout({ college, pageTitle, pageSubtitle, pa
 
       <AdmissionsCTA college={college} />
       <Footer college={college} />
+    </div>
     </div>
   );
 }

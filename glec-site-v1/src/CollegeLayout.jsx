@@ -1,31 +1,10 @@
-﻿import { useState, useEffect } from 'react';
-import AnnouncementBar from './components/AnnouncementBar';
-import InfoBar from './components/InfoBar';
-import Navbar from './components/Navbar';
-import NavStrip from './components/NavStrip';
+﻿import SiteHeader from './components/SiteHeader';
 import Footer from './components/Footer';
 
 export default function CollegeLayout({ college, children }) {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
   return (
-    <div
-      className="bg-[#FFFDFC] font-dm-sans"
-      style={{
-        '--college-primary': college.primaryColor,
-        '--college-accent': college.accentColor,
-      }}
-    >
-      <AnnouncementBar college={college} />
-      <InfoBar college={college} />
-      <Navbar college={college} scrolled={scrolled} />
-      <NavStrip college={college} scrolled={scrolled} />
+    <div className="bg-[#FFFDFC] font-dm-sans">
+      <SiteHeader college={college} />
       {children}
       <Footer college={college} />
     </div>

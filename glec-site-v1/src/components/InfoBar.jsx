@@ -121,7 +121,7 @@ export default function InfoBar({ college }) {
           {/* Dropdown */}
           {open && results.length > 0 && (
             <div
-              className="absolute right-0 top-[34px] w-[300px] bg-white rounded-md shadow-lg border overflow-hidden z-50"
+              className="absolute right-0 top-[30px] w-[300px] bg-white rounded-md shadow-lg border overflow-hidden z-[200]"
               style={{ borderColor: withAlpha(college.primaryColor, 0.15) }}
             >
               {results.map((item, i) => (

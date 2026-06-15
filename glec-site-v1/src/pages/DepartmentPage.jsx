@@ -1,6 +1,5 @@
 ﻿import { Link, useParams } from 'react-router-dom';
-import Navbar from '../components/Navbar';
-import NavStrip from '../components/NavStrip';
+import SiteHeader from '../components/SiteHeader';
 import Footer from '../components/Footer';
 import AdmissionsCTA from '../components/AdmissionsCTA';
 import college from '../theme';
@@ -31,9 +30,8 @@ export default function DepartmentPage() {
 
   if (!dept) {
     return (
-      <div className="min-h-screen flex flex-col bg-white overflow-x-hidden">
-        <Navbar college={college} />
-        <NavStrip college={college} />
+      <div className="min-h-screen flex flex-col bg-white">
+        <SiteHeader college={college} />
         <div className="flex-1 flex items-center justify-center py-32 px-6">
           <div className="text-center">
             <h1 className="font-hind font-bold text-[32px] mb-4" style={{ color: college.primaryColor }}>Department Not Found</h1>
@@ -52,8 +50,7 @@ export default function DepartmentPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white overflow-x-hidden">
-      <Navbar college={college} />
-      <NavStrip college={college} />
+      <SiteHeader college={college} />
 
       {/* ── Hero Banner ─────────────────────────────────────────────────── */}
       <div className="relative w-full flex flex-col items-center justify-center" style={{ minHeight: 220, background: college.primaryColor }}>

@@ -335,14 +335,18 @@ const college = {
     {
       name: 'Dr. Gokaraju Ganga Raju',
       title: 'Chairman',
+      institution: 'Chairman, GRIET',
+      credentials: 'B.Pharma., Ph.D. | Chairman, Laila Group of Companies',
       image: 'https://www.glwec.in/images/Gokaraju_Ganga_Raju.jpg',
-      bio: 'Dr. G. Ganga Raju is renowned for his dynamic, optimistic, and compassionate nature. As an outstanding team leader, he takes ownership of issues around him, takes control of situations, and promotes universal good. Notably, leading by example he drives people to change. Dr. G. Ganga Raju initiated the promotion of Engineering and Pharmacy education under the Gokaraju Rangaraju Educational Society (GRES). In 1997, he established the Gokaraju Rangaraju Institute of Engineering and Technology, and in 2003, the Gokaraju Rangaraju College of Pharmacy.',
+      bio: 'Dr. Gokaraju Ganga Raju is the founder of Gokaraju Rangaraju Educational Society (GRES) and Chairman of Laila Group of Companies. An Indian politician and former Member of Parliament to the 16th Lok Sabha from Narsapuram, Andhra Pradesh, he initiated both engineering and pharmacy education under GRES in 1997. His dynamic, optimistic, and compassionate leadership has guided GRIET to become one of the foremost engineering institutions in Telangana. He is renowned for his deep commitment to quality education and student welfare.',
     },
     {
       name: 'Sri G.V.K. Ranga Raju',
       title: 'Vice President',
+      institution: 'Vice President, GRIET',
+      credentials: 'B.Tech. | Managing Director, Delta Paper Mills',
       image: 'https://www.glwec.in/images/Ranga_Raju.jpg',
-      bio: 'Sri G.V.K. Ranga Raju is the eldest son of Dr. G. Ganga Raju. He brings to Gokaraju Rangaraju Educational Society his business acumen, knowledge and wide reading. His exceptional people skills have enabled him to create resounding goodwill and respect for himself and GRES. G.V.K. Ranga Raju takes care of all the day-to-day matters concerning GRIET, and promptly addresses the concerns of the parents and students. He believes in a no-compromise policy, when it comes to personal supervision of educational institutions and in maintaining academic schedule & discipline.',
+      bio: 'Sri G.V.K. Ranga Raju is the eldest son of Dr. G. Ganga Raju and oversees the day-to-day administrative and institutional matters of GRIET. As Managing Director of Delta Paper Mills, he brings strong industry and management acumen to the institution\'s operations. He is a firm advocate of technology-driven education, student empowerment, and building an environment that nurtures innovation and entrepreneurship among students.',
     },
   ],
 

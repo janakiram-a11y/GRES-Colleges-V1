@@ -12,8 +12,20 @@ function useIsDesktop() {
   return isDesktop;
 }
 
-export default function Navbar({ college, scrolled = false }) {
+function useScrolled(threshold = 10) {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > threshold);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [threshold]);
+  return scrolled;
+}
+
+export default function Navbar({ college }) {
   const isDesktop = useIsDesktop();
+  const scrolled = useScrolled();
 
   return (
     <nav

@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import college from '../theme';
-import Navbar from '../components/Navbar';
-import NavStrip from '../components/NavStrip';
+import SiteHeader from '../components/SiteHeader';
 import PageHero from '../components/PageHero';
 import AdmissionsCTA from '../components/AdmissionsCTA';
 import Footer from '../components/Footer';
@@ -107,9 +106,8 @@ const sections = [
 
 export default function InfrastructurePage() {
   return (
-    <div className="min-h-screen flex flex-col bg-white overflow-x-hidden">
-      <Navbar college={college} />
-      <NavStrip college={college} />
+    <div className="min-h-screen flex flex-col bg-white">
+      <SiteHeader college={college} />
 
       <PageHero
         college={college}

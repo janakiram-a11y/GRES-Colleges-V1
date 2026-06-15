@@ -1,6 +1,5 @@
 ﻿import { Link } from 'react-router-dom';
-import Navbar from '../components/Navbar';
-import NavStrip from '../components/NavStrip';
+import SiteHeader from '../components/SiteHeader';
 import PageHero from '../components/PageHero';
 import AdmissionsCTA from '../components/AdmissionsCTA';
 import Footer from '../components/Footer';
@@ -8,9 +7,8 @@ import college from '../theme';
 
 export default function PlacementsPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-white overflow-x-hidden">
-      <Navbar college={college} />
-      <NavStrip college={college} />
+    <div className="min-h-screen flex flex-col bg-white">
+      <SiteHeader college={college} />
       <PageHero
         college={college}
         title="Placements"

@@ -214,10 +214,22 @@ function MobileNavItem({ name, href, dropdown, college }) {
   );
 }
 
-export default function NavStrip({ college, scrolled = false }) {
+function useScrolled(threshold = 10) {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > threshold);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [threshold]);
+  return scrolled;
+}
+
+export default function NavStrip({ college }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
   const isDesktop = useIsDesktop();
+  const scrolled = useScrolled();
 
   useEffect(() => { setMobileOpen(false); }, [location.pathname]);
 

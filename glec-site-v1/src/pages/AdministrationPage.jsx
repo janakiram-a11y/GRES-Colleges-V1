@@ -161,25 +161,11 @@ function ManagementContent() {
                 </div>
               </div>
 
-              {/* Right — bio + link */}
-              <div className="flex flex-col gap-4 flex-1">
-                <p
-                  className="font-dm-sans font-normal text-[14px] leading-[26px] text-[#374151] text-justify"
-                >
+              {/* Right — bio */}
+              <div className="flex-1">
+                <p className="font-dm-sans font-normal text-[14px] leading-[26px] text-[#374151] text-justify">
                   {person.bio}
                 </p>
-                <a
-                  href={`/about#${person.title.toLowerCase().replace(/\s+/g, '-')}`}
-                  className="inline-flex items-center gap-1.5 font-dm-sans font-semibold text-[14px] transition-colors w-fit"
-                  style={{ color: college.primaryColor }}
-                  onMouseEnter={e => e.currentTarget.style.color = college.accentColor}
-                  onMouseLeave={e => e.currentTarget.style.color = college.primaryColor}
-                >
-                  View Full Profile
-                  <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
-                    <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                  </svg>
-                </a>
               </div>
             </div>
           </div>
@@ -670,12 +656,14 @@ const SECTIONS = [
     id: 'registrar',
     path: '/administration/registrar',
     label: 'Registrar',
+    sidebar: false,
     content: <RegistrarContent />,
   },
   {
     id: 'principal',
     path: '/administration/principal',
     label: 'Principal',
+    sidebar: false,
     content: <PrincipalContent />,
   },
   {

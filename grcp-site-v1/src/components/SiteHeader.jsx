@@ -11,7 +11,6 @@
  * individually in every page file.
  */
 
-import AnnouncementBar from './AnnouncementBar';
 import Topbar from './Topbar';
 import Navbar from './Navbar';
 import NavStrip from './NavStrip';
@@ -19,7 +18,6 @@ import NavStrip from './NavStrip';
 export default function SiteHeader({ college }) {
   return (
     <>
-      <AnnouncementBar college={college} />
       <Topbar college={college} />
       <Navbar college={college} />
       <NavStrip college={college} />

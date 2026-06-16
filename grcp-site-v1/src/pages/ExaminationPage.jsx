@@ -10,7 +10,7 @@ function SectionHeader({ label, title }) {
   return (
     <div className="mb-6">
       <h2
-        className="font-display font-bold text-type-h3-mob pb-3"
+        className="font-display font-bold text-type-h2-mob pb-3"
         style={{
           color: college.greenAccent,
           borderBottom: `3px solid ${college.greenAccent}`,

@@ -214,7 +214,7 @@ function ContactForm() {
         style={{ borderColor: `${college.primaryColor}18` }}
       >
         <h2
-          className="font-display font-bold text-type-h3-mob mb-1"
+          className="font-display font-bold text-type-h2-mob mb-1"
           style={{ color: college.greenAccent }}
         >
           Get In Touch
@@ -315,7 +315,7 @@ function HowToReachSection() {
   return (
     <section>
       <h2
-        className="font-display font-bold text-type-h3-mob mb-6"
+        className="font-display font-bold text-type-h2-mob mb-6"
         style={{ color: college.greenAccent }}
       >
         How to Reach Us
@@ -360,7 +360,7 @@ function GoogleMapSection() {
   return (
     <section>
       <h2
-        className="font-display font-bold text-type-h3-mob mb-6"
+        className="font-display font-bold text-type-h2-mob mb-6"
         style={{ color: college.greenAccent }}
       >
         Our Location
@@ -397,7 +397,7 @@ function GrievanceSection() {
   return (
     <section>
       <h2
-        className="font-display font-bold text-type-h3-mob mb-4"
+        className="font-display font-bold text-type-h2-mob mb-4"
         style={{ color: college.greenAccent }}
       >
         Grievance Redressal

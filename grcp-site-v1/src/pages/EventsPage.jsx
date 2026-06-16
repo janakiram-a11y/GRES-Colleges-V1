@@ -119,7 +119,7 @@ export default function EventsPage() {
         <div className="max-w-[1200px] mx-auto">
 
           <div className="mb-6">
-            <h2 className="font-display font-bold text-type-h3-mob mb-2" style={{ color: accent }}>
+            <h2 className="font-display font-bold text-type-h2-mob mb-2" style={{ color: accent }}>
               College Events
             </h2>
             <div className="w-14 h-[3px] rounded-full mb-6" style={{ backgroundColor: accent }} />

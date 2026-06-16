@@ -23,6 +23,7 @@ import StudentSupportPage from './pages/StudentSupportPage';
 import RulesRegulationsPage from './pages/RulesRegulationsPage';
 import SkillSeriesPage from './pages/SkillSeriesPage';
 import GalleryPage from './pages/GalleryPage';
+import InfrastructurePage from './pages/InfrastructurePage';
 
 export default function App() {
   return (
@@ -93,6 +94,7 @@ export default function App() {
         <Route path="/skill-series" element={<SkillSeriesPage />} />
         <Route path="/gallery/:category" element={<GalleryPage />} />
         <Route path="/gallery" element={<GalleryPage />} />
+        <Route path="/infrastructure" element={<InfrastructurePage />} />
 
         {/* Fallback */}
         <Route path="*" element={<GrcpPage />} />

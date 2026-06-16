@@ -1,19 +1,27 @@
 /**
- * AntiRaggingModal — National Ragging Prevention Programme popup
+ * AntiRaggingModal — pixel-perfect replica of grcp.ac.in popup.
  *
- * Display logic (controlled by the parent GrcpPage):
+ * Typography matches Bootstrap 4.4.1 used on the reference site:
+ *  h4  → 1.5rem  / weight 500 / line-height 1.2
+ *  h5  → 1.25rem / weight 500 / line-height 1.2
+ *  p   → 1rem    / weight 400 / line-height 1.5 / margin-bottom 1rem
+ *  Font family: Bootstrap system-font stack
+ *
+ * Display logic (controlled by GrcpPage):
  *  • Shown on every fresh page load / browser hard-refresh of the Home page.
- *  • NOT shown on client-side SPA navigation (module-level flag persists
- *    across route changes but resets when the browser re-executes JavaScript).
- *  • NOT rendered on any page other than the Home page.
+ *  • NOT shown on client-side SPA navigation.
+ *  • NOT rendered on any page other than Home.
  *
- * Closes on: × button click, backdrop click, or Escape key.
+ * Closes on: × button, backdrop click, or Escape key.
  */
 
 import { useEffect, useCallback } from 'react';
 
+const FONT = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif';
+
 export default function AntiRaggingModal({ onClose }) {
-  /* ── Keyboard + scroll-lock ───────────────────────────────────────────── */
+
+  /* ── Keyboard + scroll-lock ─────────────────────────────────────────────── */
   const handleKeyDown = useCallback(
     (e) => { if (e.key === 'Escape') onClose(); },
     [onClose],
@@ -29,56 +37,78 @@ export default function AntiRaggingModal({ onClose }) {
     };
   }, [handleKeyDown]);
 
-  /* ── Link styles matching reference exactly ──────────────────────────── */
-  const font     = "'Montserrat', Arial, sans-serif";
-  const baseSz   = '14px';
-
-  // Standard blue links (email, website, PDF)
-  const blueLink = { color: '#0d6efd', textDecoration: 'none', fontSize: baseSz, fontFamily: font };
-  // Teal/cyan links (ARC, ARS) — matches reference site
-  const tealLink = { color: '#17a2b8', textDecoration: 'none', fontSize: baseSz, fontFamily: font };
-
+  /* ── Link hover helpers ─────────────────────────────────────────────────── */
   const hoverOn  = (e) => (e.currentTarget.style.textDecoration = 'underline');
   const hoverOff = (e) => (e.currentTarget.style.textDecoration = 'none');
 
+  /* ── Link style tokens (Bootstrap 4 defaults) ───────────────────────────── */
+  const blueLink = {
+    color: '#007bff',
+    textDecoration: 'none',
+    fontFamily: FONT,
+    fontSize: '1rem',
+  };
+  const tealLink = {
+    color: '#17a2b8',
+    textDecoration: 'none',
+    fontFamily: FONT,
+    fontSize: '1rem',
+  };
+
+  /* ── Shared paragraph style ─────────────────────────────────────────────── */
+  const p = {
+    fontFamily: FONT,
+    fontSize: '1rem',
+    fontWeight: 400,
+    lineHeight: '1.5',
+    color: '#212529',
+    margin: '0 0 1rem',
+  };
+
   return (
-    /* ── Backdrop ─────────────────────────────────────────────────────────── */
+    /* ── Backdrop ────────────────────────────────────────────────────────── */
     <div
-      className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
-      style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}
+      className="fixed inset-0 z-[9999] flex items-center justify-center"
+      style={{ backgroundColor: 'rgba(0,0,0,0.5)', padding: '0.5rem' }}
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-labelledby="anti-ragging-title"
     >
-      {/* ── Modal card ────────────────────────────────────────────────────── */}
+      {/* ── Modal card ──────────────────────────────────────────────────── */}
       <div
-        className="relative bg-white w-full max-w-[560px] max-h-[90vh] overflow-y-auto"
+        className="relative bg-white w-full"
         style={{
+          maxWidth: '500px',
+          maxHeight: '90vh',
+          overflowY: 'auto',
           border: '2px solid #dc3545',
-          borderRadius: '4px',
-          boxShadow: '0 2px 12px rgba(0,0,0,0.25)',
+          borderRadius: '.3rem',
+          boxShadow: '0 3px 9px rgba(0,0,0,0.5)',
+          fontFamily: FONT,
+          color: '#212529',
         }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* ── Close button ────────────────────────────────────────────────── */}
+        {/* ── Close button — Bootstrap style ────────────────────────────── */}
         <button
           onClick={onClose}
-          aria-label="Close Anti-Ragging modal"
+          aria-label="Close"
           style={{
             position: 'absolute',
-            top: '8px',
-            right: '12px',
-            fontSize: '22px',
-            fontWeight: '400',
-            lineHeight: 1,
+            top: '12px',
+            right: '16px',
+            fontSize: '1.5rem',
+            fontWeight: '700',
+            lineHeight: '1',
             color: '#000',
             background: 'none',
             border: 'none',
             cursor: 'pointer',
-            padding: '2px 6px',
+            padding: '0',
             opacity: 0.5,
             zIndex: 10,
+            fontFamily: FONT,
           }}
           onMouseEnter={(e) => (e.currentTarget.style.opacity = '1')}
           onMouseLeave={(e) => (e.currentTarget.style.opacity = '0.5')}
@@ -86,68 +116,116 @@ export default function AntiRaggingModal({ onClose }) {
           ×
         </button>
 
-        {/* ── Body ────────────────────────────────────────────────────────── */}
-        <div style={{ padding: '20px 24px 24px', fontFamily: font, color: '#212529', lineHeight: '1.6' }}>
+        {/* ── Body ─────────────────────────────────────────────────────── */}
+        <div style={{ padding: '1rem' }}>
 
-          {/* Title */}
-          <h2
+          {/* h4 — Bootstrap 4: 1.5rem, weight 500, margin-bottom 0.5rem */}
+          <h4
             id="anti-ragging-title"
-            style={{ fontSize: '20px', fontWeight: '700', color: '#212529', margin: '0 0 6px', paddingRight: '24px', lineHeight: '1.35' }}
+            style={{
+              fontFamily: FONT,
+              fontSize: '1.5rem',
+              fontWeight: 500,
+              lineHeight: '1.2',
+              color: '#212529',
+              margin: '0 0 0.5rem',
+              paddingRight: '2rem',
+            }}
           >
             National Ragging Prevention Programme
-          </h2>
+          </h4>
 
-          {/* Helpline label */}
-          <p style={{ fontSize: baseSz, color: '#212529', margin: '0 0 14px' }}>
-            National Anti-Ragging Helpline
+          {/* Helpline */}
+          <p style={p}>National Anti-Ragging Helpline</p>
+
+          {/* Toll-free — both lines in one <p> with <br>, number is <strong> */}
+          <p style={p}>
+            24X7 Toll Free<br />
+            <strong>1800-180-5522</strong>
           </p>
 
-          {/* Toll-free number */}
-          <p style={{ fontSize: baseSz, color: '#212529', margin: '0 0 2px' }}>24X7 Toll Free</p>
-          <p style={{ fontSize: baseSz, fontWeight: '700', color: '#212529', margin: '0 0 18px' }}>
-            1800-180-5522
-          </p>
-
-          {/* UGC section heading */}
-          <h3 style={{ fontSize: '22px', fontWeight: '400', color: '#212529', margin: '0 0 6px', lineHeight: '1.35' }}>
+          {/* h5 — Bootstrap 4: 1.25rem, weight 500, margin-bottom 0.5rem */}
+          <h5
+            style={{
+              fontFamily: FONT,
+              fontSize: '1.25rem',
+              fontWeight: 500,
+              lineHeight: '1.2',
+              color: '#212529',
+              margin: '0 0 0.5rem',
+            }}
+          >
             UGC Monitoring Agency
-          </h3>
+          </h5>
 
-          {/* C4Y */}
-          <p style={{ fontSize: baseSz, color: '#212529', margin: '0 0 4px' }}>Centre for Youth (C4Y)</p>
-          <p style={{ margin: '0 0 18px' }}>
-            <a href="mailto:antiragging@c4yindia.org" style={blueLink} onMouseEnter={hoverOn} onMouseLeave={hoverOff}>
+          {/* C4Y — name on first line, links on second line via <br> */}
+          <p style={p}>
+            Centre for Youth (C4Y)<br />
+            <a
+              href="mailto:antiragging@c4yindia.org"
+              style={blueLink}
+              onMouseEnter={hoverOn}
+              onMouseLeave={hoverOff}
+            >
               antiragging@c4yindia.org
             </a>
             {' | '}
-            <a href="https://www.c4yindia.org" target="_blank" rel="noopener noreferrer" style={blueLink} onMouseEnter={hoverOn} onMouseLeave={hoverOff}>
+            <a
+              href="https://www.c4yindia.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={blueLink}
+              onMouseEnter={hoverOn}
+              onMouseLeave={hoverOff}
+            >
               www.c4yindia.org
             </a>
           </p>
 
-          {/* Nodal officers heading */}
-          <p style={{ fontSize: baseSz, fontWeight: '700', color: '#212529', margin: '0 0 8px', lineHeight: '1.5' }}>
+          {/* Nodal officers — bold paragraph */}
+          <p style={{ ...p, fontWeight: 700 }}>
             Contact Details of the Nodal Officers of Anti-Ragging Committee and Squad
           </p>
 
-          {/* ARC / ARS links — teal/cyan matching reference */}
-          <p style={{ margin: '0 0 18px' }}>
-            <a href="https://grcp.ac.in/Anti_Ragging_Committee.php" target="_blank" rel="noopener noreferrer" style={tealLink} onMouseEnter={hoverOn} onMouseLeave={hoverOff}>
+          {/* ARC / ARS links */}
+          <p style={p}>
+            <a
+              href="https://grcp.ac.in/Anti_Ragging_Committee.php"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={tealLink}
+              onMouseEnter={hoverOn}
+              onMouseLeave={hoverOff}
+            >
               Anti-Ragging Committee (ARC)
             </a>
             {' | '}
-            <a href="https://grcp.ac.in/Anti_Ragging_Squad.php" target="_blank" rel="noopener noreferrer" style={tealLink} onMouseEnter={hoverOn} onMouseLeave={hoverOff}>
+            <a
+              href="https://grcp.ac.in/Anti_Ragging_Squad.php"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={tealLink}
+              onMouseEnter={hoverOn}
+              onMouseLeave={hoverOff}
+            >
               Anti-Ragging Squad (ARS)
             </a>
           </p>
 
           {/* Warning — bold red */}
-          <p style={{ fontSize: baseSz, fontWeight: '700', color: '#dc3545', margin: '0 0 16px', lineHeight: '1.55' }}>
+          <p style={{ ...p, fontWeight: 700, color: '#dc3545' }}>
             Ragging is a criminal offence and the culprits will attract punitive action as mentioned in the UGC Regulations
           </p>
 
-          {/* PDF link */}
-          <a href="https://www.ugc.gov.in/oldpdf/ugcregulations09.pdf" target="_blank" rel="noopener noreferrer" style={blueLink} onMouseEnter={hoverOn} onMouseLeave={hoverOff}>
+          {/* UGC PDF link — updated to match reference site URL */}
+          <a
+            href="https://www.antiragging.in/assets/pdf/annexure/Annexure-I.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={blueLink}
+            onMouseEnter={hoverOn}
+            onMouseLeave={hoverOff}
+          >
             UGC Regulations PDF
           </a>
 

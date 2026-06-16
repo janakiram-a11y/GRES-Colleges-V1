@@ -12,7 +12,7 @@ const accent = college.greenAccent;
 function SectionHeader({ label, title }) {
   return (
     <div className="flex flex-col gap-2 mb-8">
-      <h2 className="font-display font-bold text-type-h3-mob" style={{ color: accent }}>
+      <h2 className="font-display font-bold text-type-h2-mob" style={{ color: accent }}>
         {title}
       </h2>
       <div className="w-14 h-[3px] rounded-full" style={{ backgroundColor: accent }} />

@@ -178,7 +178,7 @@ const college = {
   footerQuickLinks: [
     { label: 'GRCP: Approvals and Recognitions', href: '/approvals-recognitions' },
     { label: 'Rules and Regulations',            href: '/rules-regulations' },
-    { label: 'Infrastructure',                   href: '/about' },
+    { label: 'Infrastructure',                   href: '/infrastructure' },
     { label: 'Teaching Learning Methods',        href: '/teaching-learning-methods' },
     { label: 'Student Support and Progression',  href: '/student-support' },
     { label: 'Skill Series',                     href: '/skill-series' },

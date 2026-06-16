@@ -67,7 +67,7 @@ export default function Navbar({ college }) {
               width: 1,
               alignSelf: 'stretch',
               background: withAlpha(college.primaryColor, 0.18),
-              margin: '14px 14px',
+              margin: '14px 10px',
               flexShrink: 0,
             }}
           />
@@ -80,7 +80,7 @@ export default function Navbar({ college }) {
                  Topbar reserves ~268px on the right (260px search box + 8px gap). */
               width: 560,
               maxWidth: '50%',
-              marginLeft: 'auto',
+              marginLeft: '16px',
               maskImage:
                 'linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)',
               WebkitMaskImage:
